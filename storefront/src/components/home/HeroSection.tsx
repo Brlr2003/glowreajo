@@ -8,7 +8,7 @@ import { Sparkles } from "lucide-react"
 
 const heroImages = [
   "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1570194065650-d99fb4a38691?w=400&h=500&fit=crop",
+  "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=500&fit=crop",
   "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=500&fit=crop",
 ]
 

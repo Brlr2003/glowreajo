@@ -8,7 +8,7 @@ const productImages: Record<string, string> = {
   "beauty-of-joseon-glow-serum":
     "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&h=600&fit=crop",
   "laneige-water-sleeping-mask":
-    "https://images.unsplash.com/photo-1570194065650-d99fb4a38691?w=600&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600&h=600&fit=crop",
   "innisfree-daily-uv-defense":
     "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&h=600&fit=crop",
   "cosrx-snail-96-essence":
@@ -22,7 +22,7 @@ const productImages: Record<string, string> = {
   "innisfree-green-tea-moisturizer":
     "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=600&h=600&fit=crop",
   "some-by-mi-snail-truecica-cream":
-    "https://images.unsplash.com/photo-1590393802688-ab3fd8c10a5e?w=600&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&h=600&fit=crop",
   "beauty-of-joseon-ginseng-cleansing-oil":
     "https://images.unsplash.com/photo-1617897903246-719242758050?w=600&h=600&fit=crop",
   "cosrx-pimple-patch":
@@ -45,7 +45,7 @@ export const socialImages = [
   "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=400&h=400&fit=crop",
   "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=400&fit=crop",
   "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=400&h=400&fit=crop",
-  "https://images.unsplash.com/photo-1570194065650-d99fb4a38691?w=400&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=400&fit=crop",
   "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop",
   "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop",
 ]

@@ -161,7 +161,7 @@ glowreajo/
 | Run migrations | `cd backend && npx medusa db:migrate` |
 
 ### Ports
-- **Storefront:** http://localhost:5000
+- **Storefront:** http://localhost:4000
 - **Backend API:** http://localhost:9000
 - **Admin Dashboard:** http://localhost:9000/app
 - **PostgreSQL:** localhost:5433 (NOT 5432 — avoids local PG conflict)

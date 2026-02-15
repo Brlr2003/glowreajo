@@ -27,7 +27,7 @@ const categories = [
   {
     name: "Moisturizers",
     href: "/shop?category=moisturizers",
-    image: "https://images.unsplash.com/photo-1590393802688-ab3fd8c10a5e?w=300&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=300&fit=crop",
   },
   {
     name: "Sunscreens",
@@ -37,7 +37,7 @@ const categories = [
   {
     name: "Masks",
     href: "/shop?category=masks",
-    image: "https://images.unsplash.com/photo-1570194065650-d99fb4a38691?w=300&h=300&fit=crop",
+    image: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=300&h=300&fit=crop",
   },
   {
     name: "Sets",
