@@ -14,5 +14,6 @@ export default defineConfig({
   },
   admin: {
     path: "/app",
+    disable: process.env.DISABLE_ADMIN === "true",
   },
 })
