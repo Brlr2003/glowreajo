@@ -28,6 +28,7 @@ COPY --from=builder /app/medusa-config.ts ./medusa-config.ts
 COPY --from=builder /app/tsconfig.json ./tsconfig.json
 COPY --from=builder /app/src ./src
 
+RUN chown -R medusa:medusa /app
 USER medusa
 EXPOSE 9000
 
