@@ -39,7 +39,6 @@ services:
       ADMIN_CORS: ${ADMIN_CORS}
       AUTH_CORS: ${AUTH_CORS}
       NODE_ENV: production
-      DISABLE_ADMIN: "true"
     ports:
       - "127.0.0.1:9000:9000"
     networks:

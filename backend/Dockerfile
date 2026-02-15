@@ -10,7 +10,6 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NODE_OPTIONS="--max-old-space-size=2048"
-ENV DISABLE_ADMIN=true
 RUN npx medusa build
 
 # Stage 3: Production
