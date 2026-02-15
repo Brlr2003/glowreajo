@@ -7,7 +7,7 @@ on:
       - dev
 
 concurrency:
-  group: deploy-${{ github.ref_name }}
+  group: deploy
   cancel-in-progress: false
 
 jobs:
@@ -21,13 +21,13 @@ jobs:
           host: 167.172.182.237
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command_timeout: 30m
+          command_timeout: 20m
           script: |
             set -e
             cd /opt/glowreajo
             git fetch origin main
             git reset --hard origin/main
-            docker compose -f docker-compose.prod.yml --env-file .env.production build
+            docker compose -f docker-compose.prod.yml --env-file .env.production build --parallel
             docker compose -f docker-compose.prod.yml --env-file .env.production up -d
             docker compose -f docker-compose.prod.yml exec -T backend npx medusa db:migrate || true
             echo "Production deploy complete"
@@ -42,13 +42,13 @@ jobs:
           host: 167.172.182.237
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command_timeout: 30m
+          command_timeout: 20m
           script: |
             set -e
             cd /opt/glowreajo-dev
             git fetch origin dev
             git reset --hard origin/dev
-            docker compose -f docker-compose.dev.yml --env-file .env.dev build
+            docker compose -f docker-compose.dev.yml --env-file .env.dev build --parallel
             docker compose -f docker-compose.dev.yml --env-file .env.dev up -d
             docker compose -f docker-compose.dev.yml exec -T backend npx medusa db:migrate || true
             echo "Dev deploy complete"
