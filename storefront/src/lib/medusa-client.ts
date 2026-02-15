@@ -18,5 +18,5 @@ export async function getRegionId(): Promise<string> {
   } catch {
     cachedRegionId = ""
   }
-  return cachedRegionId
+  return cachedRegionId as string
 }
