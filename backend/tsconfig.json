@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "lib": ["es2021"],
+    "target": "es2021",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "declaration": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": false,
+    "noEmitOnError": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "rootDir": ".",
+    "paths": {
+      "@medusajs/framework/utils": ["./node_modules/@medusajs/framework/dist/utils"],
+      "@medusajs/framework": ["./node_modules/@medusajs/framework/dist"]
+    }
+  },
+  "include": ["src", "medusa-config.ts"],
+  "exclude": ["dist", "node_modules"]
+}
