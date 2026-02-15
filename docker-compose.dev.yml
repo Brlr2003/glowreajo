@@ -1,0 +1,71 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: glowreajo-dev-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pgdata-dev:/var/lib/postgresql/data
+    networks:
+      - internal-dev
+
+  redis:
+    image: redis:7
+    container_name: glowreajo-dev-redis
+    restart: unless-stopped
+    volumes:
+      - redisdata-dev:/data
+    networks:
+      - internal-dev
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: glowreajo-dev-backend
+    restart: unless-stopped
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?sslmode=disable
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: ${JWT_SECRET}
+      COOKIE_SECRET: ${COOKIE_SECRET}
+      STORE_CORS: ${STORE_CORS}
+      ADMIN_CORS: ${ADMIN_CORS}
+      AUTH_CORS: ${AUTH_CORS}
+      NODE_ENV: production
+    ports:
+      - "127.0.0.1:9001:9000"
+    networks:
+      - internal-dev
+
+  storefront:
+    build:
+      context: ./storefront
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_MEDUSA_BACKEND_URL: ${NEXT_PUBLIC_MEDUSA_BACKEND_URL}
+        NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY}
+    container_name: glowreajo-dev-storefront
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      NODE_ENV: production
+    ports:
+      - "127.0.0.1:4001:4000"
+    networks:
+      - internal-dev
+
+volumes:
+  pgdata-dev:
+  redisdata-dev:
+
+networks:
+  internal-dev:
+    driver: bridge
