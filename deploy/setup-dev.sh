@@ -8,7 +8,7 @@ DEV_DOMAIN="dev.glowreajo.com"
 API_DEV_DOMAIN="api-dev.glowreajo.com"
 EMAIL="admin@glowreajo.com"
 APP_DIR="/opt/glowreajo-dev"
-REPO_URL="https://github.com/Brlr2003/glowreajo.git"
+REPO_URL="git@github.com:Brlr2003/glowreajo.git"
 
 echo "==> Cloning repository for dev environment..."
 if [ -d "$APP_DIR" ]; then

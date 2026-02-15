@@ -8,7 +8,7 @@ DOMAIN="glowreajo.com"
 API_DOMAIN="api.glowreajo.com"
 EMAIL="admin@glowreajo.com"
 APP_DIR="/opt/glowreajo"
-REPO_URL="https://github.com/Brlr2003/glowreajo.git"
+REPO_URL="git@github.com:Brlr2003/glowreajo.git"
 
 echo "==> Setting up swap space (2GB)..."
 if [ ! -f /swapfile ]; then
