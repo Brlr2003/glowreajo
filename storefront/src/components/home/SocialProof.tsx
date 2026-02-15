@@ -1,12 +1,12 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Instagram } from "lucide-react"
 import { AnimatedSection } from "@/components/ui/AnimatedSection"
 import { SectionTitle } from "@/components/shared/SectionTitle"
 import { stagger, fadeInUp } from "@/lib/animations"
-
-const placeholders = Array.from({ length: 6 }, (_, i) => i)
+import { socialImages } from "@/lib/demo-images"
 
 export function SocialProof() {
   return (
@@ -27,15 +27,21 @@ export function SocialProof() {
           viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
         >
-          {placeholders.map((i) => (
+          {socialImages.map((src, i) => (
             <motion.div
               key={i}
               variants={fadeInUp}
-              className="aspect-square rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center overflow-hidden group cursor-pointer"
+              className="relative aspect-square rounded-2xl overflow-hidden group cursor-pointer"
             >
-              <div className="flex flex-col items-center gap-2 text-text-muted group-hover:text-primary transition-colors">
-                <Instagram className="h-8 w-8" />
-                <span className="text-xs font-medium">@glowreajo</span>
+              <Image
+                src={src}
+                alt={`GlowReaJo community ${i + 1}`}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                sizes="(min-width: 1024px) 16vw, (min-width: 768px) 33vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                <Instagram className="h-8 w-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </motion.div>
           ))}

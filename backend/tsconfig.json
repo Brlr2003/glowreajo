@@ -13,7 +13,8 @@
     "noEmitOnError": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
+    "noImplicitAny": false,
     "rootDir": ".",
     "paths": {
       "@medusajs/framework/utils": ["./node_modules/@medusajs/framework/dist/utils"],

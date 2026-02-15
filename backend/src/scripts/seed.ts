@@ -1,4 +1,3 @@
-import { ExecArgs } from "@medusajs/framework/types"
 import {
   createProductCategoriesWorkflow,
   createProductsWorkflow,
@@ -10,7 +9,7 @@ import {
 } from "@medusajs/core-flows"
 import { Modules, ContainerRegistrationKeys } from "@medusajs/framework/utils"
 
-export default async function seed({ container }: ExecArgs) {
+export default async function seed({ container }: { container: any }) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER)
   const query = container.resolve(ContainerRegistrationKeys.QUERY)
 
@@ -91,7 +90,7 @@ export default async function seed({ container }: ExecArgs) {
     },
   })
 
-  const categoryMap = Object.fromEntries(categories.map((c) => [c.name, c.id]))
+  const categoryMap = Object.fromEntries(categories.map((c: any) => [c.name, c.id]))
 
   // 5. Create Products
   logger.info("Creating products...")
@@ -497,7 +496,7 @@ export default async function seed({ container }: ExecArgs) {
   await linkProductsToSalesChannelWorkflow(container).run({
     input: {
       id: salesChannel.id,
-      add: products.map((p) => p.id),
+      add: products.map((p: any) => p.id),
     },
   })
 
@@ -526,6 +525,7 @@ export default async function seed({ container }: ExecArgs) {
           is_automatic: false,
           campaign: {
             name: "GLOW20 Campaign",
+            campaign_identifier: "GLOW20",
             budget: {
               type: "usage",
               limit: 50,

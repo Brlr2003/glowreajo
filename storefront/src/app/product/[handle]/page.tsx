@@ -59,7 +59,7 @@ export default function ProductPage() {
   return (
     <div className="container-app py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <ProductGallery />
+        <ProductGallery product={product} />
         <div>
           <ProductInfo product={product} />
           <ProductAccordion product={product} />

@@ -3,11 +3,13 @@
 import { memo, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 import { ShoppingBag, Check } from "lucide-react"
 import { useCart } from "@/context/CartContext"
 import { useToast } from "@/context/ToastContext"
 import { Badge } from "@/components/ui/Badge"
 import { formatPrice } from "@/lib/formatPrice"
+import { getProductImage } from "@/lib/demo-images"
 
 interface ProductCardProps {
   product: any
@@ -53,9 +55,13 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
         whileHover={{ y: -4 }}
       >
         <div className="relative aspect-square bg-gradient-to-br from-primary/5 to-secondary/5 overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <ShoppingBag className="h-12 w-12 text-border" />
-          </div>
+          <Image
+            src={product.thumbnail || getProductImage(product.handle)}
+            alt={product.title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+          />
           {product.tags?.length > 0 && (
             <div className="absolute top-3 left-3 flex gap-2">
               <Badge variant="bestseller">Best Seller</Badge>

@@ -1,9 +1,16 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/Button"
 import { Sparkles } from "lucide-react"
+
+const heroImages = [
+  "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=500&fit=crop",
+  "https://images.unsplash.com/photo-1570194065650-d99fb4a38691?w=400&h=500&fit=crop",
+  "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=500&fit=crop",
+]
 
 export function HeroSection() {
   return (
@@ -27,13 +34,15 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="container-app text-center">
+      <div className="container-app grid lg:grid-cols-2 gap-12 items-center">
+        {/* Text content */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
+          className="text-center lg:text-left"
         >
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center lg:justify-start mb-6">
             <motion.div
               className="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm text-primary"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -45,7 +54,7 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          <h1 className="font-heading text-5xl font-bold leading-tight text-text-primary md:text-7xl lg:text-8xl">
+          <h1 className="font-heading text-5xl font-bold leading-tight text-text-primary md:text-7xl">
             Your Glow{" "}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Starts Here
@@ -53,7 +62,7 @@ export function HeroSection() {
           </h1>
 
           <motion.p
-            className="mx-auto mt-6 max-w-xl text-lg text-text-secondary md:text-xl"
+            className="mt-6 max-w-xl text-lg text-text-secondary md:text-xl mx-auto lg:mx-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
@@ -63,7 +72,7 @@ export function HeroSection() {
           </motion.p>
 
           <motion.div
-            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
@@ -76,6 +85,55 @@ export function HeroSection() {
                 Learn More
               </Button>
             </Link>
+          </motion.div>
+        </motion.div>
+
+        {/* Hero images grid */}
+        <motion.div
+          className="hidden lg:grid grid-cols-2 gap-4"
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <div className="space-y-4">
+            <motion.div
+              className="relative h-64 rounded-2xl overflow-hidden shadow-card"
+              whileHover={{ scale: 1.02 }}
+            >
+              <Image
+                src={heroImages[0]}
+                alt="Korean skincare products"
+                fill
+                className="object-cover"
+                priority
+                sizes="(min-width: 1024px) 25vw, 50vw"
+              />
+            </motion.div>
+            <motion.div
+              className="relative h-48 rounded-2xl overflow-hidden shadow-card"
+              whileHover={{ scale: 1.02 }}
+            >
+              <Image
+                src={heroImages[2]}
+                alt="Skincare routine"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 25vw, 50vw"
+              />
+            </motion.div>
+          </div>
+          <motion.div
+            className="relative h-full min-h-[340px] rounded-2xl overflow-hidden shadow-card mt-8"
+            whileHover={{ scale: 1.02 }}
+          >
+            <Image
+              src={heroImages[1]}
+              alt="K-beauty essentials"
+              fill
+              className="object-cover"
+              priority
+              sizes="(min-width: 1024px) 25vw, 50vw"
+            />
           </motion.div>
         </motion.div>
       </div>

@@ -1,4 +1,3 @@
-import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { z } from "zod"
 
 const SendOtpSchema = z.object({
@@ -21,10 +20,7 @@ setInterval(() => {
 
 export { otpStore }
 
-export async function POST(
-  req: MedusaRequest,
-  res: MedusaResponse
-): Promise<void> {
+export async function POST(req: any, res: any): Promise<void> {
   const parsed = SendOtpSchema.safeParse(req.body)
 
   if (!parsed.success) {

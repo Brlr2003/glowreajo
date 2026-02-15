@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 import { ShoppingBag, Search, Menu, Sparkles } from "lucide-react"
@@ -36,21 +36,12 @@ export function Header() {
         className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 backdrop-blur-xl bg-surface/80"
       >
         <div className="container-app flex h-16 items-center justify-between">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden text-text-primary"
-              aria-label="Open menu"
-            >
-              <Menu className="h-6 w-6" />
-            </button>
-            <Link href="/" className="flex items-center gap-2">
-              <Sparkles className="h-6 w-6 text-primary" />
-              <span className="font-heading text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                GlowReaJo
-              </span>
-            </Link>
-          </div>
+          <Link href="/" className="flex items-center gap-2">
+            <Sparkles className="h-6 w-6 text-primary" />
+            <span className="font-heading text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              GlowReaJo
+            </span>
+          </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
             <Link href="/" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
@@ -90,6 +81,13 @@ export function Header() {
                   {totalItems}
                 </motion.span>
               )}
+            </button>
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="lg:hidden p-2 text-text-primary hover:text-primary transition-colors"
+              aria-label="Open menu"
+            >
+              <Menu className="h-6 w-6" />
             </button>
           </div>
         </div>

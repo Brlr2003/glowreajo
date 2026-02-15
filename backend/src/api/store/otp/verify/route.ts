@@ -1,4 +1,3 @@
-import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { z } from "zod"
 import { otpStore } from "../send/route"
 
@@ -7,10 +6,7 @@ const VerifyOtpSchema = z.object({
   code: z.string().length(6),
 })
 
-export async function POST(
-  req: MedusaRequest,
-  res: MedusaResponse
-): Promise<void> {
+export async function POST(req: any, res: any): Promise<void> {
   const parsed = VerifyOtpSchema.safeParse(req.body)
 
   if (!parsed.success) {

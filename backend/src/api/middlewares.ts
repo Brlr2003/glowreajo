@@ -3,8 +3,9 @@ import { defineMiddlewares } from "@medusajs/medusa"
 export default defineMiddlewares({
   routes: [
     {
-      matcher: "/store/otp/*",
+      matcher: "/store/otp/**",
       middlewares: [],
+      additionalDataValidator: undefined,
     },
   ],
 })
