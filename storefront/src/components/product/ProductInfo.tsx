@@ -8,6 +8,7 @@ import { useToast } from "@/context/ToastContext"
 import { Button } from "@/components/ui/Button"
 import { Badge } from "@/components/ui/Badge"
 import { formatPrice } from "@/lib/formatPrice"
+import { getProductImage } from "@/lib/demo-images"
 
 interface ProductInfoProps {
   product: any
@@ -24,6 +25,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
   const fallbackPrice = variant?.prices?.find((p: any) => p.currency_code === "jod")
   const priceAmount = calculatedPrice?.calculated_amount ?? fallbackPrice?.amount ?? 0
   const brand = (product.metadata as any)?.brand || ""
+  const imgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
   const skinType = (product.metadata as any)?.skin_type || ""
   const concerns = (product.metadata as any)?.concerns || ""
 
@@ -36,6 +38,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
       variant: variant?.title || "",
       price: priceAmount,
       quantity,
+      image: imgSrc,
       brand,
     })
 

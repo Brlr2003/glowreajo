@@ -18,7 +18,7 @@ export function BestSellers() {
     async function load() {
       try {
         const region_id = await getRegionId()
-        const { products } = await medusa.store.product.list({ limit: 8, region_id, fields: "*categories" } as any)
+        const { products } = await medusa.store.product.list({ limit: 8, region_id, fields: "*categories,*images" } as any)
         setProducts(products)
       } catch {
         // Backend may not be running

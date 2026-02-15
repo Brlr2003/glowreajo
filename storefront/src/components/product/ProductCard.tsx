@@ -4,12 +4,13 @@ import { memo, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
-import { ShoppingBag, Check } from "lucide-react"
+import { ShoppingBag, Check, ZoomIn } from "lucide-react"
 import { useCart } from "@/context/CartContext"
 import { useToast } from "@/context/ToastContext"
 import { Badge } from "@/components/ui/Badge"
 import { formatPrice } from "@/lib/formatPrice"
 import { getProductImage } from "@/lib/demo-images"
+import { ImageZoomModal } from "./ImageZoomModal"
 
 interface ProductCardProps {
   product: any
@@ -17,6 +18,7 @@ interface ProductCardProps {
 
 export const ProductCard = memo(function ProductCard({ product }: ProductCardProps) {
   const [added, setAdded] = useState(false)
+  const [zoomOpen, setZoomOpen] = useState(false)
   const { addItem } = useCart()
   const { addToast } = useToast()
 
@@ -25,6 +27,8 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   const fallbackPrice = variant?.prices?.find((p: any) => p.currency_code === "jod")
   const priceAmount = calculatedPrice?.calculated_amount ?? fallbackPrice?.amount ?? 0
   const brand = (product.metadata as any)?.brand || ""
+  const imgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
+  const unoptimized = imgSrc.startsWith("http://localhost")
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -38,6 +42,7 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
       variant: variant?.title || "",
       price: priceAmount,
       quantity: 1,
+      image: imgSrc,
       brand,
     })
 
@@ -58,17 +63,24 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
       >
         <div className="relative aspect-square bg-gradient-to-br from-primary/5 to-secondary/5 overflow-hidden">
           <Image
-            src={product.thumbnail || getProductImage(product.handle)}
+            src={imgSrc}
             alt={product.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+            unoptimized={unoptimized}
           />
           {product.tags?.length > 0 && (
             <div className="absolute top-3 left-3 flex gap-2">
               <Badge variant="bestseller">Best Seller</Badge>
             </div>
           )}
+          <button
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setZoomOpen(true) }}
+            className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-text-primary opacity-0 group-hover:opacity-100 transition-opacity shadow-soft hover:bg-white"
+          >
+            <ZoomIn className="h-4 w-4" />
+          </button>
         </div>
 
         <div className="flex flex-col flex-1 p-4">
@@ -106,6 +118,13 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
           </div>
         </div>
       </motion.div>
+      <ImageZoomModal
+        src={imgSrc}
+        alt={product.title}
+        open={zoomOpen}
+        onClose={() => setZoomOpen(false)}
+        unoptimized={unoptimized}
+      />
     </Link>
   )
 })

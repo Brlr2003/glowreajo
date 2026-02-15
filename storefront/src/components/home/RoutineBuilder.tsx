@@ -33,8 +33,8 @@ export function RoutineBuilder() {
           className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-2"
         >
           {steps.map((step, i) => (
-            <motion.div key={step.name} variants={fadeInUp} className="flex items-center gap-2">
-              <div className="flex flex-col items-center gap-3 rounded-2xl bg-surface p-6 shadow-soft w-40">
+            <motion.div key={step.name} variants={fadeInUp} className="flex items-center gap-2 w-full md:w-auto">
+              <div className="flex flex-col items-center gap-3 rounded-2xl bg-surface p-6 shadow-soft w-full md:w-40">
                 <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${step.color}`}>
                   <step.icon className="h-7 w-7" />
                 </div>

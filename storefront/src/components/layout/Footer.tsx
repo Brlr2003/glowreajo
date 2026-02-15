@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { Sparkles, Instagram, MessageCircle, Mail, Phone } from "lucide-react"
+import Link from "next/link";
+import { Sparkles, Instagram, MessageCircle, Mail, Phone } from "lucide-react";
 
 export function Footer() {
   return (
@@ -12,27 +12,76 @@ export function Footer() {
               <span className="font-heading text-xl font-bold">GlowReaJo</span>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed">
-              Your trusted Korean skincare destination in Jordan. Authentic K-beauty products delivered to your door.
+              Your trusted Korean skincare destination in Jordan. Authentic
+              K-beauty products delivered to your door.
             </p>
           </div>
 
           <div>
             <h3 className="font-heading font-semibold mb-4">Shop</h3>
             <ul className="space-y-2 text-sm text-white/60">
-              <li><Link href="/shop" className="hover:text-primary transition-colors">All Products</Link></li>
-              <li><Link href="/shop?category=cleansers" className="hover:text-primary transition-colors">Cleansers</Link></li>
-              <li><Link href="/shop?category=serums" className="hover:text-primary transition-colors">Serums & Essences</Link></li>
-              <li><Link href="/shop?category=moisturizers" className="hover:text-primary transition-colors">Moisturizers</Link></li>
-              <li><Link href="/shop?category=sunscreens" className="hover:text-primary transition-colors">Sunscreens</Link></li>
+              <li>
+                <Link
+                  href="/shop"
+                  className="hover:text-primary transition-colors">
+                  All Products
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/shop?category=cleansers"
+                  className="hover:text-primary transition-colors">
+                  Cleansers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/shop?category=serums"
+                  className="hover:text-primary transition-colors">
+                  Serums & Essences
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/shop?category=moisturizers"
+                  className="hover:text-primary transition-colors">
+                  Moisturizers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/shop?category=sunscreens"
+                  className="hover:text-primary transition-colors">
+                  Sunscreens
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-heading font-semibold mb-4">Help</h3>
             <ul className="space-y-2 text-sm text-white/60">
-              <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
-              <li><Link href="/shop" className="hover:text-primary transition-colors">Shipping Info</Link></li>
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-primary transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-primary transition-colors">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/shop"
+                  className="hover:text-primary transition-colors">
+                  Shipping Info
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -41,11 +90,11 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span>+962 79 123 4567</span>
+                <span>+962 7 7726 1248</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <span>hello@glowreajo.com</span>
+                <span>info@glowreajo.com</span>
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="h-4 w-4" />
@@ -64,5 +113,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
