@@ -21,8 +21,9 @@ jobs:
           host: 167.172.182.237
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script_stop: true
+          command_timeout: 30m
           script: |
+            set -e
             cd /opt/glowreajo
             git fetch origin main
             git reset --hard origin/main
@@ -41,8 +42,9 @@ jobs:
           host: 167.172.182.237
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script_stop: true
+          command_timeout: 30m
           script: |
+            set -e
             cd /opt/glowreajo-dev
             git fetch origin dev
             git reset --hard origin/dev
