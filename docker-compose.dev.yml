@@ -39,6 +39,8 @@ services:
       ADMIN_CORS: ${ADMIN_CORS}
       AUTH_CORS: ${AUTH_CORS}
       NODE_ENV: production
+    volumes:
+      - backend-static-dev:/app/static
     ports:
       - "127.0.0.1:9001:9000"
     networks:
@@ -65,6 +67,7 @@ services:
 volumes:
   pgdata-dev:
   redisdata-dev:
+  backend-static-dev:
 
 networks:
   internal-dev:
