@@ -101,7 +101,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "A mildly acidic gel cleanser with BHA that gently removes impurities while maintaining the skin's natural pH balance. Formulated with tea tree oil to soothe and refresh the skin every morning.",
       status: "published" as const,
-      category_ids: [categoryMap["Cleansers"]],
+      categories: [{ id: categoryMap["Cleansers"] }],
       metadata: {
         brand: "COSRX",
         skin_type: "All Skin Types",
@@ -127,7 +127,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "A gentle exfoliating toner featuring AHA, BHA, and PHA to remove dead skin cells, unclog pores, and improve skin texture in just 30 days. Infused with tea tree extract for clearer, healthier skin.",
       status: "published" as const,
-      category_ids: [categoryMap["Toners"]],
+      categories: [{ id: categoryMap["Toners"] }],
       metadata: {
         brand: "Some By Mi",
         skin_type: "Oily, Combination",
@@ -153,7 +153,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "A lightweight serum combining propolis extract and niacinamide to brighten skin tone, reduce blemishes, and deliver a healthy glow. The honey-like texture absorbs quickly without stickiness.",
       status: "published" as const,
-      category_ids: [categoryMap["Serums & Essences"]],
+      categories: [{ id: categoryMap["Serums & Essences"] }],
       metadata: {
         brand: "Beauty of Joseon",
         skin_type: "All Skin Types",
@@ -179,7 +179,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "An overnight mask that deeply hydrates and revitalizes tired, dull skin while you sleep. Formulated with SLEEP-TOX™ purifying technology and hydro ionized mineral water for a refreshed complexion.",
       status: "published" as const,
-      category_ids: [categoryMap["Masks & Treatments"]],
+      categories: [{ id: categoryMap["Masks & Treatments"] }],
       metadata: {
         brand: "Laneige",
         skin_type: "All Skin Types",
@@ -205,7 +205,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "A lightweight, non-greasy daily sunscreen that provides reliable UV protection. Enriched with sunflower oil and green tea extract for antioxidant benefits.",
       status: "published" as const,
-      category_ids: [categoryMap["Sunscreens"]],
+      categories: [{ id: categoryMap["Sunscreens"] }],
       metadata: {
         brand: "Innisfree",
         skin_type: "All Skin Types",
@@ -231,7 +231,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "A lightweight essence formulated with 96% snail secretion filtrate to repair and hydrate damaged skin. Helps reduce fine lines, acne scars, and dullness for a smoother complexion.",
       status: "published" as const,
-      category_ids: [categoryMap["Serums & Essences"]],
+      categories: [{ id: categoryMap["Serums & Essences"] }],
       metadata: {
         brand: "COSRX",
         skin_type: "All Skin Types",
@@ -257,7 +257,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "An organic sunscreen with SPF50+ PA++++ featuring rice bran extract and probiotics. Lightweight, no white cast, and doubles as a moisturizing primer.",
       status: "published" as const,
-      category_ids: [categoryMap["Sunscreens"]],
+      categories: [{ id: categoryMap["Sunscreens"] }],
       metadata: {
         brand: "Beauty of Joseon",
         skin_type: "All Skin Types",
@@ -283,7 +283,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "A leave-on lip mask that gently melts away dead skin and delivers intense moisture while you sleep. Wake up to soft, supple lips with a sweet berry fragrance.",
       status: "published" as const,
-      category_ids: [categoryMap["Masks & Treatments"]],
+      categories: [{ id: categoryMap["Masks & Treatments"] }],
       metadata: {
         brand: "Laneige",
         skin_type: "All Skin Types",
@@ -309,7 +309,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "A gentle exfoliating treatment with natural BHA (Betaine Salicylate) that dissolves excess sebum and clears blackheads without irritation. Perfect for oily and acne-prone skin.",
       status: "published" as const,
-      category_ids: [categoryMap["Serums & Essences"]],
+      categories: [{ id: categoryMap["Serums & Essences"] }],
       metadata: {
         brand: "COSRX",
         skin_type: "Oily, Combination",
@@ -335,7 +335,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "A hydrating moisturizer enriched with organic Jeju green tea seed oil that provides long-lasting moisture. Creates a protective barrier while keeping skin fresh and balanced.",
       status: "published" as const,
-      category_ids: [categoryMap["Moisturizers"]],
+      categories: [{ id: categoryMap["Moisturizers"] }],
       metadata: {
         brand: "Innisfree",
         skin_type: "Normal, Combination",
@@ -361,7 +361,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "A powerful repair cream combining snail mucin and Centella Asiatica (CICA) to heal damaged, acne-prone skin. Reduces redness, repairs the skin barrier, and provides deep moisture.",
       status: "published" as const,
-      category_ids: [categoryMap["Moisturizers"]],
+      categories: [{ id: categoryMap["Moisturizers"] }],
       metadata: {
         brand: "Some By Mi",
         skin_type: "Sensitive, Acne-prone",
@@ -387,7 +387,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "A gentle cleansing oil infused with ginseng and soybean oil that effortlessly dissolves makeup, sunscreen, and impurities. Leaves skin soft and moisturized without a greasy residue.",
       status: "published" as const,
-      category_ids: [categoryMap["Cleansers"]],
+      categories: [{ id: categoryMap["Cleansers"] }],
       metadata: {
         brand: "Beauty of Joseon",
         skin_type: "All Skin Types",
@@ -413,7 +413,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "Hydrocolloid patches that absorb fluid from blemishes overnight, protecting them from bacteria and external irritants. Comes in 3 sizes for different pimple sizes.",
       status: "published" as const,
-      category_ids: [categoryMap["Masks & Treatments"]],
+      categories: [{ id: categoryMap["Masks & Treatments"] }],
       metadata: {
         brand: "COSRX",
         skin_type: "All Skin Types",
@@ -439,7 +439,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "A deep cleansing foam made with Jeju volcanic scoria that effectively absorbs excess sebum and removes impurities from pores. Leaves skin clean and refreshed.",
       status: "published" as const,
-      category_ids: [categoryMap["Cleansers"]],
+      categories: [{ id: categoryMap["Cleansers"] }],
       metadata: {
         brand: "Innisfree",
         skin_type: "Oily, Combination",
@@ -465,7 +465,7 @@ export default async function seed({ container }: { container: any }) {
       description:
         "The perfect introduction to Korean skincare! Includes travel-size versions of our best-selling cleanser, toner, serum, moisturizer, and sunscreen. Everything you need for a complete K-beauty routine.",
       status: "published" as const,
-      category_ids: [categoryMap["Sets & Bundles"]],
+      categories: [{ id: categoryMap["Sets & Bundles"] }],
       metadata: {
         brand: "GlowReaJo",
         skin_type: "All Skin Types",

@@ -21,7 +21,9 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   const { addToast } = useToast()
 
   const variant = product.variants?.[0]
-  const price = variant?.prices?.find((p: any) => p.currency_code === "jod")
+  const calculatedPrice = variant?.calculated_price
+  const fallbackPrice = variant?.prices?.find((p: any) => p.currency_code === "jod")
+  const priceAmount = calculatedPrice?.calculated_amount ?? fallbackPrice?.amount ?? 0
   const brand = (product.metadata as any)?.brand || ""
 
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -34,7 +36,7 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
       productId: product.id,
       title: product.title,
       variant: variant?.title || "",
-      price: price?.amount || 0,
+      price: priceAmount,
       quantity: 1,
       brand,
     })
@@ -51,7 +53,7 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   return (
     <Link href={`/product/${product.handle}`}>
       <motion.div
-        className="group rounded-2xl bg-surface shadow-soft overflow-hidden transition-shadow hover:shadow-card"
+        className="group flex flex-col h-full rounded-2xl bg-surface shadow-soft overflow-hidden transition-shadow hover:shadow-card"
         whileHover={{ y: -4 }}
       >
         <div className="relative aspect-square bg-gradient-to-br from-primary/5 to-secondary/5 overflow-hidden">
@@ -69,16 +71,16 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
           )}
         </div>
 
-        <div className="p-4">
+        <div className="flex flex-col flex-1 p-4">
           {brand && (
             <p className="text-xs font-medium text-text-muted uppercase tracking-wide mb-1">{brand}</p>
           )}
           <h3 className="font-medium text-text-primary text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors">
             {product.title}
           </h3>
-          <div className="mt-3 flex items-center justify-between">
+          <div className="mt-auto pt-3 flex items-center justify-between">
             <span className="font-heading text-lg font-bold text-primary">
-              {price ? formatPrice(price.amount) : "N/A"}
+              {priceAmount ? formatPrice(priceAmount) : "N/A"}
             </span>
             <motion.button
               onClick={handleAddToCart}

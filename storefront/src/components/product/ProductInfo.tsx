@@ -20,7 +20,9 @@ export function ProductInfo({ product }: ProductInfoProps) {
   const { addToast } = useToast()
 
   const variant = product.variants?.[0]
-  const price = variant?.prices?.find((p: any) => p.currency_code === "jod")
+  const calculatedPrice = variant?.calculated_price
+  const fallbackPrice = variant?.prices?.find((p: any) => p.currency_code === "jod")
+  const priceAmount = calculatedPrice?.calculated_amount ?? fallbackPrice?.amount ?? 0
   const brand = (product.metadata as any)?.brand || ""
   const skinType = (product.metadata as any)?.skin_type || ""
   const concerns = (product.metadata as any)?.concerns || ""
@@ -32,7 +34,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
       productId: product.id,
       title: product.title,
       variant: variant?.title || "",
-      price: price?.amount || 0,
+      price: priceAmount,
       quantity,
       brand,
     })
@@ -59,11 +61,9 @@ export function ProductInfo({ product }: ProductInfoProps) {
       </h1>
 
       <div className="mt-4 flex items-center gap-3">
-        {price && (
-          <span className="font-heading text-3xl font-bold text-primary">
-            {formatPrice(price.amount)}
-          </span>
-        )}
+        <span className="font-heading text-3xl font-bold text-primary">
+          {priceAmount ? formatPrice(priceAmount) : "N/A"}
+        </span>
       </div>
 
       {(skinType || concerns) && (

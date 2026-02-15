@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { Search, X } from "lucide-react"
-import { medusa } from "@/lib/medusa-client"
+import { medusa, getRegionId } from "@/lib/medusa-client"
 import { formatPrice } from "@/lib/formatPrice"
 
 interface SearchOverlayProps {
@@ -52,7 +52,8 @@ export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
     }
     setLoading(true)
     try {
-      const { products } = await medusa.store.product.list({ q, limit: 8 })
+      const region_id = await getRegionId()
+      const { products } = await medusa.store.product.list({ q, limit: 8, region_id })
       setResults(products as unknown as SearchResult[])
     } catch {
       setResults([])

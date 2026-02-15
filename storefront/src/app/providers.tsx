@@ -13,7 +13,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <CartProvider>
       <ToastProvider>
         <Header />
-        <main className="pt-16">{children}</main>
+        <main className="pt-20">{children}</main>
         <Footer />
         <CartDrawer />
         <WhatsAppButton />

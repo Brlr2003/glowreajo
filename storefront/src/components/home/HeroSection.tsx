@@ -1,139 +1,133 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/Button"
-import { Sparkles } from "lucide-react"
+import { Sparkles, Star, Truck, ShieldCheck } from "lucide-react"
 
-const heroImages = [
-  "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=500&fit=crop",
+const trustBadges = [
+  { icon: Star, label: "100% Authentic" },
+  { icon: Truck, label: "Fast Delivery" },
+  { icon: ShieldCheck, label: "Trusted Brands" },
 ]
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Gradient blobs */}
-      <div className="absolute inset-0 -z-10">
+    <section className="relative min-h-screen flex items-center overflow-hidden -mt-20 pb-16">
+      {/* Vibrant gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#fdf2f8] via-[#fce7f3] to-[#e0e7ff]" />
+
+      {/* Animated floating orbs */}
+      <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-20 left-10 h-72 w-72 rounded-full bg-primary/20 blur-3xl"
-          animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute -top-20 -right-20 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-primary/30 to-secondary/20 blur-3xl"
+          animate={{ x: [0, 30, 0], y: [0, -40, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 h-96 w-96 rounded-full bg-secondary/20 blur-3xl"
-          animate={{ x: [0, -20, 0], y: [0, 30, 0] }}
-          transition={{ duration: 10, repeat: Infinity }}
+          className="absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-gradient-to-tr from-accent/30 to-primary/20 blur-3xl"
+          animate={{ x: [0, -20, 0], y: [0, 30, 0], scale: [1, 1.15, 1] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-accent/20 blur-3xl"
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 6, repeat: Infinity }}
+          className="absolute top-1/3 left-1/2 h-[300px] w-[300px] rounded-full bg-gradient-to-bl from-secondary/20 to-accent/15 blur-3xl"
+          animate={{ x: [0, 40, 0], y: [0, -20, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
-      <div className="container-app grid lg:grid-cols-2 gap-12 items-center">
-        {/* Text content */}
+      {/* Decorative floating product shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-32 right-[15%] h-20 w-20 rounded-2xl bg-white/60 backdrop-blur-sm shadow-lg border border-white/80 rotate-12"
+          animate={{ y: [0, -15, 0], rotate: [12, 6, 12] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-40 right-[25%] h-16 w-16 rounded-full bg-white/50 backdrop-blur-sm shadow-lg border border-white/80"
+          animate={{ y: [0, 12, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+        <motion.div
+          className="absolute top-48 left-[12%] h-14 w-14 rounded-xl bg-white/40 backdrop-blur-sm shadow-lg border border-white/80 -rotate-6"
+          animate={{ y: [0, -10, 0], rotate: [-6, -12, -6] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        />
+        <motion.div
+          className="absolute bottom-52 left-[18%] h-10 w-10 rounded-lg bg-primary/20 backdrop-blur-sm shadow-md border border-primary/30"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        />
+      </div>
+
+      {/* Content */}
+      <div className="container-app relative z-10 text-center pt-36">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-center lg:text-left"
+          className="mx-auto max-w-3xl"
         >
-          <div className="flex justify-center lg:justify-start mb-6">
-            <motion.div
-              className="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm text-primary"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              <Sparkles className="h-4 w-4" />
-              <span>Authentic Korean Skincare in Jordan</span>
-            </motion.div>
-          </div>
+          <motion.div
+            className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur-sm px-5 py-2.5 text-sm font-semibold text-primary shadow-sm border border-primary/20 mb-8"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            <Sparkles className="h-4 w-4" />
+            <span>Authentic Korean Skincare in Jordan</span>
+          </motion.div>
 
-          <h1 className="font-heading text-5xl font-bold leading-tight text-text-primary md:text-7xl">
-            Your Glow{" "}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Starts Here
+          <h1 className="font-heading text-5xl font-extrabold leading-[1.08] text-text-primary md:text-7xl lg:text-[5.5rem]">
+            Your Skin Deserves{" "}
+            <span className="bg-gradient-to-r from-primary via-[#d46b9e] to-secondary bg-clip-text text-transparent">
+              The Glow
             </span>
           </h1>
 
           <motion.p
-            className="mt-6 max-w-xl text-lg text-text-secondary md:text-xl mx-auto lg:mx-0"
+            className="mx-auto mt-7 max-w-xl text-lg text-text-secondary md:text-xl leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            Discover premium K-beauty products curated for your skin. From COSRX to Laneige,
-            we bring Seoul&apos;s best skincare to Amman.
+            Premium K-beauty products from COSRX, Laneige, Beauty of Joseon
+            &amp; more — curated and delivered to your door in Jordan.
           </motion.p>
 
           <motion.div
-            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
             <Link href="/shop">
-              <Button size="lg">Shop Now</Button>
+              <Button size="lg" className="text-base px-10 py-4 shadow-lg shadow-primary/25">
+                Shop Collection
+              </Button>
             </Link>
             <Link href="/about">
-              <Button variant="outline" size="lg">
-                Learn More
+              <Button variant="outline" size="lg" className="text-base px-10 py-4 bg-white/60 backdrop-blur-sm">
+                Our Story
               </Button>
             </Link>
           </motion.div>
-        </motion.div>
 
-        {/* Hero images grid */}
-        <motion.div
-          className="hidden lg:grid grid-cols-2 gap-4"
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <div className="space-y-4">
-            <motion.div
-              className="relative h-64 rounded-2xl overflow-hidden shadow-card"
-              whileHover={{ scale: 1.02 }}
-            >
-              <Image
-                src={heroImages[0]}
-                alt="Korean skincare products"
-                fill
-                className="object-cover"
-                priority
-                sizes="(min-width: 1024px) 25vw, 50vw"
-              />
-            </motion.div>
-            <motion.div
-              className="relative h-48 rounded-2xl overflow-hidden shadow-card"
-              whileHover={{ scale: 1.02 }}
-            >
-              <Image
-                src={heroImages[2]}
-                alt="Skincare routine"
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 25vw, 50vw"
-              />
-            </motion.div>
-          </div>
+          {/* Trust badges */}
           <motion.div
-            className="relative h-full min-h-[340px] rounded-2xl overflow-hidden shadow-card mt-8"
-            whileHover={{ scale: 1.02 }}
+            className="mt-16 flex flex-wrap items-center justify-center gap-8 md:gap-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9 }}
           >
-            <Image
-              src={heroImages[1]}
-              alt="K-beauty essentials"
-              fill
-              className="object-cover"
-              priority
-              sizes="(min-width: 1024px) 25vw, 50vw"
-            />
+            {trustBadges.map((badge) => (
+              <div key={badge.label} className="flex items-center gap-2.5 text-text-secondary">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/80 shadow-sm">
+                  <badge.icon className="h-4 w-4 text-primary" />
+                </div>
+                <span className="text-sm font-medium">{badge.label}</span>
+              </div>
+            ))}
           </motion.div>
         </motion.div>
       </div>

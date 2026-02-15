@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react"
 import { SlidersHorizontal } from "lucide-react"
-import { medusa } from "@/lib/medusa-client"
+import { medusa, getRegionId } from "@/lib/medusa-client"
 import { FilterSidebar } from "@/components/shop/FilterSidebar"
 import { SortDropdown } from "@/components/shop/SortDropdown"
 import { ProductGrid } from "@/components/shop/ProductGrid"
@@ -30,7 +30,8 @@ export default function ShopPage() {
   useEffect(() => {
     async function load() {
       try {
-        const { products } = await medusa.store.product.list({ limit: 50 })
+        const region_id = await getRegionId()
+        const { products } = await medusa.store.product.list({ limit: 50, region_id, fields: "*categories" } as any)
         setProducts(products)
       } catch {
         // Backend may not be running
@@ -105,7 +106,7 @@ export default function ShopPage() {
   return (
     <div className="container-app py-8">
       <AnimatedSection>
-        <div className="mb-8">
+        <div className="mb-8 text-center">
           <h1 className="font-heading text-4xl font-bold text-text-primary">Shop</h1>
           <p className="mt-2 text-text-secondary">Discover our curated collection of Korean skincare</p>
         </div>

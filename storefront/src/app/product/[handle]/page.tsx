@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useParams } from "next/navigation"
-import { medusa } from "@/lib/medusa-client"
+import { medusa, getRegionId } from "@/lib/medusa-client"
 import { ProductGallery } from "@/components/product/ProductGallery"
 import { ProductInfo } from "@/components/product/ProductInfo"
 import { ProductAccordion } from "@/components/product/ProductAccordion"
@@ -18,7 +18,8 @@ export default function ProductPage() {
   useEffect(() => {
     async function load() {
       try {
-        const { products } = await medusa.store.product.list({ handle })
+        const region_id = await getRegionId()
+        const { products } = await medusa.store.product.list({ handle, region_id, fields: "*categories" } as any)
         if (products.length > 0) {
           setProduct(products[0])
         }
@@ -47,7 +48,7 @@ export default function ProductPage() {
 
   if (!product) {
     return (
-      <div className="container-app py-20 text-center">
+      <div className="container-app py-20 text-center mx-auto">
         <h1 className="font-heading text-2xl font-bold text-text-primary">Product not found</h1>
         <p className="mt-2 text-text-muted">The product you&apos;re looking for doesn&apos;t exist.</p>
       </div>

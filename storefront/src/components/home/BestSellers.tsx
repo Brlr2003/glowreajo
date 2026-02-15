@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
-import { medusa } from "@/lib/medusa-client"
+import { medusa, getRegionId } from "@/lib/medusa-client"
 import { ProductCard } from "@/components/product/ProductCard"
 import { AnimatedSection } from "@/components/ui/AnimatedSection"
 import { SectionTitle } from "@/components/shared/SectionTitle"
@@ -17,7 +17,8 @@ export function BestSellers() {
   useEffect(() => {
     async function load() {
       try {
-        const { products } = await medusa.store.product.list({ limit: 8 })
+        const region_id = await getRegionId()
+        const { products } = await medusa.store.product.list({ limit: 8, region_id, fields: "*categories" } as any)
         setProducts(products)
       } catch {
         // Backend may not be running

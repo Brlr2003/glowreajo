@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { medusa } from "@/lib/medusa-client"
+import { medusa, getRegionId } from "@/lib/medusa-client"
 import { ProductCard } from "./ProductCard"
 import { SectionTitle } from "@/components/shared/SectionTitle"
 
@@ -18,11 +18,12 @@ export function RelatedProducts({ currentProductId, categoryId }: RelatedProduct
   useEffect(() => {
     async function load() {
       try {
-        const params: any = { limit: 8 }
+        const region_id = await getRegionId()
+        const params: any = { limit: 8, region_id }
         if (categoryId) {
           params.category_id = [categoryId]
         }
-        const { products } = await medusa.store.product.list(params)
+        const { products } = await medusa.store.product.list({ ...params, fields: "*categories" })
         setProducts(products.filter((p: any) => p.id !== currentProductId))
       } catch {}
     }

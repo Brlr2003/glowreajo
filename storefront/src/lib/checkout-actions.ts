@@ -1,7 +1,8 @@
-import { medusa } from "./medusa-client"
+import { medusa, getRegionId } from "./medusa-client"
 
 export async function createCart() {
-  const { cart } = await medusa.store.cart.create({})
+  const region_id = await getRegionId()
+  const { cart } = await medusa.store.cart.create({ region_id } as any)
   return cart
 }
 
