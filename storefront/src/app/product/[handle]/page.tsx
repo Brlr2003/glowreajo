@@ -3,17 +3,49 @@
 import { useEffect, useState } from "react"
 import { useParams } from "next/navigation"
 import { medusa, getRegionId } from "@/lib/medusa-client"
+import { getProductImage } from "@/lib/demo-images"
 import { ProductGallery } from "@/components/product/ProductGallery"
 import { ProductInfo } from "@/components/product/ProductInfo"
 import { ProductAccordion } from "@/components/product/ProductAccordion"
 import { RelatedProducts } from "@/components/product/RelatedProducts"
 import { Skeleton } from "@/components/ui/Skeleton"
 
+function useProductMeta(product: any) {
+  useEffect(() => {
+    if (!product) return
+    const title = `${product.title} | GlowReaJo`
+    const description = product.description || `Shop ${product.title} - authentic Korean skincare at GlowReaJo.`
+    const image = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
+    const url = `https://glowreajo.com/product/${product.handle}`
+
+    document.title = title
+
+    const setMeta = (property: string, content: string) => {
+      let el = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement
+      if (!el) {
+        el = document.createElement("meta")
+        el.setAttribute("property", property)
+        document.head.appendChild(el)
+      }
+      el.setAttribute("content", content)
+    }
+
+    setMeta("og:title", title)
+    setMeta("og:description", description.slice(0, 200))
+    setMeta("og:image", image)
+    setMeta("og:url", url)
+    setMeta("og:type", "product")
+    setMeta("og:site_name", "GlowReaJo")
+  }, [product])
+}
+
 export default function ProductPage() {
   const params = useParams()
   const handle = params.handle as string
   const [product, setProduct] = useState<any>(null)
   const [loading, setLoading] = useState(true)
+
+  useProductMeta(product)
 
   useEffect(() => {
     async function load() {

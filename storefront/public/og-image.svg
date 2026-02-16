@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fce7f3"/>
+      <stop offset="100%" stop-color="#f8bbd0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="600" y="270" font-family="Arial,sans-serif" font-size="88" font-weight="bold" fill="#d97aa6" text-anchor="middle" letter-spacing="2">GlowReaJo</text>
+  <text x="600" y="370" font-family="Arial,sans-serif" font-size="32" fill="#b0557a" text-anchor="middle" opacity="0.9">Korean Skincare in Jordan</text>
+  <text x="600" y="430" font-family="Arial,sans-serif" font-size="22" fill="#c47a9a" text-anchor="middle" opacity="0.7">Authentic K-beauty products delivered to your door</text>
+</svg>
