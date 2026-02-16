@@ -32,6 +32,7 @@ jobs:
             docker rm -f glowreajo-redis glowreajo-postgres glowreajo-backend glowreajo-storefront 2>/dev/null || true
             docker compose -f docker-compose.prod.yml --env-file .env.production up -d
             docker compose -f docker-compose.prod.yml exec -T backend npx medusa db:migrate || true
+            docker compose -f docker-compose.prod.yml exec -T backend npx medusa exec ./src/scripts/seed.ts || true
             echo "Production deploy complete"
 
   deploy-dev:
@@ -55,4 +56,5 @@ jobs:
             docker rm -f glowreajo-dev-redis glowreajo-dev-postgres glowreajo-dev-backend glowreajo-dev-storefront 2>/dev/null || true
             docker compose -f docker-compose.dev.yml --env-file .env.dev up -d
             docker compose -f docker-compose.dev.yml exec -T backend npx medusa db:migrate || true
+            docker compose -f docker-compose.dev.yml exec -T backend npx medusa exec ./src/scripts/seed.ts || true
             echo "Dev deploy complete"
