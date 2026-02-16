@@ -45,18 +45,38 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
       <h2 className="font-heading text-xl font-bold">Review Your Cart</h2>
 
       <div className="space-y-4">
-        {items.map((item) => (
+        {items.map((item) => {
+          const productUrl = item.handle ? `/product/${item.handle}` : null
+          return (
           <div key={item.id} className="flex gap-4 rounded-xl border border-border p-4">
-            <Link
-              href={`/product/${item.handle}`}
-              className="h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center"
-            >
-              <ShoppingBag className="h-8 w-8 text-border" />
-            </Link>
-            <div className="flex-1">
-              <Link href={`/product/${item.handle}`} className="font-medium text-text-primary hover:text-primary transition-colors">
-                {item.title}
+            {productUrl ? (
+              <Link
+                href={productUrl}
+                className="h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center"
+              >
+                {item.image ? (
+                  <img src={item.image} alt={item.title} className="h-full w-full rounded-lg object-cover" />
+                ) : (
+                  <ShoppingBag className="h-8 w-8 text-border" />
+                )}
               </Link>
+            ) : (
+              <div className="h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center">
+                {item.image ? (
+                  <img src={item.image} alt={item.title} className="h-full w-full rounded-lg object-cover" />
+                ) : (
+                  <ShoppingBag className="h-8 w-8 text-border" />
+                )}
+              </div>
+            )}
+            <div className="flex-1">
+              {productUrl ? (
+                <Link href={productUrl} className="font-medium text-text-primary hover:text-primary transition-colors">
+                  {item.title}
+                </Link>
+              ) : (
+                <span className="font-medium text-text-primary">{item.title}</span>
+              )}
               {item.brand && <p className="text-xs text-text-muted">{item.brand}</p>}
               <p className="text-sm font-semibold text-primary mt-1">{formatPrice(item.price)}</p>
               <div className="flex items-center gap-3 mt-2">
@@ -85,7 +105,7 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
               <span className="font-semibold">{formatPrice(item.price * item.quantity)}</span>
             </div>
           </div>
-        ))}
+        )})}
       </div>
 
       <PromoCodeInput

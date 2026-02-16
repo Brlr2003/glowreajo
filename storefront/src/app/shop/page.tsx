@@ -69,28 +69,30 @@ export default function ShopPage() {
 
     if (filters.priceRange) {
       result = result.filter((p) => {
-        const price = p.variants?.[0]?.prices?.find((pr: any) => pr.currency_code === "jod")?.amount
-        if (!price) return true
-        const [min, max] = filters.priceRange.split("-").map(Number)
+        const variant = p.variants?.[0]
+        const calculatedPrice = variant?.calculated_price?.calculated_amount
+        const fallbackPrice = variant?.prices?.find((pr: any) => pr.currency_code === "jod")?.amount
+        const price = calculatedPrice ?? fallbackPrice
+        if (price == null) return true
+        const parts = filters.priceRange.replace("+", "").split("-").map(Number)
+        const min = parts[0]
+        const max = parts[1]
         if (filters.priceRange.endsWith("+")) return price >= min
         return price >= min && price <= max
       })
     }
 
+    const getPrice = (p: any) => {
+      const v = p.variants?.[0]
+      return v?.calculated_price?.calculated_amount ?? v?.prices?.[0]?.amount ?? 0
+    }
+
     switch (sort) {
       case "price-asc":
-        result.sort((a, b) => {
-          const aP = a.variants?.[0]?.prices?.[0]?.amount || 0
-          const bP = b.variants?.[0]?.prices?.[0]?.amount || 0
-          return aP - bP
-        })
+        result.sort((a, b) => getPrice(a) - getPrice(b))
         break
       case "price-desc":
-        result.sort((a, b) => {
-          const aP = a.variants?.[0]?.prices?.[0]?.amount || 0
-          const bP = b.variants?.[0]?.prices?.[0]?.amount || 0
-          return bP - aP
-        })
+        result.sort((a, b) => getPrice(b) - getPrice(a))
         break
       case "name-asc":
         result.sort((a, b) => a.title.localeCompare(b.title))

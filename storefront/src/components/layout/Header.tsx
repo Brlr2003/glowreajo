@@ -36,7 +36,7 @@ export function Header() {
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="mx-auto max-w-6xl rounded-2xl border border-border/50 backdrop-blur-xl bg-surface/80 shadow-soft pointer-events-auto"
         >
-          <div className="flex h-14 items-center justify-between px-5">
+          <div className="relative flex h-14 items-center px-5">
             <Link href="/" className="flex items-center gap-2">
               <Sparkles className="h-5 w-5 text-primary" />
               <span className="font-heading text-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -44,7 +44,7 @@ export function Header() {
               </span>
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <Link href="/" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
                 Home
               </Link>
@@ -59,7 +59,7 @@ export function Header() {
               </Link>
             </nav>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 ml-auto">
               <button
                 onClick={() => setSearchOpen(true)}
                 className="p-2 text-text-secondary hover:text-primary transition-colors"

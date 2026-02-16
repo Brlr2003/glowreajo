@@ -75,7 +75,16 @@ export function CartDrawer() {
                 </div>
               ) : (
                 <div className="space-y-4">
-                  {items.map((item) => (
+                  {items.map((item) => {
+                    const productUrl = item.handle ? `/product/${item.handle}` : null
+                    const Wrapper = productUrl
+                      ? (p: { className?: string; children: React.ReactNode }) => (
+                          <Link href={productUrl} onClick={() => setDrawerOpen(false)} className={p.className}>{p.children}</Link>
+                        )
+                      : (p: { className?: string; children: React.ReactNode }) => (
+                          <div className={p.className}>{p.children}</div>
+                        )
+                    return (
                     <motion.div
                       key={item.id}
                       layout
@@ -84,25 +93,17 @@ export function CartDrawer() {
                       exit={{ opacity: 0, x: 100 }}
                       className="flex gap-4 rounded-xl border border-border p-3"
                     >
-                      <Link
-                        href={`/product/${item.handle}`}
-                        onClick={() => setDrawerOpen(false)}
-                        className="h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center"
-                      >
+                      <Wrapper className="h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center">
                         {item.image ? (
                           <img src={item.image} alt={item.title} className="h-full w-full rounded-lg object-cover" />
                         ) : (
                           <ShoppingBag className="h-8 w-8 text-border" />
                         )}
-                      </Link>
+                      </Wrapper>
                       <div className="flex-1 min-w-0">
-                        <Link
-                          href={`/product/${item.handle}`}
-                          onClick={() => setDrawerOpen(false)}
-                          className="text-sm font-medium text-text-primary truncate block hover:text-primary transition-colors"
-                        >
+                        <Wrapper className={`text-sm font-medium text-text-primary truncate block${productUrl ? " hover:text-primary transition-colors" : ""}`}>
                           {item.title}
-                        </Link>
+                        </Wrapper>
                         {item.brand && (
                           <p className="text-xs text-text-muted">{item.brand}</p>
                         )}
@@ -132,7 +133,7 @@ export function CartDrawer() {
                         </div>
                       </div>
                     </motion.div>
-                  ))}
+                  )})}
                 </div>
               )}
             </div>
