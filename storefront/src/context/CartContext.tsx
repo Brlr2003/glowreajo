@@ -6,6 +6,7 @@ export interface CartItem {
   id: string
   variantId: string
   productId: string
+  handle: string
   title: string
   variant: string
   price: number

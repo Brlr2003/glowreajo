@@ -84,15 +84,25 @@ export function CartDrawer() {
                       exit={{ opacity: 0, x: 100 }}
                       className="flex gap-4 rounded-xl border border-border p-3"
                     >
-                      <div className="h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center">
+                      <Link
+                        href={`/product/${item.handle}`}
+                        onClick={() => setDrawerOpen(false)}
+                        className="h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center"
+                      >
                         {item.image ? (
                           <img src={item.image} alt={item.title} className="h-full w-full rounded-lg object-cover" />
                         ) : (
                           <ShoppingBag className="h-8 w-8 text-border" />
                         )}
-                      </div>
+                      </Link>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-text-primary truncate">{item.title}</p>
+                        <Link
+                          href={`/product/${item.handle}`}
+                          onClick={() => setDrawerOpen(false)}
+                          className="text-sm font-medium text-text-primary truncate block hover:text-primary transition-colors"
+                        >
+                          {item.title}
+                        </Link>
                         {item.brand && (
                           <p className="text-xs text-text-muted">{item.brand}</p>
                         )}

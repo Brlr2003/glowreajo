@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useCart } from "@/context/CartContext"
 import { formatPrice } from "@/lib/formatPrice"
 import { validatePromoCode } from "@/lib/promo"
@@ -46,11 +47,16 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
       <div className="space-y-4">
         {items.map((item) => (
           <div key={item.id} className="flex gap-4 rounded-xl border border-border p-4">
-            <div className="h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center">
+            <Link
+              href={`/product/${item.handle}`}
+              className="h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center"
+            >
               <ShoppingBag className="h-8 w-8 text-border" />
-            </div>
+            </Link>
             <div className="flex-1">
-              <p className="font-medium text-text-primary">{item.title}</p>
+              <Link href={`/product/${item.handle}`} className="font-medium text-text-primary hover:text-primary transition-colors">
+                {item.title}
+              </Link>
               {item.brand && <p className="text-xs text-text-muted">{item.brand}</p>}
               <p className="text-sm font-semibold text-primary mt-1">{formatPrice(item.price)}</p>
               <div className="flex items-center gap-3 mt-2">

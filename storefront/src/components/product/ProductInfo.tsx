@@ -34,6 +34,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
       id: variant?.id || product.id,
       variantId: variant?.id || product.id,
       productId: product.id,
+      handle: product.handle,
       title: product.title,
       variant: variant?.title || "",
       price: priceAmount,
