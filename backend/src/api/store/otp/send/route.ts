@@ -1,8 +1,9 @@
 import { z } from "zod"
+import { sendOtpEmail } from "../../../../lib/resend"
 
 const SendOtpSchema = z.object({
-  type: z.enum(["sms", "email"]),
-  destination: z.string().min(1),
+  type: z.literal("email"),
+  destination: z.string().email(),
 })
 
 // In-memory OTP store with TTL
@@ -26,13 +27,13 @@ export async function POST(req: any, res: any): Promise<void> {
   if (!parsed.success) {
     res.status(400).json({
       success: false,
-      message: "Invalid request",
+      message: "Invalid request. Provide a valid email address.",
       errors: parsed.error.flatten().fieldErrors,
     })
     return
   }
 
-  const { type, destination } = parsed.data
+  const { destination } = parsed.data
   const code = String(Math.floor(100000 + Math.random() * 900000))
 
   otpStore.set(destination, {
@@ -40,8 +41,16 @@ export async function POST(req: any, res: any): Promise<void> {
     expiresAt: Date.now() + 5 * 60 * 1000, // 5 minutes
   })
 
-  // Placeholder: log OTP (replace with Twilio/SendGrid in production)
-  console.log(`[OTP] ${type.toUpperCase()} to ${destination}: ${code}`)
-
-  res.status(200).json({ success: true })
+  try {
+    await sendOtpEmail(destination, code)
+    res.status(200).json({ success: true })
+  } catch (err: any) {
+    // Cleanup OTP on send failure
+    otpStore.delete(destination)
+    console.error("[OTP] Email send failed:", err?.message)
+    res.status(500).json({
+      success: false,
+      message: "Failed to send verification email. Please try again.",
+    })
+  }
 }

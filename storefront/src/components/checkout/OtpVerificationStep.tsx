@@ -1,27 +1,22 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { Shield, Mail, Phone } from "lucide-react"
+import { Shield, Mail } from "lucide-react"
 import { OtpInput } from "@/components/ui/OtpInput"
 import { Button } from "@/components/ui/Button"
 import { sendOtp, verifyOtp } from "@/lib/otp"
 
 interface OtpVerificationStepProps {
-  phone: string
   email: string
   onVerified: () => void
   onBack: () => void
 }
 
-export function OtpVerificationStep({ phone, email, onVerified, onBack }: OtpVerificationStepProps) {
-  const [method, setMethod] = useState<"sms" | "email">("sms")
+export function OtpVerificationStep({ email, onVerified, onBack }: OtpVerificationStepProps) {
   const [sent, setSent] = useState(false)
   const [error, setError] = useState("")
   const [timer, setTimer] = useState(0)
   const [loading, setLoading] = useState(false)
-
-  const destination = method === "sms" ? phone : email
 
   useEffect(() => {
     if (timer > 0) {
@@ -34,11 +29,11 @@ export function OtpVerificationStep({ phone, email, onVerified, onBack }: OtpVer
     setLoading(true)
     setError("")
     try {
-      await sendOtp(method, destination)
+      await sendOtp(email)
       setSent(true)
       setTimer(60)
-    } catch {
-      setError("Failed to send verification code")
+    } catch (err: any) {
+      setError(err.message || "Failed to send verification code")
     } finally {
       setLoading(false)
     }
@@ -48,7 +43,7 @@ export function OtpVerificationStep({ phone, email, onVerified, onBack }: OtpVer
     setLoading(true)
     setError("")
     try {
-      const result = await verifyOtp(destination, code)
+      const result = await verifyOtp(email, code)
       if (result.verified) {
         onVerified()
       } else {
@@ -77,34 +72,10 @@ export function OtpVerificationStep({ phone, email, onVerified, onBack }: OtpVer
 
       {!sent ? (
         <div className="space-y-4">
-          <p className="text-sm font-medium text-text-primary text-center">Choose verification method:</p>
-          <div className="flex gap-3 justify-center">
-            <button
-              onClick={() => setMethod("sms")}
-              className={`flex items-center gap-2 rounded-xl px-5 py-3 border transition-colors ${
-                method === "sms"
-                  ? "border-primary bg-primary/5 text-primary"
-                  : "border-border text-text-secondary hover:border-primary/50"
-              }`}
-            >
-              <Phone className="h-4 w-4" />
-              SMS
-            </button>
-            <button
-              onClick={() => setMethod("email")}
-              className={`flex items-center gap-2 rounded-xl px-5 py-3 border transition-colors ${
-                method === "email"
-                  ? "border-primary bg-primary/5 text-primary"
-                  : "border-border text-text-secondary hover:border-primary/50"
-              }`}
-            >
-              <Mail className="h-4 w-4" />
-              Email
-            </button>
+          <div className="flex items-center justify-center gap-2 text-sm text-text-secondary">
+            <Mail className="h-4 w-4 text-primary" />
+            <span>Code will be sent to: <strong>{email}</strong></span>
           </div>
-          <p className="text-xs text-text-muted text-center">
-            Code will be sent to: {destination}
-          </p>
           <div className="flex justify-center">
             <Button onClick={handleSend} disabled={loading}>
               {loading ? "Sending..." : "Send Code"}
@@ -114,7 +85,7 @@ export function OtpVerificationStep({ phone, email, onVerified, onBack }: OtpVer
       ) : (
         <div className="space-y-6">
           <p className="text-sm text-text-secondary text-center">
-            Enter the 6-digit code sent to <strong>{destination}</strong>
+            Enter the 6-digit code sent to <strong>{email}</strong>
           </p>
 
           <OtpInput onComplete={handleVerify} error={error} />

@@ -17,7 +17,9 @@ interface OrderConfirmStepProps {
 export function OrderConfirmStep({ personalInfo, onBack }: OrderConfirmStepProps) {
   const [placing, setPlacing] = useState(false)
   const router = useRouter()
-  const { clearCart, totalPrice } = useCart()
+  const { clearCart, totalPrice, promo } = useCart()
+
+  const finalTotal = totalPrice - (promo?.discount || 0)
 
   const handlePlaceOrder = async () => {
     setPlacing(true)
@@ -65,7 +67,7 @@ export function OrderConfirmStep({ personalInfo, onBack }: OrderConfirmStepProps
 
       <div className="rounded-2xl bg-warm-accent/30 p-4 text-center text-sm">
         <p className="font-medium text-text-primary">Payment: Cash on Delivery</p>
-        <p className="text-text-muted mt-1">Pay {formatPrice(totalPrice)} when your order arrives</p>
+        <p className="text-text-muted mt-1">Pay {formatPrice(finalTotal)} when your order arrives</p>
       </div>
 
       <div className="flex justify-between pt-4">

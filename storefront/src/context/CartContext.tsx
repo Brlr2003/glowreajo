@@ -14,9 +14,17 @@ export interface CartItem {
   brand?: string
 }
 
+interface PromoState {
+  code: string
+  discount: number
+  type: string
+  value: number
+}
+
 interface CartState {
   items: CartItem[]
   isDrawerOpen: boolean
+  promo: PromoState | null
 }
 
 type CartAction =
@@ -27,6 +35,8 @@ type CartAction =
   | { type: "TOGGLE_DRAWER" }
   | { type: "SET_DRAWER"; payload: boolean }
   | { type: "LOAD_CART"; payload: CartItem[] }
+  | { type: "APPLY_PROMO"; payload: PromoState }
+  | { type: "REMOVE_PROMO" }
 
 function cartReducer(state: CartState, action: CartAction): CartState {
   switch (action.type) {
@@ -35,6 +45,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
       if (existing) {
         return {
           ...state,
+          promo: null, // Clear promo when cart changes
           items: state.items.map((i) =>
             i.variantId === action.payload.variantId
               ? { ...i, quantity: i.quantity + action.payload.quantity }
@@ -42,28 +53,33 @@ function cartReducer(state: CartState, action: CartAction): CartState {
           ),
         }
       }
-      return { ...state, items: [...state.items, action.payload] }
+      return { ...state, promo: null, items: [...state.items, action.payload] }
     }
     case "REMOVE_ITEM":
-      return { ...state, items: state.items.filter((i) => i.id !== action.payload) }
+      return { ...state, promo: null, items: state.items.filter((i) => i.id !== action.payload) }
     case "UPDATE_QUANTITY":
       if (action.payload.quantity <= 0) {
-        return { ...state, items: state.items.filter((i) => i.id !== action.payload.id) }
+        return { ...state, promo: null, items: state.items.filter((i) => i.id !== action.payload.id) }
       }
       return {
         ...state,
+        promo: null,
         items: state.items.map((i) =>
           i.id === action.payload.id ? { ...i, quantity: action.payload.quantity } : i
         ),
       }
     case "CLEAR_CART":
-      return { ...state, items: [] }
+      return { ...state, items: [], promo: null }
     case "TOGGLE_DRAWER":
       return { ...state, isDrawerOpen: !state.isDrawerOpen }
     case "SET_DRAWER":
       return { ...state, isDrawerOpen: action.payload }
     case "LOAD_CART":
       return { ...state, items: action.payload }
+    case "APPLY_PROMO":
+      return { ...state, promo: action.payload }
+    case "REMOVE_PROMO":
+      return { ...state, promo: null }
     default:
       return state
   }
@@ -80,12 +96,15 @@ interface CartContextValue {
   setDrawerOpen: (open: boolean) => void
   totalItems: number
   totalPrice: number
+  promo: PromoState | null
+  applyPromo: (promo: PromoState) => void
+  removePromo: () => void
 }
 
 const CartContext = createContext<CartContextValue | null>(null)
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(cartReducer, { items: [], isDrawerOpen: false })
+  const [state, dispatch] = useReducer(cartReducer, { items: [], isDrawerOpen: false, promo: null })
 
   useEffect(() => {
     const saved = localStorage.getItem("glowreajo-cart")
@@ -112,6 +131,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
     (open: boolean) => dispatch({ type: "SET_DRAWER", payload: open }),
     []
   )
+  const applyPromo = useCallback(
+    (promo: PromoState) => dispatch({ type: "APPLY_PROMO", payload: promo }),
+    []
+  )
+  const removePromo = useCallback(() => dispatch({ type: "REMOVE_PROMO" }), [])
 
   const totalItems = state.items.reduce((sum, i) => sum + i.quantity, 0)
   const totalPrice = state.items.reduce((sum, i) => sum + i.price * i.quantity, 0)
@@ -129,6 +153,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
         setDrawerOpen,
         totalItems,
         totalPrice,
+        promo: state.promo,
+        applyPromo,
+        removePromo,
       }}
     >
       {children}

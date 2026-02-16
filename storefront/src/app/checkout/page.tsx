@@ -49,7 +49,6 @@ export default function CheckoutPage() {
           )}
           {currentStep === 2 && (
             <OtpVerificationStep
-              phone={personalInfo.phone}
               email={personalInfo.email}
               onVerified={() => setCurrentStep(3)}
               onBack={() => setCurrentStep(1)}

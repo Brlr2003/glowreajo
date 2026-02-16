@@ -2,6 +2,7 @@
 
 import { useCart } from "@/context/CartContext"
 import { formatPrice } from "@/lib/formatPrice"
+import { validatePromoCode } from "@/lib/promo"
 import { Button } from "@/components/ui/Button"
 import { PromoCodeInput } from "@/components/ui/PromoCodeInput"
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react"
@@ -11,7 +12,22 @@ interface CartReviewStepProps {
 }
 
 export function CartReviewStep({ onNext }: CartReviewStepProps) {
-  const { items, updateQuantity, removeItem, totalPrice } = useCart()
+  const { items, updateQuantity, removeItem, totalPrice, promo, applyPromo, removePromo } = useCart()
+
+  const handleApplyPromo = async (code: string) => {
+    const result = await validatePromoCode(code, totalPrice)
+    if (result.valid && result.discount !== undefined) {
+      applyPromo({
+        code,
+        discount: result.discount,
+        type: result.type || "percentage",
+        value: result.value || 0,
+      })
+    }
+    return { valid: result.valid, message: result.message }
+  }
+
+  const finalTotal = totalPrice - (promo?.discount || 0)
 
   if (items.length === 0) {
     return (
@@ -66,13 +82,29 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
         ))}
       </div>
 
-      <PromoCodeInput onApply={async () => true} />
+      <PromoCodeInput
+        onApply={handleApplyPromo}
+        appliedCode={promo?.code}
+        onRemove={removePromo}
+      />
 
-      <div className="flex justify-between items-center pt-4 border-t border-border">
-        <span className="font-heading text-lg font-bold">Total: {formatPrice(totalPrice)}</span>
-        <Button onClick={onNext} size="lg">
-          Continue
-        </Button>
+      <div className="pt-4 border-t border-border space-y-2">
+        <div className="flex justify-between text-sm">
+          <span className="text-text-secondary">Subtotal</span>
+          <span>{formatPrice(totalPrice)}</span>
+        </div>
+        {promo && (
+          <div className="flex justify-between text-sm text-success">
+            <span>Discount ({promo.code})</span>
+            <span>-{formatPrice(promo.discount)}</span>
+          </div>
+        )}
+        <div className="flex justify-between items-center pt-2">
+          <span className="font-heading text-lg font-bold">Total: {formatPrice(finalTotal)}</span>
+          <Button onClick={onNext} size="lg">
+            Continue
+          </Button>
+        </div>
       </div>
     </div>
   )

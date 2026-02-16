@@ -9,6 +9,8 @@ import { stagger, fadeInUp } from "@/lib/animations"
 import { socialImages } from "@/lib/demo-images"
 
 export function SocialProof() {
+  if (socialImages.length === 0) return null
+
   return (
     <section className="py-20">
       <div className="container-app">

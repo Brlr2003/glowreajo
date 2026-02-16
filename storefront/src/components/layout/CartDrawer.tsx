@@ -7,10 +7,29 @@ import { useCart } from "@/context/CartContext"
 import { Button } from "@/components/ui/Button"
 import { PromoCodeInput } from "@/components/ui/PromoCodeInput"
 import { formatPrice } from "@/lib/formatPrice"
+import { validatePromoCode } from "@/lib/promo"
 import { slideInRight } from "@/lib/animations"
 
 export function CartDrawer() {
-  const { items, isDrawerOpen, setDrawerOpen, updateQuantity, removeItem, totalPrice, totalItems } = useCart()
+  const {
+    items, isDrawerOpen, setDrawerOpen, updateQuantity,
+    removeItem, totalPrice, totalItems, promo, applyPromo, removePromo,
+  } = useCart()
+
+  const handleApplyPromo = async (code: string) => {
+    const result = await validatePromoCode(code, totalPrice)
+    if (result.valid && result.discount !== undefined) {
+      applyPromo({
+        code,
+        discount: result.discount,
+        type: result.type || "percentage",
+        value: result.value || 0,
+      })
+    }
+    return { valid: result.valid, message: result.message }
+  }
+
+  const finalTotal = totalPrice - (promo?.discount || 0)
 
   return (
     <AnimatePresence>
@@ -110,11 +129,27 @@ export function CartDrawer() {
 
             {items.length > 0 && (
               <div className="border-t border-border p-6 space-y-4">
-                <PromoCodeInput onApply={async () => true} />
+                <PromoCodeInput
+                  onApply={handleApplyPromo}
+                  appliedCode={promo?.code}
+                  onRemove={removePromo}
+                />
                 <div className="flex items-center justify-between">
                   <span className="font-medium text-text-secondary">Subtotal</span>
                   <span className="font-heading text-lg font-bold">{formatPrice(totalPrice)}</span>
                 </div>
+                {promo && (
+                  <div className="flex items-center justify-between text-sm text-success">
+                    <span>Discount ({promo.code})</span>
+                    <span>-{formatPrice(promo.discount)}</span>
+                  </div>
+                )}
+                {promo && (
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-text-secondary">Total</span>
+                    <span className="font-heading text-lg font-bold text-primary">{formatPrice(finalTotal)}</span>
+                  </div>
+                )}
                 <Link href="/checkout" onClick={() => setDrawerOpen(false)} className="block">
                   <Button className="w-full" size="lg">
                     Proceed to Checkout

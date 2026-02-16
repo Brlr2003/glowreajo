@@ -6,13 +6,17 @@ const headers: Record<string, string> = {
   "x-publishable-api-key": API_KEY,
 }
 
-export async function sendOtp(type: "sms" | "email", destination: string) {
+export async function sendOtp(destination: string) {
   const res = await fetch(`${BACKEND_URL}/store/otp/send`, {
     method: "POST",
     headers,
-    body: JSON.stringify({ type, destination }),
+    body: JSON.stringify({ type: "email", destination }),
   })
-  return res.json()
+  const data = await res.json()
+  if (!res.ok || !data.success) {
+    throw new Error(data.message || "Failed to send verification code")
+  }
+  return data
 }
 
 export async function verifyOtp(destination: string, code: string) {
@@ -21,5 +25,9 @@ export async function verifyOtp(destination: string, code: string) {
     headers,
     body: JSON.stringify({ destination, code }),
   })
-  return res.json()
+  const data = await res.json()
+  if (!res.ok) {
+    throw new Error(data.message || "Verification failed")
+  }
+  return data
 }

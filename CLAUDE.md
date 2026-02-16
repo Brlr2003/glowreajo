@@ -168,7 +168,7 @@ glowreajo/
 - **Redis:** localhost:6379
 
 ### Admin Credentials
-- Email: admin@glowreajo.com
+- Email: info@glowreajo.com
 - Password: admin123
 
 ---

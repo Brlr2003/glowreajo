@@ -4,12 +4,9 @@ import { useCart } from "@/context/CartContext"
 import { formatPrice } from "@/lib/formatPrice"
 import { ShoppingBag } from "lucide-react"
 
-interface OrderSummaryProps {
-  discount?: number
-}
-
-export function OrderSummary({ discount = 0 }: OrderSummaryProps) {
-  const { items, totalPrice } = useCart()
+export function OrderSummary() {
+  const { items, totalPrice, promo } = useCart()
+  const discount = promo?.discount || 0
   const shipping = 0 // Free for Amman
   const total = totalPrice - discount + shipping
 
@@ -37,9 +34,9 @@ export function OrderSummary({ discount = 0 }: OrderSummaryProps) {
           <span className="text-text-secondary">Subtotal</span>
           <span>{formatPrice(totalPrice)}</span>
         </div>
-        {discount > 0 && (
+        {discount > 0 && promo && (
           <div className="flex justify-between text-sm text-success">
-            <span>Discount</span>
+            <span>Discount ({promo.code})</span>
             <span>-{formatPrice(discount)}</span>
           </div>
         )}

@@ -1,49 +1,21 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 import Link from "next/link"
 import { AnimatedSection } from "@/components/ui/AnimatedSection"
 import { SectionTitle } from "@/components/shared/SectionTitle"
-import { Sparkles } from "lucide-react"
+import { Sparkles, Droplets, FlaskConical, Pipette, Layers, Sun, Leaf, Package } from "lucide-react"
 import { stagger, fadeInUp } from "@/lib/animations"
+import type { LucideIcon } from "lucide-react"
 
-const categories = [
-  {
-    name: "Cleansers",
-    href: "/shop?category=cleansers",
-    image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=300&h=300&fit=crop",
-  },
-  {
-    name: "Toners",
-    href: "/shop?category=toners",
-    image: "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=300&h=300&fit=crop",
-  },
-  {
-    name: "Serums",
-    href: "/shop?category=serums",
-    image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&h=300&fit=crop",
-  },
-  {
-    name: "Moisturizers",
-    href: "/shop?category=moisturizers",
-    image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=300&fit=crop",
-  },
-  {
-    name: "Sunscreens",
-    href: "/shop?category=sunscreens",
-    image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=300&fit=crop",
-  },
-  {
-    name: "Masks",
-    href: "/shop?category=masks",
-    image: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=300&h=300&fit=crop",
-  },
-  {
-    name: "Sets",
-    href: "/shop?category=sets",
-    image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=300&h=300&fit=crop",
-  },
+const categories: { name: string; href: string; icon: LucideIcon; color: string }[] = [
+  { name: "Cleansers", href: "/shop?category=cleansers", icon: Droplets, color: "text-blue-500 bg-blue-50" },
+  { name: "Toners", href: "/shop?category=toners", icon: FlaskConical, color: "text-purple-500 bg-purple-50" },
+  { name: "Serums", href: "/shop?category=serums", icon: Pipette, color: "text-pink-500 bg-pink-50" },
+  { name: "Moisturizers", href: "/shop?category=moisturizers", icon: Layers, color: "text-green-500 bg-green-50" },
+  { name: "Sunscreens", href: "/shop?category=sunscreens", icon: Sun, color: "text-yellow-500 bg-yellow-50" },
+  { name: "Masks", href: "/shop?category=masks", icon: Leaf, color: "text-teal-500 bg-teal-50" },
+  { name: "Sets", href: "/shop?category=sets", icon: Package, color: "text-rose-500 bg-rose-50" },
 ]
 
 export function FeaturedCategories() {
@@ -71,14 +43,8 @@ export function FeaturedCategories() {
                 href={cat.href}
                 className="group flex flex-col items-center gap-3 rounded-2xl bg-surface p-4 shadow-soft transition-all hover:shadow-card hover:-translate-y-1"
               >
-                <div className="relative h-20 w-20 rounded-2xl overflow-hidden">
-                  <Image
-                    src={cat.image}
-                    alt={cat.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="80px"
-                  />
+                <div className={`flex h-20 w-20 items-center justify-center rounded-2xl ${cat.color} transition-transform duration-500 group-hover:scale-110`}>
+                  <cat.icon className="h-8 w-8" />
                 </div>
                 <span className="text-sm font-medium text-text-primary group-hover:text-primary transition-colors">
                   {cat.name}
