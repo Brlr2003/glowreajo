@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { useCart } from "@/context/CartContext"
+import { placeOrder } from "@/lib/checkout-actions"
 import { formatPrice } from "@/lib/formatPrice"
 import { Button } from "@/components/ui/Button"
 import { OrderSummary } from "./OrderSummary"
@@ -16,17 +17,25 @@ interface OrderConfirmStepProps {
 
 export function OrderConfirmStep({ personalInfo, onBack }: OrderConfirmStepProps) {
   const [placing, setPlacing] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const router = useRouter()
-  const { clearCart, totalPrice, promo } = useCart()
+  const { items, clearCart, totalPrice, promo } = useCart()
 
   const finalTotal = totalPrice - (promo?.discount || 0)
 
   const handlePlaceOrder = async () => {
     setPlacing(true)
-    // Simulate order placement (in production, this would use Medusa's cart completion)
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    clearCart()
-    router.push("/order/success")
+    setError(null)
+
+    try {
+      const order = await placeOrder(items, personalInfo, promo?.code)
+      sessionStorage.setItem("glowreajo-order", JSON.stringify(order))
+      clearCart()
+      router.push("/order/success")
+    } catch (err: any) {
+      setError(err?.message || "Something went wrong. Please try again.")
+      setPlacing(false)
+    }
   }
 
   return (
@@ -70,8 +79,14 @@ export function OrderConfirmStep({ personalInfo, onBack }: OrderConfirmStepProps
         <p className="text-text-muted mt-1">Pay {formatPrice(finalTotal)} when your order arrives</p>
       </div>
 
+      {error && (
+        <div className="rounded-xl bg-red-50 border border-red-200 p-4 text-sm text-red-700">
+          {error}
+        </div>
+      )}
+
       <div className="flex justify-between pt-4">
-        <Button variant="ghost" onClick={onBack}>
+        <Button variant="ghost" onClick={onBack} disabled={placing}>
           Back
         </Button>
         <Button onClick={handlePlaceOrder} size="lg" disabled={placing}>

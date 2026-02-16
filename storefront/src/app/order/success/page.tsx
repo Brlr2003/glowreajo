@@ -1,11 +1,31 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { CheckCircle, Truck, Clock, ShoppingBag } from "lucide-react"
 import { Button } from "@/components/ui/Button"
+import { formatPrice } from "@/lib/formatPrice"
+
+interface OrderData {
+  id: string
+  displayId: string
+  total: number
+}
 
 export default function OrderSuccessPage() {
+  const [order, setOrder] = useState<OrderData | null>(null)
+
+  useEffect(() => {
+    const raw = sessionStorage.getItem("glowreajo-order")
+    if (raw) {
+      try {
+        setOrder(JSON.parse(raw))
+      } catch {}
+      sessionStorage.removeItem("glowreajo-order")
+    }
+  }, [])
+
   return (
     <div className="container-app py-20 max-w-lg mx-auto text-center">
       <motion.div
@@ -25,9 +45,15 @@ export default function OrderSuccessPage() {
         transition={{ delay: 0.3 }}
       >
         <h1 className="font-heading text-3xl font-bold text-text-primary">Order Placed!</h1>
-        <p className="mt-3 text-text-secondary">
-          Thank you for your order. We&apos;ll prepare it right away.
-        </p>
+        {order ? (
+          <p className="mt-3 text-text-secondary">
+            Order #{order.displayId} confirmed — total {formatPrice(order.total)}
+          </p>
+        ) : (
+          <p className="mt-3 text-text-secondary">
+            Thank you for your order. We&apos;ll prepare it right away.
+          </p>
+        )}
 
         <div className="mt-8 rounded-2xl bg-surface p-6 shadow-soft space-y-4">
           <div className="flex items-center gap-3 text-left">
