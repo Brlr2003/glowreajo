@@ -6,14 +6,13 @@ on:
       - main
       - dev
 
-concurrency:
-  group: deploy
-  cancel-in-progress: false
-
 jobs:
   deploy-prod:
     if: github.ref_name == 'main'
     runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-main
+      cancel-in-progress: false
     steps:
       - name: Deploy to production
         uses: appleboy/ssh-action@v1
@@ -21,23 +20,26 @@ jobs:
           host: 167.172.182.237
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command_timeout: 20m
+          command_timeout: 30m
           script: |
             set -e
+            export DOCKER_BUILDKIT=1
+            export COMPOSE_DOCKER_CLI_BUILD=1
             cd /opt/glowreajo
             git fetch origin main
             git reset --hard origin/main
-            docker compose -f docker-compose.prod.yml --env-file .env.production build --parallel
-            docker compose -f docker-compose.prod.yml --env-file .env.production down --remove-orphans || true
-            docker rm -f glowreajo-redis glowreajo-postgres glowreajo-backend glowreajo-storefront 2>/dev/null || true
-            docker compose -f docker-compose.prod.yml --env-file .env.production up -d
+            docker compose -f docker-compose.prod.yml --env-file .env.production up -d --build --remove-orphans
             docker compose -f docker-compose.prod.yml exec -T backend npx medusa db:migrate || true
-            docker compose -f docker-compose.prod.yml exec -T backend npx medusa exec ./src/scripts/seed.ts || true
+            timeout 120 docker compose -f docker-compose.prod.yml exec -T backend npx medusa exec ./src/scripts/seed.ts || true
+            docker image prune -f || true
             echo "Production deploy complete"
 
   deploy-dev:
     if: github.ref_name == 'dev'
     runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-dev
+      cancel-in-progress: true
     steps:
       - name: Deploy to dev
         uses: appleboy/ssh-action@v1
@@ -45,16 +47,16 @@ jobs:
           host: 167.172.182.237
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command_timeout: 20m
+          command_timeout: 30m
           script: |
             set -e
+            export DOCKER_BUILDKIT=1
+            export COMPOSE_DOCKER_CLI_BUILD=1
             cd /opt/glowreajo-dev
             git fetch origin dev
             git reset --hard origin/dev
-            docker compose -f docker-compose.dev.yml --env-file .env.dev build --parallel
-            docker compose -f docker-compose.dev.yml --env-file .env.dev down --remove-orphans || true
-            docker rm -f glowreajo-dev-redis glowreajo-dev-postgres glowreajo-dev-backend glowreajo-dev-storefront 2>/dev/null || true
-            docker compose -f docker-compose.dev.yml --env-file .env.dev up -d
+            docker compose -f docker-compose.dev.yml --env-file .env.dev up -d --build --remove-orphans
             docker compose -f docker-compose.dev.yml exec -T backend npx medusa db:migrate || true
-            docker compose -f docker-compose.dev.yml exec -T backend npx medusa exec ./src/scripts/seed.ts || true
+            timeout 120 docker compose -f docker-compose.dev.yml exec -T backend npx medusa exec ./src/scripts/seed.ts || true
+            docker image prune -f || true
             echo "Dev deploy complete"
