@@ -20,7 +20,7 @@ jobs:
           host: 167.172.182.237
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command_timeout: 30m
+          command_timeout: 50m
           script: |
             set -e
             export DOCKER_BUILDKIT=1
@@ -47,7 +47,7 @@ jobs:
           host: 167.172.182.237
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command_timeout: 30m
+          command_timeout: 50m
           script: |
             set -e
             export DOCKER_BUILDKIT=1
