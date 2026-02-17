@@ -1,6 +1,7 @@
 import { defineWidgetConfig } from "@medusajs/admin-sdk"
 import { Container, Heading, Label, Button, Input } from "@medusajs/ui"
 import { useState, useEffect } from "react"
+import { PricingDisplay } from "../components/pricing-display"
 
 const SKIN_TYPES = ["All Skin Types", "Oily", "Dry", "Combination", "Sensitive", "Normal"]
 const CONCERNS = ["Acne", "Hydration", "Anti-aging", "Brightening", "Pores", "Sun Protection", "Dark Spots", "Redness"]
@@ -162,10 +163,12 @@ function SkincareFieldsWidget({ data }: DetailWidgetProps) {
   }
 
   return (
-    <Container className="divide-y p-0">
-      <div className="flex items-center justify-between px-6 py-4">
-        <Heading level="h2">Skincare Attributes</Heading>
-      </div>
+    <div className="flex flex-col gap-4">
+      <PricingDisplay productId={data.id} metadata={metadata} />
+      <Container className="divide-y p-0">
+        <div className="flex items-center justify-between px-6 py-4">
+          <Heading level="h2">Skincare Attributes</Heading>
+        </div>
       <div className="flex flex-col gap-4 px-6 py-4">
         <MultiSelect
           label="Skin Type"
@@ -212,6 +215,7 @@ function SkincareFieldsWidget({ data }: DetailWidgetProps) {
         </div>
       </div>
     </Container>
+    </div>
   )
 }
 

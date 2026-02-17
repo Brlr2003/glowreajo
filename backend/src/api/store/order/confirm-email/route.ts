@@ -19,6 +19,7 @@ const OrderEmailSchema = z.object({
   address: z.string().min(1),
   city: z.string().min(1),
   promoCode: z.string().optional().default(""),
+  notes: z.string().optional().default(""),
 })
 
 export async function POST(req: any, res: any): Promise<void> {

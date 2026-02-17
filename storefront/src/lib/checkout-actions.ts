@@ -89,19 +89,20 @@ export interface PlaceOrderResult {
 }
 
 function pickShippingOption(options: any[], city: string, subtotalAfterDiscount: number): any {
-  const find = (name: string) => options.find((o: any) => o.name === name)
+  const find = (keyword: string) =>
+    options.find((o: any) => o.name.toLowerCase().includes(keyword))
 
   // Free shipping for orders >= 50 JOD
   if (subtotalAfterDiscount >= 50) {
-    return find("Free Delivery") || options[0]
+    return find("free") || options[0]
   }
 
   const cityLower = city.toLowerCase().trim()
   if (cityLower === "amman" || cityLower === "عمان") {
-    return find("Amman Delivery") || find("Free Delivery") || options[0]
+    return find("amman") || find("free") || options[0]
   }
 
-  return find("Other Cities Delivery") || find("Free Delivery") || options[0]
+  return find("other") || find("free") || options[0]
 }
 
 export async function placeOrder(
@@ -139,11 +140,17 @@ export async function placeOrder(
     phone: personalInfo.phone,
   }
 
+  const metadata: Record<string, string> = {}
+  if (personalInfo.notes?.trim()) {
+    metadata.order_notes = personalInfo.notes.trim()
+  }
+
   cart = await updateCart(cart.id, {
     email: personalInfo.email,
     shipping_address: address,
     billing_address: address,
-  })
+    ...(Object.keys(metadata).length > 0 ? { metadata } : {}),
+  } as any)
 
   // 5. Select shipping option based on city and subtotal
   const shippingOptions = await getShippingOptions(cart.id)
@@ -203,6 +210,7 @@ export async function placeOrder(
       address: personalInfo.address,
       city: personalInfo.city,
       promoCode: promoCode || "",
+      notes: personalInfo.notes?.trim() || "",
     }),
   }).catch((err: any) => console.error("[OrderEmail] Failed:", err?.message))
 

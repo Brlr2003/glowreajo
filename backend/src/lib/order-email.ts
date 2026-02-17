@@ -21,6 +21,7 @@ interface OrderEmailData {
   address: string
   city: string
   promoCode?: string
+  notes?: string
 }
 
 function formatJOD(amount: number): string {
@@ -110,6 +111,14 @@ export async function sendOrderConfirmationEmail(data: OrderEmailData) {
           <p style="color: #666; font-size: 12px; text-transform: uppercase; margin: 0 0 8px;">Delivery Address</p>
           <p style="color: #333; font-size: 14px; margin: 0;">${data.address}, ${data.city}</p>
         </div>
+
+        ${data.notes ? `
+        <!-- Order notes -->
+        <div style="background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 16px;">
+          <p style="color: #666; font-size: 12px; text-transform: uppercase; margin: 0 0 8px;">Order Notes</p>
+          <p style="color: #333; font-size: 14px; margin: 0;">${data.notes}</p>
+        </div>
+        ` : ""}
 
         <!-- COD note -->
         <div style="background: #fff3e8; border-radius: 12px; padding: 16px; text-align: center;">

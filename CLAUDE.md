@@ -187,6 +187,7 @@ glowreajo/
 10. **`useRef<T>()`** fails in React 19 — always pass initial value: `useRef<T>(null)`
 11. **Store API routes** under `/store/*` require `x-publishable-api-key` header
 12. **OTP routes** also need the publishable API key header (they're under `/store/`)
+13. **Admin UX:** Never store user-facing configuration in raw metadata key-value pairs. Always provide a friendly admin widget UI for any product settings that non-technical users need to edit.
 
 ---
 

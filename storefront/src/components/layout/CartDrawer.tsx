@@ -58,14 +58,14 @@ export function CartDrawer() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setDrawerOpen(false)}
-            className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
+            className="fixed inset-0 z-[70] bg-black/40 backdrop-blur-sm"
           />
           <motion.div
             variants={slideInRight}
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-surface shadow-elevated flex flex-col"
+            className="fixed top-0 right-0 bottom-0 z-[70] w-full max-w-md bg-surface shadow-elevated flex flex-col"
           >
             <div className="flex items-center justify-between p-6 border-b border-border">
               <div className="flex items-center gap-2">
