@@ -14,6 +14,7 @@ interface Filters {
 interface FilterSidebarProps {
   filters: Filters
   onChange: (filters: Filters) => void
+  products?: any[]
   isMobile?: boolean
   isOpen?: boolean
   onClose?: () => void
@@ -23,8 +24,21 @@ const categories = [
   "All", "Cleansers", "Toners", "Serums & Essences", "Moisturizers", "Sunscreens", "Masks & Treatments", "Sets & Bundles"
 ]
 
-const skinTypes = ["All", "All Skin Types", "Oily", "Dry", "Combination", "Sensitive"]
-const concerns = ["All", "Acne", "Hydration", "Anti-aging", "Brightening", "Pores", "Sun Protection"]
+const DEFAULT_SKIN_TYPES = ["All Skin Types", "Oily", "Dry", "Combination", "Sensitive"]
+const DEFAULT_CONCERNS = ["Acne", "Hydration", "Anti-aging", "Brightening", "Pores", "Sun Protection"]
+
+function buildOptions(defaults: string[], products: any[], metaKey: string): string[] {
+  const extras = new Set<string>()
+  for (const p of products) {
+    const val = (p.metadata as any)?.[metaKey]
+    if (val && typeof val === "string") {
+      val.split(",").map((v: string) => v.trim()).filter(Boolean).forEach((v: string) => {
+        if (!defaults.includes(v)) extras.add(v)
+      })
+    }
+  }
+  return ["All", ...defaults, ...Array.from(extras).sort()]
+}
 const priceRanges = [
   { label: "All Prices", value: "all" },
   { label: "Under 10 JOD", value: "0-10" },
@@ -71,7 +85,10 @@ function FilterGroup({
   )
 }
 
-export function FilterSidebar({ filters, onChange, isMobile, isOpen, onClose }: FilterSidebarProps) {
+export function FilterSidebar({ filters, onChange, products = [], isMobile, isOpen, onClose }: FilterSidebarProps) {
+  const skinTypes = buildOptions(DEFAULT_SKIN_TYPES, products, "skin_type")
+  const concerns = buildOptions(DEFAULT_CONCERNS, products, "concerns")
+
   const content = (
     <div className="p-6">
       {isMobile && (

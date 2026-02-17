@@ -126,10 +126,11 @@ export default function ShopPage() {
       </div>
 
       <div className="flex gap-8">
-        <FilterSidebar filters={filters} onChange={setFilters} />
+        <FilterSidebar filters={filters} onChange={setFilters} products={products} />
         <FilterSidebar
           filters={filters}
           onChange={setFilters}
+          products={products}
           isMobile
           isOpen={mobileFiltersOpen}
           onClose={() => setMobileFiltersOpen(false)}

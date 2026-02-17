@@ -1,7 +1,6 @@
 import { defineWidgetConfig } from "@medusajs/admin-sdk"
 import { Container, Heading, Label, Button, Input } from "@medusajs/ui"
 import { useState, useEffect } from "react"
-import { Plus, X } from "lucide-react"
 
 const SKIN_TYPES = ["All Skin Types", "Oily", "Dry", "Combination", "Sensitive"]
 const CONCERNS = ["Acne", "Hydration", "Anti-aging", "Brightening", "Pores", "Sun Protection"]
@@ -64,7 +63,7 @@ function MultiSelect({
                   onClick={(e) => { e.stopPropagation(); onRemoveCustom(opt) }}
                   className="ml-1.5 inline-flex items-center"
                 >
-                  <X className="h-3 w-3" />
+                  &times;
                 </span>
               )}
             </button>
@@ -90,8 +89,7 @@ function MultiSelect({
             onClick={() => setAdding(true)}
             className="flex items-center gap-1 rounded-full border border-dashed border-ui-border-base px-3 py-1 text-xs text-ui-fg-muted hover:border-ui-border-interactive hover:text-ui-fg-subtle transition-colors"
           >
-            <Plus className="h-3 w-3" />
-            Add
+            + Add
           </button>
         )}
       </div>
