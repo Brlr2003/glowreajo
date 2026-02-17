@@ -88,6 +88,22 @@ export interface PlaceOrderResult {
   total: number
 }
 
+function pickShippingOption(options: any[], city: string, subtotalAfterDiscount: number): any {
+  const find = (name: string) => options.find((o: any) => o.name === name)
+
+  // Free shipping for orders >= 50 JOD
+  if (subtotalAfterDiscount >= 50) {
+    return find("Free Delivery") || options[0]
+  }
+
+  const cityLower = city.toLowerCase().trim()
+  if (cityLower === "amman" || cityLower === "عمان") {
+    return find("Amman Delivery") || find("Free Delivery") || options[0]
+  }
+
+  return find("Other Cities Delivery") || find("Free Delivery") || options[0]
+}
+
 export async function placeOrder(
   items: CartItem[],
   personalInfo: PersonalInfo,
@@ -129,12 +145,15 @@ export async function placeOrder(
     billing_address: address,
   })
 
-  // 5. Select shipping option
+  // 5. Select shipping option based on city and subtotal
   const shippingOptions = await getShippingOptions(cart.id)
   if (!shippingOptions || shippingOptions.length === 0) {
     throw new Error("No shipping options available")
   }
-  cart = await addShippingMethod(cart.id, shippingOptions[0].id)
+
+  const subtotalForShipping = items.reduce((sum: number, i: CartItem) => sum + i.price * i.quantity, 0) - (promoDiscount || 0)
+  const selectedOption = pickShippingOption(shippingOptions, personalInfo.city, subtotalForShipping)
+  cart = await addShippingMethod(cart.id, selectedOption.id)
 
   // 6. Initialize payment session
   await medusa.store.payment.initiatePaymentSession(cart as any, {
@@ -159,7 +178,9 @@ export async function placeOrder(
   const subtotal = items.reduce((sum: number, i: CartItem) => sum + i.price * i.quantity, 0)
   const discount = promoDiscount || 0
   const subtotalAfterDiscount = subtotal - discount
-  const shipping = subtotalAfterDiscount >= 50 ? 0 : personalInfo.city === "amman" ? 2 : 3
+  const cityForEmail = personalInfo.city.toLowerCase().trim()
+  const isAmman = cityForEmail === "amman" || cityForEmail === "عمان"
+  const shipping = subtotalAfterDiscount >= 50 ? 0 : isAmman ? 2 : 3
   fetch(`${backendUrl}/store/order/confirm-email`, {
     method: "POST",
     headers: {

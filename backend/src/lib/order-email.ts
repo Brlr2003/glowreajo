@@ -136,3 +136,53 @@ export async function sendOrderConfirmationEmail(data: OrderEmailData) {
     throw new Error(`Failed to send order confirmation email: ${error.message}`)
   }
 }
+
+interface ShipmentEmailData {
+  email: string
+  name: string
+  orderId: string
+}
+
+export async function sendShipmentNotificationEmail(data: ShipmentEmailData) {
+  const html = `
+    <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 560px; margin: 0 auto; padding: 32px;">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <h1 style="color: #e8998d; font-size: 24px; margin: 0;">GlowReaJo</h1>
+        <p style="color: #888; font-size: 14px; margin-top: 4px;">Your K-Beauty Destination</p>
+      </div>
+
+      <div style="background: #faf7f5; border-radius: 16px; padding: 32px; text-align: center;">
+        <div style="font-size: 48px; margin-bottom: 16px;">📦</div>
+        <h2 style="color: #333; font-size: 20px; margin: 0 0 4px;">Your Order is On Its Way!</h2>
+        <p style="color: #888; font-size: 14px; margin: 0 0 24px;">
+          Order #${data.orderId}
+        </p>
+
+        <p style="color: #333; font-size: 15px; margin: 0 0 20px;">
+          Hi ${data.name}, great news! Your order has been shipped and is on its way to you.
+        </p>
+
+        <div style="background: #e8f5e9; border-radius: 12px; padding: 16px;">
+          <p style="color: #2e7d32; font-size: 14px; margin: 0;">
+            You'll receive your package soon. Payment is due upon delivery (Cash on Delivery).
+          </p>
+        </div>
+      </div>
+
+      <p style="color: #aaa; font-size: 12px; text-align: center; margin-top: 24px;">
+        Questions? Reach us at info@glowreajo.com
+      </p>
+    </div>
+  `
+
+  const { error } = await resend.emails.send({
+    from: `GlowReaJo <${FROM_EMAIL}>`,
+    to: data.email,
+    subject: `Your Order #${data.orderId} Has Been Shipped! 📦`,
+    html,
+  })
+
+  if (error) {
+    throw new Error(`Failed to send shipment notification email: ${error.message}`)
+  }
+}

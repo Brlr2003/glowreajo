@@ -178,28 +178,53 @@ export default async function seed({ container }: { container: any }) {
       [Modules.FULFILLMENT]: { fulfillment_provider_id: "manual_manual" },
     })
 
-    // 10. Create shipping option
-    const shippingOption = await fulfillmentModule.createShippingOptions({
-      name: "Free Delivery",
-      price_type: "flat",
-      service_zone_id: serviceZone.id,
-      shipping_profile_id: shippingProfile.id,
-      provider_id: "manual_manual",
-      type: { label: "Standard", description: "Free delivery in Jordan", code: "standard" },
-      rules: [],
-    })
-
-    // 11. Create price set and link to shipping option
-    logger.info("Setting up shipping option price...")
+    // 10. Create shipping options: Free, Amman, Other Cities
+    logger.info("Creating shipping options...")
     const pricingModule = container.resolve(Modules.PRICING)
-    const priceSet = await pricingModule.createPriceSets({
-      prices: [{ amount: 0, currency_code: "jod" }],
-    })
-    await remoteLink.create({
-      [Modules.FULFILLMENT]: { shipping_option_id: shippingOption.id },
-      [Modules.PRICING]: { price_set_id: priceSet.id },
-    })
+
+    const shippingOptionDefs = [
+      { name: "Free Delivery", amount: 0, label: "Free", description: "Free delivery on orders 50+ JOD", code: "free" },
+      { name: "Amman Delivery", amount: 2, label: "Amman", description: "Delivery within Amman (2 JOD)", code: "amman" },
+      { name: "Other Cities Delivery", amount: 3, label: "Other Cities", description: "Delivery outside Amman (3 JOD)", code: "other-cities" },
+    ]
+
+    for (const def of shippingOptionDefs) {
+      const shippingOption = await fulfillmentModule.createShippingOptions({
+        name: def.name,
+        price_type: "flat",
+        service_zone_id: serviceZone.id,
+        shipping_profile_id: shippingProfile.id,
+        provider_id: "manual_manual",
+        type: { label: def.label, description: def.description, code: def.code },
+        rules: [],
+      })
+
+      const priceSet = await pricingModule.createPriceSets({
+        prices: [{ amount: def.amount, currency_code: "jod" }],
+      })
+      await remoteLink.create({
+        [Modules.FULFILLMENT]: { shipping_option_id: shippingOption.id },
+        [Modules.PRICING]: { price_set_id: priceSet.id },
+      })
+      logger.info(`Created shipping option: ${def.name} (${def.amount} JOD)`)
+    }
   }
+
+  // 11. Set product thumbnails from first image (idempotent)
+  logger.info("Setting product thumbnails...")
+  const productModule = container.resolve(Modules.PRODUCT)
+  const allProducts = await productModule.listProducts({}, { relations: ["images"] })
+  let thumbUpdated = 0
+
+  for (const product of allProducts) {
+    if (!product.thumbnail && product.images?.length > 0) {
+      await productModule.updateProducts(product.id, {
+        thumbnail: product.images[0].url,
+      })
+      thumbUpdated++
+    }
+  }
+  logger.info(`Updated thumbnails for ${thumbUpdated} products`)
 
   logger.info("Seeding complete!")
   logger.info(`Sales channel: ${salesChannel.name}`)
