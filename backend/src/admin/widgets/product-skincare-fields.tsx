@@ -2,8 +2,8 @@ import { defineWidgetConfig } from "@medusajs/admin-sdk"
 import { Container, Heading, Label, Button, Input } from "@medusajs/ui"
 import { useState, useEffect } from "react"
 
-const SKIN_TYPES = ["All Skin Types", "Oily", "Dry", "Combination", "Sensitive"]
-const CONCERNS = ["Acne", "Hydration", "Anti-aging", "Brightening", "Pores", "Sun Protection"]
+const SKIN_TYPES = ["All Skin Types", "Oily", "Dry", "Combination", "Sensitive", "Normal"]
+const CONCERNS = ["Acne", "Hydration", "Anti-aging", "Brightening", "Pores", "Sun Protection", "Dark Spots", "Redness"]
 
 type DetailWidgetProps = {
   data: { id: string; metadata: Record<string, any> | null }
