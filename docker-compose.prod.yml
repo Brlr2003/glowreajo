@@ -11,6 +11,11 @@ services:
       - pgdata:/var/lib/postgresql/data
     networks:
       - internal
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   redis:
     image: redis:7
@@ -20,14 +25,21 @@ services:
       - redisdata:/data
     networks:
       - internal
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   backend:
     image: ghcr.io/brlr2003/glowreajo-backend:main
     container_name: glowreajo-backend
     restart: unless-stopped
     depends_on:
-      - postgres
-      - redis
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
     environment:
       DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?sslmode=disable
       REDIS_URL: redis://redis:6379
@@ -69,8 +81,10 @@ services:
 volumes:
   pgdata:
     name: glowreajo_pgdata
+    external: true
   redisdata:
     name: glowreajo_redisdata
+    external: true
   backend-static:
     name: glowreajo_backend-static
 
