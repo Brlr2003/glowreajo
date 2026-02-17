@@ -29,7 +29,10 @@ export function OrderSummary({ city }: OrderSummaryProps) {
               <p className="text-sm font-medium text-text-primary truncate">{item.title}</p>
               <p className="text-xs text-text-muted">Qty: {item.quantity}</p>
             </div>
-            <span className="text-sm font-medium">{formatPrice(item.price * item.quantity)}</span>
+            <div className="text-right">
+              <span className="text-sm font-medium">{formatPrice(item.price * item.quantity)}</span>
+              <span className="block text-xs text-text-muted line-through">{formatPrice((item.price + 2) * item.quantity)}</span>
+            </div>
           </div>
         ))}
       </div>

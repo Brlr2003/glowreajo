@@ -91,7 +91,8 @@ export interface PlaceOrderResult {
 export async function placeOrder(
   items: CartItem[],
   personalInfo: PersonalInfo,
-  promoCode?: string
+  promoCode?: string,
+  promoDiscount?: number
 ): Promise<PlaceOrderResult> {
   // 1. Create a fresh Medusa cart
   let cart = await createCart()
@@ -146,9 +147,43 @@ export async function placeOrder(
     throw new Error("Order creation failed")
   }
 
-  return {
+  const result: PlaceOrderResult = {
     id: order.id,
     displayId: order.display_id?.toString() || order.id,
     total: (order as any).total || 0,
   }
+
+  // Fire-and-forget order confirmation email
+  const backendUrl = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"
+  const apiKey = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || ""
+  const subtotal = items.reduce((sum: number, i: CartItem) => sum + i.price * i.quantity, 0)
+  const discount = promoDiscount || 0
+  const subtotalAfterDiscount = subtotal - discount
+  const shipping = subtotalAfterDiscount >= 50 ? 0 : personalInfo.city === "amman" ? 2 : 3
+  fetch(`${backendUrl}/store/order/confirm-email`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-publishable-api-key": apiKey,
+    },
+    body: JSON.stringify({
+      email: personalInfo.email,
+      name: `${personalInfo.firstName} ${personalInfo.lastName}`,
+      orderId: result.displayId,
+      items: items.map((item: CartItem) => ({
+        title: item.title,
+        quantity: item.quantity,
+        price: item.price,
+      })),
+      subtotal,
+      shipping,
+      discount,
+      total: subtotalAfterDiscount + shipping,
+      address: personalInfo.address,
+      city: personalInfo.city,
+      promoCode: promoCode || "",
+    }),
+  }).catch((err: any) => console.error("[OrderEmail] Failed:", err?.message))
+
+  return result
 }

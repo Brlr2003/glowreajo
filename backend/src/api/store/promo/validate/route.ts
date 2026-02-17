@@ -52,7 +52,7 @@ export async function POST(req: any, res: any): Promise<void> {
       value = Number(method.value) || 0
 
       if (type === "percentage") {
-        discount = Math.round(cart_total * (value / 100))
+        discount = Math.round(cart_total * (value / 100) * 100) / 100
       } else {
         discount = Math.min(value, cart_total)
       }

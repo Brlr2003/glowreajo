@@ -30,7 +30,7 @@ export function OrderConfirmStep({ personalInfo, onBack }: OrderConfirmStepProps
     setError(null)
 
     try {
-      const order = await placeOrder(items, personalInfo, promo?.code)
+      const order = await placeOrder(items, personalInfo, promo?.code, promo?.discount)
       sessionStorage.setItem("glowreajo-order", JSON.stringify(order))
       clearCart()
       router.push("/order/success")

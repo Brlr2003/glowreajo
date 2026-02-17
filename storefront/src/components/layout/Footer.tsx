@@ -90,19 +90,19 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span>+962 7 7726 1248</span>
+                <a href="tel:+96277261248" className="hover:text-white transition-colors">+962 7 7726 1248</a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <span>info@glowreajo.com</span>
+                <a href="mailto:info@glowreajo.com" className="hover:text-white transition-colors">info@glowreajo.com</a>
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="h-4 w-4" />
-                <span>WhatsApp</span>
+                <a href="https://wa.me/96277261248" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">WhatsApp</a>
               </li>
               <li className="flex items-center gap-2">
                 <Instagram className="h-4 w-4" />
-                <span>@glowreajo</span>
+                <a href="https://instagram.com/glowreajo" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">@glowreajo</a>
               </li>
             </ul>
           </div>

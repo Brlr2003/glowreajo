@@ -34,8 +34,11 @@ export function ProductGrid({ products, loading }: ProductGridProps) {
     )
   }
 
+  const gridKey = products.map((p) => p.id).join(",")
+
   return (
     <motion.div
+      key={gridKey}
       variants={stagger(0.05)}
       initial="hidden"
       animate="visible"

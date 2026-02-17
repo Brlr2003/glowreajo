@@ -64,10 +64,15 @@ export function ProductInfo({ product }: ProductInfoProps) {
         {product.title}
       </h1>
 
-      <div className="mt-4 flex items-center gap-3">
+      <div className="mt-4 flex items-baseline gap-3">
         <span className="font-heading text-3xl font-bold text-primary">
           {priceAmount ? formatPrice(priceAmount) : "N/A"}
         </span>
+        {priceAmount > 0 && (
+          <span className="text-lg text-text-muted line-through">
+            {formatPrice(priceAmount + 2)}
+          </span>
+        )}
       </div>
 
       {(skinType || concerns) && (

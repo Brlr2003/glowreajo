@@ -18,8 +18,8 @@ const props = [
   },
   {
     icon: Truck,
-    title: "Free Delivery",
-    description: "Free shipping on all orders within Amman",
+    title: "Fast Delivery",
+    description: "Free shipping on orders over 50 JOD nationwide",
   },
   {
     icon: MessageCircle,
