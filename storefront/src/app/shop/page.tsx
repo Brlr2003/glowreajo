@@ -31,7 +31,7 @@ export default function ShopPage() {
     async function load() {
       try {
         const region_id = await getRegionId()
-        const { products } = await medusa.store.product.list({ limit: 50, region_id, fields: "*categories,*images" } as any)
+        const { products } = await medusa.store.product.list({ limit: 50, region_id, fields: "*categories,*images,+metadata" } as any)
         setProducts(products)
       } catch {
         // Backend may not be running
