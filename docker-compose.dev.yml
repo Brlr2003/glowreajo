@@ -22,9 +22,7 @@ services:
       - internal-dev
 
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: ghcr.io/brlr2003/glowreajo-backend:dev
     container_name: glowreajo-dev-backend
     restart: unless-stopped
     depends_on:
@@ -56,12 +54,7 @@ services:
       - internal-dev
 
   storefront:
-    build:
-      context: ./storefront
-      dockerfile: Dockerfile
-      args:
-        NEXT_PUBLIC_MEDUSA_BACKEND_URL: ${NEXT_PUBLIC_MEDUSA_BACKEND_URL}
-        NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: ${NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY}
+    image: ghcr.io/brlr2003/glowreajo-storefront:dev
     container_name: glowreajo-dev-storefront
     restart: unless-stopped
     depends_on:
