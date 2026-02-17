@@ -23,7 +23,7 @@ export async function POST(req: any, res: any): Promise<void> {
     const promotionModule = req.scope.resolve(Modules.PROMOTION)
     const promotions = await promotionModule.listPromotions(
       { code: code.toUpperCase(), is_automatic: false },
-      { relations: ["rules"] }
+      { relations: ["rules", "application_method"] }
     )
 
     const promo = promotions.find((p: any) => {

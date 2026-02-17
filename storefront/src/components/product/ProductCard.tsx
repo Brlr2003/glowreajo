@@ -19,6 +19,7 @@ interface ProductCardProps {
 export const ProductCard = memo(function ProductCard({ product }: ProductCardProps) {
   const [added, setAdded] = useState(false)
   const [zoomOpen, setZoomOpen] = useState(false)
+  const [imgError, setImgError] = useState(false)
   const { addItem } = useCart()
   const { addToast } = useToast()
 
@@ -27,7 +28,8 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   const fallbackPrice = variant?.prices?.find((p: any) => p.currency_code === "jod")
   const priceAmount = calculatedPrice?.calculated_amount ?? fallbackPrice?.amount ?? 0
   const brand = (product.metadata as any)?.brand || ""
-  const imgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
+  const rawImgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
+  const imgSrc = imgError ? getProductImage(product.handle) : rawImgSrc
   const unoptimized = imgSrc.startsWith("http://localhost")
 
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -70,6 +72,7 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
             className="object-cover transition-transform duration-500 group-hover:scale-110"
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
             unoptimized={unoptimized}
+            onError={() => setImgError(true)}
           />
           {product.tags?.length > 0 && (
             <div className="absolute top-3 left-3 flex gap-2">
@@ -92,9 +95,16 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
             {product.title}
           </h3>
           <div className="mt-auto pt-3 flex items-center justify-between">
-            <span className="font-heading text-lg font-bold text-primary">
-              {priceAmount ? formatPrice(priceAmount) : "N/A"}
-            </span>
+            <div className="flex items-baseline gap-1.5">
+              <span className="font-heading text-lg font-bold text-primary">
+                {priceAmount ? formatPrice(priceAmount) : "N/A"}
+              </span>
+              {priceAmount > 0 && (
+                <span className="text-xs text-text-muted line-through">
+                  {formatPrice(priceAmount + 2)}
+                </span>
+              )}
+            </div>
             <motion.button
               onClick={handleAddToCart}
               whileTap={{ scale: 0.9 }}

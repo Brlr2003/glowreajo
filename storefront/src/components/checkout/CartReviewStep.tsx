@@ -1,12 +1,30 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { useCart } from "@/context/CartContext"
 import { formatPrice } from "@/lib/formatPrice"
 import { validatePromoCode } from "@/lib/promo"
 import { Button } from "@/components/ui/Button"
 import { PromoCodeInput } from "@/components/ui/PromoCodeInput"
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react"
+
+function CartImage({ src, alt }: { src: string; alt: string }) {
+  const [error, setError] = useState(false)
+  if (error) return <ShoppingBag className="h-8 w-8 text-border" />
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className="rounded-lg object-cover"
+      sizes="80px"
+      unoptimized
+      onError={() => setError(true)}
+    />
+  )
+}
 
 interface CartReviewStepProps {
   onNext: () => void
@@ -52,18 +70,18 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
             {productUrl ? (
               <Link
                 href={productUrl}
-                className="h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center"
+                className="relative h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center"
               >
                 {item.image ? (
-                  <img src={item.image} alt={item.title} className="h-full w-full rounded-lg object-cover" />
+                  <CartImage src={item.image} alt={item.title} />
                 ) : (
                   <ShoppingBag className="h-8 w-8 text-border" />
                 )}
               </Link>
             ) : (
-              <div className="h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center">
+              <div className="relative h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center">
                 {item.image ? (
-                  <img src={item.image} alt={item.title} className="h-full w-full rounded-lg object-cover" />
+                  <CartImage src={item.image} alt={item.title} />
                 ) : (
                   <ShoppingBag className="h-8 w-8 text-border" />
                 )}
@@ -78,7 +96,10 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
                 <span className="font-medium text-text-primary">{item.title}</span>
               )}
               {item.brand && <p className="text-xs text-text-muted">{item.brand}</p>}
-              <p className="text-sm font-semibold text-primary mt-1">{formatPrice(item.price)}</p>
+              <p className="text-sm font-semibold text-primary mt-1">
+                {formatPrice(item.price)}{" "}
+                <span className="text-xs text-text-muted line-through font-normal">{formatPrice(item.price + 2)}</span>
+              </p>
               <div className="flex items-center gap-3 mt-2">
                 <button
                   onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -113,6 +134,10 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
         appliedCode={promo?.code}
         onRemove={removePromo}
       />
+
+      <div className="rounded-xl bg-success/10 px-4 py-2.5 text-center text-sm text-success font-medium">
+        Free delivery on orders over 50 JOD
+      </div>
 
       <div className="pt-4 border-t border-border space-y-2">
         <div className="flex justify-between text-sm">

@@ -2,6 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
+import { useState } from "react"
 import { X, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react"
 import { useCart } from "@/context/CartContext"
 import { Button } from "@/components/ui/Button"
@@ -9,6 +11,22 @@ import { PromoCodeInput } from "@/components/ui/PromoCodeInput"
 import { formatPrice } from "@/lib/formatPrice"
 import { validatePromoCode } from "@/lib/promo"
 import { slideInRight } from "@/lib/animations"
+
+function CartImage({ src, alt }: { src: string; alt: string }) {
+  const [error, setError] = useState(false)
+  if (error) return <ShoppingBag className="h-8 w-8 text-border" />
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className="rounded-lg object-cover"
+      sizes="80px"
+      unoptimized
+      onError={() => setError(true)}
+    />
+  )
+}
 
 export function CartDrawer() {
   const {
@@ -93,9 +111,9 @@ export function CartDrawer() {
                       exit={{ opacity: 0, x: 100 }}
                       className="flex gap-4 rounded-xl border border-border p-3"
                     >
-                      <Wrapper className="h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center">
+                      <Wrapper className="relative h-20 w-20 shrink-0 rounded-lg bg-background flex items-center justify-center">
                         {item.image ? (
-                          <img src={item.image} alt={item.title} className="h-full w-full rounded-lg object-cover" />
+                          <CartImage src={item.image} alt={item.title} />
                         ) : (
                           <ShoppingBag className="h-8 w-8 text-border" />
                         )}
@@ -108,7 +126,10 @@ export function CartDrawer() {
                           <p className="text-xs text-text-muted">{item.brand}</p>
                         )}
                         <p className="text-sm font-semibold text-primary mt-1">
-                          {formatPrice(item.price)}
+                          {formatPrice(item.price)}{" "}
+                          <span className="text-xs text-text-muted line-through font-normal">
+                            {formatPrice(item.price + 2)}
+                          </span>
                         </p>
                         <div className="flex items-center gap-2 mt-2">
                           <button
@@ -161,6 +182,9 @@ export function CartDrawer() {
                     <span className="font-heading text-lg font-bold text-primary">{formatPrice(finalTotal)}</span>
                   </div>
                 )}
+                <div className="rounded-xl bg-success/10 px-4 py-2 text-center text-xs text-success font-medium">
+                  Free delivery on orders over 50 JOD
+                </div>
                 <Link href="/checkout" onClick={() => setDrawerOpen(false)} className="block">
                   <Button className="w-full" size="lg">
                     Proceed to Checkout

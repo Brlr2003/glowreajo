@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { ZoomIn } from "lucide-react"
@@ -22,6 +22,11 @@ export function ProductGallery({ product }: ProductGalleryProps) {
     : [mainImage]
   const [selected, setSelected] = useState(0)
   const [zoomOpen, setZoomOpen] = useState(false)
+  const [errorIndices, setErrorIndices] = useState<Set<number>>(new Set())
+  const placeholder = getProductImage(product?.handle || "")
+  const handleImgError = useCallback((i: number) => {
+    setErrorIndices((prev) => new Set(prev).add(i))
+  }, [])
 
   return (
     <div className="space-y-4">
@@ -36,13 +41,14 @@ export function ProductGallery({ product }: ProductGalleryProps) {
           onClick={() => setZoomOpen(true)}
         >
           <Image
-            src={images[selected]}
+            src={errorIndices.has(selected) ? placeholder : images[selected]}
             alt={product?.title || "Product"}
             fill
             className="object-cover"
             priority
             sizes="(min-width: 1024px) 50vw, 100vw"
             unoptimized={isLocal(images[selected])}
+            onError={() => handleImgError(selected)}
           />
           <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 group-hover:opacity-100 group-hover:bg-black/10 transition-all">
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/80 text-text-primary shadow-soft">
@@ -62,7 +68,7 @@ export function ProductGallery({ product }: ProductGalleryProps) {
                 selected === i ? "border-primary" : "border-transparent"
               }`}
             >
-              <Image src={img} alt="" fill className="object-cover" sizes="80px" unoptimized={isLocal(img)} />
+              <Image src={errorIndices.has(i) ? placeholder : img} alt="" fill className="object-cover" sizes="80px" unoptimized={isLocal(img)} onError={() => handleImgError(i)} />
             </button>
           ))}
         </div>

@@ -4,11 +4,16 @@ import { useCart } from "@/context/CartContext"
 import { formatPrice } from "@/lib/formatPrice"
 import { ShoppingBag } from "lucide-react"
 
-export function OrderSummary() {
+interface OrderSummaryProps {
+  city?: string
+}
+
+export function OrderSummary({ city }: OrderSummaryProps) {
   const { items, totalPrice, promo } = useCart()
   const discount = promo?.discount || 0
-  const shipping = 0 // Free for Amman
-  const total = totalPrice - discount + shipping
+  const subtotalAfterDiscount = totalPrice - discount
+  const shipping = subtotalAfterDiscount >= 50 ? 0 : city === "amman" ? 2 : 3
+  const total = subtotalAfterDiscount + shipping
 
   return (
     <div className="rounded-2xl bg-surface p-6 shadow-soft">

@@ -21,7 +21,9 @@ export function OrderConfirmStep({ personalInfo, onBack }: OrderConfirmStepProps
   const router = useRouter()
   const { items, clearCart, totalPrice, promo } = useCart()
 
-  const finalTotal = totalPrice - (promo?.discount || 0)
+  const subtotalAfterDiscount = totalPrice - (promo?.discount || 0)
+  const shipping = subtotalAfterDiscount >= 50 ? 0 : personalInfo.city === "amman" ? 2 : 3
+  const finalTotal = subtotalAfterDiscount + shipping
 
   const handlePlaceOrder = async () => {
     setPlacing(true)
@@ -72,7 +74,7 @@ export function OrderConfirmStep({ personalInfo, onBack }: OrderConfirmStepProps
         </div>
       </div>
 
-      <OrderSummary />
+      <OrderSummary city={personalInfo.city} />
 
       <div className="rounded-2xl bg-warm-accent/30 p-4 text-center text-sm">
         <p className="font-medium text-text-primary">Payment: Cash on Delivery</p>
