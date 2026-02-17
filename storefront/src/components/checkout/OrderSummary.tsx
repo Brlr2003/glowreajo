@@ -31,7 +31,9 @@ export function OrderSummary({ city }: OrderSummaryProps) {
             </div>
             <div className="text-right">
               <span className="text-sm font-medium">{formatPrice(item.price * item.quantity)}</span>
-              <span className="block text-xs text-text-muted line-through">{formatPrice((item.price + 2) * item.quantity)}</span>
+              {item.compareAtPrice && (
+                <span className="block text-xs text-text-muted line-through">{formatPrice(item.compareAtPrice * item.quantity)}</span>
+              )}
             </div>
           </div>
         ))}

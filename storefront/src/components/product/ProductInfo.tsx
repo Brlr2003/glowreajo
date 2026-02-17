@@ -8,6 +8,7 @@ import { useToast } from "@/context/ToastContext"
 import { Button } from "@/components/ui/Button"
 import { Badge } from "@/components/ui/Badge"
 import { formatPrice } from "@/lib/formatPrice"
+import { getCompareAtPrice } from "@/lib/compareAtPrice"
 import { getProductImage } from "@/lib/demo-images"
 
 interface ProductInfoProps {
@@ -24,6 +25,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
   const calculatedPrice = variant?.calculated_price
   const fallbackPrice = variant?.prices?.find((p: any) => p.currency_code === "jod")
   const priceAmount = calculatedPrice?.calculated_amount ?? fallbackPrice?.amount ?? 0
+  const compareAtPrice = getCompareAtPrice(priceAmount, product.metadata)
   const brand = (product.metadata as any)?.brand || ""
   const imgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
   const skinType = (product.metadata as any)?.skin_type || ""
@@ -41,6 +43,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
       quantity,
       image: imgSrc,
       brand,
+      compareAtPrice: compareAtPrice ?? undefined,
     })
 
     addToast({
@@ -68,9 +71,9 @@ export function ProductInfo({ product }: ProductInfoProps) {
         <span className="font-heading text-3xl font-bold text-primary">
           {priceAmount ? formatPrice(priceAmount) : "N/A"}
         </span>
-        {priceAmount > 0 && (
+        {compareAtPrice && (
           <span className="text-lg text-text-muted line-through">
-            {formatPrice(priceAmount + 2)}
+            {formatPrice(compareAtPrice)}
           </span>
         )}
       </div>

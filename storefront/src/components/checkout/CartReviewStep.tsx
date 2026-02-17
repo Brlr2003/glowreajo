@@ -97,8 +97,13 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
               )}
               {item.brand && <p className="text-xs text-text-muted">{item.brand}</p>}
               <p className="text-sm font-semibold text-primary mt-1">
-                {formatPrice(item.price)}{" "}
-                <span className="text-xs text-text-muted line-through font-normal">{formatPrice(item.price + 2)}</span>
+                {formatPrice(item.price)}
+                {item.compareAtPrice && (
+                  <>
+                    {" "}
+                    <span className="text-xs text-text-muted line-through font-normal">{formatPrice(item.compareAtPrice)}</span>
+                  </>
+                )}
               </p>
               <div className="flex items-center gap-3 mt-2">
                 <button
