@@ -60,7 +60,7 @@ jobs:
     needs: build-prod
     runs-on: ubuntu-latest
     concurrency:
-      group: deploy-main
+      group: deploy-vps
       cancel-in-progress: false
     steps:
       - name: Deploy to production
@@ -70,7 +70,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           envs: GHCR_TOKEN
-          command_timeout: 10m
+          command_timeout: 15m
           script: |
             set -e
             echo $GHCR_TOKEN | docker login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -131,8 +131,8 @@ jobs:
     needs: build-dev
     runs-on: ubuntu-latest
     concurrency:
-      group: deploy-dev
-      cancel-in-progress: true
+      group: deploy-vps
+      cancel-in-progress: false
     steps:
       - name: Deploy to dev
         uses: appleboy/ssh-action@v1
@@ -141,7 +141,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           envs: GHCR_TOKEN
-          command_timeout: 10m
+          command_timeout: 15m
           script: |
             set -e
             echo $GHCR_TOKEN | docker login ghcr.io -u ${{ github.actor }} --password-stdin
