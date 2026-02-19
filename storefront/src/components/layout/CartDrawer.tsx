@@ -145,8 +145,16 @@ export function CartDrawer() {
                           </button>
                           <span className="text-sm font-medium w-6 text-center">{item.quantity}</span>
                           <button
-                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="flex h-7 w-7 items-center justify-center rounded-full border border-border hover:bg-background transition-colors"
+                            onClick={() => {
+                              if (item.inventoryQuantity && item.quantity >= item.inventoryQuantity) return
+                              updateQuantity(item.id, item.quantity + 1)
+                            }}
+                            disabled={!!item.inventoryQuantity && item.quantity >= item.inventoryQuantity}
+                            className={`flex h-7 w-7 items-center justify-center rounded-full border border-border transition-colors ${
+                              item.inventoryQuantity && item.quantity >= item.inventoryQuantity
+                                ? "text-text-muted cursor-not-allowed"
+                                : "hover:bg-background"
+                            }`}
                           >
                             <Plus className="h-3 w-3" />
                           </button>

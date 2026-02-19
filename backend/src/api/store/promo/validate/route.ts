@@ -1,5 +1,6 @@
 import { z } from "zod"
 import { Modules } from "@medusajs/framework/utils"
+import { getLogger } from "../../../../lib/logger"
 
 const ValidatePromoSchema = z.object({
   code: z.string().min(1),
@@ -66,7 +67,7 @@ export async function POST(req: any, res: any): Promise<void> {
       message: type === "percentage" ? `${value}% off applied!` : `${value} JOD off applied!`,
     })
   } catch (err: any) {
-    console.error("[Promo] Validation error:", err?.message)
+    getLogger(req).error("[Promo] Validation error:", err?.message)
     res.status(500).json({
       valid: false,
       message: "Failed to validate promo code",

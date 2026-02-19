@@ -14,6 +14,7 @@ export interface CartItem {
   image?: string
   brand?: string
   compareAtPrice?: number
+  inventoryQuantity?: number
 }
 
 interface PromoState {
