@@ -23,10 +23,19 @@ function parseFaq(raw: any): { q: string; a: string }[] {
   }
 }
 
+async function getProducts(): Promise<any[]> {
+  try {
+    const data = await medusaFetch<{ products: any[] }>("/store/products?limit=100&fields=+metadata")
+    return data.products || []
+  } catch {
+    return []
+  }
+}
+
 export default async function FaqPage() {
-  const [categories, productsData] = await Promise.all([
+  const [categories, products] = await Promise.all([
     getCategories(),
-    medusaFetch<{ products: any[] }>("/store/products?limit=100&fields=+metadata"),
+    getProducts(),
   ])
 
   const groups: FaqGroup[] = []
@@ -40,7 +49,7 @@ export default async function FaqPage() {
     }
   }
 
-  for (const product of productsData.products || []) {
+  for (const product of products) {
     const items = parseFaq(product.metadata?.faq)
     if (items.length > 0) {
       groups.push({ label: product.title, type: "product", items })
