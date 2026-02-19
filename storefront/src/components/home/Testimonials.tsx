@@ -5,32 +5,15 @@ import { Star, Quote } from "lucide-react"
 import { AnimatedSection } from "@/components/ui/AnimatedSection"
 import { SectionTitle } from "@/components/shared/SectionTitle"
 import { stagger, fadeInUp } from "@/lib/animations"
+import type { Testimonial } from "@/lib/testimonials"
 
-const reviews = [
-  {
-    name: "Rania A.",
-    location: "Amman",
-    text: "Finally, authentic Korean skincare without the hassle of international shipping! My skin has never looked better.",
-    product: "COSRX Snail Mucin",
-    rating: 5,
-  },
-  {
-    name: "Lina M.",
-    location: "Irbid",
-    text: "The Beauty of Joseon sunscreen is a game changer. Lightweight, no white cast, and it arrived so fast!",
-    product: "Relief Sun SPF50+",
-    rating: 5,
-  },
-  {
-    name: "Sara K.",
-    location: "Amman",
-    text: "I ordered the starter set for my sister's birthday. She absolutely loved it. The packaging was beautiful too!",
-    product: "K-Beauty Starter Set",
-    rating: 5,
-  },
-]
+interface TestimonialsProps {
+  reviews?: Testimonial[]
+}
 
-export function Testimonials() {
+export function Testimonials({ reviews = [] }: TestimonialsProps) {
+  if (reviews.length === 0) return null
+
   return (
     <section className="py-20 bg-gradient-to-b from-background to-[#fdf2f8]/50">
       <div className="container-app">
@@ -49,9 +32,9 @@ export function Testimonials() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
-          {reviews.map((review) => (
+          {reviews.map((review: Testimonial) => (
             <motion.div
-              key={review.name}
+              key={review.id}
               variants={fadeInUp}
               className="relative rounded-2xl bg-surface p-6 shadow-soft border border-border/50"
             >
@@ -67,11 +50,15 @@ export function Testimonials() {
               <div className="flex items-center justify-between border-t border-border/50 pt-4">
                 <div>
                   <p className="font-semibold text-sm text-text-primary">{review.name}</p>
-                  <p className="text-xs text-text-muted">{review.location}</p>
+                  {review.location && (
+                    <p className="text-xs text-text-muted">{review.location}</p>
+                  )}
                 </div>
-                <span className="text-xs font-medium text-primary bg-primary/10 rounded-full px-3 py-1">
-                  {review.product}
-                </span>
+                {review.product && (
+                  <span className="text-xs font-medium text-primary bg-primary/10 rounded-full px-3 py-1">
+                    {review.product}
+                  </span>
+                )}
               </div>
             </motion.div>
           ))}

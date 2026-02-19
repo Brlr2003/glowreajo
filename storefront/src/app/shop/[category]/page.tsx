@@ -83,6 +83,7 @@ export default async function CategoryPage(
         title={cat.name}
         subtitle={cat.metadata?.description || `Explore our ${cat.name.toLowerCase()} collection`}
         breadcrumbItems={clientBreadcrumb}
+        hideCategoryFilter
       />
       <CategoryFaq category={cat} />
     </>

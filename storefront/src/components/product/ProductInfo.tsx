@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ShoppingBag, Check, Minus, Plus } from "lucide-react"
+import { ShoppingBag, Check, Minus, Plus, MessageCircle } from "lucide-react"
 import { useCart } from "@/context/CartContext"
 import { useToast } from "@/context/ToastContext"
 import { Button } from "@/components/ui/Button"
@@ -11,6 +11,9 @@ import { formatPrice } from "@/lib/formatPrice"
 import { getCompareAtPrice } from "@/lib/compareAtPrice"
 import { getProductImage } from "@/lib/demo-images"
 
+const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"
+const API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || ""
+
 interface ProductInfoProps {
   product: any
 }
@@ -18,6 +21,7 @@ interface ProductInfoProps {
 export function ProductInfo({ product }: ProductInfoProps) {
   const [quantity, setQuantity] = useState(1)
   const [added, setAdded] = useState(false)
+  const [whatsapp, setWhatsapp] = useState<string | null>(null)
   const { addItem, setDrawerOpen } = useCart()
   const { addToast } = useToast()
 
@@ -34,6 +38,17 @@ export function ProductInfo({ product }: ProductInfoProps) {
   const managesInventory = variant?.manage_inventory !== false
   const isOutOfStock = managesInventory && (inventoryQty === 0 || inventoryQty === null)
   const maxQuantity = managesInventory && typeof inventoryQty === "number" ? inventoryQty : 99
+
+  useEffect(() => {
+    fetch(`${BACKEND_URL}/store/site-settings`, {
+      headers: { "x-publishable-api-key": API_KEY },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.site_setting?.whatsapp) setWhatsapp(data.site_setting.whatsapp)
+      })
+      .catch(() => {})
+  }, [])
 
   const handleAdd = () => {
     if (isOutOfStock) return
@@ -63,6 +78,10 @@ export function ProductInfo({ product }: ProductInfoProps) {
       setDrawerOpen(true)
     }, 800)
   }
+
+  const whatsappUrl = whatsapp
+    ? `https://wa.me/${whatsapp}?text=${encodeURIComponent(`Hi! I'd like to pre-order ${product.title} from GlowReaJo.`)}`
+    : null
 
   return (
     <div>
@@ -135,6 +154,18 @@ export function ProductInfo({ product }: ProductInfoProps) {
           </AnimatePresence>
         </Button>
       </div>
+
+      {isOutOfStock && whatsappUrl && (
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-white font-medium hover:bg-[#20bd5a] transition-colors"
+        >
+          <MessageCircle className="h-5 w-5" />
+          Pre-Order via WhatsApp
+        </a>
+      )}
     </div>
   )
 }

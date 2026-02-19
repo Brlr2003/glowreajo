@@ -7,10 +7,10 @@ import { ValueProps } from "@/components/home/ValueProps"
 import { Testimonials } from "@/components/home/Testimonials"
 import { RoutineBuilder } from "@/components/home/RoutineBuilder"
 import { SocialProof } from "@/components/home/SocialProof"
-import { Newsletter } from "@/components/home/Newsletter"
 import { JsonLd } from "@/components/seo/JsonLd"
 import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/seo/schemas"
 import { getCategories } from "@/lib/categories"
+import { getTestimonials } from "@/lib/testimonials"
 import { medusaFetch } from "@/lib/medusa-fetch"
 
 export const metadata: Metadata = {
@@ -27,7 +27,11 @@ async function getBrands(): Promise<string[]> {
 }
 
 export default async function HomePage() {
-  const [categories, brands] = await Promise.all([getCategories(), getBrands()])
+  const [categories, brands, testimonials] = await Promise.all([
+    getCategories(),
+    getBrands(),
+    getTestimonials(),
+  ])
 
   return (
     <>
@@ -37,10 +41,9 @@ export default async function HomePage() {
       <FeaturedCategories categories={categories} />
       <BestSellers />
       <ValueProps />
-      <Testimonials />
+      <Testimonials reviews={testimonials} />
       <RoutineBuilder />
       <SocialProof />
-      <Newsletter />
     </>
   )
 }
