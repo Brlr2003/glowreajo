@@ -34,7 +34,7 @@ export function Header() {
           }}
           animate={hidden ? "hidden" : "visible"}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="mx-auto max-w-6xl rounded-2xl border border-border/50 backdrop-blur-xl bg-surface/80 shadow-soft pointer-events-auto"
+          className={`mx-auto max-w-6xl rounded-2xl border border-border/50 shadow-soft pointer-events-auto transition-colors ${mobileMenuOpen ? "bg-surface" : "backdrop-blur-xl bg-surface/80"}`}
         >
           <div className="relative flex h-14 items-center px-5">
             <Link href="/" className="flex items-center gap-2">
@@ -53,6 +53,12 @@ export function Header() {
               </Link>
               <Link href="/about" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
                 About
+              </Link>
+              <Link href="/blog" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
+                Blog
+              </Link>
+              <Link href="/faq" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
+                FAQ
               </Link>
               <Link href="/contact" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
                 Contact
@@ -84,7 +90,7 @@ export function Header() {
                 )}
               </button>
               <button
-                onClick={() => setMobileMenuOpen(true)}
+                onClick={() => setMobileMenuOpen((prev) => !prev)}
                 className="lg:hidden p-2 text-text-primary hover:text-primary transition-colors"
                 aria-label="Open menu"
               >

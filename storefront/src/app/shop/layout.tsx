@@ -3,11 +3,12 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Shop K-Beauty Products",
   description:
-    "Browse our collection of authentic Korean skincare products. Cleansers, serums, moisturizers, sunscreens & more from top K-beauty brands.",
+    "Browse our collection of authentic Korean skincare products in Jordan. Cleansers, serums, moisturizers, sunscreens & more from top K-beauty brands. Buy Korean beauty products in Amman.",
+  alternates: { canonical: "https://glowreajo.com/shop" },
   openGraph: {
     title: "Shop K-Beauty Products | GlowReaJo",
     description:
-      "Browse our collection of authentic Korean skincare products. Cleansers, serums, moisturizers & more.",
+      "Browse authentic Korean skincare products in Jordan. Cleansers, serums, moisturizers & more from top K-beauty brands.",
   },
 }
 

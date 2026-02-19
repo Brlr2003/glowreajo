@@ -3,7 +3,8 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "GlowReaJo brings authentic Korean skincare to Jordan. Learn about our mission to make K-beauty accessible to everyone.",
+    "GlowReaJo brings authentic Korean skincare to Jordan. Learn about our mission to make K-beauty accessible to everyone in Amman and across Jordan.",
+  alternates: { canonical: "https://glowreajo.com/about" },
   openGraph: {
     title: "About GlowReaJo",
     description:

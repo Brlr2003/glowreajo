@@ -18,6 +18,9 @@ export default defineConfig({
   },
   modules: [
     {
+      resolve: "./src/modules/blog",
+    },
+    {
       resolve: "@medusajs/medusa/file",
       options: {
         providers: [

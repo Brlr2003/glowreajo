@@ -1,149 +1,38 @@
-"use client"
+import { medusaFetch } from "@/lib/medusa-fetch"
+import { getCategories } from "@/lib/categories"
+import { ShopPageClient } from "@/components/shop/ShopPageClient"
+import { JsonLd } from "@/components/seo/JsonLd"
+import { buildBreadcrumbJsonLd } from "@/lib/seo/schemas"
 
-import { useEffect, useState, useMemo } from "react"
-import { SlidersHorizontal } from "lucide-react"
-import { medusa, getRegionId } from "@/lib/medusa-client"
-import { FilterSidebar } from "@/components/shop/FilterSidebar"
-import { SortDropdown } from "@/components/shop/SortDropdown"
-import { ProductGrid } from "@/components/shop/ProductGrid"
-import { AnimatedSection } from "@/components/ui/AnimatedSection"
+const SITE_URL = "https://glowreajo.com"
 
-interface Filters {
-  category: string
-  skinType: string
-  concern: string
-  priceRange: string
+async function getProducts() {
+  try {
+    const regionData = await medusaFetch<{ regions: any[] }>("/store/regions")
+    const region = regionData.regions.find((r: any) => r.currency_code === "jod") || regionData.regions[0]
+    const regionId = region?.id || ""
+
+    const data = await medusaFetch<{ products: any[] }>(
+      `/store/products?limit=50&region_id=${regionId}&fields=*categories,*images,+metadata,+variants.inventory_quantity`
+    )
+    return data.products
+  } catch {
+    return []
+  }
 }
 
-export default function ShopPage() {
-  const [products, setProducts] = useState<any[]>([])
-  const [loading, setLoading] = useState(true)
-  const [filters, setFilters] = useState<Filters>({
-    category: "",
-    skinType: "",
-    concern: "",
-    priceRange: "",
-  })
-  const [sort, setSort] = useState("featured")
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+export default async function ShopPage() {
+  const [products, categories] = await Promise.all([getProducts(), getCategories()])
 
-  useEffect(() => {
-    async function load() {
-      try {
-        const region_id = await getRegionId()
-        const { products } = await medusa.store.product.list({ limit: 50, region_id, fields: "*categories,*images,+metadata,+variants.inventory_quantity" } as any)
-        setProducts(products)
-      } catch {
-        // Backend may not be running
-      } finally {
-        setLoading(false)
-      }
-    }
-    load()
-  }, [])
-
-  const filtered = useMemo(() => {
-    let result = [...products]
-
-    if (filters.category) {
-      result = result.filter((p) =>
-        p.categories?.some((c: any) =>
-          c.name.toLowerCase().includes(filters.category.toLowerCase())
-        )
-      )
-    }
-
-    if (filters.skinType) {
-      result = result.filter((p) => {
-        const meta = p.metadata as any
-        return meta?.skin_type?.toLowerCase().includes(filters.skinType.toLowerCase())
-      })
-    }
-
-    if (filters.concern) {
-      result = result.filter((p) => {
-        const meta = p.metadata as any
-        return meta?.concerns?.toLowerCase().includes(filters.concern.toLowerCase())
-      })
-    }
-
-    if (filters.priceRange) {
-      result = result.filter((p) => {
-        const variant = p.variants?.[0]
-        const calculatedPrice = variant?.calculated_price?.calculated_amount
-        const fallbackPrice = variant?.prices?.find((pr: any) => pr.currency_code === "jod")?.amount
-        const price = calculatedPrice ?? fallbackPrice
-        if (price == null) return true
-        const parts = filters.priceRange.replace("+", "").split("-").map(Number)
-        const min = parts[0]
-        const max = parts[1]
-        if (filters.priceRange.endsWith("+")) return price >= min
-        return price >= min && price <= max
-      })
-    }
-
-    const getPrice = (p: any) => {
-      const v = p.variants?.[0]
-      return v?.calculated_price?.calculated_amount ?? v?.prices?.[0]?.amount ?? 0
-    }
-
-    switch (sort) {
-      case "price-asc":
-        result.sort((a, b) => getPrice(a) - getPrice(b))
-        break
-      case "price-desc":
-        result.sort((a, b) => getPrice(b) - getPrice(a))
-        break
-      case "name-asc":
-        result.sort((a, b) => a.title.localeCompare(b.title))
-        break
-      case "name-desc":
-        result.sort((a, b) => b.title.localeCompare(a.title))
-        break
-    }
-
-    return result
-  }, [products, filters, sort])
+  const breadcrumbItems = [
+    { name: "Home", url: SITE_URL },
+    { name: "Shop", url: `${SITE_URL}/shop` },
+  ]
 
   return (
-    <div className="container-app py-8">
-      <AnimatedSection>
-        <div className="mb-8 text-center">
-          <h1 className="font-heading text-4xl font-bold text-text-primary">Shop</h1>
-          <p className="mt-2 text-text-secondary">Discover our curated collection of Korean skincare</p>
-        </div>
-      </AnimatedSection>
-
-      <div className="flex items-center justify-between mb-6 lg:hidden">
-        <button
-          onClick={() => setMobileFiltersOpen(true)}
-          className="flex items-center gap-2 rounded-xl border border-border px-4 py-2 text-sm text-text-secondary hover:border-primary transition-colors"
-        >
-          <SlidersHorizontal className="h-4 w-4" />
-          Filters
-        </button>
-        <SortDropdown value={sort} onChange={setSort} />
-      </div>
-
-      <div className="flex gap-8">
-        <FilterSidebar filters={filters} onChange={setFilters} products={products} />
-        <FilterSidebar
-          filters={filters}
-          onChange={setFilters}
-          products={products}
-          isMobile
-          isOpen={mobileFiltersOpen}
-          onClose={() => setMobileFiltersOpen(false)}
-        />
-
-        <div className="flex-1">
-          <div className="hidden lg:flex items-center justify-between mb-6">
-            <p className="text-sm text-text-muted">{filtered.length} products</p>
-            <SortDropdown value={sort} onChange={setSort} />
-          </div>
-          <ProductGrid products={filtered} loading={loading} />
-        </div>
-      </div>
-    </div>
+    <>
+      <JsonLd data={buildBreadcrumbJsonLd(breadcrumbItems)} />
+      <ShopPageClient initialProducts={products} categories={categories} />
+    </>
   )
 }
