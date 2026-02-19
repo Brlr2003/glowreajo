@@ -60,7 +60,7 @@ export function PromoBanner() {
         style={{ height: BANNER_HEIGHT }}
       >
         <span
-          className="font-medium"
+          className="font-medium [&_p]:inline [&_p]:m-0"
           dangerouslySetInnerHTML={{ __html: content }}
         />
         <button

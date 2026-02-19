@@ -79,8 +79,10 @@ export function ProductInfo({ product }: ProductInfoProps) {
     }, 800)
   }
 
+  const productUrl = typeof window !== "undefined" ? window.location.href : ""
+  const whatsappMsg = `Hi! I'd like to pre-order *${product.title}*${brand ? ` by ${brand}` : ""} (${priceAmount ? formatPrice(priceAmount) : "N/A"}) from GlowReaJo.\n\n${productUrl}`
   const whatsappUrl = whatsapp
-    ? `https://wa.me/${whatsapp}?text=${encodeURIComponent(`Hi! I'd like to pre-order ${product.title} from GlowReaJo.`)}`
+    ? `https://wa.me/${whatsapp}?text=${encodeURIComponent(whatsappMsg)}`
     : null
 
   return (
@@ -121,51 +123,53 @@ export function ProductInfo({ product }: ProductInfoProps) {
       <p className="mt-6 text-text-secondary leading-relaxed">{product.description}</p>
 
       <div className="mt-8 flex items-center gap-4">
-        <div className="flex items-center rounded-full border border-border">
-          <button
-            onClick={() => setQuantity(Math.max(1, quantity - 1))}
-            className="flex h-12 w-12 items-center justify-center text-text-secondary hover:text-primary transition-colors"
-          >
-            <Minus className="h-4 w-4" />
-          </button>
-          <span className="w-12 text-center font-semibold">{quantity}</span>
-          <button
-            onClick={() => setQuantity(Math.min(maxQuantity, quantity + 1))}
-            disabled={quantity >= maxQuantity}
-            className={`flex h-12 w-12 items-center justify-center transition-colors ${
-              quantity >= maxQuantity ? "text-text-muted cursor-not-allowed" : "text-text-secondary hover:text-primary"
-            }`}
-          >
-            <Plus className="h-4 w-4" />
-          </button>
-        </div>
+        {!isOutOfStock && (
+          <div className="flex items-center rounded-full border border-border">
+            <button
+              onClick={() => setQuantity(Math.max(1, quantity - 1))}
+              className="flex h-12 w-12 items-center justify-center text-text-secondary hover:text-primary transition-colors"
+            >
+              <Minus className="h-4 w-4" />
+            </button>
+            <span className="w-12 text-center font-semibold">{quantity}</span>
+            <button
+              onClick={() => setQuantity(Math.min(maxQuantity, quantity + 1))}
+              disabled={quantity >= maxQuantity}
+              className={`flex h-12 w-12 items-center justify-center transition-colors ${
+                quantity >= maxQuantity ? "text-text-muted cursor-not-allowed" : "text-text-secondary hover:text-primary"
+              }`}
+            >
+              <Plus className="h-4 w-4" />
+            </button>
+          </div>
+        )}
 
-        <Button onClick={handleAdd} size="lg" disabled={isOutOfStock} className="flex-1 flex items-center justify-center gap-2">
-          <AnimatePresence mode="wait">
-            {added ? (
-              <motion.span key="added" initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex items-center gap-2">
-                <Check className="h-5 w-5" /> Added!
-              </motion.span>
-            ) : (
-              <motion.span key="add" initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex items-center gap-2">
-                <ShoppingBag className="h-5 w-5" /> Add to Cart
-              </motion.span>
-            )}
-          </AnimatePresence>
-        </Button>
+        {isOutOfStock && whatsappUrl ? (
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-white font-semibold text-base hover:bg-[#20bd5a] transition-colors"
+          >
+            <MessageCircle className="h-5 w-5" />
+            Pre-Order via WhatsApp
+          </a>
+        ) : (
+          <Button onClick={handleAdd} size="lg" disabled={isOutOfStock} className="flex-1 flex items-center justify-center gap-2">
+            <AnimatePresence mode="wait">
+              {added ? (
+                <motion.span key="added" initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex items-center gap-2">
+                  <Check className="h-5 w-5" /> Added!
+                </motion.span>
+              ) : (
+                <motion.span key="add" initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex items-center gap-2">
+                  <ShoppingBag className="h-5 w-5" /> Add to Cart
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </Button>
+        )}
       </div>
-
-      {isOutOfStock && whatsappUrl && (
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-white font-medium hover:bg-[#20bd5a] transition-colors"
-        >
-          <MessageCircle className="h-5 w-5" />
-          Pre-Order via WhatsApp
-        </a>
-      )}
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { defineRouteConfig } from "@medusajs/admin-sdk"
-import { Container, Heading, Button, Input, Textarea, Label, Switch } from "@medusajs/ui"
+import { Container, Heading, Button, Input, Label, Switch } from "@medusajs/ui"
 import { useState, useEffect } from "react"
+import { AnnouncementEditor } from "./components/AnnouncementEditor"
 
 interface Settings {
   announcement_enabled: boolean
@@ -109,13 +110,9 @@ function SiteSettingsPage() {
             />
             <Label>Enable announcement bar</Label>
           </div>
-          <Textarea
-            placeholder="Announcement content (HTML allowed)..."
-            value={settings.announcement_content}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-              update("announcement_content", e.target.value)
-            }
-            rows={3}
+          <AnnouncementEditor
+            content={settings.announcement_content}
+            onChange={(html: string) => update("announcement_content", html)}
           />
         </section>
 
