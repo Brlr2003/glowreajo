@@ -25,9 +25,8 @@ export function OtpInput({ length = 6, onComplete, error }: OtpInputProps) {
         refs.current[index + 1]?.focus()
       }
 
-      const code = newValues.join("")
-      if (code.length === length && !code.includes("")) {
-        onComplete(code)
+      if (newValues.every((v: string) => v !== "")) {
+        onComplete(newValues.join(""))
       }
     },
     [values, length, onComplete]
