@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { X, SlidersHorizontal } from "lucide-react"
 import { Button } from "@/components/ui/Button"
+import type { MedusaCategory } from "@/lib/categories"
 
 interface Filters {
   category: string
@@ -15,14 +16,11 @@ interface FilterSidebarProps {
   filters: Filters
   onChange: (filters: Filters) => void
   products?: any[]
+  categories?: MedusaCategory[]
   isMobile?: boolean
   isOpen?: boolean
   onClose?: () => void
 }
-
-const categories = [
-  "All", "Cleansers", "Toners", "Serums & Essences", "Moisturizers", "Sunscreens", "Masks & Treatments", "Sets & Bundles"
-]
 
 const DEFAULT_SKIN_TYPES = ["All Skin Types", "Oily", "Dry", "Combination", "Sensitive"]
 const DEFAULT_CONCERNS = ["Acne", "Hydration", "Anti-aging", "Brightening", "Pores", "Sun Protection"]
@@ -39,6 +37,7 @@ function buildOptions(defaults: string[], products: any[], metaKey: string): str
   }
   return ["All", ...defaults, ...Array.from(extras).sort()]
 }
+
 const priceRanges = [
   { label: "All Prices", value: "all" },
   { label: "Under 10 JOD", value: "0-10" },
@@ -85,9 +84,10 @@ function FilterGroup({
   )
 }
 
-export function FilterSidebar({ filters, onChange, products = [], isMobile, isOpen, onClose }: FilterSidebarProps) {
+export function FilterSidebar({ filters, onChange, products = [], categories = [], isMobile, isOpen, onClose }: FilterSidebarProps) {
   const skinTypes = buildOptions(DEFAULT_SKIN_TYPES, products, "skin_type")
   const concerns = buildOptions(DEFAULT_CONCERNS, products, "concerns")
+  const categoryNames = ["All", ...categories.map((c: MedusaCategory) => c.name)]
 
   const content = (
     <div className="p-6">
@@ -105,7 +105,7 @@ export function FilterSidebar({ filters, onChange, products = [], isMobile, isOp
 
       <FilterGroup
         title="Category"
-        options={categories}
+        options={categoryNames}
         value={filters.category}
         onChange={(v) => onChange({ ...filters, category: v })}
       />

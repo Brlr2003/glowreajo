@@ -53,7 +53,9 @@ glowreajo/
 │       │   ├── home/        # Home page sections (HeroSection, BestSellers, etc.)
 │       │   ├── product/     # Product components (ProductCard, ProductGallery, etc.)
 │       │   ├── checkout/    # Checkout step components
-│       │   └── shop/        # Shop page components (FilterSidebar, ProductGrid, etc.)
+│       │   ├── shop/        # Shop page components (FilterSidebar, ProductGrid, etc.)
+│       │   ├── blog/        # Blog components (BlogCard, BlogListClient, BlogPostContent)
+│       │   └── seo/         # SEO components (JsonLd)
 │       ├── context/         # React Context providers (CartContext, ToastContext)
 │       ├── lib/             # Utilities (medusa-client, formatPrice, cn, animations, etc.)
 │       └── styles/
@@ -188,6 +190,10 @@ glowreajo/
 11. **Store API routes** under `/store/*` require `x-publishable-api-key` header
 12. **OTP routes** also need the publishable API key header (they're under `/store/`)
 13. **Admin UX:** Never store user-facing configuration in raw metadata key-value pairs. Always provide a friendly admin widget UI for any product settings that non-technical users need to edit.
+14. **Blog content uses rich text (TipTap WYSIWYG editor)** — stored as HTML. The admin writes using a Google Docs-style toolbar (bold, italic, headings, lists, links, images). The storefront renders with `dangerouslySetInnerHTML` inside a `prose` container. TipTap packages: `@tiptap/react`, `@tiptap/starter-kit`, `@tiptap/extension-link`, `@tiptap/extension-image`.
+15. **Blog images** are uploaded via Medusa's `/admin/uploads` endpoint (uses configured S3/file provider). The admin blog form has an upload button next to the cover image URL field.
+16. **Category icons/colors** are stored in `metadata.icon` and `metadata.color` — configured via the "Category Settings" admin page (`/app/category-settings`). Available icons: `droplets`, `flask`, `pipette`, `layers`, `sun`, `leaf`, `package`, `sparkles`.
+17. **Async Server Components** cannot be rendered inside Client Component boundaries (like `<Providers>`). Footer and other layout components inside `providers.tsx` must be client components — use `useEffect` for data fetching.
 
 ---
 

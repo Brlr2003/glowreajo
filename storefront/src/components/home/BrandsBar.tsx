@@ -2,15 +2,15 @@
 
 import { motion } from "framer-motion"
 
-const brands = [
-  "COSRX",
-  "Laneige",
-  "Beauty of Joseon",
-  "Innisfree",
-  "Some By Mi",
-]
+interface BrandsBarProps {
+  brands?: string[]
+}
 
-export function BrandsBar() {
+const FALLBACK_BRANDS = ["COSRX", "Laneige", "Beauty of Joseon", "Innisfree", "Some By Mi"]
+
+export function BrandsBar({ brands }: BrandsBarProps) {
+  const displayBrands = brands && brands.length > 0 ? brands : FALLBACK_BRANDS
+
   return (
     <section className="py-10 border-y border-border/50 bg-surface/50">
       <div className="container-app">
@@ -18,7 +18,7 @@ export function BrandsBar() {
           Trusted Korean Brands
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
-          {brands.map((brand, i) => (
+          {displayBrands.map((brand, i) => (
             <motion.span
               key={brand}
               initial={{ opacity: 0 }}

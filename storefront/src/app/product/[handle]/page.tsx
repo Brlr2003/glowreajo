@@ -1,104 +1,87 @@
-"use client"
-
-import { useEffect, useState } from "react"
-import { useParams } from "next/navigation"
-import { medusa, getRegionId } from "@/lib/medusa-client"
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { medusaFetch } from "@/lib/medusa-fetch"
 import { getProductImage } from "@/lib/demo-images"
-import { ProductGallery } from "@/components/product/ProductGallery"
-import { ProductInfo } from "@/components/product/ProductInfo"
-import { ProductAccordion } from "@/components/product/ProductAccordion"
-import { RelatedProducts } from "@/components/product/RelatedProducts"
-import { Skeleton } from "@/components/ui/Skeleton"
+import { ProductPageClient } from "@/components/product/ProductPageClient"
+import { JsonLd } from "@/components/seo/JsonLd"
+import { buildProductJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/schemas"
 
-function useProductMeta(product: any) {
-  useEffect(() => {
-    if (!product) return
-    const title = `${product.title} | GlowReaJo`
-    const description = product.description || `Shop ${product.title} - authentic Korean skincare at GlowReaJo.`
-    const image = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
-    const url = `https://glowreajo.com/product/${product.handle}`
+const SITE_URL = "https://glowreajo.com"
 
-    document.title = title
+async function getProduct(handle: string) {
+  try {
+    const regionData = await medusaFetch<{ regions: any[] }>("/store/regions")
+    const region = regionData.regions.find((r: any) => r.currency_code === "jod") || regionData.regions[0]
+    const regionId = region?.id || ""
 
-    const setMeta = (property: string, content: string) => {
-      let el = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement
-      if (!el) {
-        el = document.createElement("meta")
-        el.setAttribute("property", property)
-        document.head.appendChild(el)
-      }
-      el.setAttribute("content", content)
-    }
-
-    setMeta("og:title", title)
-    setMeta("og:description", description.slice(0, 200))
-    setMeta("og:image", image)
-    setMeta("og:url", url)
-    setMeta("og:type", "product")
-    setMeta("og:site_name", "GlowReaJo")
-  }, [product])
+    const data = await medusaFetch<{ products: any[] }>(
+      `/store/products?handle=${handle}&region_id=${regionId}&fields=*categories,*images,+metadata,+variants.inventory_quantity`
+    )
+    return data.products[0] || null
+  } catch {
+    return null
+  }
 }
 
-export default function ProductPage() {
-  const params = useParams()
-  const handle = params.handle as string
-  const [product, setProduct] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
-
-  useProductMeta(product)
-
-  useEffect(() => {
-    async function load() {
-      try {
-        const region_id = await getRegionId()
-        const { products } = await medusa.store.product.list({ handle, region_id, fields: "*categories,*images,+metadata,+variants.inventory_quantity" } as any)
-        if (products.length > 0) {
-          setProduct(products[0])
-        }
-      } catch {}
-      setLoading(false)
-    }
-    if (handle) load()
-  }, [handle])
-
-  if (loading) {
-    return (
-      <div className="container-app py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <Skeleton className="aspect-square w-full" />
-          <div className="space-y-4">
-            <Skeleton variant="text" className="h-6 w-1/3" />
-            <Skeleton variant="text" className="h-10 w-full" />
-            <Skeleton variant="text" className="h-8 w-1/4" />
-            <Skeleton className="h-24 w-full" />
-            <Skeleton className="h-14 w-full" />
-          </div>
-        </div>
-      </div>
-    )
-  }
+export async function generateMetadata(
+  { params }: { params: Promise<{ handle: string }> }
+): Promise<Metadata> {
+  const { handle } = await params
+  const product = await getProduct(handle)
 
   if (!product) {
-    return (
-      <div className="container-app py-20 text-center mx-auto">
-        <h1 className="font-heading text-2xl font-bold text-text-primary">Product not found</h1>
-        <p className="mt-2 text-text-muted">The product you&apos;re looking for doesn&apos;t exist.</p>
-      </div>
-    )
+    return { title: "Product Not Found" }
   }
 
-  const categoryId = product.categories?.[0]?.id
+  const title = product.title
+  const description = product.description || `Shop ${product.title} - authentic Korean skincare at GlowReaJo, Jordan.`
+  const image = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
+  const brand = (product.metadata as any)?.brand
+  const url = `${SITE_URL}/product/${product.handle}`
+
+  return {
+    title,
+    description: `${description.slice(0, 150)}${brand ? ` | ${brand}` : ""} — Buy online in Jordan.`,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${product.title} | GlowReaJo`,
+      description: description.slice(0, 200),
+      type: "website",
+      url,
+      siteName: "GlowReaJo",
+      images: [{ url: image, width: 800, height: 800, alt: product.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.title} | GlowReaJo`,
+      description: description.slice(0, 200),
+      images: [image],
+    },
+  }
+}
+
+export default async function ProductPage(
+  { params }: { params: Promise<{ handle: string }> }
+) {
+  const { handle } = await params
+  const product = await getProduct(handle)
+
+  if (!product) {
+    notFound()
+  }
+
+  const categoryName = product.categories?.[0]?.name
+  const breadcrumbItems = [
+    { name: "Home", url: SITE_URL },
+    { name: "Shop", url: `${SITE_URL}/shop` },
+    ...(categoryName ? [{ name: categoryName, url: `${SITE_URL}/shop/${product.categories[0]?.handle || categoryName.toLowerCase()}` }] : []),
+    { name: product.title, url: `${SITE_URL}/product/${product.handle}` },
+  ]
 
   return (
-    <div className="container-app py-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <ProductGallery product={product} />
-        <div>
-          <ProductInfo product={product} />
-          <ProductAccordion product={product} />
-        </div>
-      </div>
-      <RelatedProducts currentProductId={product.id} categoryId={categoryId} />
-    </div>
+    <>
+      <JsonLd data={[buildProductJsonLd(product), buildBreadcrumbJsonLd(breadcrumbItems)]} />
+      <ProductPageClient product={product} />
+    </>
   )
 }

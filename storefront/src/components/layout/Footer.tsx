@@ -1,7 +1,30 @@
-import Link from "next/link";
-import { Sparkles, Instagram, MessageCircle, Mail, Phone } from "lucide-react";
+"use client"
+
+import { useState, useEffect } from "react"
+import Link from "next/link"
+import { Sparkles, Instagram, MessageCircle, Mail, Phone } from "lucide-react"
+
+interface FooterCategory {
+  id: string
+  name: string
+  handle: string
+}
+
+const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"
+const API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || ""
 
 export function Footer() {
+  const [categories, setCategories] = useState<FooterCategory[]>([])
+
+  useEffect(() => {
+    fetch(`${BACKEND_URL}/store/product-categories?limit=5`, {
+      headers: { "x-publishable-api-key": API_KEY },
+    })
+      .then((res) => res.json())
+      .then((data) => setCategories(data.product_categories || []))
+      .catch(() => {})
+  }, [])
+
   return (
     <footer className="mt-20 rounded-t-3xl bg-text-primary text-white">
       <div className="container-app py-16">
@@ -21,40 +44,20 @@ export function Footer() {
             <h3 className="font-heading font-semibold mb-4">Shop</h3>
             <ul className="space-y-2 text-sm text-white/60">
               <li>
-                <Link
-                  href="/shop"
-                  className="hover:text-primary transition-colors">
+                <Link href="/shop" className="hover:text-primary transition-colors">
                   All Products
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/shop?category=cleansers"
-                  className="hover:text-primary transition-colors">
-                  Cleansers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/shop?category=serums"
-                  className="hover:text-primary transition-colors">
-                  Serums & Essences
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/shop?category=moisturizers"
-                  className="hover:text-primary transition-colors">
-                  Moisturizers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/shop?category=sunscreens"
-                  className="hover:text-primary transition-colors">
-                  Sunscreens
-                </Link>
-              </li>
+              {categories.map((cat) => (
+                <li key={cat.id}>
+                  <Link
+                    href={`/shop/${cat.handle}`}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {cat.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -62,24 +65,23 @@ export function Footer() {
             <h3 className="font-heading font-semibold mb-4">Help</h3>
             <ul className="space-y-2 text-sm text-white/60">
               <li>
-                <Link
-                  href="/about"
-                  className="hover:text-primary transition-colors">
+                <Link href="/about" className="hover:text-primary transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-primary transition-colors">
-                  Contact
+                <Link href="/blog" className="hover:text-primary transition-colors">
+                  Blog
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/shop"
-                  className="hover:text-primary transition-colors">
-                  Shipping Info
+                <Link href="/faq" className="hover:text-primary transition-colors">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-primary transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -113,5 +115,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

@@ -48,11 +48,11 @@ export default function AboutPage() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <div className="rounded-3xl bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5 p-10 md:p-16 mb-16">
-          <h2 className="font-heading text-3xl font-bold text-text-primary text-center mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <h2 className="font-heading text-3xl font-bold text-text-primary mb-6">
             Our Story
           </h2>
-          <div className="max-w-2xl mx-auto space-y-4 text-text-secondary leading-relaxed">
+          <div className="space-y-4 text-text-secondary leading-relaxed">
             <p>
               It all started with a love for glass skin and the Korean beauty philosophy of
               caring for your skin gently and consistently. After struggling to find authentic
