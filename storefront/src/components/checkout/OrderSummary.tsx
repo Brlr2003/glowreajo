@@ -1,8 +1,26 @@
 "use client"
 
+import { useState } from "react"
+import Image from "next/image"
 import { useCart } from "@/context/CartContext"
 import { formatPrice } from "@/lib/formatPrice"
 import { ShoppingBag } from "lucide-react"
+
+function SummaryImage({ src, alt }: { src: string; alt: string }) {
+  const [error, setError] = useState(false)
+  if (error) return <ShoppingBag className="h-5 w-5 text-border" />
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className="rounded-lg object-cover"
+      sizes="48px"
+      unoptimized
+      onError={() => setError(true)}
+    />
+  )
+}
 
 interface OrderSummaryProps {
   city?: string
@@ -22,8 +40,12 @@ export function OrderSummary({ city }: OrderSummaryProps) {
       <div className="space-y-3 mb-4">
         {items.map((item) => (
           <div key={item.id} className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-background shrink-0">
-              <ShoppingBag className="h-5 w-5 text-border" />
+            <div className="relative flex h-12 w-12 items-center justify-center rounded-lg bg-background shrink-0">
+              {item.image ? (
+                <SummaryImage src={item.image} alt={item.title} />
+              ) : (
+                <ShoppingBag className="h-5 w-5 text-border" />
+              )}
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium text-text-primary truncate">{item.title}</p>

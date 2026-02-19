@@ -30,8 +30,13 @@ export function ProductInfo({ product }: ProductInfoProps) {
   const imgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
   const skinType = (product.metadata as any)?.skin_type || ""
   const concerns = (product.metadata as any)?.concerns || ""
+  const inventoryQty = variant?.inventory_quantity
+  const managesInventory = variant?.manage_inventory !== false
+  const isOutOfStock = managesInventory && (inventoryQty === 0 || inventoryQty === null)
+  const maxQuantity = managesInventory && typeof inventoryQty === "number" ? inventoryQty : 99
 
   const handleAdd = () => {
+    if (isOutOfStock) return
     addItem({
       id: variant?.id || product.id,
       variantId: variant?.id || product.id,
@@ -44,6 +49,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
       image: imgSrc,
       brand,
       compareAtPrice: compareAtPrice ?? undefined,
+      inventoryQuantity: inventoryQty ?? undefined,
     })
 
     addToast({
@@ -87,6 +93,12 @@ export function ProductInfo({ product }: ProductInfoProps) {
         </div>
       )}
 
+      {managesInventory && (
+        <p className={`mt-4 text-sm font-medium ${isOutOfStock ? "text-error" : "text-success"}`}>
+          {isOutOfStock ? "Out of Stock" : `In Stock (${inventoryQty} available)`}
+        </p>
+      )}
+
       <p className="mt-6 text-text-secondary leading-relaxed">{product.description}</p>
 
       <div className="mt-8 flex items-center gap-4">
@@ -99,14 +111,17 @@ export function ProductInfo({ product }: ProductInfoProps) {
           </button>
           <span className="w-12 text-center font-semibold">{quantity}</span>
           <button
-            onClick={() => setQuantity(quantity + 1)}
-            className="flex h-12 w-12 items-center justify-center text-text-secondary hover:text-primary transition-colors"
+            onClick={() => setQuantity(Math.min(maxQuantity, quantity + 1))}
+            disabled={quantity >= maxQuantity}
+            className={`flex h-12 w-12 items-center justify-center transition-colors ${
+              quantity >= maxQuantity ? "text-text-muted cursor-not-allowed" : "text-text-secondary hover:text-primary"
+            }`}
           >
             <Plus className="h-4 w-4" />
           </button>
         </div>
 
-        <Button onClick={handleAdd} size="lg" className="flex-1 flex items-center justify-center gap-2">
+        <Button onClick={handleAdd} size="lg" disabled={isOutOfStock} className="flex-1 flex items-center justify-center gap-2">
           <AnimatePresence mode="wait">
             {added ? (
               <motion.span key="added" initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex items-center gap-2">

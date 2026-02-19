@@ -116,7 +116,15 @@ export async function placeOrder(
 
   // 2. Add all items to the cart
   for (const item of items) {
-    cart = await addToCart(cart.id, item.variantId, item.quantity)
+    try {
+      cart = await addToCart(cart.id, item.variantId, item.quantity)
+    } catch (err: any) {
+      const msg = err?.message || ""
+      if (msg.includes("inventory") || msg.includes("stock") || msg.includes("quantity")) {
+        throw new Error(`"${item.title}" is out of stock or has insufficient quantity. Please review your cart.`)
+      }
+      throw err
+    }
   }
 
   // 3. Apply promo code if provided

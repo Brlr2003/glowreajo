@@ -51,7 +51,7 @@ export default function ProductPage() {
     async function load() {
       try {
         const region_id = await getRegionId()
-        const { products } = await medusa.store.product.list({ handle, region_id, fields: "*categories,*images,+metadata" } as any)
+        const { products } = await medusa.store.product.list({ handle, region_id, fields: "*categories,*images,+metadata,+variants.inventory_quantity" } as any)
         if (products.length > 0) {
           setProduct(products[0])
         }

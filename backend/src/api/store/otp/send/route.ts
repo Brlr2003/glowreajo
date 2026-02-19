@@ -1,5 +1,6 @@
 import { z } from "zod"
 import { sendOtpEmail } from "../../../../lib/resend"
+import { getLogger } from "../../../../lib/logger"
 
 const SendOtpSchema = z.object({
   type: z.literal("email"),
@@ -47,7 +48,7 @@ export async function POST(req: any, res: any): Promise<void> {
   } catch (err: any) {
     // Cleanup OTP on send failure
     otpStore.delete(destination)
-    console.error("[OTP] Email send failed:", err?.message)
+    getLogger(req).error("[OTP] Email send failed:", err?.message)
     res.status(500).json({
       success: false,
       message: "Failed to send verification email. Please try again.",

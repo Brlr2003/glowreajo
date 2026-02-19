@@ -1,5 +1,6 @@
 import { z } from "zod"
 import { sendOrderConfirmationEmail } from "../../../../lib/order-email"
+import { getLogger } from "../../../../lib/logger"
 
 const OrderEmailSchema = z.object({
   email: z.string().email(),
@@ -39,7 +40,7 @@ export async function POST(req: any, res: any): Promise<void> {
     res.status(200).json({ success: true })
   } catch (err: any) {
     // Log but don't fail — email is non-critical
-    console.error("[OrderEmail] Send failed:", err?.message)
+    getLogger(req).error("[OrderEmail] Send failed:", err?.message)
     res.status(200).json({ success: true, emailSent: false })
   }
 }

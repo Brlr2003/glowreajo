@@ -33,10 +33,13 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   const rawImgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
   const imgSrc = imgError ? getProductImage(product.handle) : rawImgSrc
   const unoptimized = imgSrc.startsWith("http://localhost")
+  const inventoryQty = variant?.inventory_quantity
+  const isOutOfStock = variant?.manage_inventory !== false && (inventoryQty === 0 || inventoryQty === null)
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
+    if (isOutOfStock) return
 
     addItem({
       id: variant?.id || product.id,
@@ -50,6 +53,7 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
       image: imgSrc,
       brand,
       compareAtPrice: compareAtPrice ?? undefined,
+      inventoryQuantity: inventoryQty ?? undefined,
     })
 
     addToast({
@@ -77,11 +81,10 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
             unoptimized={unoptimized}
             onError={() => setImgError(true)}
           />
-          {product.tags?.length > 0 && (
-            <div className="absolute top-3 left-3 flex gap-2">
-              <Badge variant="bestseller">Best Seller</Badge>
-            </div>
-          )}
+          <div className="absolute top-3 left-3 flex gap-2">
+            {isOutOfStock && <Badge variant="sale">Out of Stock</Badge>}
+            {!isOutOfStock && product.tags?.length > 0 && <Badge variant="bestseller">Best Seller</Badge>}
+          </div>
           <button
             onClick={(e) => { e.preventDefault(); e.stopPropagation(); setZoomOpen(true) }}
             className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-text-primary opacity-0 group-hover:opacity-100 transition-opacity shadow-soft hover:bg-white"
@@ -110,11 +113,14 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
             </div>
             <motion.button
               onClick={handleAddToCart}
-              whileTap={{ scale: 0.9 }}
+              whileTap={isOutOfStock ? undefined : { scale: 0.9 }}
+              disabled={isOutOfStock}
               className={`flex h-10 w-10 items-center justify-center rounded-full transition-colors ${
-                added
-                  ? "bg-success text-white"
-                  : "bg-primary/10 text-primary hover:bg-primary hover:text-white"
+                isOutOfStock
+                  ? "bg-border/30 text-text-muted cursor-not-allowed"
+                  : added
+                    ? "bg-success text-white"
+                    : "bg-primary/10 text-primary hover:bg-primary hover:text-white"
               }`}
             >
               <AnimatePresence mode="wait">
