@@ -23,6 +23,7 @@ interface ShopPageClientProps {
   subtitle?: string
   breadcrumbItems?: { label: string; href?: string }[]
   initialCategory?: string
+  hideCategoryFilter?: boolean
 }
 
 export function ShopPageClient({
@@ -32,6 +33,7 @@ export function ShopPageClient({
   subtitle = "Discover our curated collection of Korean skincare",
   breadcrumbItems,
   initialCategory = "",
+  hideCategoryFilter,
 }: ShopPageClientProps) {
   const [products] = useState<any[]>(initialProducts)
   const [filters, setFilters] = useState<Filters>({
@@ -133,7 +135,7 @@ export function ShopPageClient({
       </div>
 
       <div className="flex gap-8">
-        <FilterSidebar filters={filters} onChange={setFilters} products={products} categories={categories} />
+        <FilterSidebar filters={filters} onChange={setFilters} products={products} categories={categories} hideCategoryFilter={hideCategoryFilter} />
         <FilterSidebar
           filters={filters}
           onChange={setFilters}
@@ -142,6 +144,7 @@ export function ShopPageClient({
           isMobile
           isOpen={mobileFiltersOpen}
           onClose={() => setMobileFiltersOpen(false)}
+          hideCategoryFilter={hideCategoryFilter}
         />
 
         <div className="flex-1">

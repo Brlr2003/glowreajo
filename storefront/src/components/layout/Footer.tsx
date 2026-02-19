@@ -10,11 +10,28 @@ interface FooterCategory {
   handle: string
 }
 
+interface Settings {
+  phone: string | null
+  email: string | null
+  whatsapp: string | null
+  instagram_handle: string | null
+  instagram_url: string | null
+}
+
 const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"
 const API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || ""
 
+const DEFAULTS: Settings = {
+  phone: "+962 7 7726 1248",
+  email: "info@glowreajo.com",
+  whatsapp: "96277261248",
+  instagram_handle: "@glowreajo",
+  instagram_url: "https://instagram.com/glowreajo",
+}
+
 export function Footer() {
   const [categories, setCategories] = useState<FooterCategory[]>([])
+  const [settings, setSettings] = useState<Settings>(DEFAULTS)
 
   useEffect(() => {
     fetch(`${BACKEND_URL}/store/product-categories?limit=5`, {
@@ -24,6 +41,28 @@ export function Footer() {
       .then((data) => setCategories(data.product_categories || []))
       .catch(() => {})
   }, [])
+
+  useEffect(() => {
+    fetch(`${BACKEND_URL}/store/site-settings`, {
+      headers: { "x-publishable-api-key": API_KEY },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.site_setting) {
+          const s = data.site_setting
+          setSettings({
+            phone: s.phone || DEFAULTS.phone,
+            email: s.email || DEFAULTS.email,
+            whatsapp: s.whatsapp || DEFAULTS.whatsapp,
+            instagram_handle: s.instagram_handle || DEFAULTS.instagram_handle,
+            instagram_url: s.instagram_url || DEFAULTS.instagram_url,
+          })
+        }
+      })
+      .catch(() => {})
+  }, [])
+
+  const phoneDigits = settings.phone?.replace(/\s+/g, "") || ""
 
   return (
     <footer className="mt-20 rounded-t-3xl bg-text-primary text-white">
@@ -65,24 +104,16 @@ export function Footer() {
             <h3 className="font-heading font-semibold mb-4">Help</h3>
             <ul className="space-y-2 text-sm text-white/60">
               <li>
-                <Link href="/about" className="hover:text-primary transition-colors">
-                  About Us
-                </Link>
+                <Link href="/about" className="hover:text-primary transition-colors">About Us</Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-primary transition-colors">
-                  Blog
-                </Link>
+                <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
               </li>
               <li>
-                <Link href="/faq" className="hover:text-primary transition-colors">
-                  FAQ
-                </Link>
+                <Link href="/faq" className="hover:text-primary transition-colors">FAQ</Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-primary transition-colors">
-                  Contact
-                </Link>
+                <Link href="/contact" className="hover:text-primary transition-colors">Contact</Link>
               </li>
             </ul>
           </div>
@@ -92,19 +123,19 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <a href="tel:+96277261248" className="hover:text-white transition-colors">+962 7 7726 1248</a>
+                <a href={`tel:${phoneDigits}`} className="hover:text-white transition-colors">{settings.phone}</a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <a href="mailto:info@glowreajo.com" className="hover:text-white transition-colors">info@glowreajo.com</a>
+                <a href={`mailto:${settings.email}`} className="hover:text-white transition-colors">{settings.email}</a>
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="h-4 w-4" />
-                <a href="https://wa.me/96277261248" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">WhatsApp</a>
+                <a href={`https://wa.me/${settings.whatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">WhatsApp</a>
               </li>
               <li className="flex items-center gap-2">
                 <Instagram className="h-4 w-4" />
-                <a href="https://instagram.com/glowreajo" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">@glowreajo</a>
+                <a href={settings.instagram_url || "#"} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{settings.instagram_handle}</a>
               </li>
             </ul>
           </div>

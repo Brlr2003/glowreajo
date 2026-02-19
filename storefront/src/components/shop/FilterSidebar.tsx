@@ -20,6 +20,7 @@ interface FilterSidebarProps {
   isMobile?: boolean
   isOpen?: boolean
   onClose?: () => void
+  hideCategoryFilter?: boolean
 }
 
 const DEFAULT_SKIN_TYPES = ["All Skin Types", "Oily", "Dry", "Combination", "Sensitive"]
@@ -84,7 +85,7 @@ function FilterGroup({
   )
 }
 
-export function FilterSidebar({ filters, onChange, products = [], categories = [], isMobile, isOpen, onClose }: FilterSidebarProps) {
+export function FilterSidebar({ filters, onChange, products = [], categories = [], isMobile, isOpen, onClose, hideCategoryFilter }: FilterSidebarProps) {
   const skinTypes = buildOptions(DEFAULT_SKIN_TYPES, products, "skin_type")
   const concerns = buildOptions(DEFAULT_CONCERNS, products, "concerns")
   const categoryNames = ["All", ...categories.map((c: MedusaCategory) => c.name)]
@@ -103,12 +104,14 @@ export function FilterSidebar({ filters, onChange, products = [], categories = [
         </div>
       )}
 
-      <FilterGroup
-        title="Category"
-        options={categoryNames}
-        value={filters.category}
-        onChange={(v) => onChange({ ...filters, category: v })}
-      />
+      {!hideCategoryFilter && (
+        <FilterGroup
+          title="Category"
+          options={categoryNames}
+          value={filters.category}
+          onChange={(v) => onChange({ ...filters, category: v })}
+        />
+      )}
       <FilterGroup
         title="Skin Type"
         options={skinTypes}
