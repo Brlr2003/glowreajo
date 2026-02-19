@@ -2,7 +2,30 @@ import { useEditor, EditorContent } from "@tiptap/react"
 import StarterKit from "@tiptap/starter-kit"
 import Link from "@tiptap/extension-link"
 import Image from "@tiptap/extension-image"
+import TextStyle from "@tiptap/extension-text-style"
+import { Extension } from "@tiptap/react"
 import { useEffect } from "react"
+
+const FontSize = Extension.create({
+  name: "fontSize",
+  addGlobalAttributes() {
+    return [
+      {
+        types: ["textStyle"],
+        attributes: {
+          fontSize: {
+            default: null,
+            parseHTML: (el: HTMLElement) => el.style.fontSize || null,
+            renderHTML: (attrs: Record<string, any>) => {
+              if (!attrs.fontSize) return {}
+              return { style: `font-size: ${attrs.fontSize}` }
+            },
+          },
+        },
+      },
+    ]
+  },
+})
 
 interface RichTextEditorProps {
   content: string
@@ -36,12 +59,21 @@ function ToolbarButton({
   )
 }
 
+const TEXT_SIZES = [
+  { label: "Small", value: "0.875rem" },
+  { label: "Normal", value: "" },
+  { label: "Large", value: "1.25rem" },
+  { label: "XL", value: "1.5rem" },
+]
+
 export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
   const editor = useEditor({
     extensions: [
       StarterKit,
       Link.configure({ openOnClick: false }),
       Image,
+      TextStyle,
+      FontSize,
     ],
     content,
     onUpdate: ({ editor: e }) => {
@@ -70,6 +102,16 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
       editor?.chain().focus().setImage({ src: url }).run()
     }
   }
+
+  function setFontSize(size: string) {
+    if (!size) {
+      editor?.chain().focus().unsetMark("textStyle").run()
+    } else {
+      editor?.chain().focus().setMark("textStyle", { fontSize: size }).run()
+    }
+  }
+
+  const currentSize = editor.getAttributes("textStyle").fontSize || ""
 
   return (
     <div className="rounded-lg border border-ui-border-base overflow-hidden">
@@ -110,6 +152,19 @@ export function RichTextEditor({ content, onChange }: RichTextEditorProps) {
         >
           H3
         </ToolbarButton>
+        <span className="mx-1 h-4 w-px bg-ui-border-base" />
+        <select
+          value={currentSize}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setFontSize(e.target.value)}
+          className="px-1.5 py-0.5 text-xs rounded border border-ui-border-base bg-ui-bg-base text-ui-fg-subtle cursor-pointer"
+          title="Text Size"
+        >
+          {TEXT_SIZES.map((s) => (
+            <option key={s.label} value={s.value}>
+              {s.label}
+            </option>
+          ))}
+        </select>
         <span className="mx-1 h-4 w-px bg-ui-border-base" />
         <ToolbarButton
           onClick={() => editor.chain().focus().toggleBulletList().run()}

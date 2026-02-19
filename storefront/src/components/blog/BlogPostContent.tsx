@@ -69,7 +69,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
 
       {post.content && (
         <div
-          className="prose prose-lg max-w-none text-text-primary prose-headings:font-heading prose-headings:text-text-primary prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl"
+          className="blog-prose prose prose-lg max-w-none text-justify text-text-primary prose-headings:font-heading prose-headings:text-text-primary prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-img:rounded-2xl prose-headings:text-left"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       )}
