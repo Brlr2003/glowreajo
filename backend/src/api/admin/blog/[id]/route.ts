@@ -13,7 +13,7 @@ export async function GET(req: any, res: any) {
 export async function POST(req: any, res: any) {
   try {
     const blogService = req.scope.resolve(BLOG_MODULE) as any
-    const post = await blogService.updateBlogPosts(req.params.id, req.body as any)
+    const post = await blogService.updateBlogPosts({ id: req.params.id, ...req.body })
     res.json({ blog_post: post })
   } catch (error: any) {
     res.status(500).json({ message: error.message })
