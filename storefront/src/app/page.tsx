@@ -15,6 +15,21 @@ import { medusaFetch } from "@/lib/medusa-fetch"
 
 export const metadata: Metadata = {
   alternates: { canonical: "https://glowreajo.com" },
+  openGraph: {
+    title: "GlowReaJo | Korean Skincare in Jordan",
+    description:
+      "Authentic K-beauty products delivered to your door in Jordan. Shop COSRX, Laneige, Innisfree & more.",
+    url: "https://glowreajo.com",
+    siteName: "GlowReaJo",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "GlowReaJo - Korean Skincare in Jordan" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GlowReaJo | Korean Skincare in Jordan",
+    description:
+      "Authentic K-beauty products delivered to your door in Jordan. Shop COSRX, Laneige, Innisfree & more.",
+    images: ["/og-image.png"],
+  },
 }
 
 async function getBrands(): Promise<string[]> {

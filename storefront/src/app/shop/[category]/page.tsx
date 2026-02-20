@@ -45,6 +45,13 @@ export async function generateMetadata(
       type: "website",
       url,
       siteName: "GlowReaJo",
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `${cat.name} - GlowReaJo` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${cat.name} | GlowReaJo`,
+      description,
+      images: ["/og-image.png"],
     },
   }
 }

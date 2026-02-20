@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { medusaFetch } from "@/lib/medusa-fetch"
-import { getProductImage } from "@/lib/demo-images"
 import { ProductPageClient } from "@/components/product/ProductPageClient"
 import { JsonLd } from "@/components/seo/JsonLd"
 import { buildProductJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/schemas"
@@ -35,7 +34,7 @@ export async function generateMetadata(
 
   const title = product.title
   const description = product.description || `Shop ${product.title} - authentic Korean skincare at GlowReaJo, Jordan.`
-  const image = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
+  const image = product.thumbnail || product.images?.[0]?.url || `${SITE_URL}/og-image.png`
   const brand = (product.metadata as any)?.brand
   const url = `${SITE_URL}/product/${product.handle}`
 
