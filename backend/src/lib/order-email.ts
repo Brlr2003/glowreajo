@@ -20,6 +20,7 @@ interface OrderEmailData {
   total: number
   address: string
   city: string
+  phone?: string
   promoCode?: string
   notes?: string
 }
@@ -143,6 +144,73 @@ export async function sendOrderConfirmationEmail(data: OrderEmailData) {
 
   if (error) {
     throw new Error(`Failed to send order confirmation email: ${error.message}`)
+  }
+}
+
+const ADMIN_EMAIL = "info@glowreajo.com"
+
+export async function sendAdminOrderNotificationEmail(data: OrderEmailData) {
+  const phoneRow = data.phone
+    ? `<tr><td style="padding:4px 0;color:#666;font-size:13px;width:100px;">Phone</td><td style="padding:4px 0;color:#333;font-size:13px;">${data.phone}</td></tr>`
+    : ""
+  const notesRow = data.notes
+    ? `<tr><td style="padding:4px 0;color:#666;font-size:13px;vertical-align:top;">Notes</td><td style="padding:4px 0;color:#333;font-size:13px;">${data.notes}</td></tr>`
+    : ""
+  const promoRow = data.promoCode
+    ? `<tr><td style="padding:4px 0;color:#666;font-size:13px;">Promo</td><td style="padding:4px 0;color:#e8998d;font-size:13px;font-weight:bold;">${data.promoCode} (-${formatJOD(data.discount)})</td></tr>`
+    : ""
+
+  const html = `
+    <div style="font-family:'Segoe UI',Arial,sans-serif;max-width:560px;margin:0 auto;padding:24px;">
+      <h2 style="color:#333;font-size:18px;margin:0 0 16px;">New Order #${data.orderId}</h2>
+
+      <table style="width:100%;border-collapse:collapse;margin-bottom:16px;">
+        <tr><td style="padding:4px 0;color:#666;font-size:13px;width:100px;">Customer</td><td style="padding:4px 0;color:#333;font-size:13px;font-weight:bold;">${data.name}</td></tr>
+        <tr><td style="padding:4px 0;color:#666;font-size:13px;">Email</td><td style="padding:4px 0;color:#333;font-size:13px;">${data.email}</td></tr>
+        ${phoneRow}
+        <tr><td style="padding:4px 0;color:#666;font-size:13px;">Address</td><td style="padding:4px 0;color:#333;font-size:13px;">${data.address}, ${data.city}</td></tr>
+        ${promoRow}
+        ${notesRow}
+      </table>
+
+      <table style="width:100%;border-collapse:collapse;margin-bottom:16px;">
+        <thead>
+          <tr>
+            <th style="padding:6px 0;border-bottom:2px solid #ddd;color:#666;font-size:12px;text-transform:uppercase;text-align:left;">Item</th>
+            <th style="padding:6px 0;border-bottom:2px solid #ddd;color:#666;font-size:12px;text-transform:uppercase;text-align:center;">Qty</th>
+            <th style="padding:6px 0;border-bottom:2px solid #ddd;color:#666;font-size:12px;text-transform:uppercase;text-align:right;">Price</th>
+          </tr>
+        </thead>
+        <tbody>${buildItemRows(data.items)}</tbody>
+      </table>
+
+      <table style="width:100%;border-collapse:collapse;">
+        <tr>
+          <td style="padding:4px 0;color:#666;font-size:13px;">Subtotal</td>
+          <td style="padding:4px 0;color:#333;font-size:13px;text-align:right;">${formatJOD(data.subtotal)}</td>
+        </tr>
+        ${buildDiscountRow(data.discount, data.promoCode)}
+        <tr>
+          <td style="padding:4px 0;color:#666;font-size:13px;">Shipping</td>
+          <td style="padding:4px 0;color:#333;font-size:13px;text-align:right;">${data.shipping > 0 ? formatJOD(data.shipping) : "Free"}</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 0 0;color:#333;font-size:15px;font-weight:bold;border-top:2px solid #333;">Total</td>
+          <td style="padding:8px 0 0;color:#333;font-size:15px;font-weight:bold;text-align:right;border-top:2px solid #333;">${formatJOD(data.total)}</td>
+        </tr>
+      </table>
+    </div>
+  `
+
+  const { error } = await resend.emails.send({
+    from: `GlowReaJo Orders <${FROM_EMAIL}>`,
+    to: ADMIN_EMAIL,
+    subject: `New Order #${data.orderId} — ${data.name} (${formatJOD(data.total)})`,
+    html,
+  })
+
+  if (error) {
+    throw new Error(`Failed to send admin notification email: ${error.message}`)
   }
 }
 

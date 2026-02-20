@@ -217,6 +217,7 @@ export async function placeOrder(
       total: subtotalAfterDiscount + shipping,
       address: personalInfo.address,
       city: personalInfo.city,
+      phone: personalInfo.phone || "",
       promoCode: promoCode || "",
       notes: personalInfo.notes?.trim() || "",
     }),

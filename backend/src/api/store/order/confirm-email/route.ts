@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { sendOrderConfirmationEmail } from "../../../../lib/order-email"
+import { sendOrderConfirmationEmail, sendAdminOrderNotificationEmail } from "../../../../lib/order-email"
 import { getLogger } from "../../../../lib/logger"
 
 const OrderEmailSchema = z.object({
@@ -19,6 +19,7 @@ const OrderEmailSchema = z.object({
   total: z.number(),
   address: z.string().min(1),
   city: z.string().min(1),
+  phone: z.string().optional().default(""),
   promoCode: z.string().optional().default(""),
   notes: z.string().optional().default(""),
 })
@@ -37,6 +38,12 @@ export async function POST(req: any, res: any): Promise<void> {
 
   try {
     await sendOrderConfirmationEmail(parsed.data as any)
+
+    // Send admin notification (non-blocking)
+    sendAdminOrderNotificationEmail(parsed.data as any).catch((err: any) => {
+      getLogger(req).error("[AdminEmail] Send failed:", err?.message)
+    })
+
     res.status(200).json({ success: true })
   } catch (err: any) {
     // Log but don't fail — email is non-critical
