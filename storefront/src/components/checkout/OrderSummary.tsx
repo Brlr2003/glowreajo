@@ -16,7 +16,6 @@ function SummaryImage({ src, alt }: { src: string; alt: string }) {
       fill
       className="rounded-lg object-cover"
       sizes="48px"
-      unoptimized
       onError={() => setError(true)}
     />
   )

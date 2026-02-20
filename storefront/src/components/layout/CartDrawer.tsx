@@ -22,7 +22,6 @@ function CartImage({ src, alt }: { src: string; alt: string }) {
       fill
       className="rounded-lg object-cover"
       sizes="80px"
-      unoptimized
       onError={() => setError(true)}
     />
   )
