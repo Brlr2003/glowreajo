@@ -181,21 +181,23 @@ export async function placeOrder(
     throw new Error("Order creation failed")
   }
 
-  const result: PlaceOrderResult = {
-    id: order.id,
-    displayId: order.display_id?.toString() || order.id,
-    total: (order as any).total || 0,
-  }
-
-  // Fire-and-forget order confirmation email
-  const backendUrl = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"
-  const apiKey = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || ""
+  // Calculate totals for both success page and email
   const subtotal = items.reduce((sum: number, i: CartItem) => sum + i.price * i.quantity, 0)
   const discount = promoDiscount || 0
   const subtotalAfterDiscount = subtotal - discount
   const cityForEmail = personalInfo.city.toLowerCase().trim()
   const isAmman = cityForEmail === "amman" || cityForEmail === "عمان"
   const shipping = subtotalAfterDiscount >= 50 ? 0 : isAmman ? 2 : 3
+
+  const result: PlaceOrderResult = {
+    id: order.id,
+    displayId: order.display_id?.toString() || order.id,
+    total: subtotalAfterDiscount + shipping,
+  }
+
+  // Fire-and-forget order confirmation email
+  const backendUrl = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"
+  const apiKey = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || ""
   fetch(`${backendUrl}/store/order/confirm-email`, {
     method: "POST",
     headers: {
