@@ -39,13 +39,15 @@ export async function generateMetadata(
       type: "article",
       url,
       siteName: "GlowReaJo",
-      ...(post.cover_image ? { images: [{ url: post.cover_image, width: 1200, height: 630 }] } : {}),
+      images: post.cover_image
+        ? [{ url: post.cover_image, width: 1200, height: 630, alt: title }]
+        : [{ url: "/og-image.png", width: 1200, height: 630, alt: "GlowReaJo Blog" }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} | GlowReaJo Blog`,
       description,
-      ...(post.cover_image ? { images: [post.cover_image] } : {}),
+      images: [post.cover_image || "/og-image.png"],
     },
   }
 }

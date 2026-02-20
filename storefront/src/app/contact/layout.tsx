@@ -9,6 +9,16 @@ export const metadata: Metadata = {
     title: "Contact GlowReaJo",
     description:
       "Questions about Korean skincare products, orders, or shipping in Jordan? We're here to help.",
+    url: "https://glowreajo.com/contact",
+    siteName: "GlowReaJo",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "GlowReaJo - Korean Skincare in Jordan" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact GlowReaJo",
+    description:
+      "Questions about Korean skincare products, orders, or shipping in Jordan? We're here to help.",
+    images: ["/og-image.png"],
   },
 }
 

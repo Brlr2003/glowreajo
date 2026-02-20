@@ -8,6 +8,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Blog | GlowReaJo",
     description: "Skincare tips, K-beauty routines, and product guides from GlowReaJo.",
+    url: "https://glowreajo.com/blog",
+    siteName: "GlowReaJo",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "GlowReaJo - Korean Skincare in Jordan" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | GlowReaJo",
+    description: "Skincare tips, K-beauty routines, and product guides from GlowReaJo.",
+    images: ["/og-image.png"],
   },
 }
 

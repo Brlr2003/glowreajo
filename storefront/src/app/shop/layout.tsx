@@ -9,6 +9,16 @@ export const metadata: Metadata = {
     title: "Shop K-Beauty Products | GlowReaJo",
     description:
       "Browse authentic Korean skincare products in Jordan. Cleansers, serums, moisturizers & more from top K-beauty brands.",
+    url: "https://glowreajo.com/shop",
+    siteName: "GlowReaJo",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "GlowReaJo - Korean Skincare in Jordan" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shop K-Beauty Products | GlowReaJo",
+    description:
+      "Browse authentic Korean skincare products in Jordan. Cleansers, serums, moisturizers & more from top K-beauty brands.",
+    images: ["/og-image.png"],
   },
 }
 
