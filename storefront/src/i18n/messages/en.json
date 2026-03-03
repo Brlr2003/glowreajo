@@ -110,7 +110,7 @@
     "brand": "Brand",
     "quantity": "Quantity",
     "description": "Description",
-    "whatsappPreOrder": "Hi! I'd like to pre-order {product} from GlowReaJo.",
+    "whatsappPreOrder": "Hi! I'd like to pre-order *{product}*{brand} ({price}) from GlowReaJo.",
     "available": "available",
     "addedToCart": "{product} added to cart",
     "shippingInfo": "Shipping Info",
