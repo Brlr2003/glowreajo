@@ -12,19 +12,61 @@ import { useTranslations, useLocale } from "next-intl"
 const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"
 const API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || ""
 
-const DEFAULT_CONTACTS = [
-  { icon: Phone, key: "phone", value: "+962 7 7726 1248", href: "tel:+962777261248" },
-  { icon: Mail, key: "email", value: "info@glowreajo.com", href: "mailto:info@glowreajo.com" },
-  { icon: MessageCircle, key: "whatsapp", value: "WhatsApp", href: "https://wa.me/962777261248" },
-  { icon: Instagram, key: "instagram", value: "@glowreajo", href: "https://instagram.com/glowreajo" },
-]
+function formatPhoneDisplay(raw: string): string {
+  const digits = raw.replace(/\D/g, "")
+  if (digits.startsWith("962") && digits.length === 12) {
+    return `+${digits.slice(0, 3)} ${digits.slice(3, 4)} ${digits.slice(4, 8)} ${digits.slice(8)}`
+  }
+  if (digits.startsWith("962") && digits.length === 11) {
+    return `+${digits.slice(0, 3)} ${digits.slice(3, 4)} ${digits.slice(4, 7)} ${digits.slice(7)}`
+  }
+  return raw.startsWith("+") ? raw : `+${raw}`
+}
+
+interface ContactItem {
+  icon: typeof Phone
+  label: string
+  value: string
+  href: string
+}
+
+function buildContacts(
+  t: (key: string) => string,
+  phone: string,
+  email: string,
+  whatsapp: string,
+  instagram?: { handle: string; url?: string }
+): ContactItem[] {
+  const phoneDigits = phone.replace(/\D/g, "")
+  const whatsappDigits = whatsapp.replace(/\D/g, "")
+  const items: ContactItem[] = [
+    { icon: Phone, label: t("phone"), value: formatPhoneDisplay(phone), href: `tel:+${phoneDigits}` },
+    { icon: Mail, label: t("email"), value: email, href: `mailto:${email}` },
+    { icon: MessageCircle, label: t("whatsapp"), value: formatPhoneDisplay(whatsapp), href: `https://wa.me/${whatsappDigits}` },
+  ]
+  if (instagram?.handle) {
+    items.push({
+      icon: Instagram,
+      label: "Instagram",
+      value: instagram.handle,
+      href: instagram.url || `https://instagram.com/${instagram.handle.replace("@", "")}`,
+    })
+  }
+  return items
+}
+
+const DEFAULT_PHONE = "962777261248"
+const DEFAULT_EMAIL = "info@glowreajo.com"
+const DEFAULT_WHATSAPP = "962782045415"
 
 export default function ContactPage() {
   const t = useTranslations("contact")
   const locale = useLocale()
   const [submitted, setSubmitted] = useState(false)
   const [form, setForm] = useState({ name: "", email: "", message: "" })
-  const [contacts, setContacts] = useState(DEFAULT_CONTACTS)
+  const [contacts, setContacts] = useState<ContactItem[]>(() =>
+    buildContacts(t, DEFAULT_PHONE, DEFAULT_EMAIL, DEFAULT_WHATSAPP)
+  )
 
   useEffect(() => {
     fetch(`${BACKEND_URL}/store/site-settings?locale=${locale}`, {
@@ -34,13 +76,15 @@ export default function ContactPage() {
       .then((data) => {
         const s = data.site_setting
         if (!s) return
-        const phoneDigits = (s.phone || "").replace(/\s+/g, "")
-        setContacts([
-          { icon: Phone, key: "phone", value: s.phone || DEFAULT_CONTACTS[0].value, href: `tel:${phoneDigits || "+962777261248"}` },
-          { icon: Mail, key: "email", value: s.email || DEFAULT_CONTACTS[1].value, href: `mailto:${s.email || "info@glowreajo.com"}` },
-          { icon: MessageCircle, key: "whatsapp", value: t("whatsapp"), href: `https://wa.me/${s.whatsapp || "962777261248"}` },
-          { icon: Instagram, key: "instagram", value: s.instagram_handle || DEFAULT_CONTACTS[3].value, href: s.instagram_url || DEFAULT_CONTACTS[3].href },
-        ])
+        setContacts(
+          buildContacts(
+            t,
+            s.phone || DEFAULT_PHONE,
+            s.email || DEFAULT_EMAIL,
+            s.whatsapp || DEFAULT_WHATSAPP,
+            s.instagram_handle ? { handle: s.instagram_handle, url: s.instagram_url } : undefined
+          )
+        )
       })
       .catch(() => {})
   }, [locale, t])
@@ -66,7 +110,7 @@ export default function ContactPage() {
             <motion.div variants={stagger(0.08)} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-4">
               {contacts.map((contact) => (
                 <motion.a
-                  key={contact.key}
+                  key={contact.label}
                   variants={fadeInUp}
                   href={contact.href}
                   target={contact.href.startsWith("http") ? "_blank" : undefined}
@@ -77,8 +121,8 @@ export default function ContactPage() {
                     <contact.icon className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-xs text-text-muted">{contact.key}</p>
-                    <p className="font-medium text-text-primary">{contact.value}</p>
+                    <p className="text-xs text-text-muted">{contact.label}</p>
+                    <p className="font-medium text-text-primary" dir="ltr">{contact.value}</p>
                   </div>
                 </motion.a>
               ))}

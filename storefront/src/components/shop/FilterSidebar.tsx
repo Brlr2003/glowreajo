@@ -27,7 +27,12 @@ interface FilterSidebarProps {
 const DEFAULT_SKIN_TYPES = ["allSkinTypes", "oily", "dry", "combination", "sensitive"]
 const DEFAULT_CONCERNS = ["acne", "hydration", "antiAging", "brightening", "pores", "sunProtection"]
 
-function buildOptions(defaults: string[], products: any[], metaKey: string): string[] {
+function buildOptions(
+  defaults: string[],
+  products: any[],
+  metaKey: string,
+  t: (key: string) => string
+): { label: string; value: string }[] {
   const extras = new Set<string>()
   for (const p of products) {
     const val = (p.metadata as any)?.[metaKey]
@@ -37,7 +42,9 @@ function buildOptions(defaults: string[], products: any[], metaKey: string): str
       })
     }
   }
-  return ["all", ...defaults, ...Array.from(extras).sort()]
+  const known = ["all", ...defaults].map((key) => ({ label: t(key), value: key }))
+  const dynamic = Array.from(extras).sort().map((v) => ({ label: v, value: v }))
+  return [...known, ...dynamic]
 }
 
 const priceRanges = [
@@ -54,12 +61,14 @@ function FilterGroup({
   value,
   onChange,
   translationNamespace,
+  rawLabels,
 }: {
   title: string
   options: string[] | { label: string; value: string }[]
   value: string
   onChange: (val: string) => void
   translationNamespace?: string
+  rawLabels?: boolean
 }) {
   const t = useTranslations(translationNamespace || "shop")
 
@@ -71,6 +80,7 @@ function FilterGroup({
           const optValue = typeof opt === "string" ? opt : opt.value
           const optLabel = typeof opt === "string" ? opt : opt.label
           const isActive = value === optValue || (value === "" && optValue === "all")
+          const displayLabel = rawLabels ? optLabel : t(optLabel)
           return (
             <button
               key={optValue}
@@ -81,7 +91,7 @@ function FilterGroup({
                   : "bg-background text-text-secondary hover:bg-primary/10 hover:text-primary"
               }`}
             >
-              {t(optLabel)}
+              {displayLabel}
             </button>
           )
         })}
@@ -92,9 +102,14 @@ function FilterGroup({
 
 export function FilterSidebar({ filters, onChange, products = [], categories = [], isMobile, isOpen, onClose, hideCategoryFilter }: FilterSidebarProps) {
   const t = useTranslations("shop")
-  const skinTypes = buildOptions(DEFAULT_SKIN_TYPES, products, "skin_type")
-  const concerns = buildOptions(DEFAULT_CONCERNS, products, "concerns")
-  const categoryNames = ["all", ...categories.map((c: MedusaCategory) => c.name)]
+  const tSkinTypes = useTranslations("skinTypes")
+  const tConcerns = useTranslations("concerns")
+  const skinTypes = buildOptions(DEFAULT_SKIN_TYPES, products, "skin_type", tSkinTypes)
+  const concerns = buildOptions(DEFAULT_CONCERNS, products, "concerns", tConcerns)
+  const categoryOptions = [
+    { label: t("all"), value: "all" },
+    ...categories.map((c: MedusaCategory) => ({ label: c.name, value: c.name })),
+  ]
 
   const content = (
     <div className="p-6">
@@ -113,10 +128,10 @@ export function FilterSidebar({ filters, onChange, products = [], categories = [
       {!hideCategoryFilter && (
         <FilterGroup
           title={t("category")}
-          options={categoryNames}
+          options={categoryOptions}
           value={filters.category}
           onChange={(v) => onChange({ ...filters, category: v })}
-          translationNamespace="shop"
+          rawLabels
         />
       )}
       <FilterGroup
@@ -124,14 +139,14 @@ export function FilterSidebar({ filters, onChange, products = [], categories = [
         options={skinTypes}
         value={filters.skinType}
         onChange={(v) => onChange({ ...filters, skinType: v })}
-        translationNamespace="skinTypes"
+        rawLabels
       />
       <FilterGroup
         title={t("concerns")}
         options={concerns}
         value={filters.concern}
         onChange={(v) => onChange({ ...filters, concern: v })}
-        translationNamespace="concerns"
+        rawLabels
       />
       <FilterGroup
         title={t("priceRange")}

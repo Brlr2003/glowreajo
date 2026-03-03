@@ -32,7 +32,8 @@
     "allCategories": "All Categories",
     "brand": "Brand",
     "quantity": "Quantity",
-    "whatsappAria": "Chat with us on WhatsApp"
+    "whatsappAria": "Chat with us on WhatsApp",
+    "phonePlaceholder": "7X XXX XXXX"
   },
   "header": {
     "searchPlaceholder": "Search products...",
@@ -139,7 +140,24 @@
     "promoCode": "Promo Code",
     "apply": "Apply",
     "remove": "Remove",
-    "notesPlaceholder": "Any special instructions for delivery..."
+    "notesPlaceholder": "Any special instructions for delivery...",
+    "addProducts": "Add some products to get started",
+    "reviewCart": "Review Your Cart",
+    "confirmOrder": "Confirm Your Order",
+    "deliveryDetails": "Delivery Details",
+    "jordan": "Jordan",
+    "paymentCod": "Cash on Delivery",
+    "payOnArrival": "Pay {amount} when your order arrives",
+    "placingOrder": "Placing Order...",
+    "orderError": "Something went wrong. Please try again.",
+    "qty": "Qty",
+    "free": "Free",
+    "promoQuestion": "Have a promo code?",
+    "promoApplied": "Applied",
+    "promoPlaceholder": "Enter code",
+    "promoApplyBtn": "Apply",
+    "promoInvalid": "Invalid promo code",
+    "promoError": "Failed to apply promo code"
   },
   "otp": {
     "title": "Verify Your Email",
@@ -150,7 +168,15 @@
     "resendIn": "Resend in {seconds}s",
     "verified": "Email Verified!",
     "invalid": "Invalid code. Please try again.",
-    "sent": "Code sent to {email}"
+    "sent": "Code sent to {email}",
+    "sentTo": "We'll send a code to",
+    "sending": "Sending...",
+    "resendTimer": "Resend in {seconds}s",
+    "resendCode": "Resend Code",
+    "back": "Back",
+    "sendFailed": "Failed to send code. Please try again.",
+    "invalidCode": "Invalid code. Please try again.",
+    "verifyFailed": "Verification failed. Please try again."
   },
   "orderSuccess": {
     "title": "Order Confirmed!",
@@ -165,8 +191,11 @@
     "orderDetails": "Order Details"
   },
   "shop": {
+    "home": "Home",
+    "shop": "Shop",
     "allProducts": "All Products",
     "filters": "Filters",
+    "closeFilters": "Close filters",
     "category": "Category",
     "skinType": "Skin Type",
     "concerns": "Concerns",
@@ -175,11 +204,16 @@
     "newest": "Newest",
     "priceLow": "Price: Low to High",
     "priceHigh": "Price: High to Low",
+    "nameAsc": "Name: A to Z",
+    "nameDesc": "Name: Z to A",
     "noProducts": "No products found",
+    "adjustFilters": "Try adjusting your filters to find what you're looking for.",
     "clearFilters": "Clear Filters",
     "applyFilters": "Apply Filters",
     "showingResults": "{count} products",
-    "featured": "Featured"
+    "productCount": "{count} products",
+    "featured": "Featured",
+    "all": "All"
   },
   "blog": {
     "title": "Our Blog",
@@ -189,7 +223,8 @@
     "noPosts": "No blog posts yet. Check back soon!",
     "backToBlog": "Back to Blog",
     "relatedPosts": "Related Posts",
-    "minRead": "{min} min read"
+    "minRead": "{min} min read",
+    "all": "All"
   },
   "about": {
     "title": "About GlowReaJo",
@@ -215,7 +250,10 @@
     "title": "Frequently Asked Questions",
     "subtitle": "Find answers to common questions about our products and services.",
     "noFaqs": "No FAQs available yet.",
-    "searchPlaceholder": "Search questions..."
+    "searchPlaceholder": "Search questions...",
+    "filterAll": "All",
+    "filterCategories": "Categories",
+    "filterProducts": "Products"
   },
   "cart": {
     "title": "Your Cart",
@@ -255,6 +293,7 @@
   },
   "skinTypes": {
     "all": "All Skin Types",
+    "allSkinTypes": "All Skin Types",
     "oily": "Oily",
     "dry": "Dry",
     "combination": "Combination",
@@ -262,6 +301,7 @@
     "normal": "Normal"
   },
   "concerns": {
+    "all": "All",
     "acne": "Acne",
     "hydration": "Hydration",
     "antiAging": "Anti-Aging",
@@ -273,6 +313,7 @@
   },
   "priceRanges": {
     "all": "All Prices",
+    "allPrices": "All Prices",
     "under10": "Under 10 JOD",
     "10to20": "10 - 20 JOD",
     "20to30": "20 - 30 JOD",
