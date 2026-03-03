@@ -25,14 +25,14 @@
     "@tiptap/react": "^3.20.0",
     "@tiptap/starter-kit": "^3.20.0",
     "resend": "^6.9.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
     "zod": "^3.25.76"
   },
   "devDependencies": {
     "@medusajs/admin-sdk": "^2.13.1",
     "@medusajs/js-sdk": "^2.13.1",
     "@medusajs/test-utils": "^2.13.1",
-    "@types/node": "^25.2.3",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "@types/node": "^25.2.3"
   }
 }
