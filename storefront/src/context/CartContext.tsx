@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useReducer, useEffect, useCallback, type ReactNode } from "react"
+import { createContext, useContext, useReducer, useEffect, useCallback, useRef, type ReactNode } from "react"
 
 export interface CartItem {
   id: string
@@ -108,6 +108,7 @@ const CartContext = createContext<CartContextValue | null>(null)
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(cartReducer, { items: [], isDrawerOpen: false, promo: null })
+  const hydrated = useRef(false)
 
   useEffect(() => {
     const saved = localStorage.getItem("glowreajo-cart")
@@ -116,9 +117,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
         dispatch({ type: "LOAD_CART", payload: JSON.parse(saved) })
       } catch {}
     }
+    hydrated.current = true
   }, [])
 
   useEffect(() => {
+    if (!hydrated.current) return
     localStorage.setItem("glowreajo-cart", JSON.stringify(state.items))
   }, [state.items])
 

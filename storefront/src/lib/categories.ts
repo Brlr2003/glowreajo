@@ -10,6 +10,16 @@ export interface MedusaCategory {
   category_children?: MedusaCategory[]
 }
 
+export function getCategoryName(cat: MedusaCategory, locale: string): string {
+  if (locale === "ar" && cat.metadata?.name_ar) return cat.metadata.name_ar
+  return cat.name
+}
+
+export function getCategoryDescription(cat: MedusaCategory, locale: string): string | undefined {
+  if (locale === "ar" && cat.metadata?.description_ar) return cat.metadata.description_ar
+  return cat.metadata?.description || cat.description
+}
+
 export async function getCategories(locale?: string): Promise<MedusaCategory[]> {
   try {
     const data = await medusaFetch<{ product_categories: MedusaCategory[] }>(

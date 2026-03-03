@@ -10,7 +10,7 @@ interface CheckoutProgressProps {
 
 export function CheckoutProgress({ currentStep }: CheckoutProgressProps) {
   const t = useTranslations("checkout")
-  const steps = [t("steps.0"), t("steps.1"), t("steps.2"), t("steps.3")]
+  const steps = [t("stepCartReview"), t("stepDetails"), t("stepVerify"), t("stepConfirm")]
 
   return (
     <div className="flex items-center justify-center gap-2 mb-10">

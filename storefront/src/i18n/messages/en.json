@@ -49,7 +49,8 @@
     "copyright": "All rights reserved.",
     "shippingPolicy": "Shipping Policy",
     "returnPolicy": "Return Policy",
-    "privacyPolicy": "Privacy Policy"
+    "privacyPolicy": "Privacy Policy",
+    "whatsapp": "WhatsApp"
   },
   "hero": {
     "badge": "Authentic K-Beauty",
@@ -110,7 +111,10 @@
   },
   "checkout": {
     "title": "Checkout",
-    "steps": ["Cart Review", "Your Details", "Verify", "Confirm"],
+    "stepCartReview": "Cart Review",
+    "stepDetails": "Your Details",
+    "stepVerify": "Verify",
+    "stepConfirm": "Confirm",
     "firstName": "First Name",
     "lastName": "Last Name",
     "phone": "Phone Number",
@@ -191,6 +195,8 @@
     "orderDetails": "Order Details"
   },
   "shop": {
+    "title": "Shop",
+    "subtitle": "Discover our curated collection of Korean skincare",
     "home": "Home",
     "shop": "Shop",
     "allProducts": "All Products",
@@ -253,7 +259,8 @@
     "searchPlaceholder": "Search questions...",
     "filterAll": "All",
     "filterCategories": "Categories",
-    "filterProducts": "Products"
+    "filterProducts": "Products",
+    "filterGeneral": "General"
   },
   "cart": {
     "title": "Your Cart",

@@ -49,7 +49,8 @@
     "copyright": "جميع الحقوق محفوظة.",
     "shippingPolicy": "سياسة الشحن",
     "returnPolicy": "سياسة الإرجاع",
-    "privacyPolicy": "سياسة الخصوصية"
+    "privacyPolicy": "سياسة الخصوصية",
+    "whatsapp": "واتساب"
   },
   "hero": {
     "badge": "كي بيوتي أصلي",
@@ -110,7 +111,10 @@
   },
   "checkout": {
     "title": "إتمام الطلب",
-    "steps": ["مراجعة السلة", "بياناتك", "التحقق", "تأكيد"],
+    "stepCartReview": "مراجعة السلة",
+    "stepDetails": "بياناتك",
+    "stepVerify": "التحقق",
+    "stepConfirm": "تأكيد",
     "firstName": "الاسم الأول",
     "lastName": "اسم العائلة",
     "phone": "رقم الهاتف",
@@ -191,6 +195,8 @@
     "orderDetails": "تفاصيل الطلب"
   },
   "shop": {
+    "title": "المتجر",
+    "subtitle": "اكتشف مجموعتنا المختارة من منتجات العناية بالبشرة الكورية",
     "home": "الرئيسية",
     "shop": "المتجر",
     "allProducts": "جميع المنتجات",
@@ -227,7 +233,7 @@
     "all": "الكل"
   },
   "about": {
-    "title": "عن غلو ريجو",
+    "title": "عن GlowReaJo",
     "ourStory": "قصتنا",
     "ourValues": "قيمنا",
     "whyKbeauty": "لماذا العناية الكورية؟"
@@ -253,7 +259,8 @@
     "searchPlaceholder": "ابحث في الأسئلة...",
     "filterAll": "الكل",
     "filterCategories": "الفئات",
-    "filterProducts": "المنتجات"
+    "filterProducts": "المنتجات",
+    "filterGeneral": "عام"
   },
   "cart": {
     "title": "سلتك",

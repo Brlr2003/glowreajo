@@ -1,5 +1,6 @@
 import { medusaFetch } from "@/lib/medusa-fetch"
-import { getCategories } from "@/lib/categories"
+import { getCategories, getCategoryName } from "@/lib/categories"
+import { getSiteSettings } from "@/lib/site-settings"
 import { JsonLd } from "@/components/seo/JsonLd"
 import { buildFaqJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/schemas"
 import { Breadcrumb } from "@/components/shared/Breadcrumb"
@@ -10,7 +11,7 @@ const SITE_URL = "https://glowreajo.com"
 
 interface FaqGroup {
   label: string
-  type: "category" | "product"
+  type: "category" | "product" | "general"
   items: { q: string; a: string }[]
 }
 
@@ -35,9 +36,10 @@ async function getProducts(): Promise<any[]> {
 
 export default async function FaqPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  const [categories, products, t, tc] = await Promise.all([
+  const [categories, products, siteSettings, t, tc] = await Promise.all([
     getCategories(),
     getProducts(),
+    getSiteSettings(locale),
     getTranslations("faqPage"),
     getTranslations("common"),
   ])
@@ -46,10 +48,18 @@ export default async function FaqPage({ params }: { params: Promise<{ locale: st
   const groups: FaqGroup[] = []
   const allFaqItems: { q: string; a: string }[] = []
 
+  // General FAQs from site settings (shown first)
+  const generalFaqRaw = (siteSettings as any)?.general_faq
+  const generalItems = parseFaq(generalFaqRaw)
+  if (generalItems.length > 0) {
+    groups.push({ label: t("filterGeneral"), type: "general", items: generalItems })
+    allFaqItems.push(...generalItems)
+  }
+
   for (const cat of categories) {
     const items = parseFaq(cat.metadata?.[faqField]) || parseFaq(cat.metadata?.faq)
     if (items.length > 0) {
-      groups.push({ label: cat.name, type: "category", items })
+      groups.push({ label: getCategoryName(cat, locale), type: "category", items })
       allFaqItems.push(...items)
     }
   }

@@ -14,6 +14,7 @@ export interface SiteSettings {
   about_story: string | null
   about_values: string | null
   about_kbeauty: string | null
+  general_faq: string | null
 }
 
 export async function getSiteSettings(locale?: string): Promise<SiteSettings | null> {

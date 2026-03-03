@@ -10,6 +10,7 @@ interface FooterCategory {
   id: string
   name: string
   handle: string
+  metadata?: Record<string, any>
 }
 
 interface Settings {
@@ -39,7 +40,7 @@ export function Footer() {
   const [settings, setSettings] = useState<Settings>(DEFAULTS)
 
   useEffect(() => {
-    fetch(`${BACKEND_URL}/store/product-categories?limit=5`, {
+    fetch(`${BACKEND_URL}/store/product-categories?limit=5&fields=+metadata`, {
       headers: { "x-publishable-api-key": API_KEY },
     })
       .then((res) => res.json())
@@ -97,7 +98,7 @@ export function Footer() {
                     href={`/shop/${cat.handle}`}
                     className="hover:text-primary transition-colors"
                   >
-                    {cat.name}
+                    {locale === "ar" && cat.metadata?.name_ar ? cat.metadata.name_ar : cat.name}
                   </Link>
                 </li>
               ))}
@@ -127,15 +128,15 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <a href={`tel:${phoneDigits}`} className="hover:text-white transition-colors">{settings.phone}</a>
+                <a href={`tel:${phoneDigits}`} dir="ltr" className="hover:text-white transition-colors">{settings.phone}</a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <a href={`mailto:${settings.email}`} className="hover:text-white transition-colors">{settings.email}</a>
+                <a href={`mailto:${settings.email}`} dir="ltr" className="hover:text-white transition-colors">{settings.email}</a>
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="h-4 w-4" />
-                <a href={`https://wa.me/${settings.whatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">WhatsApp</a>
+                <a href={`https://wa.me/${settings.whatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{t("whatsapp")}</a>
               </li>
               <li className="flex items-center gap-2">
                 <Instagram className="h-4 w-4" />

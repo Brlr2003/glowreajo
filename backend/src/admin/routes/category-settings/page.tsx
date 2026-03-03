@@ -44,6 +44,7 @@ function CategorySettingsPage() {
   const [activeId, setActiveId] = useState<string | null>(null)
   const [icon, setIcon] = useState("")
   const [color, setColor] = useState("")
+  const [nameAr, setNameAr] = useState("")
   const [description, setDescription] = useState("")
   const [descriptionAr, setDescriptionAr] = useState("")
   const [faq, setFaq] = useState<FaqItem[]>([])
@@ -76,6 +77,7 @@ function CategorySettingsPage() {
     const meta = cat.metadata || {}
     setIcon(meta.icon || "none")
     setColor(meta.color || "none")
+    setNameAr(meta.name_ar || "")
     setDescription(meta.description || "")
     setDescriptionAr(meta.description_ar || "")
     try {
@@ -123,6 +125,7 @@ function CategorySettingsPage() {
             ...existingMeta,
             icon: icon === "none" ? "" : icon,
             color: color === "none" ? "" : color,
+            name_ar: nameAr.trim(),
             description: description.trim(),
             description_ar: descriptionAr.trim(),
             faq: validFaq.length > 0 ? JSON.stringify(validFaq) : "",
@@ -230,7 +233,7 @@ function CategorySettingsPage() {
               {lang === "en" ? (
                 <>
                   <div>
-                    <Label className="mb-1.5 block text-sm font-medium">Description</Label>
+                    <Label className="mb-1.5 block text-sm font-medium">Description (English)</Label>
                     <Textarea placeholder="Category description..." value={description} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value)} rows={3} />
                   </div>
                   <div>
@@ -253,6 +256,10 @@ function CategorySettingsPage() {
                 </>
               ) : (
                 <>
+                  <div>
+                    <Label className="mb-1.5 block text-sm font-medium">اسم الفئة بالعربي (Category Name)</Label>
+                    <Input dir="rtl" placeholder="مثال: المنظفات" value={nameAr} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNameAr(e.target.value)} />
+                  </div>
                   <div>
                     <Label className="mb-1.5 block text-sm font-medium">الوصف (Description)</Label>
                     <Textarea dir="rtl" placeholder="وصف الفئة..." value={descriptionAr} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setDescriptionAr(e.target.value)} rows={3} />

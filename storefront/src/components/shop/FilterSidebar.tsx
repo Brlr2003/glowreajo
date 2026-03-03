@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import { X, SlidersHorizontal } from "lucide-react"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { Button } from "@/components/ui/Button"
 import type { MedusaCategory } from "@/lib/categories"
 
@@ -102,13 +102,17 @@ function FilterGroup({
 
 export function FilterSidebar({ filters, onChange, products = [], categories = [], isMobile, isOpen, onClose, hideCategoryFilter }: FilterSidebarProps) {
   const t = useTranslations("shop")
+  const locale = useLocale()
   const tSkinTypes = useTranslations("skinTypes")
   const tConcerns = useTranslations("concerns")
   const skinTypes = buildOptions(DEFAULT_SKIN_TYPES, products, "skin_type", tSkinTypes)
   const concerns = buildOptions(DEFAULT_CONCERNS, products, "concerns", tConcerns)
   const categoryOptions = [
     { label: t("all"), value: "all" },
-    ...categories.map((c: MedusaCategory) => ({ label: c.name, value: c.name })),
+    ...categories.map((c: MedusaCategory) => ({
+      label: locale === "ar" && c.metadata?.name_ar ? c.metadata.name_ar : c.name,
+      value: c.name,
+    })),
   ]
 
   const content = (

@@ -30,13 +30,15 @@ interface ShopPageClientProps {
 export function ShopPageClient({
   initialProducts,
   categories = [],
-  title = "Shop",
-  subtitle = "Discover our curated collection of Korean skincare",
+  title,
+  subtitle,
   breadcrumbItems,
   initialCategory = "",
   hideCategoryFilter,
 }: ShopPageClientProps) {
   const t = useTranslations("shop")
+  const displayTitle = title || t("title")
+  const displaySubtitle = subtitle || t("subtitle")
   const [products] = useState<any[]>(initialProducts)
   const [filters, setFilters] = useState<Filters>({
     category: initialCategory,
@@ -120,8 +122,8 @@ export function ShopPageClient({
       <AnimatedSection>
         <Breadcrumb items={breadcrumbItems || defaultBreadcrumb} />
         <div className="mb-8 text-center">
-          <h1 className="font-heading text-4xl font-bold text-text-primary">{title}</h1>
-          <p className="mt-2 text-text-secondary">{subtitle}</p>
+          <h1 className="font-heading text-4xl font-bold text-text-primary">{displayTitle}</h1>
+          <p className="mt-2 text-text-secondary">{displaySubtitle}</p>
         </div>
       </AnimatedSection>
 

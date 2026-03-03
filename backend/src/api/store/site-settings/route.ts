@@ -1,7 +1,7 @@
 import { SITE_SETTINGS_MODULE } from "../../../modules/site-settings"
 import { localize } from "../../helpers/localize"
 
-const SETTINGS_FIELDS = ["announcement_content", "about_intro", "about_story", "about_values", "about_kbeauty"]
+const SETTINGS_FIELDS = ["announcement_content", "about_intro", "about_story", "about_values", "about_kbeauty", "general_faq"]
 
 export async function GET(req: any, res: any) {
   try {

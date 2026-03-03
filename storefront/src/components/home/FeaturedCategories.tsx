@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Link } from "@/i18n/routing"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { AnimatedSection } from "@/components/ui/AnimatedSection"
 import { SectionTitle } from "@/components/shared/SectionTitle"
 import { Sparkles } from "lucide-react"
@@ -16,6 +16,7 @@ interface FeaturedCategoriesProps {
 
 export function FeaturedCategories({ categories = [] }: FeaturedCategoriesProps) {
   const t = useTranslations("home")
+  const locale = useLocale()
 
   if (categories.length === 0) return null
 
@@ -50,7 +51,7 @@ export function FeaturedCategories({ categories = [] }: FeaturedCategoriesProps)
                     <Icon className="h-8 w-8" />
                   </div>
                   <span className="text-sm font-medium text-text-primary group-hover:text-primary transition-colors text-center">
-                    {cat.name}
+                    {locale === "ar" && cat.metadata?.name_ar ? cat.metadata.name_ar : cat.name}
                   </span>
                 </Link>
               </motion.div>

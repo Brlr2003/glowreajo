@@ -19,7 +19,7 @@ export function LanguageSwitcher() {
   return (
     <button
       onClick={switchLocale}
-      className="flex items-center gap-1.5 p-2 text-text-secondary hover:text-primary transition-colors"
+      className="flex items-center gap-1.5 px-3 py-2 rounded-full cursor-pointer text-text-secondary hover:text-primary hover:bg-primary/10 transition-colors"
       aria-label={t("label")}
     >
       <Globe className="h-4.5 w-4.5" />

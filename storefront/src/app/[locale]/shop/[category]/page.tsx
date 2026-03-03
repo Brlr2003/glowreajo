@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { medusaFetch } from "@/lib/medusa-fetch"
-import { getCategoryByHandle, getCategories } from "@/lib/categories"
+import { getCategoryByHandle, getCategories, getCategoryName, getCategoryDescription } from "@/lib/categories"
 import { ShopPageClient } from "@/components/shop/ShopPageClient"
 import { CategoryFaq } from "@/components/shop/CategoryFaq"
 import { JsonLd } from "@/components/seo/JsonLd"
@@ -72,17 +72,19 @@ export default async function CategoryPage(
   if (!cat) notFound()
 
   const products = await getProductsByCategory(cat.id, locale)
+  const catName = getCategoryName(cat, locale)
+  const catDesc = getCategoryDescription(cat, locale)
 
   const breadcrumbItems = [
     { name: "Home", url: SITE_URL },
     { name: "Shop", url: `${SITE_URL}/shop` },
-    { name: cat.name, url: `${SITE_URL}/shop/${cat.handle}` },
+    { name: catName, url: `${SITE_URL}/shop/${cat.handle}` },
   ]
 
   const clientBreadcrumb = [
     { label: "Home", href: "/" },
     { label: "Shop", href: "/shop" },
-    { label: cat.name },
+    { label: catName },
   ]
 
   return (
@@ -91,8 +93,8 @@ export default async function CategoryPage(
       <ShopPageClient
         initialProducts={products}
         categories={allCategories}
-        title={cat.name}
-        subtitle={cat.metadata?.description || `Explore our ${cat.name.toLowerCase()} collection`}
+        title={catName}
+        subtitle={catDesc || `Explore our ${cat.name.toLowerCase()} collection`}
         breadcrumbItems={clientBreadcrumb}
         hideCategoryFilter
       />
