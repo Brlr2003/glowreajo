@@ -1,25 +1,35 @@
 import type { Metadata } from "next"
+import { getTranslations } from "next-intl/server"
 
-export const metadata: Metadata = {
-  title: "FAQ - Frequently Asked Questions",
-  description:
-    "Find answers to common questions about GlowReaJo's Korean skincare products, categories, shipping, and more.",
-  alternates: { canonical: "https://glowreajo.com/faq" },
-  openGraph: {
-    title: "FAQ | GlowReaJo",
-    description:
-      "Find answers to common questions about GlowReaJo's Korean skincare products and services.",
-    url: "https://glowreajo.com/faq",
-    siteName: "GlowReaJo",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "GlowReaJo - Korean Skincare in Jordan" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "FAQ | GlowReaJo",
-    description:
-      "Find answers to common questions about GlowReaJo's Korean skincare products and services.",
-    images: ["/og-image.png"],
-  },
+const siteUrl = "https://glowreajo.com"
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: "metadata" })
+
+  return {
+    title: t("faqTitle"),
+    description: t("faqDescription"),
+    alternates: { canonical: `${siteUrl}/${locale}/faq` },
+    openGraph: {
+      title: t("faqTitle"),
+      description: t("faqDescription"),
+      url: `${siteUrl}/${locale}/faq`,
+      siteName: t("siteName"),
+      locale: locale === "ar" ? "ar_JO" : "en_US",
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: t("title") }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("faqTitle"),
+      description: t("faqDescription"),
+      images: ["/og-image.png"],
+    },
+  }
 }
 
 export default function FaqLayout({ children }: { children: React.ReactNode }) {
