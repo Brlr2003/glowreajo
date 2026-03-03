@@ -85,7 +85,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
   }
 
   const productUrl = typeof window !== "undefined" ? window.location.href : ""
-  const whatsappMsg = `Hi! I'd like to pre-order *${product.title}*${brand ? ` by ${brand}` : ""} (${priceAmount ? formatPrice(priceAmount, locale) : "N/A"}) from GlowReaJo.\n\n${productUrl}`
+  const whatsappMsg = `${t("whatsappPreOrder", { product: product.title, brand: brand ? ` by ${brand}` : "", price: priceAmount ? formatPrice(priceAmount, locale) : "N/A" })}\n\n${productUrl}`
   const whatsappUrl = whatsapp
     ? `https://wa.me/${whatsapp}?text=${encodeURIComponent(whatsappMsg)}`
     : null

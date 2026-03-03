@@ -110,7 +110,7 @@
     "brand": "العلامة التجارية",
     "quantity": "الكمية",
     "description": "الوصف",
-    "whatsappPreOrder": "مرحباً! أود طلب {product} من غلو ريجو.",
+    "whatsappPreOrder": "مرحباً! أود طلب *{product}*{brand} ({price}) من غلو ريجو.",
     "available": "متوفر",
     "addedToCart": "تمت إضافة {product} للسلة",
     "shippingInfo": "معلومات الشحن",
