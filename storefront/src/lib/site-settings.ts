@@ -10,6 +10,10 @@ export interface SiteSettings {
   instagram_url: string | null
   tiktok_url: string | null
   facebook_url: string | null
+  about_intro: string | null
+  about_story: string | null
+  about_values: string | null
+  about_kbeauty: string | null
 }
 
 export async function getSiteSettings(): Promise<SiteSettings | null> {

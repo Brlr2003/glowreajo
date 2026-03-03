@@ -12,6 +12,10 @@ const SiteSetting = model.define("site_setting", {
   instagram_url: model.text().nullable(),
   tiktok_url: model.text().nullable(),
   facebook_url: model.text().nullable(),
+  about_intro: model.text().nullable(),
+  about_story: model.text().nullable(),
+  about_values: model.text().nullable(),
+  about_kbeauty: model.text().nullable(),
 })
 
 export default SiteSetting
