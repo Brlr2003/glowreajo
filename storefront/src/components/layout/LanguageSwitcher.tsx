@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "@/i18n/routing"
 import { Globe } from "lucide-react"
 import type { Locale } from "@/i18n/config"
 
-export function LanguageSwitcher() {
+export function LanguageSwitcher({ variant = "compact" }: { variant?: "compact" | "full" }) {
   const locale = useLocale() as Locale
   const pathname = usePathname()
   const router = useRouter()
@@ -14,6 +14,22 @@ export function LanguageSwitcher() {
   const switchLocale = () => {
     const next: Locale = locale === "en" ? "ar" : "en"
     router.replace(pathname, { locale: next })
+  }
+
+  if (variant === "full") {
+    return (
+      <button
+        onClick={switchLocale}
+        className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-base font-medium text-text-primary hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer"
+        aria-label={t("label")}
+      >
+        <Globe className="h-5 w-5" />
+        <span>{t("switchTo")}</span>
+        <span className="ms-auto text-xs font-medium text-text-secondary bg-muted px-2 py-0.5 rounded-full">
+          {locale === "en" ? "AR" : "EN"}
+        </span>
+      </button>
+    )
   }
 
   return (

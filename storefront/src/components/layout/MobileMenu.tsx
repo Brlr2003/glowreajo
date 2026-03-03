@@ -92,9 +92,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: (links.length + 1) * 0.04 }}
-                className="px-4 py-2 border-t border-border/50 mt-1"
+                className="border-t border-border/50 mt-1 pt-1"
               >
-                <LanguageSwitcher />
+                <LanguageSwitcher variant="full" />
               </motion.div>
             </nav>
           </motion.div>
