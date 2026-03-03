@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { medusa, getRegionId } from "@/lib/medusa-client"
 import { ProductCard } from "./ProductCard"
 import { SectionTitle } from "@/components/shared/SectionTitle"
@@ -14,6 +15,7 @@ interface RelatedProductsProps {
 export function RelatedProducts({ currentProductId, categoryId }: RelatedProductsProps) {
   const [products, setProducts] = useState<any[]>([])
   const scrollRef = useRef<HTMLDivElement>(null)
+  const t = useTranslations("product")
 
   useEffect(() => {
     async function load() {
@@ -39,11 +41,11 @@ export function RelatedProducts({ currentProductId, categoryId }: RelatedProduct
 
   return (
     <section className="mt-16">
-      <SectionTitle title="You May Also Like" />
+      <SectionTitle title={t("relatedProducts")} />
       <div className="relative">
         <button
           onClick={() => scroll("left")}
-          className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 h-10 w-10 rounded-full bg-surface shadow-card items-center justify-center text-text-primary hover:text-primary transition-colors hidden md:flex"
+          className="absolute -start-4 top-1/2 z-10 -translate-y-1/2 h-10 w-10 rounded-full bg-surface shadow-card items-center justify-center text-text-primary hover:text-primary transition-colors hidden md:flex"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
@@ -60,7 +62,7 @@ export function RelatedProducts({ currentProductId, categoryId }: RelatedProduct
         </div>
         <button
           onClick={() => scroll("right")}
-          className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 h-10 w-10 rounded-full bg-surface shadow-card items-center justify-center text-text-primary hover:text-primary transition-colors hidden md:flex"
+          className="absolute -end-4 top-1/2 z-10 -translate-y-1/2 h-10 w-10 rounded-full bg-surface shadow-card items-center justify-center text-text-primary hover:text-primary transition-colors hidden md:flex"
         >
           <ChevronRight className="h-5 w-5" />
         </button>

@@ -14,7 +14,10 @@ import { getTestimonials } from "@/lib/testimonials"
 import { medusaFetch } from "@/lib/medusa-fetch"
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://glowreajo.com" },
+  alternates: {
+    canonical: "https://glowreajo.com",
+    languages: { en: "https://glowreajo.com/en", ar: "https://glowreajo.com/ar" },
+  },
   openGraph: {
     title: "GlowReaJo | Korean Skincare in Jordan",
     description:
@@ -41,11 +44,12 @@ async function getBrands(): Promise<string[]> {
   }
 }
 
-export default async function HomePage() {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
   const [categories, brands, testimonials] = await Promise.all([
     getCategories(),
     getBrands(),
-    getTestimonials(),
+    getTestimonials(locale),
   ])
 
   return (

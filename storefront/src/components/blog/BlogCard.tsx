@@ -1,15 +1,17 @@
-import Link from "next/link"
+import { Link } from "@/i18n/routing"
 import Image from "next/image"
 import { memo } from "react"
+import { useLocale } from "next-intl"
 
 interface BlogCardProps {
   post: any
 }
 
 function BlogCardInner({ post }: BlogCardProps) {
+  const locale = useLocale()
   const tags = parseTags(post.tags)
   const date = post.published_at
-    ? new Date(post.published_at).toLocaleDateString("en-US", {
+    ? new Date(post.published_at).toLocaleDateString(locale, {
         year: "numeric",
         month: "long",
         day: "numeric",

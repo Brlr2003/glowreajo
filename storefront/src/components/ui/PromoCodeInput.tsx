@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 import { motion, AnimatePresence } from "framer-motion"
 import { Tag, ChevronDown, X } from "lucide-react"
 import { Button } from "./Button"
@@ -12,6 +13,7 @@ interface PromoCodeInputProps {
 }
 
 export function PromoCodeInput({ onApply, appliedCode, onRemove }: PromoCodeInputProps) {
+  const t = useTranslations("checkout")
   const [isOpen, setIsOpen] = useState(!!appliedCode)
   const [code, setCode] = useState("")
   const [loading, setLoading] = useState(false)
@@ -26,10 +28,10 @@ export function PromoCodeInput({ onApply, appliedCode, onRemove }: PromoCodeInpu
       if (result.valid) {
         setCode("")
       } else {
-        setError(result.message || "Invalid or expired promo code")
+        setError(result.message || t("promoInvalid"))
       }
     } catch {
-      setError("Failed to apply promo code")
+      setError(t("promoError"))
     } finally {
       setLoading(false)
     }
@@ -42,8 +44,8 @@ export function PromoCodeInput({ onApply, appliedCode, onRemove }: PromoCodeInpu
         className="flex w-full items-center gap-2 text-sm text-text-secondary hover:text-primary transition-colors"
       >
         <Tag className="h-4 w-4" />
-        <span>Have a promo code?</span>
-        <motion.div animate={{ rotate: isOpen ? 180 : 0 }} className="ml-auto">
+        <span>{t("promoQuestion")}</span>
+        <motion.div animate={{ rotate: isOpen ? 180 : 0 }} className="ms-auto">
           <ChevronDown className="h-4 w-4" />
         </motion.div>
       </button>
@@ -60,7 +62,7 @@ export function PromoCodeInput({ onApply, appliedCode, onRemove }: PromoCodeInpu
                 <div className="flex items-center gap-2">
                   <Tag className="h-4 w-4 text-success" />
                   <span className="text-sm font-medium text-success">{appliedCode}</span>
-                  <span className="text-xs text-text-muted">applied</span>
+                  <span className="text-xs text-text-muted">{t("promoApplied")}</span>
                 </div>
                 <button
                   onClick={onRemove}
@@ -75,7 +77,7 @@ export function PromoCodeInput({ onApply, appliedCode, onRemove }: PromoCodeInpu
                 <input
                   value={code}
                   onChange={(e) => setCode(e.target.value.toUpperCase())}
-                  placeholder="Enter code"
+                  placeholder={t("promoPlaceholder")}
                   className="flex-1 rounded-xl border border-border bg-surface px-4 py-2 text-sm outline-none focus:border-primary"
                 />
                 <Button
@@ -83,7 +85,7 @@ export function PromoCodeInput({ onApply, appliedCode, onRemove }: PromoCodeInpu
                   onClick={handleApply}
                   disabled={loading || !code.trim()}
                 >
-                  {loading ? "..." : "Apply"}
+                  {loading ? "..." : t("promoApplyBtn")}
                 </Button>
               </div>
             )}

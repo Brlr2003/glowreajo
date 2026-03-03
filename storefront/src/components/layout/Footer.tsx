@@ -1,7 +1,9 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
+import { Link } from "@/i18n/routing"
+import { useTranslations } from "next-intl"
+import { useLocale } from "next-intl"
 import { Sparkles, Instagram, MessageCircle, Mail, Phone } from "lucide-react"
 
 interface FooterCategory {
@@ -30,6 +32,9 @@ const DEFAULTS: Settings = {
 }
 
 export function Footer() {
+  const t = useTranslations("footer")
+  const tc = useTranslations("common")
+  const locale = useLocale()
   const [categories, setCategories] = useState<FooterCategory[]>([])
   const [settings, setSettings] = useState<Settings>(DEFAULTS)
 
@@ -43,7 +48,7 @@ export function Footer() {
   }, [])
 
   useEffect(() => {
-    fetch(`${BACKEND_URL}/store/site-settings`, {
+    fetch(`${BACKEND_URL}/store/site-settings?locale=${locale}`, {
       headers: { "x-publishable-api-key": API_KEY },
     })
       .then((res) => res.json())
@@ -60,7 +65,7 @@ export function Footer() {
         }
       })
       .catch(() => {})
-  }, [])
+  }, [locale])
 
   const phoneDigits = settings.phone?.replace(/\s+/g, "") || ""
 
@@ -74,17 +79,16 @@ export function Footer() {
               <span className="font-heading text-xl font-bold">GlowReaJo</span>
             </Link>
             <p className="text-sm text-white/60 leading-relaxed">
-              Your trusted Korean skincare destination in Jordan. Authentic
-              K-beauty products delivered to your door.
+              {t("tagline")}
             </p>
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold mb-4">Shop</h3>
+            <h3 className="font-heading font-semibold mb-4">{tc("shop")}</h3>
             <ul className="space-y-2 text-sm text-white/60">
               <li>
                 <Link href="/shop" className="hover:text-primary transition-colors">
-                  All Products
+                  {tc("shop")}
                 </Link>
               </li>
               {categories.map((cat) => (
@@ -101,25 +105,25 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold mb-4">Help</h3>
+            <h3 className="font-heading font-semibold mb-4">{t("quickLinks")}</h3>
             <ul className="space-y-2 text-sm text-white/60">
               <li>
-                <Link href="/about" className="hover:text-primary transition-colors">About Us</Link>
+                <Link href="/about" className="hover:text-primary transition-colors">{tc("about")}</Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
+                <Link href="/blog" className="hover:text-primary transition-colors">{tc("blog")}</Link>
               </li>
               <li>
-                <Link href="/faq" className="hover:text-primary transition-colors">FAQ</Link>
+                <Link href="/faq" className="hover:text-primary transition-colors">{tc("faq")}</Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-primary transition-colors">Contact</Link>
+                <Link href="/contact" className="hover:text-primary transition-colors">{tc("contact")}</Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold mb-4">Contact</h3>
+            <h3 className="font-heading font-semibold mb-4">{tc("contact")}</h3>
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
@@ -142,7 +146,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-8 text-center text-sm text-white/40">
-          &copy; 2026 GlowReaJo. All rights reserved.
+          {t("copyright")}
         </div>
       </div>
     </footer>

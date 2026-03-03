@@ -16,6 +16,11 @@ const SiteSetting = model.define("site_setting", {
   about_story: model.text().nullable(),
   about_values: model.text().nullable(),
   about_kbeauty: model.text().nullable(),
+  announcement_content_ar: model.text().nullable(),
+  about_intro_ar: model.text().nullable(),
+  about_story_ar: model.text().nullable(),
+  about_values_ar: model.text().nullable(),
+  about_kbeauty_ar: model.text().nullable(),
 })
 
 export default SiteSetting

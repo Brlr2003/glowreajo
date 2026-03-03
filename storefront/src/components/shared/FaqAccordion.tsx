@@ -29,7 +29,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
             className="flex w-full items-center justify-between px-6 py-4 text-left"
           >
-            <span className="font-medium text-text-primary pr-4">{item.q}</span>
+            <span className="font-medium text-text-primary pe-4">{item.q}</span>
             <motion.span
               animate={{ rotate: openIndex === i ? 180 : 0 }}
               transition={{ duration: 0.2 }}

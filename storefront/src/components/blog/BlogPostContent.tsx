@@ -2,6 +2,7 @@ import Image from "next/image"
 
 interface BlogPostContentProps {
   post: any
+  locale: string
 }
 
 function parseTags(tags: any): string[] {
@@ -18,10 +19,10 @@ function parseTags(tags: any): string[] {
   return []
 }
 
-export function BlogPostContent({ post }: BlogPostContentProps) {
+export function BlogPostContent({ post, locale }: BlogPostContentProps) {
   const tags = parseTags(post.tags)
   const date = post.published_at
-    ? new Date(post.published_at).toLocaleDateString("en-US", {
+    ? new Date(post.published_at).toLocaleDateString(locale, {
         year: "numeric",
         month: "long",
         day: "numeric",

@@ -1,5 +1,6 @@
 "use client"
 
+import { useTranslations } from "next-intl"
 import { FaqAccordion } from "@/components/shared/FaqAccordion"
 import { JsonLd } from "@/components/seo/JsonLd"
 import { buildFaqJsonLd } from "@/lib/seo/schemas"
@@ -9,6 +10,7 @@ interface ProductFaqProps {
 }
 
 export function ProductFaq({ product }: ProductFaqProps) {
+  const t = useTranslations("product")
   let faq: { q: string; a: string }[] = []
   try {
     const raw = product.metadata?.faq
@@ -25,7 +27,7 @@ export function ProductFaq({ product }: ProductFaqProps) {
     <section className="mt-12">
       <JsonLd data={buildFaqJsonLd(faq)} />
       <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
-        Frequently Asked Questions
+        {t("faq")}
       </h2>
       <FaqAccordion items={faq} />
     </section>

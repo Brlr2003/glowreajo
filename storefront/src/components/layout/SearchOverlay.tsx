@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import Link from "next/link"
+import { Link } from "@/i18n/routing"
+import { useTranslations } from "next-intl"
 import { Search, X } from "lucide-react"
 import { medusa, getRegionId } from "@/lib/medusa-client"
 import { formatPrice } from "@/lib/formatPrice"
@@ -22,6 +23,8 @@ interface SearchResult {
 }
 
 export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
+  const t = useTranslations("header")
+  const tc = useTranslations("common")
   const [query, setQuery] = useState("")
   const [results, setResults] = useState<SearchResult[]>([])
   const [loading, setLoading] = useState(false)
@@ -91,7 +94,7 @@ export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                 ref={inputRef}
                 value={query}
                 onChange={(e) => handleChange(e.target.value)}
-                placeholder="Search Korean skincare..."
+                placeholder={t("searchPlaceholder")}
                 className="flex-1 text-lg outline-none bg-transparent text-text-primary placeholder:text-text-muted"
               />
               <button onClick={onClose} className="text-text-muted hover:text-text-primary">
@@ -102,11 +105,11 @@ export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
             {(loading || results.length > 0 || (query && !loading)) && (
               <div className="max-h-96 overflow-y-auto p-2">
                 {loading && (
-                  <div className="p-4 text-center text-text-muted text-sm">Searching...</div>
+                  <div className="p-4 text-center text-text-muted text-sm">{t("searchPlaceholder")}...</div>
                 )}
                 {!loading && query && results.length === 0 && (
                   <div className="p-8 text-center text-text-muted text-sm">
-                    No products found for &ldquo;{query}&rdquo;
+                    {tc("noResults")}
                   </div>
                 )}
                 {results.map((product) => {

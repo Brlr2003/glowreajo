@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Shield, Mail } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { OtpInput } from "@/components/ui/OtpInput"
 import { Button } from "@/components/ui/Button"
 import { sendOtp, verifyOtp } from "@/lib/otp"
@@ -13,6 +14,7 @@ interface OtpVerificationStepProps {
 }
 
 export function OtpVerificationStep({ email, onVerified, onBack }: OtpVerificationStepProps) {
+  const t = useTranslations("otp")
   const [sent, setSent] = useState(false)
   const [error, setError] = useState("")
   const [timer, setTimer] = useState(0)
@@ -33,7 +35,7 @@ export function OtpVerificationStep({ email, onVerified, onBack }: OtpVerificati
       setSent(true)
       setTimer(60)
     } catch (err: any) {
-      setError(err.message || "Failed to send verification code")
+      setError(err.message || t("sendFailed"))
     } finally {
       setLoading(false)
     }
@@ -47,10 +49,10 @@ export function OtpVerificationStep({ email, onVerified, onBack }: OtpVerificati
       if (result.verified) {
         onVerified()
       } else {
-        setError(result.message || "Invalid code")
+        setError(result.message || t("invalidCode"))
       }
     } catch {
-      setError("Verification failed. Please try again.")
+      setError(t("verifyFailed"))
     } finally {
       setLoading(false)
     }
@@ -64,9 +66,9 @@ export function OtpVerificationStep({ email, onVerified, onBack }: OtpVerificati
             <Shield className="h-7 w-7 text-primary" />
           </div>
         </div>
-        <h2 className="font-heading text-xl font-bold">Verify Your Identity</h2>
+        <h2 className="font-heading text-xl font-bold">{t("title")}</h2>
         <p className="text-sm text-text-secondary mt-2">
-          We&apos;ll send a 6-digit code to confirm your order
+          {t("subtitle")}
         </p>
       </div>
 
@@ -74,32 +76,32 @@ export function OtpVerificationStep({ email, onVerified, onBack }: OtpVerificati
         <div className="space-y-4">
           <div className="flex items-center justify-center gap-2 text-sm text-text-secondary">
             <Mail className="h-4 w-4 text-primary" />
-            <span>Code will be sent to: <strong>{email}</strong></span>
+            <span>{t("sentTo")} <strong>{email}</strong></span>
           </div>
           <div className="flex justify-center">
             <Button onClick={handleSend} disabled={loading}>
-              {loading ? "Sending..." : "Send Code"}
+              {loading ? t("sending") : t("sendCode")}
             </Button>
           </div>
         </div>
       ) : (
         <div className="space-y-6">
           <p className="text-sm text-text-secondary text-center">
-            Enter the 6-digit code sent to <strong>{email}</strong>
+            {t("enterCode")} <strong>{email}</strong>
           </p>
 
           <OtpInput onComplete={handleVerify} error={error} />
 
           <div className="text-center">
             {timer > 0 ? (
-              <p className="text-sm text-text-muted">Resend in {timer}s</p>
+              <p className="text-sm text-text-muted">{t("resendTimer", { seconds: timer })}</p>
             ) : (
               <button
                 onClick={handleSend}
                 disabled={loading}
                 className="text-sm text-primary hover:underline"
               >
-                Resend Code
+                {t("resendCode")}
               </button>
             )}
           </div>
@@ -110,7 +112,7 @@ export function OtpVerificationStep({ email, onVerified, onBack }: OtpVerificati
 
       <div className="flex justify-center pt-4">
         <Button variant="ghost" onClick={onBack}>
-          Back
+          {t("back")}
         </Button>
       </div>
     </div>

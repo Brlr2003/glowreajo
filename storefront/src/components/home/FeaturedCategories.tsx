@@ -1,7 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Link from "next/link"
+import { Link } from "@/i18n/routing"
+import { useTranslations } from "next-intl"
 import { AnimatedSection } from "@/components/ui/AnimatedSection"
 import { SectionTitle } from "@/components/shared/SectionTitle"
 import { Sparkles } from "lucide-react"
@@ -14,6 +15,8 @@ interface FeaturedCategoriesProps {
 }
 
 export function FeaturedCategories({ categories = [] }: FeaturedCategoriesProps) {
+  const t = useTranslations("home")
+
   if (categories.length === 0) return null
 
   return (
@@ -21,8 +24,7 @@ export function FeaturedCategories({ categories = [] }: FeaturedCategoriesProps)
       <div className="container-app">
         <AnimatedSection>
           <SectionTitle
-            title="Shop by Category"
-            subtitle="Find the perfect products for your skincare routine"
+            title={t("featuredCategories")}
             icon={Sparkles}
           />
         </AnimatedSection>

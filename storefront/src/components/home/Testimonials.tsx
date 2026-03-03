@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Star, Quote } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { AnimatedSection } from "@/components/ui/AnimatedSection"
 import { SectionTitle } from "@/components/shared/SectionTitle"
 import { stagger, fadeInUp } from "@/lib/animations"
@@ -12,6 +13,8 @@ interface TestimonialsProps {
 }
 
 export function Testimonials({ reviews = [] }: TestimonialsProps) {
+  const t = useTranslations("home")
+
   if (reviews.length === 0) return null
 
   return (
@@ -19,8 +22,7 @@ export function Testimonials({ reviews = [] }: TestimonialsProps) {
       <div className="container-app">
         <AnimatedSection>
           <SectionTitle
-            title="Loved by Jordanians"
-            subtitle="See what our customers are saying"
+            title={t("testimonials")}
             icon={Star}
           />
         </AnimatedSection>

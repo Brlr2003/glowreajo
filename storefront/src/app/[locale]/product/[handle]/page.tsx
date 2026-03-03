@@ -23,9 +23,9 @@ async function getProduct(handle: string) {
 }
 
 export async function generateMetadata(
-  { params }: { params: Promise<{ handle: string }> }
+  { params }: { params: Promise<{ handle: string; locale: string }> }
 ): Promise<Metadata> {
-  const { handle } = await params
+  const { handle, locale } = await params
   const product = await getProduct(handle)
 
   if (!product) {
@@ -41,7 +41,10 @@ export async function generateMetadata(
   return {
     title,
     description: `${description.slice(0, 150)}${brand ? ` | ${brand}` : ""} — Buy online in Jordan.`,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: { en: `${SITE_URL}/en/product/${product.handle}`, ar: `${SITE_URL}/ar/product/${product.handle}` },
+    },
     openGraph: {
       title: `${product.title} | GlowReaJo`,
       description: description.slice(0, 200),
@@ -60,7 +63,7 @@ export async function generateMetadata(
 }
 
 export default async function ProductPage(
-  { params }: { params: Promise<{ handle: string }> }
+  { params }: { params: Promise<{ handle: string; locale: string }> }
 ) {
   const { handle } = await params
   const product = await getProduct(handle)

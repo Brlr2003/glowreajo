@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import {
   X,
   Home,
@@ -13,23 +14,25 @@ import {
   HelpCircle,
 } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const links = [
-  { href: "/", label: "Home", icon: Home },
-  { href: "/shop", label: "Shop", icon: Store },
-  { href: "/about", label: "About", icon: Info },
-  { href: "/blog", label: "Blog", icon: BookOpen },
-  { href: "/faq", label: "FAQ", icon: HelpCircle },
-  { href: "/contact", label: "Contact", icon: MessageCircle },
-];
-
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+  const t = useTranslations("common");
   const { totalItems, toggleDrawer } = useCart();
+
+  const links = [
+    { href: "/", label: t("home"), icon: Home },
+    { href: "/shop", label: t("shop"), icon: Store },
+    { href: "/about", label: t("about"), icon: Info },
+    { href: "/blog", label: t("blog"), icon: BookOpen },
+    { href: "/faq", label: t("faq"), icon: HelpCircle },
+    { href: "/contact", label: t("contact"), icon: MessageCircle },
+  ];
 
   const handleCartClick = () => {
     onClose();
@@ -77,13 +80,21 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   onClick={handleCartClick}
                   className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-base font-medium text-text-primary hover:bg-primary/10 hover:text-primary transition-colors">
                   <ShoppingBag className="h-5 w-5" />
-                  Cart
+                  {t("cart")}
                   {totalItems > 0 && (
-                    <span className="ml-auto flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1.5 text-[11px] font-bold text-white">
+                    <span className="ms-auto flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1.5 text-[11px] font-bold text-white">
                       {totalItems}
                     </span>
                   )}
                 </button>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: (links.length + 1) * 0.04 }}
+                className="px-4 py-2 border-t border-border/50 mt-1"
+              >
+                <LanguageSwitcher />
               </motion.div>
             </nav>
           </motion.div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
@@ -10,6 +11,8 @@ const API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || "";
 const DEFAULT_WHATSAPP = "962782045415";
 
 export function WhatsAppButton() {
+  const locale = useLocale();
+  const t = useTranslations("common");
   const [whatsapp, setWhatsapp] = useState(DEFAULT_WHATSAPP);
 
   useEffect(() => {
@@ -42,7 +45,7 @@ export function WhatsAppButton() {
       transition={{
         boxShadow: { duration: 2, repeat: Infinity },
       }}
-      aria-label="Contact us on WhatsApp">
+      aria-label={t("whatsappAria")}>
       <MessageCircle className="h-7 w-7" />
     </motion.a>
   );

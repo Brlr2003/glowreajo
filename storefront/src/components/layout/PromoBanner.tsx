@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useLocale } from "next-intl"
 import { X } from "lucide-react"
 
 const STORAGE_KEY = "glowreajo-promo-dismissed"
@@ -18,11 +19,12 @@ function hashContent(str: string): string {
 }
 
 export function PromoBanner() {
+  const locale = useLocale()
   const [dismissed, setDismissed] = useState(true)
   const [content, setContent] = useState("")
 
   useEffect(() => {
-    fetch(`${BACKEND_URL}/store/site-settings`, {
+    fetch(`${BACKEND_URL}/store/site-settings?locale=${locale}`, {
       headers: { "x-publishable-api-key": API_KEY },
     })
       .then((res) => res.json())
@@ -66,7 +68,7 @@ export function PromoBanner() {
         <button
           onClick={handleDismiss}
           aria-label="Dismiss promo banner"
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors"
+          className="absolute end-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors"
         >
           <X className="h-4 w-4" />
         </button>

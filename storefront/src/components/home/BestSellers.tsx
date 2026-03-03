@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { medusa, getRegionId } from "@/lib/medusa-client"
 import { ProductCard } from "@/components/product/ProductCard"
 import { AnimatedSection } from "@/components/ui/AnimatedSection"
@@ -10,6 +11,7 @@ import { SectionTitle } from "@/components/shared/SectionTitle"
 import { Skeleton } from "@/components/ui/Skeleton"
 
 export function BestSellers() {
+  const t = useTranslations("home")
   const [products, setProducts] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -40,8 +42,7 @@ export function BestSellers() {
       <div className="container-app">
         <AnimatedSection>
           <SectionTitle
-            title="Best Sellers"
-            subtitle="Our most loved K-beauty products"
+            title={t("bestSellers")}
             icon={Star}
           />
         </AnimatedSection>

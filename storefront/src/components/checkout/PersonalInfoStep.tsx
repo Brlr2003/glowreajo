@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 import { Input } from "@/components/ui/Input"
 import { Select } from "@/components/ui/Select"
 import { PhoneInput } from "@/components/ui/PhoneInput"
@@ -8,18 +9,18 @@ import { Button } from "@/components/ui/Button"
 import { validateEmail } from "@/lib/validateEmail"
 
 const jordanianCities = [
-  { value: "amman", label: "Amman" },
-  { value: "zarqa", label: "Zarqa" },
-  { value: "irbid", label: "Irbid" },
-  { value: "aqaba", label: "Aqaba" },
-  { value: "salt", label: "Salt" },
-  { value: "madaba", label: "Madaba" },
-  { value: "karak", label: "Karak" },
-  { value: "jerash", label: "Jerash" },
-  { value: "mafraq", label: "Mafraq" },
-  { value: "tafilah", label: "Tafilah" },
-  { value: "ajloun", label: "Ajloun" },
-  { value: "maan", label: "Ma'an" },
+  { value: "amman", label: "amman" },
+  { value: "zarqa", label: "zarqa" },
+  { value: "irbid", label: "irbid" },
+  { value: "aqaba", label: "aqaba" },
+  { value: "salt", label: "salt" },
+  { value: "madaba", label: "madaba" },
+  { value: "karak", label: "karak" },
+  { value: "jerash", label: "jerash" },
+  { value: "mafraq", label: "mafraq" },
+  { value: "tafilah", label: "tafilah" },
+  { value: "ajloun", label: "ajloun" },
+  { value: "maan", label: "maan" },
 ]
 
 export interface PersonalInfo {
@@ -40,17 +41,20 @@ interface PersonalInfoStepProps {
 }
 
 export function PersonalInfoStep({ data, onChange, onNext, onBack }: PersonalInfoStepProps) {
+  const t = useTranslations("checkout")
+  const tCities = useTranslations("cities")
+  const tErrors = useTranslations("errors")
   const [errors, setErrors] = useState<Partial<Record<keyof PersonalInfo, string>>>({})
 
   const validate = () => {
     const newErrors: Partial<Record<keyof PersonalInfo, string>> = {}
-    if (!data.firstName.trim()) newErrors.firstName = "Required"
-    if (!data.lastName.trim()) newErrors.lastName = "Required"
-    if (!data.phone.trim()) newErrors.phone = "Required"
-    if (!data.email.trim()) newErrors.email = "Required"
-    else if (!validateEmail(data.email)) newErrors.email = "Invalid email"
-    if (!data.city) newErrors.city = "Required"
-    if (!data.address.trim()) newErrors.address = "Required"
+    if (!data.firstName.trim()) newErrors.firstName = tErrors("required")
+    if (!data.lastName.trim()) newErrors.lastName = tErrors("required")
+    if (!data.phone.trim()) newErrors.phone = tErrors("required")
+    if (!data.email.trim()) newErrors.email = tErrors("required")
+    else if (!validateEmail(data.email)) newErrors.email = tErrors("invalidEmail")
+    if (!data.city) newErrors.city = tErrors("required")
+    if (!data.address.trim()) newErrors.address = tErrors("required")
 
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
@@ -65,19 +69,24 @@ export function PersonalInfoStep({ data, onChange, onNext, onBack }: PersonalInf
     if (errors[field]) setErrors({ ...errors, [field]: undefined })
   }
 
+  const translatedCities = jordanianCities.map((city) => ({
+    value: city.value,
+    label: tCities(city.label),
+  }))
+
   return (
     <div className="space-y-6">
-      <h2 className="font-heading text-xl font-bold">Personal Information</h2>
+      <h2 className="font-heading text-xl font-bold">{t("personalInfo")}</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <Input
-          label="First Name"
+          label={t("firstName")}
           value={data.firstName}
           onChange={(e) => update("firstName", e.target.value)}
           error={errors.firstName}
         />
         <Input
-          label="Last Name"
+          label={t("lastName")}
           value={data.lastName}
           onChange={(e) => update("lastName", e.target.value)}
           error={errors.lastName}
@@ -91,7 +100,7 @@ export function PersonalInfoStep({ data, onChange, onNext, onBack }: PersonalInf
       />
 
       <Input
-        label="Email"
+        label={t("email")}
         type="email"
         value={data.email}
         onChange={(e) => update("email", e.target.value)}
@@ -99,32 +108,32 @@ export function PersonalInfoStep({ data, onChange, onNext, onBack }: PersonalInf
       />
 
       <Select
-        label="City"
-        options={jordanianCities}
+        label={t("city")}
+        options={translatedCities}
         value={data.city}
         onChange={(e) => update("city", e.target.value)}
         error={errors.city}
       />
 
       <Input
-        label="Delivery Address"
+        label={t("deliveryAddress")}
         value={data.address}
         onChange={(e) => update("address", e.target.value)}
         error={errors.address}
       />
 
       <Input
-        label="Order Notes (optional)"
+        label={t("orderNotes")}
         value={data.notes}
         onChange={(e) => update("notes", e.target.value)}
       />
 
       <div className="flex justify-between pt-4">
         <Button variant="ghost" onClick={onBack}>
-          Back
+          {t("back")}
         </Button>
         <Button onClick={handleNext} size="lg">
-          Continue
+          {t("continue")}
         </Button>
       </div>
     </div>

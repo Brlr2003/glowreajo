@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import { X, SlidersHorizontal } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/Button"
 import type { MedusaCategory } from "@/lib/categories"
 
@@ -23,8 +24,8 @@ interface FilterSidebarProps {
   hideCategoryFilter?: boolean
 }
 
-const DEFAULT_SKIN_TYPES = ["All Skin Types", "Oily", "Dry", "Combination", "Sensitive"]
-const DEFAULT_CONCERNS = ["Acne", "Hydration", "Anti-aging", "Brightening", "Pores", "Sun Protection"]
+const DEFAULT_SKIN_TYPES = ["allSkinTypes", "oily", "dry", "combination", "sensitive"]
+const DEFAULT_CONCERNS = ["acne", "hydration", "antiAging", "brightening", "pores", "sunProtection"]
 
 function buildOptions(defaults: string[], products: any[], metaKey: string): string[] {
   const extras = new Set<string>()
@@ -36,15 +37,15 @@ function buildOptions(defaults: string[], products: any[], metaKey: string): str
       })
     }
   }
-  return ["All", ...defaults, ...Array.from(extras).sort()]
+  return ["all", ...defaults, ...Array.from(extras).sort()]
 }
 
 const priceRanges = [
-  { label: "All Prices", value: "all" },
-  { label: "Under 10 JOD", value: "0-10" },
-  { label: "10 - 20 JOD", value: "10-20" },
-  { label: "20 - 30 JOD", value: "20-30" },
-  { label: "Over 30 JOD", value: "30+" },
+  { label: "allPrices", value: "all" },
+  { label: "under10", value: "0-10" },
+  { label: "10to20", value: "10-20" },
+  { label: "20to30", value: "20-30" },
+  { label: "over30", value: "30+" },
 ]
 
 function FilterGroup({
@@ -52,12 +53,16 @@ function FilterGroup({
   options,
   value,
   onChange,
+  translationNamespace,
 }: {
   title: string
   options: string[] | { label: string; value: string }[]
   value: string
   onChange: (val: string) => void
+  translationNamespace?: string
 }) {
+  const t = useTranslations(translationNamespace || "shop")
+
   return (
     <div className="mb-6">
       <h3 className="font-heading font-semibold text-text-primary mb-3 text-sm">{title}</h3>
@@ -65,18 +70,18 @@ function FilterGroup({
         {options.map((opt) => {
           const optValue = typeof opt === "string" ? opt : opt.value
           const optLabel = typeof opt === "string" ? opt : opt.label
-          const isActive = value === optValue || (value === "" && optValue === "All") || (value === "" && optValue === "all")
+          const isActive = value === optValue || (value === "" && optValue === "all")
           return (
             <button
               key={optValue}
-              onClick={() => onChange(optValue === "All" || optValue === "all" ? "" : optValue)}
+              onClick={() => onChange(optValue === "all" ? "" : optValue)}
               className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
                 isActive
                   ? "bg-primary text-white"
                   : "bg-background text-text-secondary hover:bg-primary/10 hover:text-primary"
               }`}
             >
-              {optLabel}
+              {t(optLabel)}
             </button>
           )
         })}
@@ -86,9 +91,10 @@ function FilterGroup({
 }
 
 export function FilterSidebar({ filters, onChange, products = [], categories = [], isMobile, isOpen, onClose, hideCategoryFilter }: FilterSidebarProps) {
+  const t = useTranslations("shop")
   const skinTypes = buildOptions(DEFAULT_SKIN_TYPES, products, "skin_type")
   const concerns = buildOptions(DEFAULT_CONCERNS, products, "concerns")
-  const categoryNames = ["All", ...categories.map((c: MedusaCategory) => c.name)]
+  const categoryNames = ["all", ...categories.map((c: MedusaCategory) => c.name)]
 
   const content = (
     <div className="p-6">
@@ -96,9 +102,9 @@ export function FilterSidebar({ filters, onChange, products = [], categories = [
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
             <SlidersHorizontal className="h-5 w-5 text-primary" />
-            <h2 className="font-heading text-lg font-bold">Filters</h2>
+            <h2 className="font-heading text-lg font-bold">{t("filters")}</h2>
           </div>
-          <button onClick={onClose} aria-label="Close filters">
+          <button onClick={onClose} aria-label={t("closeFilters")}>
             <X className="h-6 w-6 text-text-secondary" />
           </button>
         </div>
@@ -106,34 +112,38 @@ export function FilterSidebar({ filters, onChange, products = [], categories = [
 
       {!hideCategoryFilter && (
         <FilterGroup
-          title="Category"
+          title={t("category")}
           options={categoryNames}
           value={filters.category}
           onChange={(v) => onChange({ ...filters, category: v })}
+          translationNamespace="shop"
         />
       )}
       <FilterGroup
-        title="Skin Type"
+        title={t("skinType")}
         options={skinTypes}
         value={filters.skinType}
         onChange={(v) => onChange({ ...filters, skinType: v })}
+        translationNamespace="skinTypes"
       />
       <FilterGroup
-        title="Concern"
+        title={t("concerns")}
         options={concerns}
         value={filters.concern}
         onChange={(v) => onChange({ ...filters, concern: v })}
+        translationNamespace="concerns"
       />
       <FilterGroup
-        title="Price Range"
+        title={t("priceRange")}
         options={priceRanges}
         value={filters.priceRange}
         onChange={(v) => onChange({ ...filters, priceRange: v })}
+        translationNamespace="priceRanges"
       />
 
       {isMobile && (
         <Button className="w-full mt-4" onClick={onClose}>
-          Apply Filters
+          {t("applyFilters")}
         </Button>
       )}
     </div>

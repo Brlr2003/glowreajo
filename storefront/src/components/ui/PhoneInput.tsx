@@ -1,5 +1,6 @@
 "use client"
 
+import { useTranslations } from "next-intl"
 import { cn } from "@/lib/cn"
 import type { InputHTMLAttributes } from "react"
 
@@ -14,6 +15,7 @@ export function PhoneInput({
   className,
   ...props
 }: PhoneInputProps) {
+  const t = useTranslations("common")
   return (
     <div>
       <div className="flex">
@@ -27,7 +29,7 @@ export function PhoneInput({
             error ? "border-error" : "border-border focus:border-primary",
             className
           )}
-          placeholder="7X XXX XXXX"
+          placeholder={t("phonePlaceholder")}
           {...props}
         />
       </div>

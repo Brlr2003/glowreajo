@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
+import { useTranslations } from "next-intl"
+import { useRouter } from "@/i18n/routing"
 import { useCart } from "@/context/CartContext"
 import { placeOrder } from "@/lib/checkout-actions"
 import { formatPrice } from "@/lib/formatPrice"
@@ -16,6 +17,8 @@ interface OrderConfirmStepProps {
 }
 
 export function OrderConfirmStep({ personalInfo, onBack }: OrderConfirmStepProps) {
+  const t = useTranslations("checkout")
+  const tCities = useTranslations("cities")
   const [placing, setPlacing] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
@@ -35,24 +38,24 @@ export function OrderConfirmStep({ personalInfo, onBack }: OrderConfirmStepProps
       clearCart()
       router.push("/order/success")
     } catch (err: any) {
-      setError(err?.message || "Something went wrong. Please try again.")
+      setError(err?.message || t("orderError"))
       setPlacing(false)
     }
   }
 
   return (
     <div className="space-y-6">
-      <h2 className="font-heading text-xl font-bold">Confirm Your Order</h2>
+      <h2 className="font-heading text-xl font-bold">{t("confirmOrder")}</h2>
 
       <div className="rounded-2xl border border-border p-6 space-y-4">
-        <h3 className="font-heading font-semibold">Delivery Details</h3>
+        <h3 className="font-heading font-semibold">{t("deliveryDetails")}</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
           <div className="flex items-start gap-3">
             <MapPin className="h-4 w-4 text-primary mt-0.5 shrink-0" />
             <div>
               <p className="font-medium">{personalInfo.firstName} {personalInfo.lastName}</p>
               <p className="text-text-muted">{personalInfo.address}</p>
-              <p className="text-text-muted capitalize">{personalInfo.city}, Jordan</p>
+              <p className="text-text-muted capitalize">{tCities(personalInfo.city)}, {t("jordan")}</p>
             </div>
           </div>
           <div className="space-y-2">
@@ -77,8 +80,8 @@ export function OrderConfirmStep({ personalInfo, onBack }: OrderConfirmStepProps
       <OrderSummary city={personalInfo.city} />
 
       <div className="rounded-2xl bg-warm-accent/30 p-4 text-center text-sm">
-        <p className="font-medium text-text-primary">Payment: Cash on Delivery</p>
-        <p className="text-text-muted mt-1">Pay {formatPrice(finalTotal)} when your order arrives</p>
+        <p className="font-medium text-text-primary">{t("paymentCod")}</p>
+        <p className="text-text-muted mt-1">{t("payOnArrival", { amount: formatPrice(finalTotal) })}</p>
       </div>
 
       {error && (
@@ -89,10 +92,10 @@ export function OrderConfirmStep({ personalInfo, onBack }: OrderConfirmStepProps
 
       <div className="flex justify-between pt-4">
         <Button variant="ghost" onClick={onBack} disabled={placing}>
-          Back
+          {t("back")}
         </Button>
         <Button onClick={handlePlaceOrder} size="lg" disabled={placing}>
-          {placing ? "Placing Order..." : "Place Order"}
+          {placing ? t("placingOrder") : t("placeOrder")}
         </Button>
       </div>
     </div>

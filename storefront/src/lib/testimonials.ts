@@ -10,10 +10,11 @@ export interface Testimonial {
   sort_order: number
 }
 
-export async function getTestimonials(): Promise<Testimonial[]> {
+export async function getTestimonials(locale?: string): Promise<Testimonial[]> {
   try {
+    const q = locale ? `?locale=${locale}` : ""
     const data = await medusaFetch<{ testimonials: Testimonial[] }>(
-      "/store/testimonials",
+      `/store/testimonials${q}`,
       { revalidate: 60 }
     )
     return data.testimonials || []

@@ -1,5 +1,6 @@
 "use client"
 
+import { useTranslations } from "next-intl"
 import { FaqAccordion } from "@/components/shared/FaqAccordion"
 import { JsonLd } from "@/components/seo/JsonLd"
 import { buildFaqJsonLd } from "@/lib/seo/schemas"
@@ -10,6 +11,7 @@ interface CategoryFaqProps {
 }
 
 export function CategoryFaq({ category }: CategoryFaqProps) {
+  const t = useTranslations("common")
   let faq: { q: string; a: string }[] = []
   try {
     const raw = category.metadata?.faq
@@ -26,7 +28,7 @@ export function CategoryFaq({ category }: CategoryFaqProps) {
     <section className="mt-12 container-app">
       <JsonLd data={buildFaqJsonLd(faq)} />
       <h2 className="font-heading text-2xl font-bold text-text-primary mb-6">
-        Frequently Asked Questions
+        {t("faq")}
       </h2>
       <FaqAccordion items={faq} />
     </section>

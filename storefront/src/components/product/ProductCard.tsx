@@ -2,9 +2,10 @@
 
 import { memo, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import Link from "next/link"
+import { Link } from "@/i18n/routing"
 import Image from "next/image"
 import { ShoppingBag, Check, ZoomIn } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { useCart } from "@/context/CartContext"
 import { useToast } from "@/context/ToastContext"
 import { Badge } from "@/components/ui/Badge"
@@ -21,6 +22,8 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   const [added, setAdded] = useState(false)
   const [zoomOpen, setZoomOpen] = useState(false)
   const [imgError, setImgError] = useState(false)
+  const tc = useTranslations("common")
+  const t = useTranslations("product")
   const { addItem } = useCart()
   const { addToast } = useToast()
 
@@ -57,7 +60,7 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
     })
 
     addToast({
-      message: `${product.title} added to cart`,
+      message: t("addedToCart", { product: product.title }),
       type: "success",
     })
 
@@ -81,13 +84,13 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
             unoptimized={unoptimized}
             onError={() => setImgError(true)}
           />
-          <div className="absolute top-3 left-3 flex gap-2">
-            {isOutOfStock && <Badge variant="sale">Out of Stock</Badge>}
-            {!isOutOfStock && product.tags?.length > 0 && <Badge variant="bestseller">Best Seller</Badge>}
+          <div className="absolute top-3 start-3 flex gap-2">
+            {isOutOfStock && <Badge variant="sale">{tc("outOfStock")}</Badge>}
+            {!isOutOfStock && product.tags?.length > 0 && <Badge variant="bestseller">{tc("bestSeller")}</Badge>}
           </div>
           <button
             onClick={(e) => { e.preventDefault(); e.stopPropagation(); setZoomOpen(true) }}
-            className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-text-primary opacity-0 group-hover:opacity-100 transition-opacity shadow-soft hover:bg-white"
+            className="absolute top-3 end-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-text-primary opacity-0 group-hover:opacity-100 transition-opacity shadow-soft hover:bg-white"
           >
             <ZoomIn className="h-4 w-4" />
           </button>

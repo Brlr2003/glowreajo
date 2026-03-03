@@ -1,7 +1,8 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import Link from "next/link"
+import { Link } from "@/i18n/routing"
+import { useTranslations } from "next-intl"
 import Image from "next/image"
 import { useState } from "react"
 import { X, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react"
@@ -28,6 +29,7 @@ function CartImage({ src, alt }: { src: string; alt: string }) {
 }
 
 export function CartDrawer() {
+  const t = useTranslations("cart")
   const {
     items, isDrawerOpen, setDrawerOpen, updateQuantity,
     removeItem, totalPrice, totalItems, promo, applyPromo, removePromo,
@@ -69,9 +71,9 @@ export function CartDrawer() {
             <div className="flex items-center justify-between p-6 border-b border-border">
               <div className="flex items-center gap-2">
                 <ShoppingBag className="h-5 w-5 text-primary" />
-                <h2 className="font-heading text-lg font-bold">Your Cart ({totalItems})</h2>
+                <h2 className="font-heading text-lg font-bold">{t("title")} ({totalItems})</h2>
               </div>
-              <button onClick={() => setDrawerOpen(false)} aria-label="Close cart">
+              <button onClick={() => setDrawerOpen(false)} aria-label={t("title")}>
                 <X className="h-6 w-6 text-text-secondary" />
               </button>
             </div>
@@ -81,13 +83,13 @@ export function CartDrawer() {
                 <div className="flex flex-col items-center justify-center h-full text-center">
                   <ShoppingBag className="h-16 w-16 text-border mb-4" />
                   <p className="font-heading text-lg font-semibold text-text-primary mb-2">
-                    Your cart is empty
+                    {t("empty")}
                   </p>
                   <p className="text-sm text-text-muted mb-6">
-                    Start your K-beauty journey today!
+                    {t("emptySubtitle")}
                   </p>
                   <Link href="/shop" onClick={() => setDrawerOpen(false)}>
-                    <Button>Browse Products</Button>
+                    <Button>{t("browseProducts")}</Button>
                   </Link>
                 </div>
               ) : (
@@ -159,7 +161,7 @@ export function CartDrawer() {
                           </button>
                           <button
                             onClick={() => removeItem(item.id)}
-                            className="ml-auto text-text-muted hover:text-error transition-colors"
+                            className="ms-auto text-text-muted hover:text-error transition-colors"
                           >
                             <Trash2 className="h-4 w-4" />
                           </button>
@@ -179,7 +181,7 @@ export function CartDrawer() {
                   onRemove={removePromo}
                 />
                 <div className="flex items-center justify-between">
-                  <span className="font-medium text-text-secondary">Subtotal</span>
+                  <span className="font-medium text-text-secondary">{t("subtotal")}</span>
                   <span className="font-heading text-lg font-bold">{formatPrice(totalPrice)}</span>
                 </div>
                 {promo && (
@@ -190,16 +192,16 @@ export function CartDrawer() {
                 )}
                 {promo && (
                   <div className="flex items-center justify-between">
-                    <span className="font-medium text-text-secondary">Total</span>
+                    <span className="font-medium text-text-secondary">{t("total")}</span>
                     <span className="font-heading text-lg font-bold text-primary">{formatPrice(finalTotal)}</span>
                   </div>
                 )}
                 <div className="rounded-xl bg-success/10 px-4 py-2 text-center text-xs text-success font-medium">
-                  Free delivery on orders over 50 JOD
+                  {t("freeDelivery")}
                 </div>
                 <Link href="/checkout" onClick={() => setDrawerOpen(false)} className="block">
                   <Button className="w-full" size="lg">
-                    Proceed to Checkout
+                    {t("checkout")}
                   </Button>
                 </Link>
               </div>

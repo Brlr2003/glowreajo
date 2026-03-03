@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react"
 import { SlidersHorizontal } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { FilterSidebar } from "@/components/shop/FilterSidebar"
 import { SortDropdown } from "@/components/shop/SortDropdown"
 import { ProductGrid } from "@/components/shop/ProductGrid"
@@ -35,6 +36,7 @@ export function ShopPageClient({
   initialCategory = "",
   hideCategoryFilter,
 }: ShopPageClientProps) {
+  const t = useTranslations("shop")
   const [products] = useState<any[]>(initialProducts)
   const [filters, setFilters] = useState<Filters>({
     category: initialCategory,
@@ -109,8 +111,8 @@ export function ShopPageClient({
   }, [products, filters, sort])
 
   const defaultBreadcrumb = [
-    { label: "Home", href: "/" },
-    { label: "Shop" },
+    { label: t("home"), href: "/" },
+    { label: t("shop") },
   ]
 
   return (
@@ -129,7 +131,7 @@ export function ShopPageClient({
           className="flex items-center gap-2 rounded-xl border border-border px-4 py-2 text-sm text-text-secondary hover:border-primary transition-colors"
         >
           <SlidersHorizontal className="h-4 w-4" />
-          Filters
+          {t("filters")}
         </button>
         <SortDropdown value={sort} onChange={setSort} />
       </div>
@@ -149,7 +151,7 @@ export function ShopPageClient({
 
         <div className="flex-1">
           <div className="hidden lg:flex items-center justify-between mb-6">
-            <p className="text-sm text-text-muted">{filtered.length} products</p>
+            <p className="text-sm text-text-muted">{t("productCount", { count: filtered.length })}</p>
             <SortDropdown value={sort} onChange={setSort} />
           </div>
           <ProductGrid products={filtered} loading={false} />

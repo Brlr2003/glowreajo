@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 import { ProductCard } from "@/components/product/ProductCard"
 import { Skeleton } from "@/components/ui/Skeleton"
 import { stagger, fadeInUp } from "@/lib/animations"
@@ -12,6 +13,8 @@ interface ProductGridProps {
 }
 
 export function ProductGrid({ products, loading }: ProductGridProps) {
+  const t = useTranslations("shop")
+
   if (loading) {
     return (
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
@@ -27,9 +30,9 @@ export function ProductGrid({ products, loading }: ProductGridProps) {
       <div className="flex flex-col items-center justify-center py-20 text-center">
         <PackageOpen className="h-16 w-16 text-border mb-4" />
         <h3 className="font-heading text-lg font-semibold text-text-primary mb-2">
-          No products found
+          {t("noProducts")}
         </h3>
-        <p className="text-sm text-text-muted">Try adjusting your filters</p>
+        <p className="text-sm text-text-muted">{t("adjustFilters")}</p>
       </div>
     )
   }

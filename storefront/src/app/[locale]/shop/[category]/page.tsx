@@ -25,9 +25,9 @@ async function getProductsByCategory(categoryId: string) {
 }
 
 export async function generateMetadata(
-  { params }: { params: Promise<{ category: string }> }
+  { params }: { params: Promise<{ category: string; locale: string }> }
 ): Promise<Metadata> {
-  const { category: handle } = await params
+  const { category: handle, locale } = await params
   const cat = await getCategoryByHandle(handle)
 
   if (!cat) return { title: "Category Not Found" }
@@ -38,7 +38,10 @@ export async function generateMetadata(
   return {
     title: `${cat.name} - Korean Skincare`,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: { en: `${SITE_URL}/en/shop/${cat.handle}`, ar: `${SITE_URL}/ar/shop/${cat.handle}` },
+    },
     openGraph: {
       title: `${cat.name} | GlowReaJo`,
       description,
@@ -57,7 +60,7 @@ export async function generateMetadata(
 }
 
 export default async function CategoryPage(
-  { params }: { params: Promise<{ category: string }> }
+  { params }: { params: Promise<{ category: string; locale: string }> }
 ) {
   const { category: handle } = await params
   const [cat, allCategories] = await Promise.all([

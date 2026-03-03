@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
 import Image from "next/image"
+import { useTranslations } from "next-intl"
+import { Link } from "@/i18n/routing"
 import { useCart } from "@/context/CartContext"
 import { formatPrice } from "@/lib/formatPrice"
 import { validatePromoCode } from "@/lib/promo"
@@ -30,6 +31,7 @@ interface CartReviewStepProps {
 }
 
 export function CartReviewStep({ onNext }: CartReviewStepProps) {
+  const t = useTranslations("checkout")
   const { items, updateQuantity, removeItem, totalPrice, promo, applyPromo, removePromo } = useCart()
 
   const handleApplyPromo = async (code: string) => {
@@ -51,15 +53,15 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
     return (
       <div className="text-center py-12">
         <ShoppingBag className="h-16 w-16 text-border mx-auto mb-4" />
-        <h3 className="font-heading text-lg font-semibold">Your cart is empty</h3>
-        <p className="text-sm text-text-muted mt-2">Add some products to get started</p>
+        <h3 className="font-heading text-lg font-semibold">{t("emptyCart")}</h3>
+        <p className="text-sm text-text-muted mt-2">{t("addProducts")}</p>
       </div>
     )
   }
 
   return (
     <div className="space-y-6">
-      <h2 className="font-heading text-xl font-bold">Review Your Cart</h2>
+      <h2 className="font-heading text-xl font-bold">{t("reviewCart")}</h2>
 
       <div className="space-y-4">
         {items.map((item) => {
@@ -128,7 +130,7 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
                 </button>
                 <button
                   onClick={() => removeItem(item.id)}
-                  className="ml-auto text-text-muted hover:text-error"
+                  className="ms-auto text-text-muted hover:text-error"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
@@ -148,24 +150,24 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
       />
 
       <div className="rounded-xl bg-success/10 px-4 py-2.5 text-center text-sm text-success font-medium">
-        Free delivery on orders over 50 JOD
+        {t("freeDelivery")}
       </div>
 
       <div className="pt-4 border-t border-border space-y-2">
         <div className="flex justify-between text-sm">
-          <span className="text-text-secondary">Subtotal</span>
+          <span className="text-text-secondary">{t("subtotal")}</span>
           <span>{formatPrice(totalPrice)}</span>
         </div>
         {promo && (
           <div className="flex justify-between text-sm text-success">
-            <span>Discount ({promo.code})</span>
+            <span>{t("discount")} ({promo.code})</span>
             <span>-{formatPrice(promo.discount)}</span>
           </div>
         )}
         <div className="flex justify-between items-center pt-2">
-          <span className="font-heading text-lg font-bold">Total: {formatPrice(finalTotal)}</span>
+          <span className="font-heading text-lg font-bold">{t("total")}: {formatPrice(finalTotal)}</span>
           <Button onClick={onNext} size="lg">
-            Continue
+            {t("continue")}
           </Button>
         </div>
       </div>

@@ -1,14 +1,18 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
+import { Link } from "@/i18n/routing"
+import { useTranslations } from "next-intl"
 import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 import { ShoppingBag, Search, Menu, Sparkles } from "lucide-react"
 import { useCart } from "@/context/CartContext"
 import { MobileMenu } from "./MobileMenu"
 import { SearchOverlay } from "./SearchOverlay"
+import { LanguageSwitcher } from "./LanguageSwitcher"
 
 export function Header() {
+  const t = useTranslations("common")
+  const th = useTranslations("header")
   const [hidden, setHidden] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
@@ -46,44 +50,45 @@ export function Header() {
 
             <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <Link href="/" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
-                Home
+                {t("home")}
               </Link>
               <Link href="/shop" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
-                Shop
+                {t("shop")}
               </Link>
               <Link href="/about" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
-                About
+                {t("about")}
               </Link>
               <Link href="/blog" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
-                Blog
+                {t("blog")}
               </Link>
               <Link href="/faq" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
-                FAQ
+                {t("faq")}
               </Link>
               <Link href="/contact" className="text-sm font-medium text-text-secondary hover:text-primary transition-colors">
-                Contact
+                {t("contact")}
               </Link>
             </nav>
 
-            <div className="flex items-center gap-2 ml-auto">
+            <div className="flex items-center gap-1 ms-auto">
+              <LanguageSwitcher />
               <button
                 onClick={() => setSearchOpen(true)}
                 className="p-2 text-text-secondary hover:text-primary transition-colors"
-                aria-label="Search"
+                aria-label={th("searchPlaceholder")}
               >
                 <Search className="h-5 w-5" />
               </button>
               <button
                 onClick={toggleDrawer}
                 className="relative p-2 text-text-secondary hover:text-primary transition-colors"
-                aria-label="Cart"
+                aria-label={th("myCart")}
               >
                 <ShoppingBag className="h-5 w-5" />
                 {totalItems > 0 && (
                   <motion.span
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    className="absolute -top-0.5 -right-0.5 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white"
+                    className="absolute -top-0.5 -end-0.5 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white"
                   >
                     {totalItems}
                   </motion.span>
@@ -92,7 +97,7 @@ export function Header() {
               <button
                 onClick={() => setMobileMenuOpen((prev) => !prev)}
                 className="lg:hidden p-2 text-text-primary hover:text-primary transition-colors"
-                aria-label="Open menu"
+                aria-label={th("openMenu")}
               >
                 <Menu className="h-5 w-5" />
               </button>

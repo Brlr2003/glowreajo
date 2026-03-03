@@ -6,6 +6,7 @@ import { AnnouncementEditor } from "./components/AnnouncementEditor"
 interface Settings {
   announcement_enabled: boolean
   announcement_content: string
+  announcement_content_ar: string
   phone: string
   email: string
   whatsapp: string
@@ -18,6 +19,7 @@ interface Settings {
 const EMPTY: Settings = {
   announcement_enabled: false,
   announcement_content: "",
+  announcement_content_ar: "",
   phone: "",
   email: "",
   whatsapp: "",
@@ -27,11 +29,17 @@ const EMPTY: Settings = {
   facebook_url: "",
 }
 
+const LANG_TABS = [
+  { key: "en", label: "English" },
+  { key: "ar", label: "العربية" },
+] as const
+
 function SiteSettingsPage() {
   const [settings, setSettings] = useState<Settings>(EMPTY)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [feedback, setFeedback] = useState<{ type: "success" | "error"; msg: string } | null>(null)
+  const [announcementLang, setAnnouncementLang] = useState<"en" | "ar">("en")
 
   useEffect(() => {
     fetchSettings()
@@ -47,6 +55,7 @@ function SiteSettingsPage() {
         setSettings({
           announcement_enabled: s.announcement_enabled ?? false,
           announcement_content: s.announcement_content ?? "",
+          announcement_content_ar: s.announcement_content_ar ?? "",
           phone: s.phone ?? "",
           email: s.email ?? "",
           whatsapp: s.whatsapp ?? "",
@@ -110,10 +119,34 @@ function SiteSettingsPage() {
             />
             <Label>Enable announcement bar</Label>
           </div>
-          <AnnouncementEditor
-            content={settings.announcement_content}
-            onChange={(html: string) => update("announcement_content", html)}
-          />
+          <div className="flex gap-1 border-b border-ui-border-base mb-4">
+            {LANG_TABS.map((t) => (
+              <button
+                key={t.key}
+                type="button"
+                onClick={() => setAnnouncementLang(t.key)}
+                className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
+                  announcementLang === t.key
+                    ? "border-ui-fg-interactive text-ui-fg-interactive"
+                    : "border-transparent text-ui-fg-muted hover:text-ui-fg-base"
+                }`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+          {announcementLang === "en" && (
+            <AnnouncementEditor
+              content={settings.announcement_content}
+              onChange={(html: string) => update("announcement_content", html)}
+            />
+          )}
+          {announcementLang === "ar" && (
+            <AnnouncementEditor
+              content={settings.announcement_content_ar}
+              onChange={(html: string) => update("announcement_content_ar", html)}
+            />
+          )}
         </section>
 
         <section>

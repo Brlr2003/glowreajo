@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useMemo } from "react"
+import { useTranslations } from "next-intl"
 import { BlogCard } from "@/components/blog/BlogCard"
 
 interface BlogListClientProps {
@@ -22,6 +23,7 @@ function parseTags(tags: any): string[] {
 }
 
 export function BlogListClient({ posts }: BlogListClientProps) {
+  const t = useTranslations("blog")
   const [activeTag, setActiveTag] = useState("")
 
   const allTags = useMemo(() => {
@@ -51,7 +53,7 @@ export function BlogListClient({ posts }: BlogListClientProps) {
                 : "bg-surface text-text-secondary hover:bg-primary/10 hover:text-primary"
             }`}
           >
-            All
+            {t("all")}
           </button>
           {allTags.map((tag) => (
             <button
@@ -70,7 +72,7 @@ export function BlogListClient({ posts }: BlogListClientProps) {
       )}
 
       {filtered.length === 0 ? (
-        <p className="text-center text-text-muted py-12">No posts found.</p>
+        <p className="text-center text-text-muted py-12">{t("noPosts")}</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((post: any) => (

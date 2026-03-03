@@ -1,14 +1,17 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 import { cn } from "@/lib/cn"
 
 interface CheckoutProgressProps {
   currentStep: number
-  steps: string[]
 }
 
-export function CheckoutProgress({ currentStep, steps }: CheckoutProgressProps) {
+export function CheckoutProgress({ currentStep }: CheckoutProgressProps) {
+  const t = useTranslations("checkout")
+  const steps = [t("steps.0"), t("steps.1"), t("steps.2"), t("steps.3")]
+
   return (
     <div className="flex items-center justify-center gap-2 mb-10">
       {steps.map((step, i) => (

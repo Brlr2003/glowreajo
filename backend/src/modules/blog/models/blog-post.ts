@@ -12,6 +12,13 @@ const BlogPost = model.define("blog_post", {
   tags: model.json().nullable(),
   seo_title: model.text().nullable(),
   seo_description: model.text().nullable(),
+  title_ar: model.text().nullable(),
+  excerpt_ar: model.text().nullable(),
+  content_ar: model.text().nullable(),
+  author_ar: model.text().nullable(),
+  tags_ar: model.json().nullable(),
+  seo_title_ar: model.text().nullable(),
+  seo_description_ar: model.text().nullable(),
   published_at: model.dateTime().nullable(),
   metadata: model.json().nullable(),
 })

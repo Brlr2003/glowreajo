@@ -2,12 +2,22 @@ import { Container, Heading, Button, Input, Textarea, Label, Select, Switch } fr
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 
+const LANG_TABS = [
+  { key: "en", label: "English" },
+  { key: "ar", label: "العربية" },
+] as const
+
 function EditTestimonialPage() {
   const { id } = useParams()
+  const [lang, setLang] = useState<"en" | "ar">("en")
   const [name, setName] = useState("")
   const [location, setLocation] = useState("")
   const [text, setText] = useState("")
   const [product, setProduct] = useState("")
+  const [nameAr, setNameAr] = useState("")
+  const [locationAr, setLocationAr] = useState("")
+  const [textAr, setTextAr] = useState("")
+  const [productAr, setProductAr] = useState("")
   const [rating, setRating] = useState("5")
   const [sortOrder, setSortOrder] = useState("0")
   const [isActive, setIsActive] = useState(true)
@@ -26,6 +36,10 @@ function EditTestimonialPage() {
         setLocation(t.location || "")
         setText(t.text || "")
         setProduct(t.product || "")
+        setNameAr(t.name_ar || "")
+        setLocationAr(t.location_ar || "")
+        setTextAr(t.text_ar || "")
+        setProductAr(t.product_ar || "")
         setRating(String(t.rating ?? 5))
         setSortOrder(String(t.sort_order ?? 0))
         setIsActive(t.is_active ?? true)
@@ -55,6 +69,10 @@ function EditTestimonialPage() {
           location: location.trim() || null,
           text: text.trim(),
           product: product.trim() || null,
+          name_ar: nameAr.trim() || null,
+          location_ar: locationAr.trim() || null,
+          text_ar: textAr.trim() || null,
+          product_ar: productAr.trim() || null,
           rating: Number(rating),
           sort_order: Number(sortOrder),
           is_active: isActive,
@@ -91,22 +109,54 @@ function EditTestimonialPage() {
       </div>
 
       <div className="p-6 max-w-xl flex flex-col gap-4">
-        <div>
-          <Label className="mb-1.5 block text-sm font-medium">Name *</Label>
-          <Input value={name} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)} />
+        <div className="flex gap-1 border-b border-ui-border-base mb-4">
+          {LANG_TABS.map((t) => (
+            <button key={t.key} type="button" onClick={() => setLang(t.key)}
+              className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${lang === t.key ? "border-ui-fg-interactive text-ui-fg-interactive" : "border-transparent text-ui-fg-muted hover:text-ui-fg-base"}`}>
+              {t.label}
+            </button>
+          ))}
         </div>
-        <div>
-          <Label className="mb-1.5 block text-sm font-medium">Location</Label>
-          <Input value={location} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLocation(e.target.value)} />
-        </div>
-        <div>
-          <Label className="mb-1.5 block text-sm font-medium">Review Text *</Label>
-          <Textarea value={text} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setText(e.target.value)} rows={4} />
-        </div>
-        <div>
-          <Label className="mb-1.5 block text-sm font-medium">Product</Label>
-          <Input value={product} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setProduct(e.target.value)} />
-        </div>
+
+        {lang === "en" ? (
+          <>
+            <div>
+              <Label className="mb-1.5 block text-sm font-medium">Name *</Label>
+              <Input value={name} onChange={(e: any) => setName(e.target.value)} />
+            </div>
+            <div>
+              <Label className="mb-1.5 block text-sm font-medium">Location</Label>
+              <Input value={location} onChange={(e: any) => setLocation(e.target.value)} />
+            </div>
+            <div>
+              <Label className="mb-1.5 block text-sm font-medium">Review Text *</Label>
+              <Textarea value={text} onChange={(e: any) => setText(e.target.value)} rows={4} />
+            </div>
+            <div>
+              <Label className="mb-1.5 block text-sm font-medium">Product</Label>
+              <Input value={product} onChange={(e: any) => setProduct(e.target.value)} />
+            </div>
+          </>
+        ) : (
+          <>
+            <div>
+              <Label className="mb-1.5 block text-sm font-medium">الاسم</Label>
+              <Input dir="rtl" value={nameAr} onChange={(e: any) => setNameAr(e.target.value)} />
+            </div>
+            <div>
+              <Label className="mb-1.5 block text-sm font-medium">الموقع</Label>
+              <Input dir="rtl" value={locationAr} onChange={(e: any) => setLocationAr(e.target.value)} />
+            </div>
+            <div>
+              <Label className="mb-1.5 block text-sm font-medium">نص المراجعة</Label>
+              <Textarea dir="rtl" value={textAr} onChange={(e: any) => setTextAr(e.target.value)} rows={4} />
+            </div>
+            <div>
+              <Label className="mb-1.5 block text-sm font-medium">المنتج</Label>
+              <Input dir="rtl" value={productAr} onChange={(e: any) => setProductAr(e.target.value)} />
+            </div>
+          </>
+        )}
         <div className="flex gap-4">
           <div className="flex-1">
             <Label className="mb-1.5 block text-sm font-medium">Rating</Label>

@@ -1,8 +1,12 @@
-import Link from "next/link"
 import { Search } from "lucide-react"
 import { Button } from "@/components/ui/Button"
+import { Link } from "@/i18n/routing"
+import { useTranslations } from "next-intl"
 
 export default function NotFound() {
+  const t = useTranslations("errors")
+  const tc = useTranslations("common")
+
   return (
     <div className="container-app py-20 text-center">
       <div className="flex justify-center mb-6">
@@ -12,17 +16,17 @@ export default function NotFound() {
       </div>
       <h1 className="font-heading text-6xl font-bold text-text-primary mb-3">404</h1>
       <h2 className="font-heading text-xl font-semibold text-text-primary mb-3">
-        Page Not Found
+        {t("notFound")}
       </h2>
       <p className="text-text-secondary mb-8 max-w-md mx-auto">
-        The page you&apos;re looking for doesn&apos;t exist or has been moved.
+        {t("notFoundDescription")}
       </p>
       <div className="flex gap-4 justify-center">
         <Link href="/">
-          <Button>Go Home</Button>
+          <Button>{t("goHome")}</Button>
         </Link>
         <Link href="/shop">
-          <Button variant="outline">Browse Shop</Button>
+          <Button variant="outline">{tc("shop")}</Button>
         </Link>
       </div>
     </div>

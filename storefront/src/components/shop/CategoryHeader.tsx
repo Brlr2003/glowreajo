@@ -1,3 +1,6 @@
+"use client"
+
+import { useTranslations } from "next-intl"
 import { getCategoryIcon, getCategoryColor } from "@/lib/category-icons"
 import type { MedusaCategory } from "@/lib/categories"
 
@@ -7,6 +10,7 @@ interface CategoryHeaderProps {
 }
 
 export function CategoryHeader({ category, productCount }: CategoryHeaderProps) {
+  const t = useTranslations("shop")
   const Icon = getCategoryIcon(category.metadata?.icon)
   const color = getCategoryColor(category.metadata?.color)
   const description = category.metadata?.description || category.description
@@ -20,7 +24,7 @@ export function CategoryHeader({ category, productCount }: CategoryHeaderProps) 
       {description && (
         <p className="mt-2 text-text-secondary max-w-lg mx-auto">{description}</p>
       )}
-      <p className="mt-1 text-sm text-text-muted">{productCount} products</p>
+      <p className="mt-1 text-sm text-text-muted">{t("productCount", { count: productCount })}</p>
     </div>
   )
 }

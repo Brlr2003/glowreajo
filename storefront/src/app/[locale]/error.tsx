@@ -2,6 +2,7 @@
 
 import { AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/Button"
+import { useTranslations } from "next-intl"
 
 export default function Error({
   error,
@@ -10,6 +11,8 @@ export default function Error({
   error: Error & { digest?: string }
   reset: () => void
 }) {
+  const t = useTranslations("errors")
+
   return (
     <div className="container-app py-20 text-center">
       <div className="flex justify-center mb-6">
@@ -18,12 +21,12 @@ export default function Error({
         </div>
       </div>
       <h2 className="font-heading text-2xl font-bold text-text-primary mb-3">
-        Something went wrong
+        {t("somethingWentWrong")}
       </h2>
       <p className="text-text-secondary mb-8 max-w-md mx-auto">
-        We&apos;re sorry, something unexpected happened. Please try again.
+        {t("somethingWentWrong")}
       </p>
-      <Button onClick={reset}>Try Again</Button>
+      <Button onClick={reset}>{t("tryAgain")}</Button>
     </div>
   )
 }

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ShoppingBag, Check, Minus, Plus, MessageCircle } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { useCart } from "@/context/CartContext"
 import { useToast } from "@/context/ToastContext"
 import { Button } from "@/components/ui/Button"
@@ -22,6 +23,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
   const [quantity, setQuantity] = useState(1)
   const [added, setAdded] = useState(false)
   const [whatsapp, setWhatsapp] = useState<string | null>(null)
+  const t = useTranslations("product")
   const { addItem, setDrawerOpen } = useCart()
   const { addToast } = useToast()
 
@@ -68,7 +70,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
     })
 
     addToast({
-      message: `${product.title} added to cart`,
+      message: t("addedToCart", { product: product.title }),
       type: "success",
     })
 
@@ -116,7 +118,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
 
       {managesInventory && (
         <p className={`mt-4 text-sm font-medium ${isOutOfStock ? "text-error" : "text-success"}`}>
-          {isOutOfStock ? "Out of Stock" : `In Stock (${inventoryQty} available)`}
+          {isOutOfStock ? t("outOfStock") : `${t("inStock")} (${inventoryQty} ${t("available")})`}
         </p>
       )}
 
@@ -152,18 +154,18 @@ export function ProductInfo({ product }: ProductInfoProps) {
             className="flex-1 flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-white font-semibold text-base hover:bg-[#20bd5a] transition-colors"
           >
             <MessageCircle className="h-5 w-5" />
-            Pre-Order via WhatsApp
+            {t("preOrder")}
           </a>
         ) : (
           <Button onClick={handleAdd} size="lg" disabled={isOutOfStock} className="flex-1 flex items-center justify-center gap-2">
             <AnimatePresence mode="wait">
               {added ? (
                 <motion.span key="added" initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex items-center gap-2">
-                  <Check className="h-5 w-5" /> Added!
+                  <Check className="h-5 w-5" /> {t("added")}
                 </motion.span>
               ) : (
                 <motion.span key="add" initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex items-center gap-2">
-                  <ShoppingBag className="h-5 w-5" /> Add to Cart
+                  <ShoppingBag className="h-5 w-5" /> {t("addToCart")}
                 </motion.span>
               )}
             </AnimatePresence>

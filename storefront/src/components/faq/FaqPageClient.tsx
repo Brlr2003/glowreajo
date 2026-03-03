@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 import { FaqAccordion } from "@/components/shared/FaqAccordion"
 
 interface FaqGroup {
@@ -14,6 +15,7 @@ interface FaqPageClientProps {
 }
 
 export function FaqPageClient({ groups }: FaqPageClientProps) {
+  const t = useTranslations("faqPage")
   const types = Array.from(new Set(groups.map((g) => g.type)))
   const hasMultipleTypes = types.length > 1
   const [activeType, setActiveType] = useState<"all" | "category" | "product">("all")
@@ -24,17 +26,17 @@ export function FaqPageClient({ groups }: FaqPageClientProps) {
     <div className="max-w-3xl mx-auto">
       {hasMultipleTypes && (
         <div className="flex justify-center gap-2 mb-8">
-          {(["all", "category", "product"] as const).map((t) => (
+          {(["all", "category", "product"] as const).map((type) => (
             <button
-              key={t}
-              onClick={() => setActiveType(t)}
+              key={type}
+              onClick={() => setActiveType(type)}
               className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                activeType === t
+                activeType === type
                   ? "bg-primary text-white"
                   : "bg-surface text-text-secondary hover:bg-primary/10"
               }`}
             >
-              {t === "all" ? "All" : t === "category" ? "Categories" : "Products"}
+              {type === "all" ? t("filterAll") : type === "category" ? t("filterCategories") : t("filterProducts")}
             </button>
           ))}
         </div>

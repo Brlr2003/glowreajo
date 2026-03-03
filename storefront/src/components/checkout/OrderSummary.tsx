@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 import { useCart } from "@/context/CartContext"
 import { formatPrice } from "@/lib/formatPrice"
 import { ShoppingBag } from "lucide-react"
@@ -26,6 +27,7 @@ interface OrderSummaryProps {
 }
 
 export function OrderSummary({ city }: OrderSummaryProps) {
+  const t = useTranslations("checkout")
   const { items, totalPrice, promo } = useCart()
   const discount = promo?.discount || 0
   const subtotalAfterDiscount = totalPrice - discount
@@ -34,7 +36,7 @@ export function OrderSummary({ city }: OrderSummaryProps) {
 
   return (
     <div className="rounded-2xl bg-surface p-6 shadow-soft">
-      <h3 className="font-heading text-lg font-bold text-text-primary mb-4">Order Summary</h3>
+      <h3 className="font-heading text-lg font-bold text-text-primary mb-4">{t("orderSummary")}</h3>
 
       <div className="space-y-3 mb-4">
         {items.map((item) => (
@@ -48,7 +50,7 @@ export function OrderSummary({ city }: OrderSummaryProps) {
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium text-text-primary truncate">{item.title}</p>
-              <p className="text-xs text-text-muted">Qty: {item.quantity}</p>
+              <p className="text-xs text-text-muted">{t("qty")}: {item.quantity}</p>
             </div>
             <div className="text-right">
               <span className="text-sm font-medium">{formatPrice(item.price * item.quantity)}</span>
@@ -62,21 +64,21 @@ export function OrderSummary({ city }: OrderSummaryProps) {
 
       <div className="border-t border-border pt-4 space-y-2">
         <div className="flex justify-between text-sm">
-          <span className="text-text-secondary">Subtotal</span>
+          <span className="text-text-secondary">{t("subtotal")}</span>
           <span>{formatPrice(totalPrice)}</span>
         </div>
         {discount > 0 && promo && (
           <div className="flex justify-between text-sm text-success">
-            <span>Discount ({promo.code})</span>
+            <span>{t("discount")} ({promo.code})</span>
             <span>-{formatPrice(discount)}</span>
           </div>
         )}
         <div className="flex justify-between text-sm">
-          <span className="text-text-secondary">Shipping</span>
-          <span className="text-success">{shipping === 0 ? "Free" : formatPrice(shipping)}</span>
+          <span className="text-text-secondary">{t("shipping")}</span>
+          <span className="text-success">{shipping === 0 ? t("free") : formatPrice(shipping)}</span>
         </div>
         <div className="flex justify-between font-heading text-lg font-bold border-t border-border pt-3 mt-3">
-          <span>Total</span>
+          <span>{t("total")}</span>
           <span className="text-primary">{formatPrice(total)}</span>
         </div>
       </div>

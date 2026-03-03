@@ -16,10 +16,11 @@ export interface SiteSettings {
   about_kbeauty: string | null
 }
 
-export async function getSiteSettings(): Promise<SiteSettings | null> {
+export async function getSiteSettings(locale?: string): Promise<SiteSettings | null> {
   try {
+    const q = locale ? `?locale=${locale}` : ""
     const data = await medusaFetch<{ site_setting: SiteSettings | null }>(
-      "/store/site-settings",
+      `/store/site-settings${q}`,
       { revalidate: 60 }
     )
     return data.site_setting

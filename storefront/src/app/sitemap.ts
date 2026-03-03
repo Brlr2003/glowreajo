@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next"
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"
 const API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || ""
+const LOCALES = ["en", "ar"]
 
 async function fetchJson<T>(path: string): Promise<T | null> {
   try {
@@ -16,21 +17,28 @@ async function fetchJson<T>(path: string): Promise<T | null> {
   }
 }
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+function localeEntries(path: string, opts: Partial<MetadataRoute.Sitemap[0]> = {}): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://glowreajo.com"
+  return LOCALES.map((locale) => ({
+    url: `${baseUrl}/${locale}${path}`,
+    lastModified: new Date(),
+    alternates: {
+      languages: Object.fromEntries(LOCALES.map((l) => [l, `${baseUrl}/${l}${path}`])),
+    },
+    ...opts,
+  }))
+}
 
-  const staticPages: MetadataRoute.Sitemap = [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
-    { url: `${baseUrl}/shop`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
-    { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
-    { url: `${baseUrl}/faq`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.6 },
-    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
-    { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const entries: MetadataRoute.Sitemap = [
+    ...localeEntries("", { changeFrequency: "daily", priority: 1 }),
+    ...localeEntries("/shop", { changeFrequency: "daily", priority: 0.9 }),
+    ...localeEntries("/blog", { changeFrequency: "weekly", priority: 0.7 }),
+    ...localeEntries("/faq", { changeFrequency: "weekly", priority: 0.6 }),
+    ...localeEntries("/about", { changeFrequency: "monthly", priority: 0.5 }),
+    ...localeEntries("/contact", { changeFrequency: "monthly", priority: 0.5 }),
   ]
 
-  const dynamicPages: MetadataRoute.Sitemap = []
-
-  // Product pages
   try {
     let offset = 0
     const limit = 100
@@ -40,47 +48,38 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       )
       if (!data) break
       for (const p of data.products) {
-        dynamicPages.push({
-          url: `${baseUrl}/product/${p.handle}`,
+        entries.push(...localeEntries(`/product/${p.handle}`, {
           lastModified: new Date(p.updated_at),
           changeFrequency: "weekly",
           priority: 0.8,
-        })
+        }))
       }
       offset += limit
       if (offset >= data.count) break
     }
   } catch {}
 
-  // Category pages
   try {
     const data = await fetchJson<{ product_categories: any[] }>("/store/product-categories")
     if (data) {
       for (const cat of data.product_categories) {
-        dynamicPages.push({
-          url: `${baseUrl}/shop/${cat.handle}`,
-          lastModified: new Date(),
-          changeFrequency: "weekly",
-          priority: 0.8,
-        })
+        entries.push(...localeEntries(`/shop/${cat.handle}`, { changeFrequency: "weekly", priority: 0.8 }))
       }
     }
   } catch {}
 
-  // Blog posts
   try {
     const data = await fetchJson<{ blog_posts: any[] }>("/store/blog")
     if (data) {
       for (const post of data.blog_posts) {
-        dynamicPages.push({
-          url: `${baseUrl}/blog/${post.slug}`,
+        entries.push(...localeEntries(`/blog/${post.slug}`, {
           lastModified: new Date(post.updated_at || post.published_at),
           changeFrequency: "monthly",
           priority: 0.6,
-        })
+        }))
       }
     }
   } catch {}
 
-  return [...staticPages, ...dynamicPages]
+  return entries
 }

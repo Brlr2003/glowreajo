@@ -1,19 +1,23 @@
 "use client"
 
+import { useTranslations } from "next-intl"
+
 interface SortDropdownProps {
   value: string
   onChange: (value: string) => void
 }
 
 const options = [
-  { value: "featured", label: "Featured" },
-  { value: "price-asc", label: "Price: Low to High" },
-  { value: "price-desc", label: "Price: High to Low" },
-  { value: "name-asc", label: "Name: A to Z" },
-  { value: "name-desc", label: "Name: Z to A" },
+  { value: "featured", label: "featured" },
+  { value: "price-asc", label: "priceLow" },
+  { value: "price-desc", label: "priceHigh" },
+  { value: "name-asc", label: "nameAsc" },
+  { value: "name-desc", label: "nameDesc" },
 ]
 
 export function SortDropdown({ value, onChange }: SortDropdownProps) {
+  const t = useTranslations("shop")
+
   return (
     <select
       value={value}
@@ -22,7 +26,7 @@ export function SortDropdown({ value, onChange }: SortDropdownProps) {
     >
       {options.map((opt) => (
         <option key={opt.value} value={opt.value}>
-          {opt.label}
+          {t(opt.label)}
         </option>
       ))}
     </select>
