@@ -100,7 +100,7 @@ jobs:
           cache-to: type=gha,mode=max,scope=storefront-main
 
   deploy-prod:
-    needs: [build-backend-prod, build-storefront-prod]
+    needs: [detect-changes, build-backend-prod, build-storefront-prod]
     if: |
       always() &&
       github.ref_name == 'main' &&
@@ -117,7 +117,7 @@ jobs:
           host: 167.172.182.237
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          envs: GHCR_TOKEN
+          envs: GHCR_TOKEN,BACKEND_CHANGED
           command_timeout: 15m
           script: |
             set -e
@@ -127,11 +127,17 @@ jobs:
             git reset --hard origin/main
             docker compose -f docker-compose.prod.yml --env-file .env.production pull backend storefront
             docker compose -f docker-compose.prod.yml --env-file .env.production up -d --remove-orphans
-            docker compose -f docker-compose.prod.yml --env-file .env.production exec -T backend npx medusa db:migrate || true
+            if [ "$BACKEND_CHANGED" = "true" ]; then
+              echo "Backend changed — running migrations..."
+              NODE_OPTIONS='--max-old-space-size=512' docker compose -f docker-compose.prod.yml --env-file .env.production exec -T -e NODE_OPTIONS='--max-old-space-size=512' backend npx medusa db:migrate || true
+            else
+              echo "Backend unchanged — skipping migrations"
+            fi
             docker image prune -f || true
             echo "Production deploy complete"
         env:
           GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BACKEND_CHANGED: ${{ needs.detect-changes.outputs.backend }}
 
   # ── Dev: parallel builds → deploy ─────────────────────────────────
   build-backend-dev:
@@ -195,7 +201,7 @@ jobs:
           cache-to: type=gha,mode=max,scope=storefront-dev
 
   deploy-dev:
-    needs: [build-backend-dev, build-storefront-dev]
+    needs: [detect-changes, build-backend-dev, build-storefront-dev]
     if: |
       always() &&
       github.ref_name == 'dev' &&
@@ -212,7 +218,7 @@ jobs:
           host: 167.172.182.237
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          envs: GHCR_TOKEN
+          envs: GHCR_TOKEN,BACKEND_CHANGED
           command_timeout: 15m
           script: |
             set -e
@@ -222,8 +228,14 @@ jobs:
             git reset --hard origin/dev
             docker compose -f docker-compose.dev.yml --env-file .env.dev pull backend storefront
             docker compose -f docker-compose.dev.yml --env-file .env.dev up -d --remove-orphans
-            docker compose -f docker-compose.dev.yml --env-file .env.dev exec -T backend npx medusa db:migrate || true
+            if [ "$BACKEND_CHANGED" = "true" ]; then
+              echo "Backend changed — running migrations..."
+              NODE_OPTIONS='--max-old-space-size=512' docker compose -f docker-compose.dev.yml --env-file .env.dev exec -T -e NODE_OPTIONS='--max-old-space-size=512' backend npx medusa db:migrate || true
+            else
+              echo "Backend unchanged — skipping migrations"
+            fi
             docker image prune -f || true
             echo "Dev deploy complete"
         env:
           GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BACKEND_CHANGED: ${{ needs.detect-changes.outputs.backend }}
