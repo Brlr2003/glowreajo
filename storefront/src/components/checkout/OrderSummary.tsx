@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { useCart } from "@/context/CartContext"
 import { formatPrice } from "@/lib/formatPrice"
 import { ShoppingBag } from "lucide-react"
@@ -28,6 +28,7 @@ interface OrderSummaryProps {
 
 export function OrderSummary({ city }: OrderSummaryProps) {
   const t = useTranslations("checkout")
+  const locale = useLocale()
   const { items, totalPrice, promo } = useCart()
   const discount = promo?.discount || 0
   const subtotalAfterDiscount = totalPrice - discount
@@ -53,9 +54,9 @@ export function OrderSummary({ city }: OrderSummaryProps) {
               <p className="text-xs text-text-muted">{t("qty")}: {item.quantity}</p>
             </div>
             <div className="text-right">
-              <span className="text-sm font-medium">{formatPrice(item.price * item.quantity)}</span>
+              <span className="text-sm font-medium">{formatPrice(item.price * item.quantity, locale)}</span>
               {item.compareAtPrice && (
-                <span className="block text-xs text-text-muted line-through">{formatPrice(item.compareAtPrice * item.quantity)}</span>
+                <span className="block text-xs text-text-muted line-through">{formatPrice(item.compareAtPrice * item.quantity, locale)}</span>
               )}
             </div>
           </div>
@@ -65,21 +66,21 @@ export function OrderSummary({ city }: OrderSummaryProps) {
       <div className="border-t border-border pt-4 space-y-2">
         <div className="flex justify-between text-sm">
           <span className="text-text-secondary">{t("subtotal")}</span>
-          <span>{formatPrice(totalPrice)}</span>
+          <span>{formatPrice(totalPrice, locale)}</span>
         </div>
         {discount > 0 && promo && (
           <div className="flex justify-between text-sm text-success">
             <span>{t("discount")} ({promo.code})</span>
-            <span>-{formatPrice(discount)}</span>
+            <span>-{formatPrice(discount, locale)}</span>
           </div>
         )}
         <div className="flex justify-between text-sm">
           <span className="text-text-secondary">{t("shipping")}</span>
-          <span className="text-success">{shipping === 0 ? t("free") : formatPrice(shipping)}</span>
+          <span className="text-success">{shipping === 0 ? t("free") : formatPrice(shipping, locale)}</span>
         </div>
         <div className="flex justify-between font-heading text-lg font-bold border-t border-border pt-3 mt-3">
           <span>{t("total")}</span>
-          <span className="text-primary">{formatPrice(total)}</span>
+          <span className="text-primary">{formatPrice(total, locale)}</span>
         </div>
       </div>
     </div>

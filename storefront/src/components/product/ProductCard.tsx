@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Link } from "@/i18n/routing"
 import Image from "next/image"
 import { ShoppingBag, Check, ZoomIn } from "lucide-react"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { useCart } from "@/context/CartContext"
 import { useToast } from "@/context/ToastContext"
 import { Badge } from "@/components/ui/Badge"
@@ -24,6 +24,7 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   const [imgError, setImgError] = useState(false)
   const tc = useTranslations("common")
   const t = useTranslations("product")
+  const locale = useLocale()
   const { addItem } = useCart()
   const { addToast } = useToast()
 
@@ -32,6 +33,7 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   const fallbackPrice = variant?.prices?.find((p: any) => p.currency_code === "jod")
   const priceAmount = calculatedPrice?.calculated_amount ?? fallbackPrice?.amount ?? 0
   const compareAtPrice = getCompareAtPrice(priceAmount, product.metadata)
+  const title = locale === "ar" && (product.metadata as any)?.title_ar ? (product.metadata as any).title_ar : product.title
   const brand = (product.metadata as any)?.brand || ""
   const rawImgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
   const imgSrc = imgError ? getProductImage(product.handle) : rawImgSrc
@@ -101,16 +103,16 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
             <p className="text-xs font-medium text-text-muted uppercase tracking-wide mb-1">{brand}</p>
           )}
           <h3 className="font-medium text-text-primary text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors">
-            {product.title}
+            {title}
           </h3>
           <div className="mt-auto pt-3 flex items-center justify-between">
             <div className="flex items-baseline gap-1.5">
               <span className="font-heading text-lg font-bold text-primary">
-                {priceAmount ? formatPrice(priceAmount) : "N/A"}
+                {priceAmount ? formatPrice(priceAmount, locale) : "N/A"}
               </span>
               {compareAtPrice && (
                 <span className="text-xs text-text-muted line-through">
-                  {formatPrice(compareAtPrice)}
+                  {formatPrice(compareAtPrice, locale)}
                 </span>
               )}
             </div>

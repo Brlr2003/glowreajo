@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { Link } from "@/i18n/routing"
 import { useCart } from "@/context/CartContext"
 import { formatPrice } from "@/lib/formatPrice"
@@ -32,6 +32,7 @@ interface CartReviewStepProps {
 
 export function CartReviewStep({ onNext }: CartReviewStepProps) {
   const t = useTranslations("checkout")
+  const locale = useLocale()
   const { items, updateQuantity, removeItem, totalPrice, promo, applyPromo, removePromo } = useCart()
 
   const handleApplyPromo = async (code: string) => {
@@ -98,11 +99,11 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
               )}
               {item.brand && <p className="text-xs text-text-muted">{item.brand}</p>}
               <p className="text-sm font-semibold text-primary mt-1">
-                {formatPrice(item.price)}
+                {formatPrice(item.price, locale)}
                 {item.compareAtPrice && (
                   <>
                     {" "}
-                    <span className="text-xs text-text-muted line-through font-normal">{formatPrice(item.compareAtPrice)}</span>
+                    <span className="text-xs text-text-muted line-through font-normal">{formatPrice(item.compareAtPrice, locale)}</span>
                   </>
                 )}
               </p>
@@ -137,7 +138,7 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
               </div>
             </div>
             <div className="text-right">
-              <span className="font-semibold">{formatPrice(item.price * item.quantity)}</span>
+              <span className="font-semibold">{formatPrice(item.price * item.quantity, locale)}</span>
             </div>
           </div>
         )})}
@@ -156,16 +157,16 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
       <div className="pt-4 border-t border-border space-y-2">
         <div className="flex justify-between text-sm">
           <span className="text-text-secondary">{t("subtotal")}</span>
-          <span>{formatPrice(totalPrice)}</span>
+          <span>{formatPrice(totalPrice, locale)}</span>
         </div>
         {promo && (
           <div className="flex justify-between text-sm text-success">
             <span>{t("discount")} ({promo.code})</span>
-            <span>-{formatPrice(promo.discount)}</span>
+            <span>-{formatPrice(promo.discount, locale)}</span>
           </div>
         )}
         <div className="flex justify-between items-center pt-2">
-          <span className="font-heading text-lg font-bold">{t("total")}: {formatPrice(finalTotal)}</span>
+          <span className="font-heading text-lg font-bold">{t("total")}: {formatPrice(finalTotal, locale)}</span>
           <Button onClick={onNext} size="lg">
             {t("continue")}
           </Button>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { CheckCircle, Truck, Clock, ShoppingBag } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { formatPrice } from "@/lib/formatPrice"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { Link } from "@/i18n/routing"
 
 interface OrderData {
@@ -17,6 +17,7 @@ interface OrderData {
 export default function OrderSuccessPage() {
   const t = useTranslations("orderSuccess")
   const tc = useTranslations("common")
+  const locale = useLocale()
   const [order, setOrder] = useState<OrderData | null>(null)
 
   useEffect(() => {
@@ -44,7 +45,7 @@ export default function OrderSuccessPage() {
         <h1 className="font-heading text-3xl font-bold text-text-primary">{t("title")}</h1>
         {order ? (
           <p className="mt-3 text-text-secondary">
-            {t("orderNumber")} #{order.displayId} — {formatPrice(order.total)}
+            {t("orderNumber")} #{order.displayId} — {formatPrice(order.total, locale)}
           </p>
         ) : (
           <p className="mt-3 text-text-secondary">{t("subtitle")}</p>

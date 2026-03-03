@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { useRouter } from "@/i18n/routing"
 import { useCart } from "@/context/CartContext"
 import { placeOrder } from "@/lib/checkout-actions"
@@ -19,6 +19,7 @@ interface OrderConfirmStepProps {
 export function OrderConfirmStep({ personalInfo, onBack }: OrderConfirmStepProps) {
   const t = useTranslations("checkout")
   const tCities = useTranslations("cities")
+  const locale = useLocale()
   const [placing, setPlacing] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
@@ -81,7 +82,7 @@ export function OrderConfirmStep({ personalInfo, onBack }: OrderConfirmStepProps
 
       <div className="rounded-2xl bg-warm-accent/30 p-4 text-center text-sm">
         <p className="font-medium text-text-primary">{t("paymentCod")}</p>
-        <p className="text-text-muted mt-1">{t("payOnArrival", { amount: formatPrice(finalTotal) })}</p>
+        <p className="text-text-muted mt-1">{t("payOnArrival", { amount: formatPrice(finalTotal, locale) })}</p>
       </div>
 
       {error && (

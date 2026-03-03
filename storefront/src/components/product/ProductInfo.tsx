@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ShoppingBag, Check, Minus, Plus, MessageCircle } from "lucide-react"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { useCart } from "@/context/CartContext"
 import { useToast } from "@/context/ToastContext"
 import { Button } from "@/components/ui/Button"
@@ -24,6 +24,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
   const [added, setAdded] = useState(false)
   const [whatsapp, setWhatsapp] = useState<string | null>(null)
   const t = useTranslations("product")
+  const locale = useLocale()
   const { addItem, setDrawerOpen } = useCart()
   const { addToast } = useToast()
 
@@ -32,6 +33,8 @@ export function ProductInfo({ product }: ProductInfoProps) {
   const fallbackPrice = variant?.prices?.find((p: any) => p.currency_code === "jod")
   const priceAmount = calculatedPrice?.calculated_amount ?? fallbackPrice?.amount ?? 0
   const compareAtPrice = getCompareAtPrice(priceAmount, product.metadata)
+  const title = locale === "ar" && (product.metadata as any)?.title_ar ? (product.metadata as any).title_ar : product.title
+  const description = locale === "ar" && (product.metadata as any)?.description_ar ? (product.metadata as any).description_ar : product.description
   const brand = (product.metadata as any)?.brand || ""
   const imgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
   const skinType = (product.metadata as any)?.skin_type || ""
@@ -82,7 +85,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
   }
 
   const productUrl = typeof window !== "undefined" ? window.location.href : ""
-  const whatsappMsg = `Hi! I'd like to pre-order *${product.title}*${brand ? ` by ${brand}` : ""} (${priceAmount ? formatPrice(priceAmount) : "N/A"}) from GlowReaJo.\n\n${productUrl}`
+  const whatsappMsg = `Hi! I'd like to pre-order *${product.title}*${brand ? ` by ${brand}` : ""} (${priceAmount ? formatPrice(priceAmount, locale) : "N/A"}) from GlowReaJo.\n\n${productUrl}`
   const whatsappUrl = whatsapp
     ? `https://wa.me/${whatsapp}?text=${encodeURIComponent(whatsappMsg)}`
     : null
@@ -93,16 +96,16 @@ export function ProductInfo({ product }: ProductInfoProps) {
         <p className="text-sm font-medium text-primary uppercase tracking-wide mb-2">{brand}</p>
       )}
       <h1 className="font-heading text-3xl font-bold text-text-primary md:text-4xl">
-        {product.title}
+        {title}
       </h1>
 
       <div className="mt-4 flex items-baseline gap-3">
         <span className="font-heading text-3xl font-bold text-primary">
-          {priceAmount ? formatPrice(priceAmount) : "N/A"}
+          {priceAmount ? formatPrice(priceAmount, locale) : "N/A"}
         </span>
         {compareAtPrice && (
           <span className="text-lg text-text-muted line-through">
-            {formatPrice(compareAtPrice)}
+            {formatPrice(compareAtPrice, locale)}
           </span>
         )}
       </div>
@@ -122,7 +125,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
         </p>
       )}
 
-      <p className="mt-6 text-text-secondary leading-relaxed">{product.description}</p>
+      <p className="mt-6 text-text-secondary leading-relaxed">{description}</p>
 
       <div className="mt-8 flex items-center gap-4">
         {!isOutOfStock && (

@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Plus_Jakarta_Sans, Outfit, Noto_Sans_Arabic } from "next/font/google"
+import { Plus_Jakarta_Sans, Outfit, Cairo } from "next/font/google"
 import { NextIntlClientProvider } from "next-intl"
 import { getMessages } from "next-intl/server"
 import { notFound } from "next/navigation"
@@ -20,8 +20,8 @@ const outfit = Outfit({
   display: "swap",
 })
 
-const notoArabic = Noto_Sans_Arabic({
-  subsets: ["arabic"],
+const cairo = Cairo({
+  subsets: ["arabic", "latin"],
   variable: "--font-arabic",
   display: "swap",
 })
@@ -81,7 +81,7 @@ export default async function LocaleLayout({
   const dir = localeDirections[locale as keyof typeof localeDirections] || "ltr"
 
   return (
-    <html lang={locale} dir={dir} className={`${plusJakarta.variable} ${outfit.variable} ${notoArabic.variable}`}>
+    <html lang={locale} dir={dir} className={`${plusJakarta.variable} ${outfit.variable} ${cairo.variable}`}>
       <body className="min-h-screen bg-background antialiased">
         <NextIntlClientProvider messages={messages}>
           <Providers>{children}</Providers>

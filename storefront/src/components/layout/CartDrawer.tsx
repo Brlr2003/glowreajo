@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import { Link } from "@/i18n/routing"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import Image from "next/image"
 import { useState } from "react"
 import { X, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react"
@@ -30,6 +30,7 @@ function CartImage({ src, alt }: { src: string; alt: string }) {
 
 export function CartDrawer() {
   const t = useTranslations("cart")
+  const locale = useLocale()
   const {
     items, isDrawerOpen, setDrawerOpen, updateQuantity,
     removeItem, totalPrice, totalItems, promo, applyPromo, removePromo,
@@ -127,12 +128,12 @@ export function CartDrawer() {
                           <p className="text-xs text-text-muted">{item.brand}</p>
                         )}
                         <p className="text-sm font-semibold text-primary mt-1">
-                          {formatPrice(item.price)}
+                          {formatPrice(item.price, locale)}
                           {item.compareAtPrice && (
                             <>
                               {" "}
                               <span className="text-xs text-text-muted line-through font-normal">
-                                {formatPrice(item.compareAtPrice)}
+                                {formatPrice(item.compareAtPrice, locale)}
                               </span>
                             </>
                           )}
@@ -182,18 +183,18 @@ export function CartDrawer() {
                 />
                 <div className="flex items-center justify-between">
                   <span className="font-medium text-text-secondary">{t("subtotal")}</span>
-                  <span className="font-heading text-lg font-bold">{formatPrice(totalPrice)}</span>
+                  <span className="font-heading text-lg font-bold">{formatPrice(totalPrice, locale)}</span>
                 </div>
                 {promo && (
                   <div className="flex items-center justify-between text-sm text-success">
                     <span>Discount ({promo.code})</span>
-                    <span>-{formatPrice(promo.discount)}</span>
+                    <span>-{formatPrice(promo.discount, locale)}</span>
                   </div>
                 )}
                 {promo && (
                   <div className="flex items-center justify-between">
                     <span className="font-medium text-text-secondary">{t("total")}</span>
-                    <span className="font-heading text-lg font-bold text-primary">{formatPrice(finalTotal)}</span>
+                    <span className="font-heading text-lg font-bold text-primary">{formatPrice(finalTotal, locale)}</span>
                   </div>
                 )}
                 <div className="rounded-xl bg-success/10 px-4 py-2 text-center text-xs text-success font-medium">

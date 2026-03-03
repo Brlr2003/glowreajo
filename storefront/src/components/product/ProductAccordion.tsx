@@ -1,6 +1,6 @@
 "use client"
 
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { Accordion } from "@/components/ui/Accordion"
 import { Truck } from "lucide-react"
 
@@ -11,6 +11,9 @@ interface ProductAccordionProps {
 export function ProductAccordion({ product }: ProductAccordionProps) {
   const metadata = product.metadata as any
   const t = useTranslations("product")
+  const locale = useLocale()
+  const howToUse = locale === "ar" && metadata?.how_to_use_ar ? metadata.how_to_use_ar : metadata?.how_to_use
+  const ingredients = locale === "ar" && metadata?.ingredients_ar ? metadata.ingredients_ar : metadata?.ingredients
 
   return (
     <div className="mt-8">
@@ -18,15 +21,15 @@ export function ProductAccordion({ product }: ProductAccordionProps) {
         <p className="text-sm leading-relaxed">{product.description}</p>
       </Accordion>
 
-      {metadata?.how_to_use && (
+      {howToUse && (
         <Accordion title={t("howToUse")}>
-          <p className="text-sm leading-relaxed">{metadata.how_to_use}</p>
+          <p className="text-sm leading-relaxed">{howToUse}</p>
         </Accordion>
       )}
 
-      {metadata?.ingredients && (
+      {ingredients && (
         <Accordion title={t("ingredients")}>
-          <p className="text-sm leading-relaxed">{metadata.ingredients}</p>
+          <p className="text-sm leading-relaxed">{ingredients}</p>
         </Accordion>
       )}
 

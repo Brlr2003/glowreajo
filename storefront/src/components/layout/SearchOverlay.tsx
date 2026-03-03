@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Link } from "@/i18n/routing"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { Search, X } from "lucide-react"
 import { medusa, getRegionId } from "@/lib/medusa-client"
 import { formatPrice } from "@/lib/formatPrice"
@@ -25,6 +25,7 @@ interface SearchResult {
 export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
   const t = useTranslations("header")
   const tc = useTranslations("common")
+  const locale = useLocale()
   const [query, setQuery] = useState("")
   const [results, setResults] = useState<SearchResult[]>([])
   const [loading, setLoading] = useState(false)
@@ -134,7 +135,7 @@ export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                       </div>
                       {price && (
                         <span className="text-sm font-semibold text-primary">
-                          {formatPrice(price.amount)}
+                          {formatPrice(price.amount, locale)}
                         </span>
                       )}
                     </Link>
