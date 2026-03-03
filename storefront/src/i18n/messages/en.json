@@ -31,7 +31,8 @@
     "noResults": "No results found",
     "allCategories": "All Categories",
     "brand": "Brand",
-    "quantity": "Quantity"
+    "quantity": "Quantity",
+    "whatsappAria": "Chat with us on WhatsApp"
   },
   "header": {
     "searchPlaceholder": "Search products...",
@@ -99,7 +100,12 @@
     "description": "Description",
     "whatsappPreOrder": "Hi! I'd like to pre-order {product} from GlowReaJo.",
     "available": "available",
-    "addedToCart": "{product} added to cart"
+    "addedToCart": "{product} added to cart",
+    "shippingInfo": "Shipping Info",
+    "ammanShipping": "Amman: 2.00 JOD",
+    "ammanDays": "1-2 business days",
+    "otherShipping": "Other Cities: 3.00 JOD",
+    "otherDays": "2-4 business days"
   },
   "checkout": {
     "title": "Checkout",

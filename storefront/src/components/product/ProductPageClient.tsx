@@ -1,5 +1,6 @@
 "use client"
 
+import { useTranslations } from "next-intl"
 import { ProductGallery } from "@/components/product/ProductGallery"
 import { ProductInfo } from "@/components/product/ProductInfo"
 import { ProductAccordion } from "@/components/product/ProductAccordion"
@@ -12,12 +13,13 @@ interface ProductPageClientProps {
 }
 
 export function ProductPageClient({ product }: ProductPageClientProps) {
+  const tc = useTranslations("common")
   const categoryId = product.categories?.[0]?.id
   const categoryName = product.categories?.[0]?.name
 
   const breadcrumbItems = [
-    { label: "Home", href: "/" },
-    { label: "Shop", href: "/shop" },
+    { label: tc("home"), href: "/" },
+    { label: tc("shop"), href: "/shop" },
     ...(categoryName ? [{ label: categoryName, href: `/shop/${product.categories[0]?.handle || categoryName.toLowerCase()}` }] : []),
     { label: product.title },
   ]

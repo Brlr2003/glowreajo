@@ -6,14 +6,15 @@ import { buildBreadcrumbJsonLd } from "@/lib/seo/schemas"
 
 const SITE_URL = "https://glowreajo.com"
 
-async function getProducts() {
+async function getProducts(locale?: string) {
   try {
     const regionData = await medusaFetch<{ regions: any[] }>("/store/regions")
     const region = regionData.regions.find((r: any) => r.currency_code === "jod") || regionData.regions[0]
     const regionId = region?.id || ""
 
     const data = await medusaFetch<{ products: any[] }>(
-      `/store/products?limit=50&region_id=${regionId}&fields=*categories,*images,+metadata,+variants.inventory_quantity`
+      `/store/products?limit=50&region_id=${regionId}&fields=*categories,*images,+metadata,+variants.inventory_quantity`,
+      { locale }
     )
     return data.products
   } catch {
@@ -21,8 +22,9 @@ async function getProducts() {
   }
 }
 
-export default async function ShopPage() {
-  const [products, categories] = await Promise.all([getProducts(), getCategories()])
+export default async function ShopPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const [products, categories] = await Promise.all([getProducts(locale), getCategories(locale)])
 
   const breadcrumbItems = [
     { name: "Home", url: SITE_URL },

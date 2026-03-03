@@ -3,18 +3,24 @@ const API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || ""
 
 interface MedusaFetchOptions {
   revalidate?: number
+  locale?: string
 }
 
 export async function medusaFetch<T = any>(
   path: string,
   options: MedusaFetchOptions = {}
 ): Promise<T> {
-  const { revalidate = 300 } = options
+  const { revalidate = 300, locale } = options
+  const headers: Record<string, string> = {
+    "x-publishable-api-key": API_KEY,
+    "Content-Type": "application/json",
+  }
+  if (locale) {
+    headers["x-medusa-locale"] = locale
+  }
+
   const res = await fetch(`${BACKEND_URL}${path}`, {
-    headers: {
-      "x-publishable-api-key": API_KEY,
-      "Content-Type": "application/json",
-    },
+    headers,
     next: { revalidate },
   })
 

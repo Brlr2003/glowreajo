@@ -7,14 +7,15 @@ import { buildProductJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/schemas"
 
 const SITE_URL = "https://glowreajo.com"
 
-async function getProduct(handle: string) {
+async function getProduct(handle: string, locale?: string) {
   try {
     const regionData = await medusaFetch<{ regions: any[] }>("/store/regions")
     const region = regionData.regions.find((r: any) => r.currency_code === "jod") || regionData.regions[0]
     const regionId = region?.id || ""
 
     const data = await medusaFetch<{ products: any[] }>(
-      `/store/products?handle=${handle}&region_id=${regionId}&fields=*categories,*images,+metadata,+variants.inventory_quantity`
+      `/store/products?handle=${handle}&region_id=${regionId}&fields=*categories,*images,+metadata,+variants.inventory_quantity`,
+      { locale }
     )
     return data.products[0] || null
   } catch {
@@ -26,7 +27,7 @@ export async function generateMetadata(
   { params }: { params: Promise<{ handle: string; locale: string }> }
 ): Promise<Metadata> {
   const { handle, locale } = await params
-  const product = await getProduct(handle)
+  const product = await getProduct(handle, locale)
 
   if (!product) {
     return { title: "Product Not Found" }
@@ -65,8 +66,8 @@ export async function generateMetadata(
 export default async function ProductPage(
   { params }: { params: Promise<{ handle: string; locale: string }> }
 ) {
-  const { handle } = await params
-  const product = await getProduct(handle)
+  const { handle, locale } = await params
+  const product = await getProduct(handle, locale)
 
   if (!product) {
     notFound()

@@ -47,7 +47,7 @@ async function getBrands(): Promise<string[]> {
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   const [categories, brands, testimonials] = await Promise.all([
-    getCategories(),
+    getCategories(locale),
     getBrands(),
     getTestimonials(locale),
   ])

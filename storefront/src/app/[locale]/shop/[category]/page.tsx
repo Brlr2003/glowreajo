@@ -9,14 +9,15 @@ import { buildBreadcrumbJsonLd, buildCollectionJsonLd } from "@/lib/seo/schemas"
 
 const SITE_URL = "https://glowreajo.com"
 
-async function getProductsByCategory(categoryId: string) {
+async function getProductsByCategory(categoryId: string, locale?: string) {
   try {
     const regionData = await medusaFetch<{ regions: any[] }>("/store/regions")
     const region = regionData.regions.find((r: any) => r.currency_code === "jod") || regionData.regions[0]
     const regionId = region?.id || ""
 
     const data = await medusaFetch<{ products: any[] }>(
-      `/store/products?limit=50&region_id=${regionId}&category_id[]=${categoryId}&fields=*categories,*images,+metadata,+variants.inventory_quantity`
+      `/store/products?limit=50&region_id=${regionId}&category_id[]=${categoryId}&fields=*categories,*images,+metadata,+variants.inventory_quantity`,
+      { locale }
     )
     return data.products
   } catch {
@@ -28,7 +29,7 @@ export async function generateMetadata(
   { params }: { params: Promise<{ category: string; locale: string }> }
 ): Promise<Metadata> {
   const { category: handle, locale } = await params
-  const cat = await getCategoryByHandle(handle)
+  const cat = await getCategoryByHandle(handle, locale)
 
   if (!cat) return { title: "Category Not Found" }
 
@@ -62,15 +63,15 @@ export async function generateMetadata(
 export default async function CategoryPage(
   { params }: { params: Promise<{ category: string; locale: string }> }
 ) {
-  const { category: handle } = await params
+  const { category: handle, locale } = await params
   const [cat, allCategories] = await Promise.all([
-    getCategoryByHandle(handle),
-    getCategories(),
+    getCategoryByHandle(handle, locale),
+    getCategories(locale),
   ])
 
   if (!cat) notFound()
 
-  const products = await getProductsByCategory(cat.id)
+  const products = await getProductsByCategory(cat.id, locale)
 
   const breadcrumbItems = [
     { name: "Home", url: SITE_URL },

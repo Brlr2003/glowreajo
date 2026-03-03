@@ -31,7 +31,8 @@
     "noResults": "لا توجد نتائج",
     "allCategories": "جميع الفئات",
     "brand": "العلامة التجارية",
-    "quantity": "الكمية"
+    "quantity": "الكمية",
+    "whatsappAria": "تواصلي معنا عبر الواتساب"
   },
   "header": {
     "searchPlaceholder": "ابحثي عن منتجات...",
@@ -99,7 +100,12 @@
     "description": "الوصف",
     "whatsappPreOrder": "مرحباً! أود طلب {product} من غلو ريجو.",
     "available": "متوفر",
-    "addedToCart": "تمت إضافة {product} للسلة"
+    "addedToCart": "تمت إضافة {product} للسلة",
+    "shippingInfo": "معلومات الشحن",
+    "ammanShipping": "عمّان: 2.00 دينار",
+    "ammanDays": "1-2 أيام عمل",
+    "otherShipping": "باقي المدن: 3.00 دينار",
+    "otherDays": "2-4 أيام عمل"
   },
   "checkout": {
     "title": "إتمام الطلب",

@@ -10,10 +10,11 @@ export interface MedusaCategory {
   category_children?: MedusaCategory[]
 }
 
-export async function getCategories(): Promise<MedusaCategory[]> {
+export async function getCategories(locale?: string): Promise<MedusaCategory[]> {
   try {
     const data = await medusaFetch<{ product_categories: MedusaCategory[] }>(
-      "/store/product-categories?fields=+metadata&limit=50"
+      "/store/product-categories?fields=+metadata&limit=50",
+      { locale }
     )
     return data.product_categories || []
   } catch {
@@ -21,10 +22,11 @@ export async function getCategories(): Promise<MedusaCategory[]> {
   }
 }
 
-export async function getCategoryByHandle(handle: string): Promise<MedusaCategory | null> {
+export async function getCategoryByHandle(handle: string, locale?: string): Promise<MedusaCategory | null> {
   try {
     const data = await medusaFetch<{ product_categories: MedusaCategory[] }>(
-      `/store/product-categories?handle=${handle}&fields=+metadata`
+      `/store/product-categories?handle=${handle}&fields=+metadata`,
+      { locale }
     )
     return data.product_categories?.[0] || null
   } catch {
