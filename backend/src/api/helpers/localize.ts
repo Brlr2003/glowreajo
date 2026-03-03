@@ -1,10 +1,10 @@
 export function localize(obj: any, locale: string, fields: string[]) {
-  if (locale !== "ar") return obj
-  const result = { ...obj }
+  const plain = JSON.parse(JSON.stringify(obj))
   for (const f of fields) {
-    if (obj[`${f}_ar`]) result[f] = obj[`${f}_ar`]
+    if (locale === "ar" && plain[`${f}_ar`]) plain[f] = plain[`${f}_ar`]
+    delete plain[`${f}_ar`]
   }
-  return result
+  return plain
 }
 
 export function localizeArray(arr: any[], locale: string, fields: string[]) {

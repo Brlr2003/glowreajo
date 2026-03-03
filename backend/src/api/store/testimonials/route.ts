@@ -5,7 +5,8 @@ const TESTIMONIAL_FIELDS = ["name", "location", "text", "product"]
 
 export async function GET(req: any, res: any) {
   try {
-    const locale = req.query.locale || "en"
+    const url = new URL(req.url, `http://${req.headers.host}`)
+    const locale = url.searchParams.get("locale") || "en"
     const service = req.scope.resolve(SITE_SETTINGS_MODULE) as any
     const testimonials = await service.listTestimonials(
       { is_active: true },

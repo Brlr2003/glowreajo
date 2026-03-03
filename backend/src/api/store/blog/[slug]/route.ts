@@ -6,7 +6,8 @@ const BLOG_FIELDS = ["title", "excerpt", "content", "author", "tags", "seo_title
 export async function GET(req: any, res: any) {
   try {
     const { slug } = req.params
-    const locale = req.query.locale || "en"
+    const url = new URL(req.url, `http://${req.headers.host}`)
+    const locale = url.searchParams.get("locale") || "en"
     const blogService = req.scope.resolve(BLOG_MODULE) as any
     const [posts] = await blogService.listAndCountBlogPosts(
       { slug, status: "published" },
