@@ -12,13 +12,14 @@ export function ProductAccordion({ product }: ProductAccordionProps) {
   const metadata = product.metadata as any
   const t = useTranslations("product")
   const locale = useLocale()
+  const description = locale === "ar" && metadata?.description_ar ? metadata.description_ar : product.description
   const howToUse = locale === "ar" && metadata?.how_to_use_ar ? metadata.how_to_use_ar : metadata?.how_to_use
   const ingredients = locale === "ar" && metadata?.ingredients_ar ? metadata.ingredients_ar : metadata?.ingredients
 
   return (
     <div className="mt-8">
       <Accordion title={t("details")} defaultOpen>
-        <p className="text-sm leading-relaxed">{product.description}</p>
+        <p className="text-sm leading-relaxed">{description}</p>
       </Accordion>
 
       {howToUse && (

@@ -196,7 +196,7 @@ export function FilterSidebar({ filters, onChange, products = [], categories = [
   }
 
   return (
-    <div className="hidden lg:block w-64 shrink-0 rounded-2xl bg-surface shadow-soft">
+    <div className="hidden lg:block w-64 shrink-0 self-start sticky top-24 rounded-2xl bg-surface shadow-soft">
       {content}
     </div>
   )

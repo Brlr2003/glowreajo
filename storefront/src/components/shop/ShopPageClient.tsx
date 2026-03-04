@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import { SlidersHorizontal } from "lucide-react"
+import { SlidersHorizontal, ChevronLeft, ChevronRight } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { FilterSidebar } from "@/components/shop/FilterSidebar"
 import { SortDropdown } from "@/components/shop/SortDropdown"
@@ -48,6 +48,8 @@ export function ShopPageClient({
   })
   const [sort, setSort] = useState("featured")
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+  const PRODUCTS_PER_PAGE = 12
 
   const filtered = useMemo(() => {
     let result = [...products]
@@ -112,6 +114,22 @@ export function ShopPageClient({
     return result
   }, [products, filters, sort])
 
+  const totalPages = Math.ceil(filtered.length / PRODUCTS_PER_PAGE)
+  const paginatedProducts = filtered.slice(
+    (currentPage - 1) * PRODUCTS_PER_PAGE,
+    currentPage * PRODUCTS_PER_PAGE
+  )
+
+  const handleFiltersChange = (newFilters: Filters) => {
+    setFilters(newFilters)
+    setCurrentPage(1)
+  }
+
+  const handleSortChange = (newSort: string) => {
+    setSort(newSort)
+    setCurrentPage(1)
+  }
+
   const defaultBreadcrumb = [
     { label: t("home"), href: "/" },
     { label: t("shop") },
@@ -135,14 +153,14 @@ export function ShopPageClient({
           <SlidersHorizontal className="h-4 w-4" />
           {t("filters")}
         </button>
-        <SortDropdown value={sort} onChange={setSort} />
+        <SortDropdown value={sort} onChange={handleSortChange} />
       </div>
 
       <div className="flex gap-8">
-        <FilterSidebar filters={filters} onChange={setFilters} products={products} categories={categories} hideCategoryFilter={hideCategoryFilter} />
+        <FilterSidebar filters={filters} onChange={handleFiltersChange} products={products} categories={categories} hideCategoryFilter={hideCategoryFilter} />
         <FilterSidebar
           filters={filters}
-          onChange={setFilters}
+          onChange={handleFiltersChange}
           products={products}
           categories={categories}
           isMobile
@@ -154,9 +172,33 @@ export function ShopPageClient({
         <div className="flex-1">
           <div className="hidden lg:flex items-center justify-between mb-6">
             <p className="text-sm text-text-muted">{t("productCount", { count: filtered.length })}</p>
-            <SortDropdown value={sort} onChange={setSort} />
+            <SortDropdown value={sort} onChange={handleSortChange} />
           </div>
-          <ProductGrid products={filtered} loading={false} />
+          <ProductGrid products={paginatedProducts} loading={false} />
+
+          {totalPages > 1 && (
+            <div className="flex items-center justify-center gap-2 mt-8">
+              <button
+                onClick={() => { setCurrentPage((p) => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: "smooth" }) }}
+                disabled={currentPage === 1}
+                className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-surface text-text-secondary hover:bg-primary/10 hover:text-primary"
+              >
+                <ChevronLeft className="h-4 w-4" />
+                {t("previous")}
+              </button>
+              <span className="text-sm text-text-muted px-3">
+                {t("page", { page: currentPage, total: totalPages })}
+              </span>
+              <button
+                onClick={() => { setCurrentPage((p) => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: "smooth" }) }}
+                disabled={currentPage === totalPages}
+                className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-surface text-text-secondary hover:bg-primary/10 hover:text-primary"
+              >
+                {t("next")}
+                <ChevronRight className="h-4 w-4" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

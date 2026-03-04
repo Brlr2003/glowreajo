@@ -1,6 +1,6 @@
 "use client"
 
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import { getCategoryIcon, getCategoryColor } from "@/lib/category-icons"
 import type { MedusaCategory } from "@/lib/categories"
 
@@ -11,16 +11,18 @@ interface CategoryHeaderProps {
 
 export function CategoryHeader({ category, productCount }: CategoryHeaderProps) {
   const t = useTranslations("shop")
+  const locale = useLocale()
   const Icon = getCategoryIcon(category.metadata?.icon)
   const color = getCategoryColor(category.metadata?.color)
   const description = category.metadata?.description || category.description
+  const name = locale === "ar" && category.metadata?.name_ar ? category.metadata.name_ar : category.name
 
   return (
     <div className="mb-8 text-center">
       <div className={`inline-flex h-16 w-16 items-center justify-center rounded-2xl ${color} mb-4`}>
         <Icon className="h-7 w-7" />
       </div>
-      <h1 className="font-heading text-4xl font-bold text-text-primary">{category.name}</h1>
+      <h1 className="font-heading text-4xl font-bold text-text-primary">{name}</h1>
       {description && (
         <p className="mt-2 text-text-secondary max-w-lg mx-auto">{description}</p>
       )}

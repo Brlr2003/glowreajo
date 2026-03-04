@@ -229,7 +229,10 @@
     "showingResults": "{count} products",
     "productCount": "{count} products",
     "featured": "Featured",
-    "all": "All"
+    "all": "All",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {page} of {total}"
   },
   "blog": {
     "title": "Our Blog",
@@ -241,7 +244,10 @@
     "relatedPosts": "Related Posts",
     "minRead": "{min} min read",
     "all": "All",
-    "showLess": "Show less"
+    "showLess": "Show less",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {page} of {total}"
   },
   "about": {
     "title": "About GlowReaJo",

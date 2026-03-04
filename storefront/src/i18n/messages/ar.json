@@ -229,7 +229,10 @@
     "showingResults": "{count} منتجات",
     "productCount": "{count} منتجات",
     "featured": "مميز",
-    "all": "الكل"
+    "all": "الكل",
+    "previous": "السابق",
+    "next": "التالي",
+    "page": "صفحة {page} من {total}"
   },
   "blog": {
     "title": "مدونتنا",
@@ -241,7 +244,10 @@
     "relatedPosts": "مقالات ذات صلة",
     "minRead": "{min} دقائق قراءة",
     "all": "الكل",
-    "showLess": "عرض أقل"
+    "showLess": "عرض أقل",
+    "previous": "السابق",
+    "next": "التالي",
+    "page": "صفحة {page} من {total}"
   },
   "about": {
     "title": "عن GlowReaJo",
