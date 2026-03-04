@@ -240,7 +240,8 @@
     "backToBlog": "Back to Blog",
     "relatedPosts": "Related Posts",
     "minRead": "{min} min read",
-    "all": "All"
+    "all": "All",
+    "showLess": "Show less"
   },
   "about": {
     "title": "About GlowReaJo",
