@@ -240,7 +240,8 @@
     "backToBlog": "العودة للمدونة",
     "relatedPosts": "مقالات ذات صلة",
     "minRead": "{min} دقائق قراءة",
-    "all": "الكل"
+    "all": "الكل",
+    "showLess": "عرض أقل"
   },
   "about": {
     "title": "عن GlowReaJo",
