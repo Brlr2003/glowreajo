@@ -20,18 +20,17 @@ interface ValueCard {
   description: string
 }
 
-const DEFAULT_INTRO = "GlowReaJo was born from a simple idea: bring the magic of Korean skincare to Jordan."
+const DEFAULT_INTRO = ""
+const DEFAULT_STORY = ""
+const DEFAULT_VALUES: ValueCard[] = []
+const DEFAULT_KBEAUTY = ""
 
-const DEFAULT_STORY = `<p>It all started with a love for glass skin and the Korean beauty philosophy.</p>`
-
-const DEFAULT_VALUES: ValueCard[] = [
-  { icon: "heart", title: "Passion for Skincare", description: "We believe everyone deserves to feel confident in their skin." },
-  { icon: "sparkles", title: "100% Authentic", description: "Every product is sourced directly from Korean brands." },
-  { icon: "globe", title: "K-Beauty for Jordan", description: "We bridge the gap between Seoul and Jordan." },
-  { icon: "leaf", title: "Clean & Effective", description: "Korean skincare is known for gentle, effective formulations." },
-]
-
-const DEFAULT_KBEAUTY = `<p>Korean skincare (K-beauty) is renowned worldwide for its innovative formulations.</p>`
+function getGridCols(count: number): string {
+  if (count <= 1) return "grid-cols-1"
+  if (count === 2) return "grid-cols-1 md:grid-cols-2"
+  if (count === 3) return "grid-cols-1 md:grid-cols-3"
+  return "grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+}
 
 export default function AboutPage() {
   const t = useTranslations("about")
@@ -40,6 +39,7 @@ export default function AboutPage() {
   const [story, setStory] = useState(DEFAULT_STORY)
   const [values, setValues] = useState<ValueCard[]>(DEFAULT_VALUES)
   const [kbeauty, setKbeauty] = useState(DEFAULT_KBEAUTY)
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     getSiteSettings(locale).then((s) => {
@@ -53,8 +53,20 @@ export default function AboutPage() {
           if (Array.isArray(parsed) && parsed.length > 0) setValues(parsed)
         } catch {}
       }
+      setLoaded(true)
     })
   }, [locale])
+
+  if (!loaded) {
+    return (
+      <div className="container-app py-12">
+        <div className="text-center">
+          <div className="h-10 w-48 mx-auto bg-surface rounded-2xl animate-pulse" />
+          <div className="h-6 w-96 max-w-full mx-auto bg-surface rounded-2xl animate-pulse mt-4" />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="container-app py-12">
@@ -63,56 +75,64 @@ export default function AboutPage() {
           <h1 className="font-heading text-4xl font-bold text-text-primary md:text-5xl">
             {t("title")}
           </h1>
-          <p className="mt-6 text-lg text-text-secondary leading-relaxed">{intro}</p>
+          {intro && <p className="mt-6 text-lg text-text-secondary leading-relaxed">{intro}</p>}
         </div>
       </AnimatedSection>
 
-      <AnimatedSection>
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="font-heading text-3xl font-bold text-text-primary mb-6">{t("ourStory")}</h2>
-          <div
-            className="prose prose-neutral max-w-none text-text-secondary leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: story }}
-          />
-        </div>
-      </AnimatedSection>
+      {story && (
+        <AnimatedSection>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="font-heading text-3xl font-bold text-text-primary mb-6">{t("ourStory")}</h2>
+            <div
+              className="prose prose-neutral max-w-none text-text-secondary leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: story }}
+            />
+          </div>
+        </AnimatedSection>
+      )}
 
-      <AnimatedSection>
-        <h2 className="font-heading text-3xl font-bold text-text-primary text-center mb-10">
-          {t("ourValues")}
-        </h2>
-      </AnimatedSection>
+      {values.length > 0 && (
+        <>
+          <AnimatedSection>
+            <h2 className="font-heading text-3xl font-bold text-text-primary text-center mb-10">
+              {t("ourValues")}
+            </h2>
+          </AnimatedSection>
 
-      <motion.div
-        variants={stagger(0.1)}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
-      >
-        {values.map((value: ValueCard) => {
-          const Icon = ICON_MAP[value.icon] || Heart
-          return (
-            <motion.div key={value.title} variants={fadeInUp} className="rounded-2xl bg-surface p-8 shadow-soft">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
-                <Icon className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="font-heading text-lg font-semibold text-text-primary">{value.title}</h3>
-              <p className="mt-2 text-text-secondary">{value.description}</p>
-            </motion.div>
-          )
-        })}
-      </motion.div>
+          <motion.div
+            key={values.map((v: ValueCard) => v.title).join(",")}
+            variants={stagger(0.1)}
+            initial="hidden"
+            animate="visible"
+            className={`grid ${getGridCols(values.length)} gap-6`}
+          >
+            {values.map((value: ValueCard) => {
+              const Icon = ICON_MAP[value.icon] || Heart
+              return (
+                <motion.div key={value.title} variants={fadeInUp} className="rounded-2xl bg-surface p-8 shadow-soft">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+                    <Icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-text-primary">{value.title}</h3>
+                  <p className="mt-2 text-text-secondary">{value.description}</p>
+                </motion.div>
+              )
+            })}
+          </motion.div>
+        </>
+      )}
 
-      <AnimatedSection>
-        <div className="mt-16 text-center">
-          <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">{t("whyKbeauty")}</h2>
-          <div
-            className="prose prose-neutral max-w-2xl mx-auto text-text-secondary leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: kbeauty }}
-          />
-        </div>
-      </AnimatedSection>
+      {kbeauty && (
+        <AnimatedSection>
+          <div className="mt-16 text-center">
+            <h2 className="font-heading text-2xl font-bold text-text-primary mb-4">{t("whyKbeauty")}</h2>
+            <div
+              className="prose prose-neutral max-w-2xl mx-auto text-text-secondary leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: kbeauty }}
+            />
+          </div>
+        </AnimatedSection>
+      )}
     </div>
   )
 }
