@@ -121,7 +121,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
 
       {managesInventory && (
         <p className={`mt-4 text-sm font-medium ${isOutOfStock ? "text-error" : "text-success"}`}>
-          {isOutOfStock ? t("outOfStock") : `${t("inStock")} (${inventoryQty} ${t("available")})`}
+          {isOutOfStock ? t("outOfStock") : t("inStock")}
         </p>
       )}
 
