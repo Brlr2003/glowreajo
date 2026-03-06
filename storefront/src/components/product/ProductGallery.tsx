@@ -6,9 +6,11 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ZoomIn } from "lucide-react"
 import { getProductImage } from "@/lib/demo-images"
 import { ImageZoomModal } from "./ImageZoomModal"
+import { Badge } from "@/components/ui/Badge"
 
 interface ProductGalleryProps {
   product?: any
+  badges?: Array<{ label: string; variant: "bestseller" | "new" | "sale" }>
 }
 
 const BLUR_PLACEHOLDER = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZjVmMGViIi8+PC9zdmc+"
@@ -17,7 +19,7 @@ function isLocal(url: string) {
   return url.startsWith("http://localhost")
 }
 
-export function ProductGallery({ product }: ProductGalleryProps) {
+export function ProductGallery({ product, badges }: ProductGalleryProps) {
   const mainImage = product?.thumbnail || product?.images?.[0]?.url || getProductImage(product?.handle || "")
   const images = product?.images?.length
     ? product.images.map((img: any) => img.url)
@@ -59,6 +61,15 @@ export function ProductGallery({ product }: ProductGalleryProps) {
               <ZoomIn className="h-5 w-5" />
             </div>
           </div>
+          {badges && badges.length > 0 && (
+            <div className="absolute top-4 end-4 flex flex-col gap-2">
+              {badges.map((badge, i) => (
+                <Badge key={i} variant={badge.variant} className="text-sm px-4 py-1.5 shadow-md">
+                  {badge.label}
+                </Badge>
+              ))}
+            </div>
+          )}
         </motion.div>
       </AnimatePresence>
 

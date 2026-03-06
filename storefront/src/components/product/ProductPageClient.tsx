@@ -14,8 +14,25 @@ interface ProductPageClientProps {
 
 export function ProductPageClient({ product }: ProductPageClientProps) {
   const tc = useTranslations("common")
+  const t = useTranslations("product")
   const categoryId = product.categories?.[0]?.id
   const categoryName = product.categories?.[0]?.name
+
+  const variant = product.variants?.[0]
+  const managesInventory = variant?.manage_inventory !== false
+  const inventoryQty = variant?.inventory_quantity
+  const isOutOfStock = managesInventory && (inventoryQty === 0 || inventoryQty === null)
+  const isBestSeller = product.tags?.length > 0
+
+  const galleryBadges: Array<{ label: string; variant: "bestseller" | "new" | "sale" }> = []
+  if (isOutOfStock) {
+    galleryBadges.push({ label: t("outOfStock"), variant: "sale" })
+  } else if (managesInventory) {
+    galleryBadges.push({ label: t("inStock"), variant: "new" })
+  }
+  if (isBestSeller && !isOutOfStock) {
+    galleryBadges.push({ label: tc("bestSeller"), variant: "bestseller" })
+  }
 
   const breadcrumbItems = [
     { label: tc("home"), href: "/" },
@@ -29,7 +46,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
       <Breadcrumb items={breadcrumbItems} />
       <article>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <ProductGallery product={product} />
+          <ProductGallery product={product} badges={galleryBadges} />
           <div>
             <ProductInfo product={product} />
             <ProductAccordion product={product} />
