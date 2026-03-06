@@ -120,9 +120,11 @@ export function ProductInfo({ product }: ProductInfoProps) {
       )}
 
       {managesInventory && (
-        <p className={`mt-4 text-sm font-medium ${isOutOfStock ? "text-error" : "text-success"}`}>
-          {isOutOfStock ? t("outOfStock") : t("inStock")}
-        </p>
+        <div className="mt-4">
+          <Badge variant={isOutOfStock ? "sale" : "new"} className="text-sm px-4 py-1.5">
+            {isOutOfStock ? t("outOfStock") : t("inStock")}
+          </Badge>
+        </div>
       )}
 
       <p className="mt-6 text-text-secondary leading-relaxed">{description}</p>
