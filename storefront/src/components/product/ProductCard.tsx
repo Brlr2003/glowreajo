@@ -14,6 +14,8 @@ import { getCompareAtPrice } from "@/lib/compareAtPrice"
 import { getProductImage } from "@/lib/demo-images"
 import { ImageZoomModal } from "./ImageZoomModal"
 
+const BLUR_PLACEHOLDER = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZjVmMGViIi8+PC9zdmc+"
+
 interface ProductCardProps {
   product: any
 }
@@ -84,6 +86,8 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
             className="object-cover transition-transform duration-500 group-hover:scale-110"
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
             unoptimized={unoptimized}
+            placeholder="blur"
+            blurDataURL={BLUR_PLACEHOLDER}
             onError={() => setImgError(true)}
           />
           <div className="absolute top-3 start-3 flex gap-2">
