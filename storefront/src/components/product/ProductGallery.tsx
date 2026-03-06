@@ -11,6 +11,8 @@ interface ProductGalleryProps {
   product?: any
 }
 
+const BLUR_PLACEHOLDER = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZjVmMGViIi8+PC9zdmc+"
+
 function isLocal(url: string) {
   return url.startsWith("http://localhost")
 }
@@ -48,6 +50,8 @@ export function ProductGallery({ product }: ProductGalleryProps) {
             priority
             sizes="(min-width: 1024px) 50vw, 100vw"
             unoptimized={isLocal(images[selected])}
+            placeholder="blur"
+            blurDataURL={BLUR_PLACEHOLDER}
             onError={() => handleImgError(selected)}
           />
           <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 group-hover:opacity-100 group-hover:bg-black/10 transition-all">
