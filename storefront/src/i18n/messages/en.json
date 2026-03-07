@@ -78,7 +78,7 @@
     "cod": "Cash on Delivery",
     "codDesc": "Pay when your order arrives at your doorstep. No online payment needed.",
     "delivery": "Fast Delivery",
-    "deliveryDesc": "Receive your order within 2-5 business days anywhere in Jordan.",
+    "deliveryDesc": "Receive your order within 1-5 business days anywhere in Jordan.",
     "support": "Customer Support",
     "supportDesc": "Get personalized skincare advice from our expert team via WhatsApp."
   },
@@ -115,9 +115,9 @@
     "addedToCart": "{product} added to cart",
     "shippingInfo": "Shipping Info",
     "ammanShipping": "Amman: 2.00 JOD",
-    "ammanDays": "1-2 business days",
+    "ammanDays": "1-5 business days",
     "otherShipping": "Other Cities: 3.00 JOD",
-    "otherDays": "2-4 business days"
+    "otherDays": "1-5 business days"
   },
   "checkout": {
     "title": "Checkout",
@@ -151,6 +151,7 @@
     "emptyCart": "Your cart is empty",
     "browseProducts": "Add some products to get started",
     "freeDelivery": "Free delivery on orders over 25 JOD",
+    "deliveryTime": "Delivery within 1-5 business days",
     "promoCode": "Promo Code",
     "apply": "Apply",
     "remove": "Remove",
@@ -198,7 +199,7 @@
     "confirmed": "Order Confirmed",
     "preparing": "Preparing",
     "delivery": "Out for Delivery",
-    "deliveryTime": "Estimated delivery: 2-5 business days",
+    "deliveryTime": "Estimated delivery: 1-5 business days",
     "continueShopping": "Continue Shopping",
     "backHome": "Back to Home",
     "orderNumber": "Order Number",
@@ -287,6 +288,7 @@
     "subtotal": "Subtotal",
     "total": "Total",
     "freeDelivery": "Free delivery on orders over 25 JOD",
+    "deliveryTime": "Delivery within 1-5 business days",
     "checkout": "Checkout",
     "remove": "Remove",
     "itemCount": "{count} items"

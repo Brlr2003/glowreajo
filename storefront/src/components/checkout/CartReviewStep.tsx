@@ -9,7 +9,7 @@ import { formatPrice } from "@/lib/formatPrice"
 import { validatePromoCode } from "@/lib/promo"
 import { Button } from "@/components/ui/Button"
 import { PromoCodeInput } from "@/components/ui/PromoCodeInput"
-import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react"
+import { Minus, Plus, Trash2, ShoppingBag, Truck } from "lucide-react"
 
 function CartImage({ src, alt }: { src: string; alt: string }) {
   const [error, setError] = useState(false)
@@ -152,6 +152,10 @@ export function CartReviewStep({ onNext }: CartReviewStepProps) {
 
       <div className="rounded-xl bg-success/10 px-4 py-2.5 text-center text-sm text-success font-medium">
         {t("freeDelivery")}
+      </div>
+      <div className="flex items-center justify-center gap-2 text-sm text-text-muted">
+        <Truck className="h-4 w-4" />
+        <span>{t("deliveryTime")}</span>
       </div>
 
       <div className="pt-4 border-t border-border space-y-2">

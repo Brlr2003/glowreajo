@@ -9,7 +9,7 @@ import { formatPrice } from "@/lib/formatPrice"
 import { Button } from "@/components/ui/Button"
 import { OrderSummary } from "./OrderSummary"
 import type { PersonalInfo } from "./PersonalInfoStep"
-import { MapPin, Phone, Mail, FileText } from "lucide-react"
+import { MapPin, Phone, Mail, FileText, Truck } from "lucide-react"
 
 interface OrderConfirmStepProps {
   personalInfo: PersonalInfo
@@ -75,6 +75,10 @@ export function OrderConfirmStep({ personalInfo, onBack }: OrderConfirmStepProps
               </div>
             )}
           </div>
+        </div>
+        <div className="flex items-center gap-2 text-sm text-text-muted pt-2 border-t border-border">
+          <Truck className="h-4 w-4 text-primary" />
+          <span>{t("deliveryTime")}</span>
         </div>
       </div>
 

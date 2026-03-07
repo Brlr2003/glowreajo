@@ -5,7 +5,7 @@ import Image from "next/image"
 import { useTranslations, useLocale } from "next-intl"
 import { useCart } from "@/context/CartContext"
 import { formatPrice } from "@/lib/formatPrice"
-import { ShoppingBag } from "lucide-react"
+import { ShoppingBag, Truck } from "lucide-react"
 
 function SummaryImage({ src, alt }: { src: string; alt: string }) {
   const [error, setError] = useState(false)
@@ -77,6 +77,10 @@ export function OrderSummary({ city }: OrderSummaryProps) {
         <div className="flex justify-between text-sm">
           <span className="text-text-secondary">{t("shipping")}</span>
           <span className="text-success">{shipping === 0 ? t("free") : formatPrice(shipping, locale)}</span>
+        </div>
+        <div className="flex items-center gap-1.5 text-xs text-text-muted">
+          <Truck className="h-3.5 w-3.5" />
+          <span>{t("deliveryTime")}</span>
         </div>
         <div className="flex justify-between font-heading text-lg font-bold border-t border-border pt-3 mt-3">
           <span>{t("total")}</span>

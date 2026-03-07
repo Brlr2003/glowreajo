@@ -5,7 +5,7 @@ import { Link } from "@/i18n/routing"
 import { useTranslations, useLocale } from "next-intl"
 import Image from "next/image"
 import { useState } from "react"
-import { X, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react"
+import { X, Minus, Plus, ShoppingBag, Trash2, Truck } from "lucide-react"
 import { useCart } from "@/context/CartContext"
 import { Button } from "@/components/ui/Button"
 import { PromoCodeInput } from "@/components/ui/PromoCodeInput"
@@ -199,6 +199,10 @@ export function CartDrawer() {
                 )}
                 <div className="rounded-xl bg-success/10 px-4 py-2 text-center text-xs text-success font-medium">
                   {t("freeDelivery")}
+                </div>
+                <div className="flex items-center justify-center gap-1.5 text-xs text-text-muted">
+                  <Truck className="h-3.5 w-3.5" />
+                  <span>{t("deliveryTime")}</span>
                 </div>
                 <Link href="/checkout" onClick={() => setDrawerOpen(false)} className="block">
                   <Button className="w-full" size="lg">
