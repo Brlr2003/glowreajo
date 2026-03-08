@@ -35,14 +35,14 @@ export function FeaturedCategories({ categories = [] }: FeaturedCategoriesProps)
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4"
+          className="flex flex-wrap justify-center gap-4"
         >
           {categories.map((cat) => {
             const Icon = getCategoryIcon(cat.metadata?.icon)
             const color = getCategoryColor(cat.metadata?.color)
 
             return (
-              <motion.div key={cat.id} variants={fadeInUp}>
+              <motion.div key={cat.id} variants={fadeInUp} className="w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.75rem)] md:w-[calc(25%-0.75rem)] lg:w-[calc(14.285%-0.875rem)]">
                 <Link
                   href={`/shop/${cat.handle}`}
                   className="group flex h-full flex-col items-center justify-center gap-3 rounded-2xl bg-surface p-4 shadow-soft transition-all hover:shadow-card hover:-translate-y-1"
