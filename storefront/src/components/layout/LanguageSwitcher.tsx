@@ -24,7 +24,7 @@ export function LanguageSwitcher({ variant = "compact" }: { variant?: "compact" 
         aria-label={t("label")}
       >
         <Globe className="h-5 w-5" />
-        <span>{t("switchTo")}</span>
+        <span style={{ fontFamily: "var(--font-arabic)" }}>{t("switchTo")}</span>
         <span className="ms-auto text-xs font-medium text-text-secondary bg-muted px-2 py-0.5 rounded-full">
           {locale === "en" ? "AR" : "EN"}
         </span>
@@ -39,7 +39,7 @@ export function LanguageSwitcher({ variant = "compact" }: { variant?: "compact" 
       aria-label={t("label")}
     >
       <Globe className="h-4.5 w-4.5" />
-      <span className="text-xs font-medium hidden sm:inline">{t("switchTo")}</span>
+      <span className="text-xs font-medium hidden sm:inline" style={{ fontFamily: "var(--font-arabic)" }}>{t("switchTo")}</span>
     </button>
   )
 }
