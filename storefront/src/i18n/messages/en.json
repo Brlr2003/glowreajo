@@ -91,7 +91,7 @@
     "routineSubtitle": "Follow the Korean skincare routine for radiant, healthy skin.",
     "socialProofTitle": "Join Our Community",
     "brandsTitle": "Trusted Brands We Carry",
-    "marqueeText": "FREE DELIVERY ON ORDERS OVER 25 JOD",
+    "marqueeText": "FREE DELIVERY ON ORDERS OVER 50 JOD",
     "step": "Step"
   },
   "product": {
@@ -150,7 +150,7 @@
     "personalInfo": "Your information",
     "emptyCart": "Your cart is empty",
     "browseProducts": "Add some products to get started",
-    "freeDelivery": "Free delivery on orders over 25 JOD",
+    "freeDelivery": "Free delivery on orders over 50 JOD",
     "deliveryTime": "Delivery within 1-5 business days",
     "promoCode": "Promo Code",
     "apply": "Apply",
@@ -287,7 +287,7 @@
     "browseProducts": "Browse Products",
     "subtotal": "Subtotal",
     "total": "Total",
-    "freeDelivery": "Free delivery on orders over 25 JOD",
+    "freeDelivery": "Free delivery on orders over 50 JOD",
     "deliveryTime": "Delivery within 1-5 business days",
     "checkout": "Checkout",
     "remove": "Remove",
