@@ -92,7 +92,7 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
           />
           <div className="absolute top-3 start-3 flex flex-wrap gap-1.5">
             {isOutOfStock && <Badge variant="sale">{tc("outOfStock")}</Badge>}
-            {!isOutOfStock && product.tags?.map((tag: any) => (
+            {product.tags?.map((tag: any) => (
               <Badge key={tag.id} variant="bestseller">{tag.value}</Badge>
             ))}
           </div>

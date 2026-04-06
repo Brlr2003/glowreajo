@@ -28,7 +28,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
   } else if (managesInventory) {
     galleryBadges.push({ label: t("inStock"), variant: "new" })
   }
-  if (!isOutOfStock && product.tags?.length > 0) {
+  if (product.tags?.length > 0) {
     product.tags.forEach((tag: any) => {
       galleryBadges.push({ label: tag.value, variant: "bestseller" })
     })
