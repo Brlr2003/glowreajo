@@ -22,8 +22,8 @@ export function BestSellers() {
         const region_id = await getRegionId()
         const { products: fetched } = await medusa.store.product.list({ limit: 8, region_id, fields: "*categories,*images,+metadata" } as any)
         const sorted = [...fetched].sort((a: any, b: any) => {
-          const orderA = a.metadata?.sort_order ?? 999999
-          const orderB = b.metadata?.sort_order ?? 999999
+          const orderA = Number(a.metadata?.sort_order ?? 999999)
+          const orderB = Number(b.metadata?.sort_order ?? 999999)
           return orderA - orderB
         })
         setProducts(sorted)

@@ -113,8 +113,8 @@ export function ShopPageClient({
     switch (sort) {
       case "featured":
         result.sort((a: any, b: any) => {
-          const orderA = a.metadata?.sort_order ?? 999999
-          const orderB = b.metadata?.sort_order ?? 999999
+          const orderA = Number(a.metadata?.sort_order ?? 999999)
+          const orderB = Number(b.metadata?.sort_order ?? 999999)
           return orderA - orderB
         })
         break

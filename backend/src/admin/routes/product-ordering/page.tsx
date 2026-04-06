@@ -89,14 +89,14 @@ function ProductOrderingPage() {
   async function fetchProducts() {
     try {
       const res = await fetch(
-        "/admin/products?limit=100&fields=id,title,thumbnail,metadata",
+        "/admin/products?limit=100&fields=id,title,thumbnail,+metadata",
         { credentials: "include" }
       )
       if (!res.ok) throw new Error("Failed to fetch")
       const data = await res.json()
       const sorted = (data.products || []).sort((a: Product, b: Product) => {
-        const orderA = a.metadata?.sort_order ?? 999999
-        const orderB = b.metadata?.sort_order ?? 999999
+        const orderA = Number(a.metadata?.sort_order ?? 999999)
+        const orderB = Number(b.metadata?.sort_order ?? 999999)
         return orderA - orderB
       })
       setProducts(sorted)
