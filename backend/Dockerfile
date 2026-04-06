@@ -2,7 +2,7 @@
 FROM node:20-alpine AS deps
 WORKDIR /app
 COPY package.json package-lock.json* ./
-RUN --mount=type=cache,target=/root/.npm npm install --no-audit
+RUN --mount=type=cache,id=npm-deps,target=/root/.npm npm install --no-audit
 
 # Stage 2: Build
 FROM node:20-alpine AS builder
@@ -16,7 +16,7 @@ RUN npx medusa build
 FROM node:20-alpine AS prod-deps
 WORKDIR /app
 COPY package.json package-lock.json* ./
-RUN --mount=type=cache,target=/root/.npm npm install --no-audit --omit=dev && \
+RUN --mount=type=cache,id=npm-prod,target=/root/.npm npm install --no-audit --omit=dev && \
     npm cache clean --force
 
 # Stage 4: Production
