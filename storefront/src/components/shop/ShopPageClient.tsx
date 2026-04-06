@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useCallback } from "react"
+import { useSearchParams, useRouter } from "next/navigation"
 import { SlidersHorizontal, ChevronLeft, ChevronRight } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { FilterSidebar } from "@/components/shop/FilterSidebar"
@@ -37,6 +38,8 @@ export function ShopPageClient({
   hideCategoryFilter,
 }: ShopPageClientProps) {
   const t = useTranslations("shop")
+  const searchParams = useSearchParams()
+  const router = useRouter()
   const displayTitle = title || t("title")
   const displaySubtitle = subtitle || t("subtitle")
   const [products] = useState<any[]>(initialProducts)
@@ -48,8 +51,19 @@ export function ShopPageClient({
   })
   const [sort, setSort] = useState("featured")
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-  const [currentPage, setCurrentPage] = useState(1)
+  const pageFromUrl = Number(searchParams.get("page")) || 1
+  const [currentPage, setCurrentPage] = useState(pageFromUrl)
   const PRODUCTS_PER_PAGE = 12
+
+  const goToPage = useCallback((page: number) => {
+    setCurrentPage(page)
+    const params = new URLSearchParams(searchParams.toString())
+    if (page === 1) params.delete("page")
+    else params.set("page", String(page))
+    const query = params.toString()
+    router.replace(query ? `?${query}` : window.location.pathname, { scroll: false })
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }, [searchParams, router])
 
   const filtered = useMemo(() => {
     let result = [...products]
@@ -97,6 +111,13 @@ export function ShopPageClient({
     }
 
     switch (sort) {
+      case "featured":
+        result.sort((a: any, b: any) => {
+          const orderA = a.metadata?.sort_order ?? 999999
+          const orderB = b.metadata?.sort_order ?? 999999
+          return orderA - orderB
+        })
+        break
       case "price-asc":
         result.sort((a: any, b: any) => getPrice(a) - getPrice(b))
         break
@@ -122,12 +143,12 @@ export function ShopPageClient({
 
   const handleFiltersChange = (newFilters: Filters) => {
     setFilters(newFilters)
-    setCurrentPage(1)
+    goToPage(1)
   }
 
   const handleSortChange = (newSort: string) => {
     setSort(newSort)
-    setCurrentPage(1)
+    goToPage(1)
   }
 
   const defaultBreadcrumb = [
@@ -179,7 +200,7 @@ export function ShopPageClient({
           {totalPages > 1 && (
             <div className="flex items-center justify-center gap-2 mt-8">
               <button
-                onClick={() => { setCurrentPage((p) => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: "smooth" }) }}
+                onClick={() => goToPage(Math.max(1, currentPage - 1))}
                 disabled={currentPage === 1}
                 className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-surface text-text-secondary hover:bg-primary/10 hover:text-primary"
               >
@@ -190,7 +211,7 @@ export function ShopPageClient({
                 {t("page", { page: currentPage, total: totalPages })}
               </span>
               <button
-                onClick={() => { setCurrentPage((p) => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: "smooth" }) }}
+                onClick={() => goToPage(Math.min(totalPages, currentPage + 1))}
                 disabled={currentPage === totalPages}
                 className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-surface text-text-secondary hover:bg-primary/10 hover:text-primary"
               >
