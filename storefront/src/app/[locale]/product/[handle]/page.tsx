@@ -14,7 +14,7 @@ async function getProduct(handle: string, locale?: string) {
     const regionId = region?.id || ""
 
     const data = await medusaFetch<{ products: any[] }>(
-      `/store/products?handle=${handle}&region_id=${regionId}&fields=*categories,*images,+metadata,+variants.inventory_quantity`,
+      `/store/products?handle=${handle}&region_id=${regionId}&fields=*categories,*images,*tags,+metadata,+variants.inventory_quantity`,
       { locale }
     )
     return data.products[0] || null

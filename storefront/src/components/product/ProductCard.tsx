@@ -90,9 +90,11 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
             blurDataURL={BLUR_PLACEHOLDER}
             onError={() => setImgError(true)}
           />
-          <div className="absolute top-3 start-3 flex gap-2">
+          <div className="absolute top-3 start-3 flex flex-wrap gap-1.5">
             {isOutOfStock && <Badge variant="sale">{tc("outOfStock")}</Badge>}
-            {!isOutOfStock && product.tags?.length > 0 && <Badge variant="bestseller">{tc("bestSeller")}</Badge>}
+            {!isOutOfStock && product.tags?.map((tag: any) => (
+              <Badge key={tag.id} variant="bestseller">{tag.value}</Badge>
+            ))}
           </div>
           <button
             onClick={(e) => { e.preventDefault(); e.stopPropagation(); setZoomOpen(true) }}

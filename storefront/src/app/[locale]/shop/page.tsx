@@ -13,7 +13,7 @@ async function getProducts(locale?: string) {
     const regionId = region?.id || ""
 
     const data = await medusaFetch<{ products: any[] }>(
-      `/store/products?limit=50&region_id=${regionId}&fields=*categories,*images,+metadata,+variants.inventory_quantity`,
+      `/store/products?limit=50&region_id=${regionId}&fields=*categories,*images,*tags,+metadata,+variants.inventory_quantity`,
       { locale }
     )
     return data.products

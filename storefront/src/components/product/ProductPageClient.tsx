@@ -22,16 +22,16 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
   const managesInventory = variant?.manage_inventory !== false
   const inventoryQty = variant?.inventory_quantity
   const isOutOfStock = managesInventory && (inventoryQty === 0 || inventoryQty === null)
-  const isBestSeller = product.tags?.length > 0
-
   const galleryBadges: Array<{ label: string; variant: "bestseller" | "new" | "sale" }> = []
   if (isOutOfStock) {
     galleryBadges.push({ label: t("outOfStock"), variant: "sale" })
   } else if (managesInventory) {
     galleryBadges.push({ label: t("inStock"), variant: "new" })
   }
-  if (isBestSeller && !isOutOfStock) {
-    galleryBadges.push({ label: tc("bestSeller"), variant: "bestseller" })
+  if (!isOutOfStock && product.tags?.length > 0) {
+    product.tags.forEach((tag: any) => {
+      galleryBadges.push({ label: tag.value, variant: "bestseller" })
+    })
   }
 
   const breadcrumbItems = [

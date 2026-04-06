@@ -16,7 +16,7 @@ async function getProductsByCategory(categoryId: string, locale?: string) {
     const regionId = region?.id || ""
 
     const data = await medusaFetch<{ products: any[] }>(
-      `/store/products?limit=50&region_id=${regionId}&category_id[]=${categoryId}&fields=*categories,*images,+metadata,+variants.inventory_quantity`,
+      `/store/products?limit=50&region_id=${regionId}&category_id[]=${categoryId}&fields=*categories,*images,*tags,+metadata,+variants.inventory_quantity`,
       { locale }
     )
     return data.products
