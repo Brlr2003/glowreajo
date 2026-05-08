@@ -1,5 +1,5 @@
 import { defineWidgetConfig } from "@medusajs/admin-sdk"
-import { Container, Heading, Label, Button, Input } from "@medusajs/ui"
+import { Container, Heading, Label, Button, Input, Textarea } from "@medusajs/ui"
 import { useState, useEffect } from "react"
 import { PricingDisplay } from "../components/pricing-display"
 
@@ -104,6 +104,9 @@ function SkincareFieldsWidget({ data }: DetailWidgetProps) {
   const [skinTypes, setSkinTypes] = useState<string[]>([])
   const [concerns, setConcerns] = useState<string[]>([])
   const [brand, setBrand] = useState("")
+  const [size, setSize] = useState("")
+  const [howToUse, setHowToUse] = useState("")
+  const [ingredients, setIngredients] = useState("")
   const [saving, setSaving] = useState(false)
   const [feedback, setFeedback] = useState<{ type: "success" | "error"; msg: string } | null>(null)
 
@@ -121,6 +124,9 @@ function SkincareFieldsWidget({ data }: DetailWidgetProps) {
       setConcerns([])
     }
     setBrand((metadata.brand as string) || "")
+    setSize((metadata.size as string) || "")
+    setHowToUse((metadata.how_to_use as string) || "")
+    setIngredients((metadata.ingredients as string) || "")
   }, [data.id])
 
   function toggleSkinType(value: string) {
@@ -149,6 +155,9 @@ function SkincareFieldsWidget({ data }: DetailWidgetProps) {
             skin_type: skinTypes.join(", "),
             concerns: concerns.join(", "),
             brand: brand.trim(),
+            size: size.trim(),
+            how_to_use: howToUse.trim(),
+            ingredients: ingredients.trim(),
           },
         }),
       })
@@ -192,6 +201,32 @@ function SkincareFieldsWidget({ data }: DetailWidgetProps) {
             placeholder="e.g. COSRX, Purito, Klairs"
             value={brand}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setBrand(e.target.value)}
+          />
+        </div>
+        <div>
+          <Label className="mb-2 block text-sm font-medium">Size</Label>
+          <Input
+            placeholder="e.g. 50ml, 100g, 30ml x 2"
+            value={size}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSize(e.target.value)}
+          />
+        </div>
+        <div>
+          <Label className="mb-2 block text-sm font-medium">How to Use (English)</Label>
+          <Textarea
+            placeholder="Step-by-step usage instructions"
+            value={howToUse}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setHowToUse(e.target.value)}
+            rows={3}
+          />
+        </div>
+        <div>
+          <Label className="mb-2 block text-sm font-medium">Ingredients (English)</Label>
+          <Textarea
+            placeholder="Key ingredients"
+            value={ingredients}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setIngredients(e.target.value)}
+            rows={3}
           />
         </div>
         <div className="flex items-center gap-3">

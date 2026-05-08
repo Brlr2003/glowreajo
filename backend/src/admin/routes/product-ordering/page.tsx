@@ -89,7 +89,7 @@ function ProductOrderingPage() {
   async function fetchProducts() {
     try {
       const res = await fetch(
-        "/admin/products?limit=100&fields=id,title,thumbnail,+metadata",
+        "/admin/products?limit=500&fields=id,title,thumbnail,+metadata",
         { credentials: "include" }
       )
       if (!res.ok) throw new Error("Failed to fetch")

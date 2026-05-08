@@ -2,7 +2,7 @@
 
 import { memo, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Link } from "@/i18n/routing"
+import { Link, useRouter } from "@/i18n/routing"
 import Image from "next/image"
 import { ShoppingBag, Check, ZoomIn } from "lucide-react"
 import { useTranslations, useLocale } from "next-intl"
@@ -27,6 +27,7 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   const tc = useTranslations("common")
   const t = useTranslations("product")
   const locale = useLocale()
+  const router = useRouter()
   const { addItem } = useCart()
   const { addToast } = useToast()
 
@@ -37,6 +38,8 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   const compareAtPrice = getCompareAtPrice(priceAmount, product.metadata)
   const title = locale === "ar" && (product.metadata as any)?.title_ar ? (product.metadata as any).title_ar : product.title
   const brand = (product.metadata as any)?.brand || ""
+  const variantTitle = variant?.title && variant.title !== "Default Variant" ? variant.title : ""
+  const size = (product.metadata as any)?.size || variantTitle
   const rawImgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
   const imgSrc = imgError ? getProductImage(product.handle) : rawImgSrc
   const unoptimized = imgSrc.startsWith("http://localhost")
@@ -106,11 +109,22 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
 
         <div className="flex flex-col flex-1 p-4">
           {brand && (
-            <p className="text-xs font-medium text-text-muted uppercase tracking-wide mb-1">{brand}</p>
+            <span
+              role="link"
+              tabIndex={0}
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/shop?brand=${encodeURIComponent(brand)}`) }}
+              onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); e.stopPropagation(); router.push(`/shop?brand=${encodeURIComponent(brand)}`) } }}
+              className="text-xs font-medium text-text-muted uppercase tracking-wide mb-1 hover:text-primary cursor-pointer transition-colors"
+            >
+              {brand}
+            </span>
           )}
           <h3 className="font-medium text-text-primary text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors">
             {title}
           </h3>
+          {size && (
+            <p className="mt-1 text-xs text-text-muted">{size}</p>
+          )}
           <div className="mt-auto pt-3 flex items-center justify-between">
             <div className="flex items-baseline gap-1.5">
               <span className="font-heading text-lg font-bold text-primary">

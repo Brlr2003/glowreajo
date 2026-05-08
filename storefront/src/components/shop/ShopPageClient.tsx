@@ -65,8 +65,17 @@ export function ShopPageClient({
     window.scrollTo({ top: 0, behavior: "smooth" })
   }, [searchParams, router])
 
+  const brandParam = searchParams.get("brand") || ""
+
   const filtered = useMemo(() => {
     let result = [...products]
+
+    if (brandParam) {
+      result = result.filter((p: any) => {
+        const meta = p.metadata as any
+        return meta?.brand?.toLowerCase() === brandParam.toLowerCase()
+      })
+    }
 
     if (filters.category) {
       result = result.filter((p: any) =>
@@ -133,7 +142,7 @@ export function ShopPageClient({
     }
 
     return result
-  }, [products, filters, sort])
+  }, [products, filters, sort, brandParam])
 
   const totalPages = Math.ceil(filtered.length / PRODUCTS_PER_PAGE)
   const paginatedProducts = filtered.slice(
@@ -195,6 +204,25 @@ export function ShopPageClient({
             <p className="text-sm text-text-muted">{t("productCount", { count: filtered.length })}</p>
             <SortDropdown value={sort} onChange={handleSortChange} />
           </div>
+          {brandParam && (
+            <div className="mb-4 flex items-center gap-2">
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-3 py-1 text-sm font-medium">
+                {brandParam}
+                <button
+                  onClick={() => {
+                    const params = new URLSearchParams(searchParams.toString())
+                    params.delete("brand")
+                    const query = params.toString()
+                    router.replace(query ? `?${query}` : window.location.pathname, { scroll: false })
+                  }}
+                  className="rounded-full hover:bg-primary/20 w-5 h-5 flex items-center justify-center"
+                  aria-label="Clear brand filter"
+                >
+                  ×
+                </button>
+              </span>
+            </div>
+          )}
           <ProductGrid products={paginatedProducts} loading={false} />
 
           {totalPages > 1 && (

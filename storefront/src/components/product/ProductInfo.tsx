@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ShoppingBag, Check, Minus, Plus, MessageCircle } from "lucide-react"
 import { useTranslations, useLocale } from "next-intl"
+import { Link } from "@/i18n/routing"
 import { useCart } from "@/context/CartContext"
 import { useToast } from "@/context/ToastContext"
 import { Button } from "@/components/ui/Button"
@@ -36,6 +37,8 @@ export function ProductInfo({ product }: ProductInfoProps) {
   const title = locale === "ar" && (product.metadata as any)?.title_ar ? (product.metadata as any).title_ar : product.title
   const description = locale === "ar" && (product.metadata as any)?.description_ar ? (product.metadata as any).description_ar : product.description
   const brand = (product.metadata as any)?.brand || ""
+  const variantTitle = variant?.title && variant.title !== "Default Variant" ? variant.title : ""
+  const size = (product.metadata as any)?.size || variantTitle
   const imgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
   const skinType = (product.metadata as any)?.skin_type || ""
   const concerns = (product.metadata as any)?.concerns || ""
@@ -93,11 +96,19 @@ export function ProductInfo({ product }: ProductInfoProps) {
   return (
     <div>
       {brand && (
-        <p className="text-sm font-medium text-primary uppercase tracking-wide mb-2">{brand}</p>
+        <Link
+          href={`/shop?brand=${encodeURIComponent(brand)}`}
+          className="text-sm font-medium text-primary uppercase tracking-wide mb-2 hover:underline inline-block"
+        >
+          {brand}
+        </Link>
       )}
       <h1 className="font-heading text-3xl font-bold text-text-primary md:text-4xl">
         {title}
       </h1>
+      {size && (
+        <p className="mt-2 text-sm text-text-muted">{size}</p>
+      )}
 
       <div className="mt-4 flex items-baseline gap-3">
         <span className="font-heading text-3xl font-bold text-primary">
