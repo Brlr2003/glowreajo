@@ -13,6 +13,8 @@ import { formatPrice } from "@/lib/formatPrice"
 import { getCompareAtPrice } from "@/lib/compareAtPrice"
 import { getProductImage } from "@/lib/demo-images"
 import { extractVariantSize } from "@/lib/variantSize"
+import { RichText } from "@/components/product/RichText"
+import { VariantSelector } from "@/components/product/VariantSelector"
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"
 const API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || ""
@@ -22,6 +24,15 @@ interface ProductInfoProps {
 }
 
 export function ProductInfo({ product }: ProductInfoProps) {
+  const variants: any[] = product.variants || []
+  const firstInStock = variants.find((v: any) => {
+    const managed = v?.manage_inventory !== false
+    const qty = v?.inventory_quantity
+    return !managed || (qty !== 0 && qty !== null)
+  })
+  const initialVariantId = (firstInStock || variants[0])?.id
+  const [selectedVariantId, setSelectedVariantId] = useState<string | undefined>(initialVariantId)
+  const variant = variants.find((v: any) => v.id === selectedVariantId) || variants[0]
   const [quantity, setQuantity] = useState(1)
   const [added, setAdded] = useState(false)
   const [whatsapp, setWhatsapp] = useState<string | null>(null)
@@ -30,13 +41,15 @@ export function ProductInfo({ product }: ProductInfoProps) {
   const { addItem, setDrawerOpen } = useCart()
   const { addToast } = useToast()
 
-  const variant = product.variants?.[0]
   const calculatedPrice = variant?.calculated_price
   const fallbackPrice = variant?.prices?.find((p: any) => p.currency_code === "jod")
   const priceAmount = calculatedPrice?.calculated_amount ?? fallbackPrice?.amount ?? 0
   const compareAtPrice = getCompareAtPrice(priceAmount, product.metadata)
   const title = locale === "ar" && (product.metadata as any)?.title_ar ? (product.metadata as any).title_ar : product.title
-  const description = locale === "ar" && (product.metadata as any)?.description_ar ? (product.metadata as any).description_ar : product.description
+  const meta = (product.metadata as any) || {}
+  const description = locale === "ar"
+    ? (meta.description_html_ar || meta.description_ar || product.description)
+    : (meta.description_html || product.description)
   const brand = (product.metadata as any)?.brand || ""
   const size = extractVariantSize(product, variant)
   const imgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
@@ -138,7 +151,16 @@ export function ProductInfo({ product }: ProductInfoProps) {
         </div>
       )}
 
-      <p className="mt-6 text-text-secondary leading-relaxed whitespace-pre-line">{description}</p>
+      <RichText
+        text={description}
+        className="mt-6 text-text-secondary leading-relaxed"
+      />
+
+      <VariantSelector
+        product={product}
+        selectedId={selectedVariantId}
+        onSelect={(id) => { setSelectedVariantId(id); setQuantity(1) }}
+      />
 
       <div className="mt-8 flex items-center gap-4">
         {!isOutOfStock && (

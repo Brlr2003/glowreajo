@@ -3,34 +3,42 @@
 import { useTranslations, useLocale } from "next-intl"
 import { Accordion } from "@/components/ui/Accordion"
 import { Truck } from "lucide-react"
+import { RichText } from "@/components/product/RichText"
 
 interface ProductAccordionProps {
   product: any
 }
 
 export function ProductAccordion({ product }: ProductAccordionProps) {
-  const metadata = product.metadata as any
+  const metadata = (product.metadata as any) || {}
   const t = useTranslations("product")
   const locale = useLocale()
-  const description = locale === "ar" && metadata?.description_ar ? metadata.description_ar : product.description
-  const howToUse = locale === "ar" && metadata?.how_to_use_ar ? metadata.how_to_use_ar : metadata?.how_to_use
-  const ingredients = locale === "ar" && metadata?.ingredients_ar ? metadata.ingredients_ar : metadata?.ingredients
+  const description = locale === "ar"
+    ? (metadata.description_html_ar || metadata.description_ar || product.description)
+    : (metadata.description_html || product.description)
+  const howToUse = locale === "ar"
+    ? (metadata.how_to_use_html_ar || metadata.how_to_use_ar || metadata.how_to_use_html || metadata.how_to_use)
+    : (metadata.how_to_use_html || metadata.how_to_use)
+  const ingredients = locale === "ar"
+    ? (metadata.ingredients_html_ar || metadata.ingredients_ar || metadata.ingredients_html || metadata.ingredients)
+    : (metadata.ingredients_html || metadata.ingredients)
 
   return (
     <div className="mt-8">
       <Accordion title={t("details")} defaultOpen>
-        <p className="text-sm leading-relaxed whitespace-pre-line">{description}</p>
+        <RichText text={description} className="text-sm leading-relaxed" />
       </Accordion>
 
       <Accordion title={t("howToUse")}>
-        <p className="text-sm leading-relaxed whitespace-pre-line">
-          {howToUse || t("howToUseFallback")}
-        </p>
+        <RichText
+          text={howToUse || t("howToUseFallback")}
+          className="text-sm leading-relaxed"
+        />
       </Accordion>
 
       {ingredients && (
         <Accordion title={t("ingredients")}>
-          <p className="text-sm leading-relaxed whitespace-pre-line">{ingredients}</p>
+          <RichText text={ingredients} className="text-sm leading-relaxed" />
         </Accordion>
       )}
 

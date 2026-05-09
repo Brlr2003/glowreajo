@@ -31,10 +31,17 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   const { addItem } = useCart()
   const { addToast } = useToast()
 
-  const variant = product.variants?.[0]
-  const calculatedPrice = variant?.calculated_price
-  const fallbackPrice = variant?.prices?.find((p: any) => p.currency_code === "jod")
-  const priceAmount = calculatedPrice?.calculated_amount ?? fallbackPrice?.amount ?? 0
+  const variants: any[] = product.variants || []
+  const hasMultipleVariants = variants.length > 1
+  const variantPrices = variants.map((v: any) => {
+    return v?.calculated_price?.calculated_amount
+      ?? v?.prices?.find((p: any) => p.currency_code === "jod")?.amount
+      ?? 0
+  }).filter((p: number) => p > 0)
+  const minPrice = variantPrices.length ? Math.min(...variantPrices) : 0
+  const maxPrice = variantPrices.length ? Math.max(...variantPrices) : 0
+  const variant = variants[0]
+  const priceAmount = minPrice || (variant?.calculated_price?.calculated_amount ?? 0)
   const compareAtPrice = getCompareAtPrice(priceAmount, product.metadata)
   const title = locale === "ar" && (product.metadata as any)?.title_ar ? (product.metadata as any).title_ar : product.title
   const brand = (product.metadata as any)?.brand || ""
@@ -42,14 +49,22 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   const rawImgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
   const imgSrc = imgError ? getProductImage(product.handle) : rawImgSrc
   const unoptimized = imgSrc.startsWith("http://localhost")
-  const inventoryQty = variant?.inventory_quantity
-  const isOutOfStock = variant?.manage_inventory !== false && (inventoryQty === 0 || inventoryQty === null)
+  const allOutOfStock = variants.length > 0 && variants.every((v: any) => {
+    const managed = v?.manage_inventory !== false
+    const qty = v?.inventory_quantity
+    return managed && (qty === 0 || qty === null)
+  })
+  const isOutOfStock = allOutOfStock
   const productHref = `/product/${product.handle}`
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
     if (isOutOfStock) return
+    if (hasMultipleVariants) {
+      window.location.href = `/${locale}${productHref}`
+      return
+    }
 
     addItem({
       id: variant?.id || product.id,
@@ -63,7 +78,7 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
       image: imgSrc,
       brand,
       compareAtPrice: compareAtPrice ?? undefined,
-      inventoryQuantity: inventoryQty ?? undefined,
+      inventoryQuantity: variant?.inventory_quantity ?? undefined,
     })
 
     addToast({
@@ -122,15 +137,24 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
               {title}
             </h3>
           </Link>
-          {size && (
+          {size && !hasMultipleVariants && (
             <p className="mt-1 text-xs text-text-muted">{size}</p>
+          )}
+          {hasMultipleVariants && (
+            <p className="mt-1 text-xs text-text-muted">
+              {variants.map((v: any) => extractVariantSize(product, v)).filter(Boolean).join(" · ")}
+            </p>
           )}
           <div className="mt-auto pt-3 flex items-center justify-between">
             <div className="flex items-baseline gap-1.5">
               <span className="font-heading text-lg font-bold text-primary">
-                {priceAmount ? formatPrice(priceAmount, locale) : "N/A"}
+                {priceAmount
+                  ? hasMultipleVariants && minPrice !== maxPrice
+                    ? t("fromPrice", { price: formatPrice(minPrice, locale) })
+                    : formatPrice(priceAmount, locale)
+                  : "N/A"}
               </span>
-              {compareAtPrice && (
+              {compareAtPrice && !hasMultipleVariants && (
                 <span className="text-xs text-text-muted line-through">
                   {formatPrice(compareAtPrice, locale)}
                 </span>
