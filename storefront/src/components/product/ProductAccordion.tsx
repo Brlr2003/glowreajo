@@ -19,18 +19,18 @@ export function ProductAccordion({ product }: ProductAccordionProps) {
   return (
     <div className="mt-8">
       <Accordion title={t("details")} defaultOpen>
-        <p className="text-sm leading-relaxed">{description}</p>
+        <p className="text-sm leading-relaxed whitespace-pre-line">{description}</p>
       </Accordion>
 
-      {howToUse && (
-        <Accordion title={t("howToUse")}>
-          <p className="text-sm leading-relaxed">{howToUse}</p>
-        </Accordion>
-      )}
+      <Accordion title={t("howToUse")}>
+        <p className="text-sm leading-relaxed whitespace-pre-line">
+          {howToUse || t("howToUseFallback")}
+        </p>
+      </Accordion>
 
       {ingredients && (
         <Accordion title={t("ingredients")}>
-          <p className="text-sm leading-relaxed">{ingredients}</p>
+          <p className="text-sm leading-relaxed whitespace-pre-line">{ingredients}</p>
         </Accordion>
       )}
 

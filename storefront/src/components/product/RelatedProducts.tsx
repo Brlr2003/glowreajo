@@ -25,7 +25,7 @@ export function RelatedProducts({ currentProductId, categoryId }: RelatedProduct
         if (categoryId) {
           params.category_id = [categoryId]
         }
-        const { products } = await medusa.store.product.list({ ...params, fields: "*categories,*images,+metadata,+variants.inventory_quantity" })
+        const { products } = await medusa.store.product.list({ ...params, fields: "*categories,*images,+metadata,+variants.inventory_quantity,*variants.options,*variants.options.option" })
         setProducts(products.filter((p: any) => p.id !== currentProductId))
       } catch {}
     }

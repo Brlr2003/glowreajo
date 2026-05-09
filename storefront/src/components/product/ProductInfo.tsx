@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/Badge"
 import { formatPrice } from "@/lib/formatPrice"
 import { getCompareAtPrice } from "@/lib/compareAtPrice"
 import { getProductImage } from "@/lib/demo-images"
+import { extractVariantSize } from "@/lib/variantSize"
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"
 const API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY || ""
@@ -37,8 +38,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
   const title = locale === "ar" && (product.metadata as any)?.title_ar ? (product.metadata as any).title_ar : product.title
   const description = locale === "ar" && (product.metadata as any)?.description_ar ? (product.metadata as any).description_ar : product.description
   const brand = (product.metadata as any)?.brand || ""
-  const variantTitle = variant?.title && variant.title !== "Default Variant" ? variant.title : ""
-  const size = (product.metadata as any)?.size || variantTitle
+  const size = extractVariantSize(product, variant)
   const imgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
   const skinType = (product.metadata as any)?.skin_type || ""
   const concerns = (product.metadata as any)?.concerns || ""
@@ -138,7 +138,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
         </div>
       )}
 
-      <p className="mt-6 text-text-secondary leading-relaxed">{description}</p>
+      <p className="mt-6 text-text-secondary leading-relaxed whitespace-pre-line">{description}</p>
 
       <div className="mt-8 flex items-center gap-4">
         {!isOutOfStock && (

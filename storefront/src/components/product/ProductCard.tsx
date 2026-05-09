@@ -2,7 +2,7 @@
 
 import { memo, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Link, useRouter } from "@/i18n/routing"
+import { Link } from "@/i18n/routing"
 import Image from "next/image"
 import { ShoppingBag, Check, ZoomIn } from "lucide-react"
 import { useTranslations, useLocale } from "next-intl"
@@ -13,6 +13,7 @@ import { formatPrice } from "@/lib/formatPrice"
 import { getCompareAtPrice } from "@/lib/compareAtPrice"
 import { getProductImage } from "@/lib/demo-images"
 import { ImageZoomModal } from "./ImageZoomModal"
+import { extractVariantSize } from "@/lib/variantSize"
 
 const BLUR_PLACEHOLDER = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjZjVmMGViIi8+PC9zdmc+"
 
@@ -27,7 +28,6 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   const tc = useTranslations("common")
   const t = useTranslations("product")
   const locale = useLocale()
-  const router = useRouter()
   const { addItem } = useCart()
   const { addToast } = useToast()
 
@@ -38,13 +38,13 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   const compareAtPrice = getCompareAtPrice(priceAmount, product.metadata)
   const title = locale === "ar" && (product.metadata as any)?.title_ar ? (product.metadata as any).title_ar : product.title
   const brand = (product.metadata as any)?.brand || ""
-  const variantTitle = variant?.title && variant.title !== "Default Variant" ? variant.title : ""
-  const size = (product.metadata as any)?.size || variantTitle
+  const size = extractVariantSize(product, variant)
   const rawImgSrc = product.thumbnail || product.images?.[0]?.url || getProductImage(product.handle)
   const imgSrc = imgError ? getProductImage(product.handle) : rawImgSrc
   const unoptimized = imgSrc.startsWith("http://localhost")
   const inventoryQty = variant?.inventory_quantity
   const isOutOfStock = variant?.manage_inventory !== false && (inventoryQty === 0 || inventoryQty === null)
+  const productHref = `/product/${product.handle}`
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -76,12 +76,12 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
   }
 
   return (
-    <Link href={`/product/${product.handle}`}>
+    <>
       <motion.div
         className="group flex flex-col h-full rounded-2xl bg-surface shadow-soft overflow-hidden transition-shadow hover:shadow-card"
         whileHover={{ y: -4 }}
       >
-        <div className="relative aspect-square bg-gradient-to-br from-primary/5 to-secondary/5 overflow-hidden">
+        <Link href={productHref} className="block relative aspect-square bg-gradient-to-br from-primary/5 to-secondary/5 overflow-hidden">
           <Image
             src={imgSrc}
             alt={product.title}
@@ -100,28 +100,28 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
             ))}
           </div>
           <button
+            type="button"
             onClick={(e) => { e.preventDefault(); e.stopPropagation(); setZoomOpen(true) }}
             className="absolute top-3 end-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-text-primary opacity-0 group-hover:opacity-100 transition-opacity shadow-soft hover:bg-white"
           >
             <ZoomIn className="h-4 w-4" />
           </button>
-        </div>
+        </Link>
 
         <div className="flex flex-col flex-1 p-4">
           {brand && (
-            <span
-              role="link"
-              tabIndex={0}
-              onClick={(e) => { e.preventDefault(); e.stopPropagation(); router.push(`/shop?brand=${encodeURIComponent(brand)}`) }}
-              onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); e.stopPropagation(); router.push(`/shop?brand=${encodeURIComponent(brand)}`) } }}
-              className="text-xs font-medium text-text-muted uppercase tracking-wide mb-1 hover:text-primary cursor-pointer transition-colors"
+            <Link
+              href={`/shop?brand=${encodeURIComponent(brand)}`}
+              className="text-xs font-medium text-text-muted uppercase tracking-wide mb-1 hover:text-primary transition-colors w-fit"
             >
               {brand}
-            </span>
+            </Link>
           )}
-          <h3 className="font-medium text-text-primary text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors">
-            {title}
-          </h3>
+          <Link href={productHref} className="block">
+            <h3 className="font-medium text-text-primary text-sm leading-snug line-clamp-2 group-hover:text-primary transition-colors">
+              {title}
+            </h3>
+          </Link>
           {size && (
             <p className="mt-1 text-xs text-text-muted">{size}</p>
           )}
@@ -170,6 +170,6 @@ export const ProductCard = memo(function ProductCard({ product }: ProductCardPro
         onClose={() => setZoomOpen(false)}
         unoptimized={unoptimized}
       />
-    </Link>
+    </>
   )
 })

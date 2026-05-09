@@ -98,6 +98,7 @@
     "details": "Product Details",
     "ingredients": "Ingredients",
     "howToUse": "How to Use",
+    "howToUseFallback": "Apply as part of your daily skincare routine. For best results, follow the directions on the product packaging or contact us on WhatsApp for personalized guidance.",
     "skinType": "Skin Type",
     "concerns": "Concerns",
     "faq": "Frequently Asked Questions",
