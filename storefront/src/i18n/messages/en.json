@@ -363,5 +363,15 @@
   "languageSwitcher": {
     "label": "Language",
     "switchTo": "العربية"
+  },
+  "instagramTestimonials": {
+    "badge": "Real DMs from real customers",
+    "title": "Loved by Jordan, one routine at a time",
+    "subtitle": "Real messages from our Instagram community — tap any card to see them live on Instagram.",
+    "verifiedCustomer": "Verified Customer",
+    "viaInstagram": "via Instagram",
+    "viewOnInstagram": "View this review on Instagram",
+    "openOnInstagram": "Open in Instagram",
+    "seeAll": "See all reviews on Instagram"
   }
 }

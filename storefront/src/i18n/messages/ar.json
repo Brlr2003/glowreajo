@@ -363,5 +363,15 @@
   "languageSwitcher": {
     "label": "اللغة",
     "switchTo": "English"
+  },
+  "instagramTestimonials": {
+    "badge": "رسائل حقيقية من زبائننا",
+    "title": "محبوبين بكل الأردن، روتين روتين",
+    "subtitle": "رسائل حقيقية من مجتمعنا على إنستغرام — اضغطي على أي بطاقة لتشاهديها مباشرة على إنستغرام.",
+    "verifiedCustomer": "زبونة موثّقة",
+    "viaInstagram": "عبر إنستغرام",
+    "viewOnInstagram": "شاهدي هذا التقييم على إنستغرام",
+    "openOnInstagram": "افتح في إنستغرام",
+    "seeAll": "شاهدي جميع التقييمات على إنستغرام"
   }
 }
