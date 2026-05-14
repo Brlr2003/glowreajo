@@ -13,3 +13,5 @@ build/
 .cache/
 .turbo/
 backend/static/
+screenshots/
+*.tsbuildinfo

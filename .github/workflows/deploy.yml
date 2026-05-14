@@ -130,6 +130,8 @@ jobs:
             if [ "$BACKEND_CHANGED" = "true" ]; then
               echo "Backend changed — running migrations..."
               NODE_OPTIONS='--max-old-space-size=512' docker compose -f docker-compose.prod.yml --env-file .env.production exec -T -e NODE_OPTIONS='--max-old-space-size=512' backend npx medusa db:migrate || true
+              echo "Seeding blog posts (idempotent)..."
+              NODE_OPTIONS='--max-old-space-size=512' docker compose -f docker-compose.prod.yml --env-file .env.production exec -T -e NODE_OPTIONS='--max-old-space-size=512' backend npx medusa exec ./src/scripts/seed-blogs.ts || true
             else
               echo "Backend unchanged — skipping migrations"
             fi
@@ -231,6 +233,8 @@ jobs:
             if [ "$BACKEND_CHANGED" = "true" ]; then
               echo "Backend changed — running migrations..."
               NODE_OPTIONS='--max-old-space-size=512' docker compose -f docker-compose.dev.yml --env-file .env.dev exec -T -e NODE_OPTIONS='--max-old-space-size=512' backend npx medusa db:migrate || true
+              echo "Seeding blog posts (idempotent)..."
+              NODE_OPTIONS='--max-old-space-size=512' docker compose -f docker-compose.dev.yml --env-file .env.dev exec -T -e NODE_OPTIONS='--max-old-space-size=512' backend npx medusa exec ./src/scripts/seed-blogs.ts || true
             else
               echo "Backend unchanged — skipping migrations"
             fi
