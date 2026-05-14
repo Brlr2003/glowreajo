@@ -11,7 +11,7 @@
     "blogTitle": "Blog - Skincare Tips & K-Beauty Guides",
     "blogDescription": "Read our latest skincare tips, K-beauty routines, product guides, and expert advice. Learn how to build the perfect Korean skincare routine.",
     "contactTitle": "Contact Us",
-    "contactDescription": "Get in touch with GlowReaJo. Questions about Korean skincare products, orders, or shipping in Jordan? Contact us — we're here to help.",
+    "contactDescription": "Get in touch with GlowReaJo. Questions about Korean skincare products, orders, or shipping in Jordan? Contact us, we're here to help.",
     "faqTitle": "FAQ - Frequently Asked Questions",
     "faqDescription": "Find answers to common questions about GlowReaJo's Korean skincare products, categories, shipping, and more."
   },
@@ -358,7 +358,7 @@
     "moisturizer": "Moisturizer",
     "moisturizerDesc": "Lock in hydration and keep your skin plump all day.",
     "sunscreen": "Sunscreen",
-    "sunscreenDesc": "Protect your skin from UV damage — rain or shine."
+    "sunscreenDesc": "Protect your skin from UV damage, rain or shine."
   },
   "languageSwitcher": {
     "label": "Language",
@@ -366,8 +366,8 @@
   },
   "instagramTestimonials": {
     "badge": "Real DMs from real customers",
-    "title": "Loved by Jordan, one routine at a time",
-    "subtitle": "Real messages from our Instagram community — tap any card to see them live on Instagram.",
+    "title": "Words from our community",
+    "subtitle": "Real messages our customers sent us on Instagram. Tap any card to see them live.",
     "verifiedCustomer": "Verified Customer",
     "viaInstagram": "via Instagram",
     "viewOnInstagram": "View this review on Instagram",

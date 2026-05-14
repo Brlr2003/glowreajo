@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Heart, Instagram, ArrowUpRight, MapPin } from "lucide-react"
+import { Heart, Instagram, ArrowUpRight } from "lucide-react"
 import { useLocale, useTranslations } from "next-intl"
 import { AnimatedSection } from "@/components/ui/AnimatedSection"
 import { stagger, fadeInUp } from "@/lib/animations"
@@ -15,7 +15,6 @@ function pickText(t: InstagramTestimonial, locale: string) {
   const isArabic = locale === "ar"
   return {
     text: isArabic ? t.text_ar : t.text_en,
-    city: isArabic ? t.city_ar : t.city_en,
     product: isArabic ? t.product_ar : t.product_en,
   }
 }
@@ -63,7 +62,7 @@ export function InstagramTestimonials() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
         >
           {instagramTestimonials.map((review, idx) => {
-            const { text, city, product } = pickText(review, locale)
+            const { text, product } = pickText(review, locale)
             return (
               <motion.a
                 key={review.id}
@@ -89,12 +88,9 @@ export function InstagramTestimonials() {
                       <p className="text-xs font-semibold text-text-primary">
                         {t("verifiedCustomer")}
                       </p>
-                      {city && (
-                        <p className="text-[11px] text-text-muted flex items-center gap-0.5">
-                          <MapPin className="h-2.5 w-2.5" />
-                          {city}
-                        </p>
-                      )}
+                      <p className="text-[11px] text-text-muted">
+                        {t("viaInstagram")}
+                      </p>
                     </div>
                   </div>
                   <div className="opacity-60 group-hover:opacity-100 transition-opacity">
