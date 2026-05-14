@@ -51,7 +51,7 @@ export const NEW_BLOGS: BlogSeed[] = [
     slug: "korean-skincare-dry-skin-hydration-routine",
     title: "Korean Skincare for Dry Skin: A Hydration-First Routine",
     excerpt:
-      "Dry skin needs more than a thick moisturizer. Here's the layered Korean approach that actually works — plus the exact ingredients to look for in Jordan's dry climate.",
+      "Dry skin needs more than a thick moisturizer. Here's the layered Korean approach that actually works, plus the exact ingredients to look for in Jordan's dry climate.",
     seo_title: "Korean Skincare for Dry Skin: Hydration Routine 2026 | GlowReaJo",
     seo_description:
       "A complete K-beauty routine for dry skin. Layer hydration with the 7-skin method, ceramides, and Korean sleeping masks. Adapted for Jordan's climate.",
@@ -59,17 +59,17 @@ export const NEW_BLOGS: BlogSeed[] = [
     cover_image: COVERS.bottles1,
     title_ar: "العناية الكورية للبشرة الجافة: روتين الترطيب أولاً",
     excerpt_ar:
-      "البشرة الجافة بدّها أكثر من مرطّب ثقيل. هاد هو النهج الكوري المتعدّد الطبقات اللي بشتغل فعلاً — والمكوّنات المضبوطة اللي تدوّري عليها بمناخ الأردن الجاف.",
+      "البشرة الجافة بدّها أكثر من مرطّب ثقيل. هاد هو النهج الكوري المتعدّد الطبقات اللي بشتغل فعلاً, والمكوّنات المضبوطة اللي تدوّري عليها بمناخ الأردن الجاف.",
     seo_title_ar: "العناية الكورية للبشرة الجافة 2026 | غلو ريجو",
     seo_description_ar:
       "روتين K-beauty كامل للبشرة الجافة. طبّقي الترطيب بطريقة 7-skin، السيراميدات، وماسكات النوم الكورية. مكيّف لمناخ الأردن.",
     tags_ar: ["بشرة جافة", "عناية كورية", "ترطيب", "روتين عناية", "سيراميدات"],
     content: `<h2>Why Korean Skincare Works So Well for Dry Skin</h2>
-<p>Dry skin in Jordan deals with a lot — long hot summers, cold dry winters, and air-conditioned offices that drink up moisture. The Korean approach to skincare answers all of that, because it's built around <strong>hydration in layers</strong> rather than a single thick cream.</p>
+<p>Dry skin in Jordan deals with a lot, long hot summers, cold dry winters, and air-conditioned offices that drink up moisture. The Korean approach to skincare answers all of that, because it's built around <strong>hydration in layers</strong> rather than a single thick cream.</p>
 <p>If you've been using one heavy moisturizer and still feel tight by mid-morning, this routine is for you.</p>
 
 <h2>The Hydration-First Philosophy</h2>
-<p>In K-beauty, hydration isn't one product — it's the whole game. Korean dermatologists talk about the <em>7-skin method</em>: applying multiple thin layers of toner or essence to deeply quench the skin. Thin layers absorb better than one thick one.</p>
+<p>In K-beauty, hydration isn't one product, it's the whole game. Korean dermatologists talk about the <em>7-skin method</em>: applying multiple thin layers of toner or essence to deeply quench the skin. Thin layers absorb better than one thick one.</p>
 
 <h2>Your Step-By-Step Dry Skin Routine</h2>
 
@@ -77,13 +77,13 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>Dry skin shouldn't touch foaming or stripping cleansers. Start your evening with an oil cleanser to dissolve sunscreen and makeup without taking your natural oils with it. Rice oil and camellia oil are gentle Korean classics.</p>
 
 <h3>2. Cream or Milk Cleanser</h3>
-<p>For your second cleanse — and your morning wash — use a low-pH cream or milk cleanser. Skip foaming face washes; they often contain sulfates that dry skin can't afford.</p>
+<p>For your second cleanse, and your morning wash, use a low-pH cream or milk cleanser. Skip foaming face washes; they often contain sulfates that dry skin can't afford.</p>
 
 <h3>3. Hydrating Toner (Apply 3-4 Times)</h3>
 <p>This is where the magic happens. Pour a coin-size of hydrating toner into your palm, press it into damp skin, and repeat 3-4 times. Look for toners with <strong>hyaluronic acid, beta-glucan, or panthenol</strong>.</p>
 
 <h3>4. Essence</h3>
-<p>An essence delivers a concentrated burst of hydration. For dry skin, look for fermented yeast (galactomyces or saccharomyces) or snail mucin — both have been studied for their barrier-repair effects.</p>
+<p>An essence delivers a concentrated burst of hydration. For dry skin, look for fermented yeast (galactomyces or saccharomyces) or snail mucin, both have been studied for their barrier-repair effects.</p>
 
 <h3>5. Hydrating Serum</h3>
 <p>Choose a serum with <strong>hyaluronic acid + ceramides</strong>. Hyaluronic acid pulls water in; ceramides lock it down. This combination is non-negotiable for dry skin.</p>
@@ -92,15 +92,15 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>For very dry skin, cap your night routine with a Korean sleeping mask. These thick, occlusive treatments work overnight. Laneige Water Sleeping Mask and CosRX Ceramide Cream are popular for a reason.</p>
 
 <h3>7. Sunscreen (Morning, Always)</h3>
-<p>Pick a moisturizing Korean sunscreen — many are formulated with ceramides and hyaluronic acid, so they double as hydration. SPF 50+ PA++++ is the gold standard.</p>
+<p>Pick a moisturizing Korean sunscreen, many are formulated with ceramides and hyaluronic acid, so they double as hydration. SPF 50+ PA++++ is the gold standard.</p>
 
 <h2>Ingredients to Look For</h2>
 <ul>
-<li><strong>Hyaluronic acid</strong> — pulls water into the skin</li>
-<li><strong>Ceramides</strong> — rebuild the skin barrier</li>
-<li><strong>Squalane</strong> — non-greasy hydration</li>
-<li><strong>Centella asiatica</strong> — soothes irritation</li>
-<li><strong>Panthenol (Vitamin B5)</strong> — deep moisture and healing</li>
+<li><strong>Hyaluronic acid</strong> pulls water into the skin</li>
+<li><strong>Ceramides</strong> rebuild the skin barrier</li>
+<li><strong>Squalane</strong> non-greasy hydration</li>
+<li><strong>Centella asiatica</strong> soothes irritation</li>
+<li><strong>Panthenol (Vitamin B5)</strong> deep moisture and healing</li>
 </ul>
 
 <h2>Ingredients to Avoid</h2>
@@ -113,16 +113,16 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>The Jordan Climate Adjustment</h2>
 <p>If you're in Amman during winter, when the air drops to 5°C and humidity collapses, add a humidifier to your bedroom. No skincare can compete with a 20% humidity room.</p>
-<p>In summer, switch your sleeping mask to a lighter gel cream — the layered hydration approach still applies, just with lighter textures.</p>
+<p>In summer, switch your sleeping mask to a lighter gel cream, the layered hydration approach still applies, just with lighter textures.</p>
 
 <h2>How Long Until You See Results?</h2>
-<p>Most people notice softer, plumper skin within <strong>two weeks</strong>. Real barrier repair takes 6-8 weeks. Don't change products every week — give your skin time to respond.</p>`,
+<p>Most people notice softer, plumper skin within <strong>two weeks</strong>. Real barrier repair takes 6-8 weeks. Don't change products every week, give your skin time to respond.</p>`,
     content_ar: `<h2>ليش العناية الكورية بتنجح كتير مع البشرة الجافة؟</h2>
-<p>البشرة الجافة بالأردن بتعاني من كتير اشي — صيف حار طويل، شتا بارد جاف، ومكاتب مكيّفة بتسحب الرطوبة. النهج الكوري بالعناية بيرد على هاد كلّه، لأنّه مبني على <strong>الترطيب بطبقات</strong> مو على كريم سميك واحد.</p>
+<p>البشرة الجافة بالأردن بتعاني من كتير اشي, صيف حار طويل، شتا بارد جاف، ومكاتب مكيّفة بتسحب الرطوبة. النهج الكوري بالعناية بيرد على هاد كلّه، لأنّه مبني على <strong>الترطيب بطبقات</strong> مو على كريم سميك واحد.</p>
 <p>إذا كنتِ بتستعملي مرطّب واحد ثقيل ولسا بتحسّي بالشدّ بنص اليوم، هاد الروتين إلِك.</p>
 
 <h2>فلسفة الترطيب أولاً</h2>
-<p>بالـ K-beauty، الترطيب مو منتج واحد — هو اللعبة كلّها. أطبّاء الجلد الكوريين بحكوا عن <em>طريقة الـ 7-skin</em>: تطبيق طبقات رفيعة من التونر أو الإسنس عشان البشرة ترتوي بعمق. الطبقات الرفيعة بتمتص أحسن من الطبقة الواحدة الثقيلة.</p>
+<p>بالـ K-beauty، الترطيب مو منتج واحد, هو اللعبة كلّها. أطبّاء الجلد الكوريين بحكوا عن <em>طريقة الـ 7-skin</em>: تطبيق طبقات رفيعة من التونر أو الإسنس عشان البشرة ترتوي بعمق. الطبقات الرفيعة بتمتص أحسن من الطبقة الواحدة الثقيلة.</p>
 
 <h2>روتينك خطوة خطوة للبشرة الجافة</h2>
 
@@ -130,13 +130,13 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>البشرة الجافة ما لازم تشوف منظّفات رغوية. ابدي مساءك بمنظّف زيتي يذيب الواقي والمكياج بدون ما ياخد زيوتك الطبيعية. زيت الأرز وزيت الكاميليا كلاسيكيات كورية لطيفة.</p>
 
 <h3>2. منظّف كريمي أو حليبي</h3>
-<p>للتنظيف الثاني — وغسلة الصبح — استعملي منظّف كريمي أو حليبي بدرجة حموضة منخفضة. تجنّبي الغسولات الرغوية؛ كتير منها فيه سلفات ما بتقدر تتحمّلها البشرة الجافة.</p>
+<p>للتنظيف الثاني, وغسلة الصبح, استعملي منظّف كريمي أو حليبي بدرجة حموضة منخفضة. تجنّبي الغسولات الرغوية؛ كتير منها فيه سلفات ما بتقدر تتحمّلها البشرة الجافة.</p>
 
 <h3>3. تونر مرطّب (طبّقي 3-4 مرّات)</h3>
 <p>هون يصير السحر. صبّي كميّة بحجم قطعة نقد على راحة يدك، اضغطيها بالبشرة الرطبة، وكرّري 3-4 مرّات. دوّري على تونرات فيها <strong>حمض الهيالورونيك، بيتا-جلوكان، أو بانثينول</strong>.</p>
 
 <h3>4. الإسنس</h3>
-<p>الإسنس بيوصل دفعة مركّزة من الترطيب. للبشرة الجافة، دوّري على الخميرة المتخمّرة (جالاكتوميسس أو ساكاروميسس) أو مخاط الحلزون — كلاهما تمّت دراسة تأثيره الإصلاحي للحاجز.</p>
+<p>الإسنس بيوصل دفعة مركّزة من الترطيب. للبشرة الجافة، دوّري على الخميرة المتخمّرة (جالاكتوميسس أو ساكاروميسس) أو مخاط الحلزون, كلاهما تمّت دراسة تأثيره الإصلاحي للحاجز.</p>
 
 <h3>5. سيروم مرطّب</h3>
 <p>اختاري سيروم فيه <strong>حمض الهيالورونيك + سيراميدات</strong>. الهيالورونيك بيشدّ المي؛ السيراميدات بتقفلها جوّا. هاي التركيبة أساسية للبشرة الجافة.</p>
@@ -145,15 +145,15 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>للبشرة الجافة جداً، اختمي روتين الليل بماسك نوم كوري. هدول علاجات سميكة بتشتغل طول الليل. Laneige Water Sleeping Mask و CosRX Ceramide Cream من الأشهر لسبب وجيه.</p>
 
 <h3>7. واقي شمس (صباحاً، دايماً)</h3>
-<p>اختاري واقي شمس كوري مرطّب — كتير منها مصمّمة بالسيراميدات والهيالورونيك، يعني بتعمل ترطيب كمان. SPF 50+ PA++++ هو المعيار.</p>
+<p>اختاري واقي شمس كوري مرطّب, كتير منها مصمّمة بالسيراميدات والهيالورونيك، يعني بتعمل ترطيب كمان. SPF 50+ PA++++ هو المعيار.</p>
 
 <h2>مكوّنات دوّري عليها</h2>
 <ul>
-<li><strong>حمض الهيالورونيك</strong> — مغناطيس الماي</li>
-<li><strong>السيراميدات</strong> — إعادة بناء حاجز البشرة</li>
-<li><strong>السكوالين</strong> — ترطيب بدون لزوجة</li>
-<li><strong>السنتيلا أسياتيكا</strong> — يهدّئ الالتهاب</li>
-<li><strong>البانثينول (فيتامين B5)</strong> — ترطيب عميق ومداواة</li>
+<li><strong>حمض الهيالورونيك</strong> مغناطيس الماي</li>
+<li><strong>السيراميدات</strong> إعادة بناء حاجز البشرة</li>
+<li><strong>السكوالين</strong> ترطيب بدون لزوجة</li>
+<li><strong>السنتيلا أسياتيكا</strong> يهدّئ الالتهاب</li>
+<li><strong>البانثينول (فيتامين B5)</strong> ترطيب عميق ومداواة</li>
 </ul>
 
 <h2>مكوّنات تجنّبيها</h2>
@@ -166,17 +166,17 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>التعديل لمناخ الأردن</h2>
 <p>إذا كنتي بعمّان بالشتا، لما الهوا بينزل لخمس درجات والرطوبة بتنهار، ضيفي مرطّب هوا لغرفة نومك. ولا روتين عناية رح يقدر يتنافس مع غرفة نوم رطوبتها 20%.</p>
-<p>بالصيف، بدّلي ماسك النوم بكريم جل أخفّ — نهج الترطيب بطبقات لسا بشتغل، بس بقوامات أخفّ.</p>
+<p>بالصيف، بدّلي ماسك النوم بكريم جل أخفّ, نهج الترطيب بطبقات لسا بشتغل، بس بقوامات أخفّ.</p>
 
 <h2>متى رح تشوفي النتائج؟</h2>
-<p>أغلب الناس بيلاحظوا بشرة أنعم وأكثر امتلاء خلال <strong>أسبوعين</strong>. إصلاح الحاجز الحقيقي بياخد 6-8 أسابيع. ما تبدّلي منتجاتك كل أسبوع — أعطي بشرتك وقت.</p>`,
+<p>أغلب الناس بيلاحظوا بشرة أنعم وأكثر امتلاء خلال <strong>أسبوعين</strong>. إصلاح الحاجز الحقيقي بياخد 6-8 أسابيع. ما تبدّلي منتجاتك كل أسبوع, أعطي بشرتك وقت.</p>`,
     published_at: "2026-05-14T08:00:00Z",
   },
   {
     slug: "korean-skincare-acne-prone-skin-gentle-routine",
     title: "Korean Skincare for Acne-Prone Skin: A Gentle Anti-Breakout Plan",
     excerpt:
-      "Acne in Jordan's climate is often a mix of clogged pores, sweat, and over-stripped skin. Here's the Korean way to clear it — without nuking your barrier.",
+      "Acne in Jordan's climate is often a mix of clogged pores, sweat, and over-stripped skin. Here's the Korean way to clear it, without nuking your barrier.",
     seo_title: "Korean Skincare for Acne-Prone Skin | Anti-Breakout Routine 2026",
     seo_description:
       "A gentle K-beauty routine that calms acne without destroying your skin barrier. Best ingredients, BHA, centella, and a complete daily plan for Jordan.",
@@ -184,7 +184,7 @@ export const NEW_BLOGS: BlogSeed[] = [
     cover_image: COVERS.green1,
     title_ar: "العناية الكورية للبشرة المعرّضة لحب الشباب: خطة لطيفة ضد الحبوب",
     excerpt_ar:
-      "حب الشباب بمناخ الأردن غالباً خليط من مسامات مسدودة، عرق، وبشرة فقدت زيوتها. هاد هو النهج الكوري لتنظيفها — بدون ما تدمّري حاجز بشرتك.",
+      "حب الشباب بمناخ الأردن غالباً خليط من مسامات مسدودة، عرق، وبشرة فقدت زيوتها. هاد هو النهج الكوري لتنظيفها, بدون ما تدمّري حاجز بشرتك.",
     seo_title_ar: "العناية الكورية لحب الشباب | روتين لطيف ضد الحبوب 2026",
     seo_description_ar:
       "روتين K-beauty لطيف بيهدّي حب الشباب بدون ما يدمّر حاجز بشرتك. أحسن المكوّنات، BHA، السنتيلا، وخطة يومية كاملة للأردن.",
@@ -215,12 +215,12 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>Key Ingredients for Acne</h2>
 <ul>
-<li><strong>Salicylic acid (BHA)</strong> — exfoliates inside the pore</li>
-<li><strong>Centella asiatica</strong> — anti-inflammatory</li>
-<li><strong>Niacinamide</strong> — reduces redness and oil</li>
-<li><strong>Tea tree oil</strong> — natural antibacterial</li>
-<li><strong>Zinc PCA</strong> — sebum regulator</li>
-<li><strong>Hyaluronic acid</strong> — hydrates without clogging</li>
+<li><strong>Salicylic acid (BHA)</strong> exfoliates inside the pore</li>
+<li><strong>Centella asiatica</strong> anti-inflammatory</li>
+<li><strong>Niacinamide</strong> reduces redness and oil</li>
+<li><strong>Tea tree oil</strong> natural antibacterial</li>
+<li><strong>Zinc PCA</strong> sebum regulator</li>
+<li><strong>Hyaluronic acid</strong> hydrates without clogging</li>
 </ul>
 
 <h2>What to Avoid</h2>
@@ -236,7 +236,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>Sunscreen + sweat is a real combo in Amman summers. If you're breaking out only along the hairline and jaw, the culprit is often your sunscreen pooling there. Switch to a non-comedogenic Korean sunscreen (Beauty of Joseon Relief Sun is famously light), and always cleanse thoroughly at night.</p>
 
 <h2>How Long Until Acne Clears?</h2>
-<p>Skin cells turn over every 28-40 days. Most people see calmer skin in <strong>4 weeks</strong> and clearer skin in <strong>8-12 weeks</strong> of consistent gentle care. Cystic or hormonal acne needs a dermatologist — skincare supports the treatment, it doesn't replace it.</p>`,
+<p>Skin cells turn over every 28-40 days. Most people see calmer skin in <strong>4 weeks</strong> and clearer skin in <strong>8-12 weeks</strong> of consistent gentle care. Cystic or hormonal acne needs a dermatologist, skincare supports the treatment, it doesn't replace it.</p>`,
     content_ar: `<h2>الغلطة اللي بتعملها أغلب البشرة المعرّضة لحب الشباب</h2>
 <p>تقريباً كل واحد عنده حبوب بالعشرينات عمل الغلطة نفسها: يفرك البشرة لحد ما تحمر، يستعمل ساليسيليك بجرعة مضاعفة، ويضيف عليه بنزويل بيروكسايد. وبعد أسبوع، البشرة بتصير حمرا، بتقشّر، وفيها حبوب أكثر.</p>
 <p>الفلسفة الكورية بتذهب العكس. حب الشباب، أكثر مرّة، هو التهاب. والالتهاب بيزيد سوء لما تدمّري الحاجز.</p>
@@ -263,12 +263,12 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>المكوّنات الأساسية لحب الشباب</h2>
 <ul>
-<li><strong>حمض الساليسيليك (BHA)</strong> — يقشّر جوّا المسامات</li>
-<li><strong>السنتيلا أسياتيكا</strong> — مضاد للالتهاب</li>
-<li><strong>النياسيناميد</strong> — يقلّل الاحمرار والزيوت</li>
-<li><strong>زيت شجرة الشاي</strong> — مضاد بكتيري طبيعي</li>
-<li><strong>زنك PCA</strong> — منظّم للزيوت</li>
-<li><strong>حمض الهيالورونيك</strong> — يرطّب بدون انسداد</li>
+<li><strong>حمض الساليسيليك (BHA)</strong> يقشّر جوّا المسامات</li>
+<li><strong>السنتيلا أسياتيكا</strong> مضاد للالتهاب</li>
+<li><strong>النياسيناميد</strong> يقلّل الاحمرار والزيوت</li>
+<li><strong>زيت شجرة الشاي</strong> مضاد بكتيري طبيعي</li>
+<li><strong>زنك PCA</strong> منظّم للزيوت</li>
+<li><strong>حمض الهيالورونيك</strong> يرطّب بدون انسداد</li>
 </ul>
 
 <h2>إيش تتجنّبي</h2>
@@ -284,7 +284,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>واقي الشمس + العرق تركيبة حقيقية بصيف عمّان. إذا الحبوب طالعة بس على خط الشعر والفك، المسبّب غالباً واقي الشمس اللي بيتجمّع هناك. بدّلي لواقي شمس كوري غير كوميدوجينيك (Beauty of Joseon Relief Sun خفيف بشكل مشهور)، ودايماً نظّفي بشرتك منيح بالليل.</p>
 
 <h2>قدّيش وقت لحد ما حب الشباب يختفي؟</h2>
-<p>خلايا البشرة بتتجدّد كل 28-40 يوم. أغلب الناس بيشوفوا بشرة أهدا خلال <strong>4 أسابيع</strong> وبشرة أنظف خلال <strong>8-12 أسبوع</strong> من العناية اللطيفة المنتظمة. الحبوب الكيسية أو الهرمونية بدّها طبيب جلدية — العناية بتدعم العلاج، ما بتعوّضه.</p>`,
+<p>خلايا البشرة بتتجدّد كل 28-40 يوم. أغلب الناس بيشوفوا بشرة أهدا خلال <strong>4 أسابيع</strong> وبشرة أنظف خلال <strong>8-12 أسبوع</strong> من العناية اللطيفة المنتظمة. الحبوب الكيسية أو الهرمونية بدّها طبيب جلدية, العناية بتدعم العلاج، ما بتعوّضه.</p>`,
     published_at: "2026-05-13T08:00:00Z",
   },
   {
@@ -305,7 +305,7 @@ export const NEW_BLOGS: BlogSeed[] = [
       "ابني روتين K-beauty للبشرة المختلطة. طبقات منتجات مستهدفة، ماسكات متعدّدة، وأحسن مكوّنات كورية لمنطقة T دهنية وخدود جافة.",
     tags_ar: ["بشرة مختلطة", "عناية كورية", "منطقة T", "روتين", "متوازن"],
     content: `<h2>What "Combination Skin" Actually Means</h2>
-<p>Combination skin shines in the T-zone (forehead, nose, chin) but feels tight or flaky on the cheeks. About 60% of adults have it, and the percentage is even higher in Jordan because the climate swings hard — humid commutes, then dry AC offices.</p>
+<p>Combination skin shines in the T-zone (forehead, nose, chin) but feels tight or flaky on the cheeks. About 60% of adults have it, and the percentage is even higher in Jordan because the climate swings hard, humid commutes, then dry AC offices.</p>
 <p>The trick isn't to fight one side and ignore the other. K-beauty handles combination skin with <strong>strategic layering and multi-masking</strong>.</p>
 
 <h2>The Combination Skin Routine</h2>
@@ -314,17 +314,17 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ol>
 <li><strong>Low-pH gel cleanser.</strong> Foam dries the cheeks; cream leaves the T-zone heavy. Gel is the sweet spot.</li>
 <li><strong>Hydrating toner</strong> pressed into the cheeks; lighter swipe through the T-zone.</li>
-<li><strong>Niacinamide serum</strong> all over — regulates oil and brightens evenly.</li>
+<li><strong>Niacinamide serum</strong> all over, regulates oil and brightens evenly.</li>
 <li><strong>Lightweight gel-cream moisturizer.</strong> Slightly more on the cheeks if they feel dry.</li>
 <li><strong>Sunscreen.</strong> Look for "matte finish" or "fresh" formulas.</li>
 </ol>
 
 <h3>Evening</h3>
 <ol>
-<li><strong>Oil cleanser</strong> — yes, even on the oily T-zone.</li>
-<li><strong>Low-pH gel/foam cleanser</strong> — second cleanse.</li>
+<li><strong>Oil cleanser</strong> yes, even on the oily T-zone.</li>
+<li><strong>Low-pH gel/foam cleanser</strong> second cleanse.</li>
 <li><strong>BHA 2-3x per week</strong> on the T-zone only.</li>
-<li><strong>Essence</strong> — full face.</li>
+<li><strong>Essence</strong> full face.</li>
 <li><strong>Hydrating serum + barrier serum.</strong> Cheeks get more.</li>
 <li><strong>Gel-cream moisturizer.</strong></li>
 </ol>
@@ -334,15 +334,15 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>Ingredients That Balance</h2>
 <ul>
-<li><strong>Niacinamide</strong> — normalizes oil production</li>
-<li><strong>Green tea (Centella)</strong> — soothes redness</li>
-<li><strong>Hyaluronic acid</strong> — adds water without grease</li>
-<li><strong>BHA</strong> — clears T-zone pores</li>
-<li><strong>Squalane</strong> — moisturizes cheeks without breakouts</li>
+<li><strong>Niacinamide</strong> normalizes oil production</li>
+<li><strong>Green tea (Centella)</strong> soothes redness</li>
+<li><strong>Hyaluronic acid</strong> adds water without grease</li>
+<li><strong>BHA</strong> clears T-zone pores</li>
+<li><strong>Squalane</strong> moisturizes cheeks without breakouts</li>
 </ul>
 
 <h2>Common Mistakes</h2>
-<p><strong>Using oily-skin products everywhere.</strong> Your cheeks aren't oily — they'll get drier and start flaking.</p>
+<p><strong>Using oily-skin products everywhere.</strong> Your cheeks aren't oily, they'll get drier and start flaking.</p>
 <p><strong>Skipping moisturizer because the T-zone shines.</strong> Skipping moisturizer triggers more oil production. Hydrate, but with a light texture.</p>
 <p><strong>Over-exfoliating.</strong> BHA 2-3 times a week is plenty. Daily exfoliation will damage the cheeks.</p>
 
@@ -352,7 +352,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h2>When to See a Difference</h2>
 <p>Combination skin balances out fastest of all the skin types because you're not fighting an extreme. Expect <strong>visible balance within 2-3 weeks</strong>.</p>`,
     content_ar: `<h2>إيش يعني فعلاً "بشرة مختلطة"</h2>
-<p>البشرة المختلطة بتلمع بمنطقة T (الجبهة، الأنف، الذقن) بس بتحسّي بشدّ أو تقشّر على الخدود. حوالي 60% من البالغين عندهم هاد النوع، والنسبة أعلى بالأردن لأنّ المناخ بيتأرجح كتير — تنقّلات رطبة، بعدها مكاتب مكيّفة جافّة.</p>
+<p>البشرة المختلطة بتلمع بمنطقة T (الجبهة، الأنف، الذقن) بس بتحسّي بشدّ أو تقشّر على الخدود. حوالي 60% من البالغين عندهم هاد النوع، والنسبة أعلى بالأردن لأنّ المناخ بيتأرجح كتير, تنقّلات رطبة، بعدها مكاتب مكيّفة جافّة.</p>
 <p>الحيلة مو إنّك تحاربي جهة وتهملي التانية. الـ K-beauty بتتعامل مع البشرة المختلطة بـ<strong>طبقات استراتيجية وماسكات متعدّدة</strong>.</p>
 
 <h2>روتين البشرة المختلطة</h2>
@@ -361,17 +361,17 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ol>
 <li><strong>منظّف جل بدرجة حموضة منخفضة.</strong> الرغوة بتجفّف الخدود؛ الكريم بيخلّي منطقة T ثقيلة. الجل هو الحلّ الوسط.</li>
 <li><strong>تونر مرطّب</strong> اضغطيه على الخدود؛ مسحة أخف على منطقة T.</li>
-<li><strong>سيروم نياسيناميد</strong> على كل الوجه — بينظّم الزيوت ويوحّد التفتيح.</li>
+<li><strong>سيروم نياسيناميد</strong> على كل الوجه, بينظّم الزيوت ويوحّد التفتيح.</li>
 <li><strong>مرطّب جل-كريم خفيف.</strong> شويّة أكثر على الخدود إذا حاسّة فيهم جفاف.</li>
 <li><strong>واقي شمس.</strong> دوّري على صيغ "مات" أو "fresh".</li>
 </ol>
 
 <h3>المساء</h3>
 <ol>
-<li><strong>منظّف زيتي</strong> — أيوا، حتى على منطقة T الدهنية.</li>
-<li><strong>منظّف جل/رغوة بحموضة منخفضة</strong> — التنظيف الثاني.</li>
+<li><strong>منظّف زيتي</strong> أيوا، حتى على منطقة T الدهنية.</li>
+<li><strong>منظّف جل/رغوة بحموضة منخفضة</strong> التنظيف الثاني.</li>
 <li><strong>BHA مرّتين-ثلاث بالأسبوع</strong> على منطقة T فقط.</li>
-<li><strong>إسنس</strong> — كل الوجه.</li>
+<li><strong>إسنس</strong> كل الوجه.</li>
 <li><strong>سيروم مرطّب + سيروم حاجز.</strong> الخدود تاخد أكثر.</li>
 <li><strong>مرطّب جل-كريم.</strong></li>
 </ol>
@@ -381,15 +381,15 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>مكوّنات بتوازن</h2>
 <ul>
-<li><strong>النياسيناميد</strong> — بينظّم إنتاج الزيوت</li>
-<li><strong>الشاي الأخضر (السنتيلا)</strong> — يهدّي الاحمرار</li>
-<li><strong>حمض الهيالورونيك</strong> — يضيف ماي بدون لزوجة</li>
-<li><strong>BHA</strong> — ينظّف مسامات منطقة T</li>
-<li><strong>السكوالين</strong> — يرطّب الخدود بدون حبوب</li>
+<li><strong>النياسيناميد</strong> بينظّم إنتاج الزيوت</li>
+<li><strong>الشاي الأخضر (السنتيلا)</strong> يهدّي الاحمرار</li>
+<li><strong>حمض الهيالورونيك</strong> يضيف ماي بدون لزوجة</li>
+<li><strong>BHA</strong> ينظّف مسامات منطقة T</li>
+<li><strong>السكوالين</strong> يرطّب الخدود بدون حبوب</li>
 </ul>
 
 <h2>أخطاء شائعة</h2>
-<p><strong>استعمال منتجات البشرة الدهنية بكل مكان.</strong> خدودك مو دهنية — رح يصيروا أكثر جفاف ويبدوا يتقشّروا.</p>
+<p><strong>استعمال منتجات البشرة الدهنية بكل مكان.</strong> خدودك مو دهنية, رح يصيروا أكثر جفاف ويبدوا يتقشّروا.</p>
 <p><strong>إهمال المرطّب لأنّ منطقة T بتلمع.</strong> إهمال المرطّب بيحفّز إنتاج زيوت أكثر. رطّبي، بس بقوام خفيف.</p>
 <p><strong>الإفراط بالتقشير.</strong> BHA 2-3 مرات بالأسبوع كفاية. التقشير اليومي رح يضرّ الخدود.</p>
 
@@ -425,7 +425,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h3>1. Cleanser (or Double Cleanse)</h3>
 <p>Removes dirt, sebum, sunscreen, and makeup. Always start here.</p>
 
-<h3>2. Exfoliant (AHA/BHA/PHA) — 2-3 times weekly</h3>
+<h3>2. Exfoliant (AHA/BHA/PHA), 2-3 times weekly</h3>
 <p>Goes right after cleansing because it works on clean skin. Wait 1 minute before the next step.</p>
 
 <h3>3. Toner</h3>
@@ -435,9 +435,9 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>The most "Korean" step. A watery, conditioning liquid that boosts hydration and cell turnover.</p>
 
 <h3>5. Treatments (Ampoules, Serums)</h3>
-<p>Target-specific actives — Vitamin C in the morning, retinol or peptides at night, niacinamide either time.</p>
+<p>Target-specific actives, Vitamin C in the morning, retinol or peptides at night, niacinamide either time.</p>
 
-<h3>6. Sheet Mask — 1-2 times weekly</h3>
+<h3>6. Sheet Mask, 1-2 times weekly</h3>
 <p>Slip this in after serums. Sheet masks deliver concentrated essence into already-prepped skin.</p>
 
 <h3>7. Eye Cream</h3>
@@ -450,7 +450,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>If you use one, it goes after moisturizer because oil seals everything underneath.</p>
 
 <h3>10. Sunscreen (Morning Only)</h3>
-<p>Always the last step in the AM. Nothing goes on top — not even powder, until sunscreen has set for 2 minutes.</p>
+<p>Always the last step in the AM. Nothing goes on top, not even powder, until sunscreen has set for 2 minutes.</p>
 
 <h2>What Happens If You Do It Wrong</h2>
 <ul>
@@ -490,7 +490,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h3>1. المنظّف (أو التنظيف المزدوج)</h3>
 <p>بيشيل الوسخ، الزيوت، الواقي، والمكياج. دايماً ابدي هون.</p>
 
-<h3>2. مقشّر (AHA/BHA/PHA) — 2-3 مرات بالأسبوع</h3>
+<h3>2. مقشّر (AHA/BHA/PHA), 2-3 مرات بالأسبوع</h3>
 <p>بيجي بعد التنظيف مباشرة لأنه بيشتغل على بشرة نضيفة. استنّي دقيقة قبل الخطوة التالية.</p>
 
 <h3>3. التونر</h3>
@@ -500,9 +500,9 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>الخطوة الأكثر "كورية". سائل مائي مغذّي بيعزّز الترطيب وتجدّد الخلايا.</p>
 
 <h3>5. العلاجات (الأمبولات، السيرومات)</h3>
-<p>مكوّنات نشطة مستهدفة — فيتامين C بالصبح، ريتينول أو ببتيدات بالليل، نياسيناميد بأي وقت.</p>
+<p>مكوّنات نشطة مستهدفة, فيتامين C بالصبح، ريتينول أو ببتيدات بالليل، نياسيناميد بأي وقت.</p>
 
-<h3>6. الماسك الورقي — 1-2 مرة بالأسبوع</h3>
+<h3>6. الماسك الورقي, 1-2 مرة بالأسبوع</h3>
 <p>حطّيه بعد السيرومات. الماسكات الورقية بتوصل إسنس مركّز لبشرة محضّرة.</p>
 
 <h3>7. كريم العين</h3>
@@ -515,7 +515,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>لو بتستعملي واحد، يجي بعد المرطّب لأنّ الزيت بيقفل كل اللي تحته.</p>
 
 <h3>10. واقي الشمس (صباحاً فقط)</h3>
-<p>دايماً آخر خطوة بالصبح. ما حدا بيجي فوقه — ولا حتى البودرة، إلا بعد ما يستقرّ الواقي بدقيقتين.</p>
+<p>دايماً آخر خطوة بالصبح. ما حدا بيجي فوقه, ولا حتى البودرة، إلا بعد ما يستقرّ الواقي بدقيقتين.</p>
 
 <h2>إيش بيصير لو طبّقتيه غلط</h2>
 <ul>
@@ -576,7 +576,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>Skip the cheap bar soap. Use a low-pH gel cleanser that removes sweat and sebum without stripping. <strong>CosRX Salicylic Acid Cleanser</strong> handles oil and prevents razor bumps.</p>
 
 <h3>2. Hydrating Toner</h3>
-<p>One press into the palms, swipe across the face. Korean toners aren't astringent — they hydrate. <strong>Hada Labo Gokujyun Toner</strong> is a cheap classic.</p>
+<p>One press into the palms, swipe across the face. Korean toners aren't astringent, they hydrate. <strong>Hada Labo Gokujyun Toner</strong> is a cheap classic.</p>
 
 <h3>3. Niacinamide Serum</h3>
 <p>The single most useful active for men. Niacinamide controls oil, reduces redness, and fades dark spots over time.</p>
@@ -591,21 +591,21 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ul>
 <li><strong>BHA exfoliant</strong> 2x/week if you have blackheads or oily skin.</li>
 <li><strong>Eye cream</strong> if you have visible dark circles or under-eye fatigue.</li>
-<li><strong>Aftershave balm</strong> with centella or panthenol — calms shaving irritation.</li>
+<li><strong>Aftershave balm</strong> with centella or panthenol, calms shaving irritation.</li>
 </ul>
 
 <h2>The Shaving Problem</h2>
 <p>Shaving removes the top layer of skin and pulls hairs. The result is micro-cuts that get inflamed easily, especially in summer heat. To minimize damage:</p>
 <ul>
-<li>Always shave with a sharp blade — a dull one drags.</li>
+<li>Always shave with a sharp blade, a dull one drags.</li>
 <li>Pre-shave with a hydrating cleanser, not foam.</li>
 <li>Post-shave, apply a centella toner before moisturizer.</li>
-<li>Never apply alcohol-based aftershave — it kills the barrier.</li>
+<li>Never apply alcohol-based aftershave, it kills the barrier.</li>
 </ul>
 
 <h2>What to Skip</h2>
 <p><strong>Heavily scented products.</strong> Fragrance is the #1 cause of contact dermatitis. Most Korean lines have fragrance-free options.</p>
-<p><strong>Cheap drugstore "men's face wash."</strong> They're usually high pH and stripping. Pay 5-7 JOD more for a proper Korean cleanser — your skin will recover faster.</p>
+<p><strong>Cheap drugstore "men's face wash."</strong> They're usually high pH and stripping. Pay 5-7 JOD more for a proper Korean cleanser, your skin will recover faster.</p>
 
 <h2>Honest Expectations</h2>
 <p>You'll see less oily shine by <strong>week 2</strong>, smoother skin by <strong>week 4</strong>, and visibly evener tone by <strong>week 8</strong>. Sunscreen is the difference-maker long-term.</p>
@@ -622,7 +622,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>تجاوزي صابون البار الرخيص. استعمل منظّف جل بحموضة منخفضة بيشيل العرق والزيوت بدون ما يجفّف. <strong>CosRX Salicylic Acid Cleanser</strong> بيتعامل مع الزيوت ويمنع نتوءات الحلاقة.</p>
 
 <h3>2. تونر مرطّب</h3>
-<p>اضغطه براحة يدك، امسحه على وجهك. التونرات الكورية مش قابضة — هي مرطّبة. <strong>Hada Labo Gokujyun Toner</strong> كلاسيك رخيص.</p>
+<p>اضغطه براحة يدك، امسحه على وجهك. التونرات الكورية مش قابضة, هي مرطّبة. <strong>Hada Labo Gokujyun Toner</strong> كلاسيك رخيص.</p>
 
 <h3>3. سيروم نياسيناميد</h3>
 <p>أكثر مكوّن نشط مفيد للرجال. النياسيناميد بيتحكّم بالزيوت، يقلّل الاحمرار، ويفتّح البقع الغامقة مع الوقت.</p>
@@ -637,21 +637,21 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ul>
 <li><strong>مقشّر BHA</strong> مرّتين بالأسبوع إذا عندك رؤوس سوداء أو بشرة دهنية.</li>
 <li><strong>كريم عين</strong> إذا عندك هالات سوداء واضحة أو إرهاق تحت العين.</li>
-<li><strong>بلسم ما بعد الحلاقة</strong> فيه سنتيلا أو بانثينول — بيهدّي تهيّج الحلاقة.</li>
+<li><strong>بلسم ما بعد الحلاقة</strong> فيه سنتيلا أو بانثينول, بيهدّي تهيّج الحلاقة.</li>
 </ul>
 
 <h2>مشكلة الحلاقة</h2>
 <p>الحلاقة بتشيل الطبقة العليا للبشرة وبتجرّ الشعر. النتيجة قطوع صغيرة بتلتهب بسهولة، خصوصاً بحر الصيف. عشان تقلّل الضرر:</p>
 <ul>
-<li>دايماً احلق بشفرة حادّة — المعدومة بتسحب.</li>
+<li>دايماً احلق بشفرة حادّة, المعدومة بتسحب.</li>
 <li>قبل الحلاقة، استعمل منظّف مرطّب، مو رغوة.</li>
 <li>بعد الحلاقة، طبّق تونر سنتيلا قبل المرطّب.</li>
-<li>أبداً ما تستعمل لوشن بعد الحلاقة فيه كحول — بيقتل الحاجز.</li>
+<li>أبداً ما تستعمل لوشن بعد الحلاقة فيه كحول, بيقتل الحاجز.</li>
 </ul>
 
 <h2>إيش تتجاهل</h2>
 <p><strong>المنتجات بروائح قوية.</strong> العطر السبب رقم 1 لالتهاب التماس. أغلب الخطوط الكورية عندها خيارات بدون عطر.</p>
-<p><strong>غسولات الوجه "الرجالية" الرخيصة من الصيدلية.</strong> غالباً درجة حموضتها عالية ومجفّفة. ادفع 5-7 دنانير زيادة لمنظّف كوري لائق — بشرتك رح تتعافى أسرع.</p>
+<p><strong>غسولات الوجه "الرجالية" الرخيصة من الصيدلية.</strong> غالباً درجة حموضتها عالية ومجفّفة. ادفع 5-7 دنانير زيادة لمنظّف كوري لائق, بشرتك رح تتعافى أسرع.</p>
 
 <h2>توقّعات صادقة</h2>
 <p>رح تشوف لمعان دهني أقل بـ <strong>الأسبوع 2</strong>، بشرة أنعم بـ <strong>الأسبوع 4</strong>، ولون أكثر توحّد بـ <strong>الأسبوع 8</strong>. واقي الشمس هو الفرق على المدى الطويل.</p>
@@ -667,7 +667,7 @@ export const NEW_BLOGS: BlogSeed[] = [
       "Same products morning and night? You're missing half the benefit. Here's exactly what should change between your sunrise and sunset routine.",
     seo_title: "AM vs PM Korean Skincare Routine: What Changes Day to Night",
     seo_description:
-      "Your skin has different needs morning and night. Learn the AM vs PM K-beauty routine — which ingredients to use when, and why timing changes results.",
+      "Your skin has different needs morning and night. Learn the AM vs PM K-beauty routine, which ingredients to use when, and why timing changes results.",
     tags: ["AM routine", "PM routine", "korean skincare", "skincare timing"],
     cover_image: COVERS.spa3,
     title_ar: "روتين الصبح مقابل المساء: الفرق بين الـ K-beauty نهاراً وليلاً",
@@ -675,10 +675,10 @@ export const NEW_BLOGS: BlogSeed[] = [
       "نفس المنتجات صبح ومساء؟ فاقد نص الفايدة. هاد إيش لازم يتغيّر بين روتين شروقك وغروبك.",
     seo_title_ar: "روتين العناية الكوري صبح ومساء: إيش بيتغيّر",
     seo_description_ar:
-      "بشرتك بحاجاتها مختلفة صبح ومساء. اعرفي روتين K-beauty للصبح والمساء — أي مكوّنات تستعملي ومتى.",
+      "بشرتك بحاجاتها مختلفة صبح ومساء. اعرفي روتين K-beauty للصبح والمساء, أي مكوّنات تستعملي ومتى.",
     tags_ar: ["روتين صباحي", "روتين مسائي", "عناية كورية", "توقيت العناية"],
     content: `<h2>The Two Jobs Your Skin Has</h2>
-<p>Your skin does fundamentally different things during the day vs. night. <strong>During the day, it protects itself</strong> from UV, pollution, and free radicals. <strong>At night, it repairs</strong> — cell turnover spikes between 11 PM and 4 AM. A morning routine should defend; an evening routine should heal.</p>
+<p>Your skin does fundamentally different things during the day vs. night. <strong>During the day, it protects itself</strong> from UV, pollution, and free radicals. <strong>At night, it repairs</strong> cell turnover spikes between 11 PM and 4 AM. A morning routine should defend; an evening routine should heal.</p>
 
 <h2>The Morning Routine: Defense Mode</h2>
 
@@ -692,7 +692,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>This is the AM star. Vitamin C neutralizes free radicals from UV and pollution. It also boosts SPF effectiveness. Use a stabilized form like <strong>ascorbic acid 10-15%</strong> or <strong>ethyl ascorbic acid</strong>.</p>
 
 <h3>4. Light Moisturizer</h3>
-<p>Gel-cream textures are ideal. You're prepping for sunscreen — heavy moisturizer + sunscreen + makeup is a recipe for pilling.</p>
+<p>Gel-cream textures are ideal. You're prepping for sunscreen, heavy moisturizer + sunscreen + makeup is a recipe for pilling.</p>
 
 <h3>5. SPF 50+ PA++++</h3>
 <p>Non-negotiable. UV damage is cumulative. Reapply every 2-3 hours if you're outdoors.</p>
@@ -722,13 +722,13 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>Ingredients That Belong to One Time Slot</h2>
 <ul>
-<li><strong>Vitamin C</strong> — Morning</li>
-<li><strong>Retinol</strong> — Night only</li>
-<li><strong>Sunscreen</strong> — Morning</li>
-<li><strong>AHA/BHA</strong> — Night (sun sensitivity)</li>
-<li><strong>Niacinamide</strong> — Either</li>
-<li><strong>Hyaluronic acid</strong> — Either</li>
-<li><strong>Peptides</strong> — Night ideally</li>
+<li><strong>Vitamin C</strong> Morning</li>
+<li><strong>Retinol</strong> Night only</li>
+<li><strong>Sunscreen</strong> Morning</li>
+<li><strong>AHA/BHA</strong> Night (sun sensitivity)</li>
+<li><strong>Niacinamide</strong> Either</li>
+<li><strong>Hyaluronic acid</strong> Either</li>
+<li><strong>Peptides</strong> Night ideally</li>
 </ul>
 
 <h2>Common Mistakes</h2>
@@ -742,7 +742,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h2>Sleep, Hydration, and the Routine</h2>
 <p>Sleep is when your skin actually does the work. If you sleep 5 hours, no serum will save you. Aim for 7-9 hours, drink water through the day, and your routine will work twice as hard.</p>`,
     content_ar: `<h2>الوظيفتين اللي بتعملهم بشرتك</h2>
-<p>بشرتك بتعمل اشياء مختلفة جذرياً نهاراً وليلاً. <strong>بالنهار، بتحمي حالها</strong> من الأشعة، التلوّث، والشوارد الحرّة. <strong>بالليل، بتصلح</strong> — تجدّد الخلايا بيوصل لذروته بين الـ 11 ليلاً والـ 4 صباحاً.</p>
+<p>بشرتك بتعمل اشياء مختلفة جذرياً نهاراً وليلاً. <strong>بالنهار، بتحمي حالها</strong> من الأشعة، التلوّث، والشوارد الحرّة. <strong>بالليل، بتصلح</strong> تجدّد الخلايا بيوصل لذروته بين الـ 11 ليلاً والـ 4 صباحاً.</p>
 
 <h2>روتين الصبح: وضع الدفاع</h2>
 
@@ -756,7 +756,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>هاد نجم الصبح. فيتامين C بيعادل الشوارد الحرّة من الأشعة والتلوّث. كمان بيعزّز فعالية الـ SPF. استعملي صيغة مستقرّة زي <strong>حمض الأسكوربيك 10-15%</strong>.</p>
 
 <h3>4. مرطّب خفيف</h3>
-<p>قوامات جل-كريم مثاليّة. أنتي بتحضّري لواقي الشمس — مرطّب ثقيل + واقي + مكياج وصفة للتقشير.</p>
+<p>قوامات جل-كريم مثاليّة. أنتي بتحضّري لواقي الشمس, مرطّب ثقيل + واقي + مكياج وصفة للتقشير.</p>
 
 <h3>5. SPF 50+ PA++++</h3>
 <p>غير قابل للتفاوض. ضرر الأشعة تراكمي. أعيدي التطبيق كل 2-3 ساعات لو طالعة برّا.</p>
@@ -786,13 +786,13 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>مكوّنات بتنتمي لوقت واحد</h2>
 <ul>
-<li><strong>فيتامين C</strong> — صبح</li>
-<li><strong>ريتينول</strong> — مساء فقط</li>
-<li><strong>واقي شمس</strong> — صبح</li>
-<li><strong>AHA/BHA</strong> — مساء (حساسية للشمس)</li>
-<li><strong>نياسيناميد</strong> — أي وقت</li>
-<li><strong>حمض الهيالورونيك</strong> — أي وقت</li>
-<li><strong>الببتيدات</strong> — مساء بشكل مثالي</li>
+<li><strong>فيتامين C</strong> صبح</li>
+<li><strong>ريتينول</strong> مساء فقط</li>
+<li><strong>واقي شمس</strong> صبح</li>
+<li><strong>AHA/BHA</strong> مساء (حساسية للشمس)</li>
+<li><strong>نياسيناميد</strong> أي وقت</li>
+<li><strong>حمض الهيالورونيك</strong> أي وقت</li>
+<li><strong>الببتيدات</strong> مساء بشكل مثالي</li>
 </ul>
 
 <h2>أخطاء شائعة</h2>
@@ -811,7 +811,7 @@ export const NEW_BLOGS: BlogSeed[] = [
     slug: "korean-skincare-teen-skin-safe-products",
     title: "Korean Skincare for Teen Skin: Safe Products for Young Faces",
     excerpt:
-      "Teens have specific skin needs — hormonal breakouts, oily T-zones, and a barrier that's still developing. Here's the gentle K-beauty routine that won't backfire.",
+      "Teens have specific skin needs, hormonal breakouts, oily T-zones, and a barrier that's still developing. Here's the gentle K-beauty routine that won't backfire.",
     seo_title: "Korean Skincare for Teens: Safe K-Beauty Routine 2026",
     seo_description:
       "A safe, gentle Korean skincare routine for teen skin. Hormonal acne, oil control, and what to avoid. Built for skin under 19 with affordable Korean picks.",
@@ -819,13 +819,13 @@ export const NEW_BLOGS: BlogSeed[] = [
     cover_image: COVERS.pink1,
     title_ar: "العناية الكورية لبشرة المراهقين: منتجات آمنة للوجوه الصغيرة",
     excerpt_ar:
-      "المراهقين عندهم احتياجات بشرة محدّدة — حبوب هرمونية، منطقة T دهنية، وحاجز لسا بتطوّر. هاد روتين K-beauty لطيف ما رح يرتدّ.",
+      "المراهقين عندهم احتياجات بشرة محدّدة, حبوب هرمونية، منطقة T دهنية، وحاجز لسا بتطوّر. هاد روتين K-beauty لطيف ما رح يرتدّ.",
     seo_title_ar: "العناية الكورية للمراهقين: روتين آمن 2026",
     seo_description_ar:
       "روتين عناية كوري آمن ولطيف لبشرة المراهقين. حبوب هرمونية، التحكّم بالزيوت، وإيش تتجنّب. مصمّم للبشرة تحت الـ 19.",
     tags_ar: ["عناية للمراهقين", "بشرة صغيرة", "عناية كورية", "حب الشباب", "روتين لطيف"],
     content: `<h2>Why Teen Skin Is Different</h2>
-<p>Teen skin produces 2-3x more sebum than adult skin due to puberty hormones (androgens). Pores enlarge, the T-zone shines, and acne shows up. But teen skin is also <strong>more resilient and heals faster</strong> than adult skin — which means the wrong harsh routine can damage a barrier that's still maturing.</p>
+<p>Teen skin produces 2-3x more sebum than adult skin due to puberty hormones (androgens). Pores enlarge, the T-zone shines, and acne shows up. But teen skin is also <strong>more resilient and heals faster</strong> than adult skin, which means the wrong harsh routine can damage a barrier that's still maturing.</p>
 <p>The mistake most teens make: using everything they see on TikTok at once.</p>
 
 <h2>The Teen-Safe 4-Step Routine</h2>
@@ -844,7 +844,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>Add If Needed</h2>
 <ul>
-<li><strong>Hydrocolloid pimple patches</strong> — pull pus out and protect the spot from picking.</li>
+<li><strong>Hydrocolloid pimple patches</strong> pull pus out and protect the spot from picking.</li>
 <li><strong>BHA 1-2 nights/week</strong> for blackheads or oily T-zone (start gentle).</li>
 <li><strong>Niacinamide serum</strong> for acne marks and oil control.</li>
 </ul>
@@ -860,11 +860,11 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>Common Teen Skincare Myths</h2>
 <p><strong>"Toothpaste dries pimples."</strong> It also burns the skin. Use a pimple patch instead.</p>
-<p><strong>"I have oily skin, I don't need moisturizer."</strong> You do — and skipping it makes oil worse.</p>
+<p><strong>"I have oily skin, I don't need moisturizer."</strong> You do, and skipping it makes oil worse.</p>
 <p><strong>"Tanning hides acne."</strong> UV damages skin and makes post-acne marks last longer.</p>
 
 <h2>Diet and Skin</h2>
-<p>Dairy and high-glycemic foods (white bread, sugary drinks) are linked to teen acne in multiple studies. You don't have to give them up — but if you have stubborn acne, try cutting dairy for 6 weeks and see what happens.</p>
+<p>Dairy and high-glycemic foods (white bread, sugary drinks) are linked to teen acne in multiple studies. You don't have to give them up, but if you have stubborn acne, try cutting dairy for 6 weeks and see what happens.</p>
 
 <h2>When to See a Dermatologist</h2>
 <p>If breakouts are <strong>cystic</strong> (large painful bumps under the skin), <strong>scarring</strong>, or <strong>not responding to gentle care in 3 months</strong>, see a derm. Skincare supports treatment; it doesn't replace it.</p>
@@ -872,7 +872,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h2>The Long-Term Plan</h2>
 <p>Teen skincare is about building good habits and protecting the future. Sunscreen now means less hyperpigmentation at 30. Gentle care now means a healthy barrier at 40. You're investing in your skin's next decade.</p>`,
     content_ar: `<h2>ليش بشرة المراهقين مختلفة</h2>
-<p>بشرة المراهقين بتنتج 2-3 أضعاف الزيوت اللي بتنتجها بشرة البالغين بسبب هرمونات البلوغ (الأندروجينات). المسامات بتكبر، منطقة T بتلمع، والحبوب بتطلع. بس بشرة المراهقين كمان <strong>أكثر مرونة وبتشفي أسرع</strong> من بشرة البالغين — يعني الروتين القاسي الخطأ ممكن يدمّر حاجز لسا بنضج.</p>
+<p>بشرة المراهقين بتنتج 2-3 أضعاف الزيوت اللي بتنتجها بشرة البالغين بسبب هرمونات البلوغ (الأندروجينات). المسامات بتكبر، منطقة T بتلمع، والحبوب بتطلع. بس بشرة المراهقين كمان <strong>أكثر مرونة وبتشفي أسرع</strong> من بشرة البالغين, يعني الروتين القاسي الخطأ ممكن يدمّر حاجز لسا بنضج.</p>
 <p>الغلطة اللي بيعملها أغلب المراهقين: استعمال كل اشي بيشوفوه على TikTok بنفس الوقت.</p>
 
 <h2>الروتين الآمن للمراهقين بـ 4 خطوات</h2>
@@ -891,7 +891,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>ضيفي إذا بدّك</h2>
 <ul>
-<li><strong>لاصقات حبوب هيدروكولويد</strong> — بتسحب الصديد وبتحمي البقعة من النكش.</li>
+<li><strong>لاصقات حبوب هيدروكولويد</strong> بتسحب الصديد وبتحمي البقعة من النكش.</li>
 <li><strong>BHA 1-2 ليالي بالأسبوع</strong> للرؤوس السوداء أو منطقة T الدهنية (ابدي بلطف).</li>
 <li><strong>سيروم نياسيناميد</strong> لآثار الحبوب والتحكّم بالزيوت.</li>
 </ul>
@@ -907,11 +907,11 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>خرافات شائعة عن عناية المراهقين</h2>
 <p><strong>"معجون الأسنان بيجفّف الحبوب."</strong> كمان بيحرق البشرة. استعملي لاصقة حبوب بدالها.</p>
-<p><strong>"عندي بشرة دهنية، ما بدّي مرطّب."</strong> بدّك — وإهماله بيخلّي الزيوت أسوأ.</p>
+<p><strong>"عندي بشرة دهنية، ما بدّي مرطّب."</strong> بدّك, وإهماله بيخلّي الزيوت أسوأ.</p>
 <p><strong>"السمرة بتخفّي الحبوب."</strong> الأشعة بتضرّ البشرة وبتخلّي آثار الحبوب تطوّل.</p>
 
 <h2>الأكل والبشرة</h2>
-<p>الحليب ومنتجاته والمأكولات عالية الجلايسيمك (الخبز الأبيض، المشروبات السكّرية) مرتبطة بحب الشباب عند المراهقين بدراسات متعدّدة. ما بدّك توقفيها — بس إذا عندك حبوب عنيدة، جرّبي توقفي الحليب لـ 6 أسابيع وشوفي إيش بيصير.</p>
+<p>الحليب ومنتجاته والمأكولات عالية الجلايسيمك (الخبز الأبيض، المشروبات السكّرية) مرتبطة بحب الشباب عند المراهقين بدراسات متعدّدة. ما بدّك توقفيها, بس إذا عندك حبوب عنيدة، جرّبي توقفي الحليب لـ 6 أسابيع وشوفي إيش بيصير.</p>
 
 <h2>متى تشوفي طبيب جلدية</h2>
 <p>إذا الحبوب <strong>كيسية</strong> (نتوءات كبيرة مؤلمة تحت الجلد)، <strong>بتترك ندوب</strong>، أو <strong>ما بتستجيب للعناية اللطيفة بعد 3 شهور</strong>، شوفي طبيب جلدية. العناية بتدعم العلاج؛ ما بتعوّضه.</p>
@@ -924,7 +924,7 @@ export const NEW_BLOGS: BlogSeed[] = [
     slug: "korean-eye-creams-dark-circles-puffiness-guide",
     title: "Korean Eye Creams: Targeting Dark Circles and Puffiness",
     excerpt:
-      "Korean eye creams aren't just moisturizer for your under-eyes — they use specific actives that target dark circles, puffiness, and fine lines. Here's how to pick one.",
+      "Korean eye creams aren't just moisturizer for your under-eyes, they use specific actives that target dark circles, puffiness, and fine lines. Here's how to pick one.",
     seo_title: "Korean Eye Creams Guide: Dark Circles & Puffiness 2026",
     seo_description:
       "The best Korean eye creams for dark circles and puffy eyes. Learn caffeine, peptides, retinol, and how to apply for visible results in 4 weeks.",
@@ -932,13 +932,13 @@ export const NEW_BLOGS: BlogSeed[] = [
     cover_image: COVERS.cream1,
     title_ar: "كريمات العين الكورية: استهداف الهالات والانتفاخ",
     excerpt_ar:
-      "كريمات العين الكورية مش بس مرطّب لتحت العين — بتستعمل مكوّنات محدّدة تستهدف الهالات، الانتفاخ، والخطوط الدقيقة. هاد كيف تختاري واحد.",
+      "كريمات العين الكورية مش بس مرطّب لتحت العين, بتستعمل مكوّنات محدّدة تستهدف الهالات، الانتفاخ، والخطوط الدقيقة. هاد كيف تختاري واحد.",
     seo_title_ar: "كريمات العين الكورية: دليل الهالات والانتفاخ 2026",
     seo_description_ar:
       "أحسن كريمات العين الكورية للهالات والعيون المنتفخة. اعرفي عن الكافيين، الببتيدات، الريتينول، وكيف تطبّقيهم لنتائج خلال 4 أسابيع.",
     tags_ar: ["كريم عين", "هالات", "انتفاخ", "عناية كورية", "تحت العين"],
     content: `<h2>Why the Under-Eye Area Is Different</h2>
-<p>The skin under your eyes is <strong>about 0.5 mm thick</strong> — five times thinner than the rest of your face. There are fewer oil glands, and the muscles under it move constantly. That's why this area shows tiredness, age, and dehydration first.</p>
+<p>The skin under your eyes is <strong>about 0.5 mm thick</strong> five times thinner than the rest of your face. There are fewer oil glands, and the muscles under it move constantly. That's why this area shows tiredness, age, and dehydration first.</p>
 <p>A regular face moisturizer is too thick. A dedicated eye cream uses lighter textures and targeted actives.</p>
 
 <h2>The Three Under-Eye Problems</h2>
@@ -950,22 +950,22 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>Caused by fluid retention, salt, or lack of sleep. <strong>Caffeine</strong> in eye creams constricts blood vessels and de-puffs in minutes. Apply with a cold roller for amplified effect.</p>
 
 <h3>3. Fine Lines</h3>
-<p><strong>Peptides</strong> stimulate collagen. <strong>Retinol</strong> (low concentration only — 0.025% max for eye area) boosts cell turnover. Hyaluronic acid plumps up dehydration lines.</p>
+<p><strong>Peptides</strong> stimulate collagen. <strong>Retinol</strong> (low concentration only, 0.025% max for eye area) boosts cell turnover. Hyaluronic acid plumps up dehydration lines.</p>
 
 <h2>Korean Eye Cream Picks</h2>
 <ul>
-<li><strong>Anua Heartleaf Eye Cream</strong> — niacinamide + heartleaf for calming and brightening.</li>
-<li><strong>Goodal Green Tangerine Vita C Dark Spot Eye Cream</strong> — vitamin C derivative for dark circles.</li>
-<li><strong>Beauty of Joseon Revive Eye Serum</strong> — ginseng + peptides for general anti-aging.</li>
-<li><strong>Mizon Snail Repair Eye Cream</strong> — snail mucin for repair and hydration.</li>
+<li><strong>Anua Heartleaf Eye Cream</strong> niacinamide + heartleaf for calming and brightening.</li>
+<li><strong>Goodal Green Tangerine Vita C Dark Spot Eye Cream</strong> vitamin C derivative for dark circles.</li>
+<li><strong>Beauty of Joseon Revive Eye Serum</strong> ginseng + peptides for general anti-aging.</li>
+<li><strong>Mizon Snail Repair Eye Cream</strong> snail mucin for repair and hydration.</li>
 </ul>
 
 <h2>How to Apply Eye Cream Correctly</h2>
 <ol>
-<li>Use your <strong>ring finger</strong> — it has the lightest pressure.</li>
+<li>Use your <strong>ring finger</strong> it has the lightest pressure.</li>
 <li>Dab a rice-grain amount under each eye.</li>
 <li>Tap gently from the outer corner inward, then up to the brow bone.</li>
-<li>Do NOT rub or pull — that creates fine lines over time.</li>
+<li>Do NOT rub or pull, that creates fine lines over time.</li>
 <li>Wait 1 minute before applying moisturizer.</li>
 </ol>
 
@@ -982,7 +982,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h2>When to Start Eye Cream</h2>
 <p>Late 20s is when most people see early changes. But hydration-focused eye creams (hyaluronic acid, snail mucin) are safe from your early 20s onward. Hold off on strong retinol eye creams until you're 30+.</p>`,
     content_ar: `<h2>ليش منطقة تحت العين مختلفة</h2>
-<p>الجلد تحت عيونك <strong>سماكته حوالي 0.5 ملم</strong> — خمس أضعاف أرفع من باقي الوجه. عدد الغدد الزيتية أقل، والعضلات تحته بتتحرّك باستمرار. لهيك هاي المنطقة بتظهر التعب، العمر، والجفاف أوّل اشي.</p>
+<p>الجلد تحت عيونك <strong>سماكته حوالي 0.5 ملم</strong> خمس أضعاف أرفع من باقي الوجه. عدد الغدد الزيتية أقل، والعضلات تحته بتتحرّك باستمرار. لهيك هاي المنطقة بتظهر التعب، العمر، والجفاف أوّل اشي.</p>
 <p>مرطّب الوجه العادي ثقيل كتير. كريم عين مخصّص بستعمل قوامات أخفّ ومكوّنات مستهدفة.</p>
 
 <h2>المشاكل التلاتة تحت العين</h2>
@@ -994,22 +994,22 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>بيسبّبه احتباس السوائل، الملح، أو قلّة النوم. <strong>الكافيين</strong> بكريمات العين بيضيّق الأوعية الدموية ويزيل الانتفاخ بدقايق. طبّقيه مع رولر بارد لتأثير مضاعف.</p>
 
 <h3>3. الخطوط الدقيقة</h3>
-<p><strong>الببتيدات</strong> بتحفّز الكولاجين. <strong>الريتينول</strong> (تركيز منخفض فقط — 0.025% كحد أقصى لمنطقة العين) بيعزّز تجدّد الخلايا. حمض الهيالورونيك بيملأ خطوط الجفاف.</p>
+<p><strong>الببتيدات</strong> بتحفّز الكولاجين. <strong>الريتينول</strong> (تركيز منخفض فقط, 0.025% كحد أقصى لمنطقة العين) بيعزّز تجدّد الخلايا. حمض الهيالورونيك بيملأ خطوط الجفاف.</p>
 
 <h2>اختيارات كريمات عين كورية</h2>
 <ul>
-<li><strong>Anua Heartleaf Eye Cream</strong> — نياسيناميد + هارت ليف للتهدئة والتفتيح.</li>
-<li><strong>Goodal Green Tangerine Vita C Dark Spot Eye Cream</strong> — مشتقّ فيتامين C للهالات.</li>
-<li><strong>Beauty of Joseon Revive Eye Serum</strong> — جينسنغ + ببتيدات لمقاومة الشيخوخة العامة.</li>
-<li><strong>Mizon Snail Repair Eye Cream</strong> — مخاط حلزون للإصلاح والترطيب.</li>
+<li><strong>Anua Heartleaf Eye Cream</strong> نياسيناميد + هارت ليف للتهدئة والتفتيح.</li>
+<li><strong>Goodal Green Tangerine Vita C Dark Spot Eye Cream</strong> مشتقّ فيتامين C للهالات.</li>
+<li><strong>Beauty of Joseon Revive Eye Serum</strong> جينسنغ + ببتيدات لمقاومة الشيخوخة العامة.</li>
+<li><strong>Mizon Snail Repair Eye Cream</strong> مخاط حلزون للإصلاح والترطيب.</li>
 </ul>
 
 <h2>كيف تطبّقي كريم العين صح</h2>
 <ol>
-<li>استعملي <strong>الإصبع الخنصر-البنصر</strong> — ضغطه أخفّ.</li>
+<li>استعملي <strong>الإصبع الخنصر-البنصر</strong> ضغطه أخفّ.</li>
 <li>حطّي كمية بحجم حبّة الأرز تحت كل عين.</li>
 <li>اضغطي بلطف من الزاوية الخارجية للداخل، وبعدها لعظمة الحاجب.</li>
-<li>لا تفركي أو تشدّي — هاد بيخلق خطوط دقيقة مع الوقت.</li>
+<li>لا تفركي أو تشدّي, هاد بيخلق خطوط دقيقة مع الوقت.</li>
 <li>استنّي دقيقة قبل ما تحطّي المرطّب.</li>
 </ol>
 
@@ -1045,7 +1045,7 @@ export const NEW_BLOGS: BlogSeed[] = [
       "التونرات الكورية بترطّب مش بتجفّف. اعرفي الفرق، طريقة الـ 7-skin، وأحسن التونرات الكورية لكل نوع بشرة.",
     tags_ar: ["تونر كوري", "تونر مرطّب", "طريقة 7-skin", "أساسيات K-beauty"],
     content: `<h2>The Old Toner Was a Mistake</h2>
-<p>If you grew up with toners that burned, smelled like alcohol, and left your skin tight — that wasn't doing you any favors. Western "astringent" toners were designed to strip oil. They worked, but they also damaged the skin barrier.</p>
+<p>If you grew up with toners that burned, smelled like alcohol, and left your skin tight, that wasn't doing you any favors. Western "astringent" toners were designed to strip oil. They worked, but they also damaged the skin barrier.</p>
 <p>Korean toners are a completely different product. They're <strong>hydrating, pH-balancing essences in toner form</strong>.</p>
 
 <h2>What a Korean Toner Actually Does</h2>
@@ -1064,26 +1064,26 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h3>Dry Skin</h3>
 <ul>
-<li><strong>Hada Labo Gokujyun Toner</strong> — five types of hyaluronic acid.</li>
-<li><strong>Beauty of Joseon Glow Replenishing Rice Milk</strong> — rice extract for soft hydration.</li>
+<li><strong>Hada Labo Gokujyun Toner</strong> five types of hyaluronic acid.</li>
+<li><strong>Beauty of Joseon Glow Replenishing Rice Milk</strong> rice extract for soft hydration.</li>
 </ul>
 
 <h3>Oily / Acne-Prone</h3>
 <ul>
-<li><strong>SKIN1004 Madagascar Centella Toning Toner</strong> — centella for breakouts.</li>
-<li><strong>Some By Mi AHA-BHA-PHA 30 Days Miracle Toner</strong> — gentle exfoliating toner.</li>
+<li><strong>SKIN1004 Madagascar Centella Toning Toner</strong> centella for breakouts.</li>
+<li><strong>Some By Mi AHA-BHA-PHA 30 Days Miracle Toner</strong> gentle exfoliating toner.</li>
 </ul>
 
 <h3>Sensitive Skin</h3>
 <ul>
-<li><strong>Anua Heartleaf 77% Soothing Toner</strong> — calms redness.</li>
-<li><strong>Pyunkang Yul Essence Toner</strong> — milk vetch, just five ingredients.</li>
+<li><strong>Anua Heartleaf 77% Soothing Toner</strong> calms redness.</li>
+<li><strong>Pyunkang Yul Essence Toner</strong> milk vetch, just five ingredients.</li>
 </ul>
 
 <h3>Mature / Brightening</h3>
 <ul>
-<li><strong>COSRX Galactomyces 95 Tone Balancing Essence</strong> — fermented yeast for glow.</li>
-<li><strong>Beauty of Joseon Glow Replenishing Rice Milk</strong> — also brightens.</li>
+<li><strong>COSRX Galactomyces 95 Tone Balancing Essence</strong> fermented yeast for glow.</li>
+<li><strong>Beauty of Joseon Glow Replenishing Rice Milk</strong> also brightens.</li>
 </ul>
 
 <h2>How to Apply</h2>
@@ -1107,7 +1107,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h2>Storage and Shelf Life</h2>
 <p>Korean toners don't need refrigeration, but keeping them cool in summer feels great on skin and extends potency. Most have a 12-month shelf life once opened.</p>`,
     content_ar: `<h2>التونر القديم كان غلطة</h2>
-<p>إذا تربيتي على تونرات كانت بتحرق، بتشمّي ريحة كحول، وبتترك بشرتك مشدودة — هاد ما كان بيعمل إلك معروف. التونرات الغربية "القابضة" كانت مصمّمة لتزيل الزيوت. اشتغلت، بس كمان دمّرت حاجز البشرة.</p>
+<p>إذا تربيتي على تونرات كانت بتحرق، بتشمّي ريحة كحول، وبتترك بشرتك مشدودة, هاد ما كان بيعمل إلك معروف. التونرات الغربية "القابضة" كانت مصمّمة لتزيل الزيوت. اشتغلت، بس كمان دمّرت حاجز البشرة.</p>
 <p>التونرات الكورية منتج مختلف تماماً. هي <strong>إسنسات مرطّبة وموازنة للحموضة بقوام تونر</strong>.</p>
 
 <h2>إيش بيعمل التونر الكوري فعلاً</h2>
@@ -1126,26 +1126,26 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h3>بشرة جافة</h3>
 <ul>
-<li><strong>Hada Labo Gokujyun Toner</strong> — خمس أنواع هيالورونيك.</li>
-<li><strong>Beauty of Joseon Glow Replenishing Rice Milk</strong> — خلاصة الأرز للترطيب الناعم.</li>
+<li><strong>Hada Labo Gokujyun Toner</strong> خمس أنواع هيالورونيك.</li>
+<li><strong>Beauty of Joseon Glow Replenishing Rice Milk</strong> خلاصة الأرز للترطيب الناعم.</li>
 </ul>
 
 <h3>دهنية / معرّضة لحب الشباب</h3>
 <ul>
-<li><strong>SKIN1004 Madagascar Centella Toning Toner</strong> — سنتيلا للحبوب.</li>
-<li><strong>Some By Mi AHA-BHA-PHA 30 Days Miracle Toner</strong> — تونر تقشير لطيف.</li>
+<li><strong>SKIN1004 Madagascar Centella Toning Toner</strong> سنتيلا للحبوب.</li>
+<li><strong>Some By Mi AHA-BHA-PHA 30 Days Miracle Toner</strong> تونر تقشير لطيف.</li>
 </ul>
 
 <h3>بشرة حسّاسة</h3>
 <ul>
-<li><strong>Anua Heartleaf 77% Soothing Toner</strong> — يهدّي الاحمرار.</li>
-<li><strong>Pyunkang Yul Essence Toner</strong> — milk vetch، خمس مكوّنات بس.</li>
+<li><strong>Anua Heartleaf 77% Soothing Toner</strong> يهدّي الاحمرار.</li>
+<li><strong>Pyunkang Yul Essence Toner</strong> milk vetch، خمس مكوّنات بس.</li>
 </ul>
 
 <h3>ناضجة / مفتّحة</h3>
 <ul>
-<li><strong>COSRX Galactomyces 95 Tone Balancing Essence</strong> — خميرة للوهج.</li>
-<li><strong>Beauty of Joseon Glow Replenishing Rice Milk</strong> — كمان بيفتّح.</li>
+<li><strong>COSRX Galactomyces 95 Tone Balancing Essence</strong> خميرة للوهج.</li>
+<li><strong>Beauty of Joseon Glow Replenishing Rice Milk</strong> كمان بيفتّح.</li>
 </ul>
 
 <h2>كيف تطبّقيه</h2>
@@ -1174,7 +1174,7 @@ export const NEW_BLOGS: BlogSeed[] = [
     slug: "ultimate-guide-korean-essences",
     title: "The Ultimate Guide to Korean Essences",
     excerpt:
-      "An essence is the heart of every Korean skincare routine — but most people skip it because they don't know what it does. Here's everything you need.",
+      "An essence is the heart of every Korean skincare routine, but most people skip it because they don't know what it does. Here's everything you need.",
     seo_title: "Korean Essences: The Complete Guide for 2026 | GlowReaJo",
     seo_description:
       "What is an essence, why it's different from toner and serum, and the best Korean essences for every skin type. The K-beauty step that changes your skin.",
@@ -1182,13 +1182,13 @@ export const NEW_BLOGS: BlogSeed[] = [
     cover_image: COVERS.serum1,
     title_ar: "الدليل الشامل للإسنسات الكورية",
     excerpt_ar:
-      "الإسنس قلب كل روتين عناية كوري — بس أغلب الناس بتتخطّاه لأنّها ما بتعرف إيش بيعمل. هاد كل اللي بدّك تعرفيه.",
+      "الإسنس قلب كل روتين عناية كوري, بس أغلب الناس بتتخطّاه لأنّها ما بتعرف إيش بيعمل. هاد كل اللي بدّك تعرفيه.",
     seo_title_ar: "الإسنسات الكورية: الدليل الشامل 2026 | غلو ريجو",
     seo_description_ar:
       "إيش الإسنس، ليش مختلف عن التونر والسيروم، وأحسن الإسنسات الكورية لكل نوع بشرة. الخطوة الكورية اللي بتغيّر بشرتك.",
     tags_ar: ["إسنس", "عناية كورية", "K-beauty", "دليل عناية", "ترطيب"],
     content: `<h2>What Is an Essence?</h2>
-<p>An essence is a lightweight, watery liquid that sits between toner and serum. It's the "soul" of Korean skincare — the step Korean dermatologists insist no routine should skip. Essences hydrate, condition, and deliver concentrated actives to skin that's already prepped.</p>
+<p>An essence is a lightweight, watery liquid that sits between toner and serum. It's the "soul" of Korean skincare, the step Korean dermatologists insist no routine should skip. Essences hydrate, condition, and deliver concentrated actives to skin that's already prepped.</p>
 <p>Think of it like this: toner is a base layer, essence is the treatment, serum is the targeted fix.</p>
 
 <h2>Essence vs Toner vs Serum</h2>
@@ -1215,23 +1215,23 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>Top Korean Essences</h2>
 <ul>
-<li><strong>SK-II Facial Treatment Essence</strong> — the original (and pricey) Pitera essence.</li>
-<li><strong>COSRX Advanced Snail 96 Mucin Power Essence</strong> — affordable, cult-favorite.</li>
-<li><strong>Missha Time Revolution The First Treatment Essence</strong> — barrier repair.</li>
-<li><strong>I'm From Mugwort Essence</strong> — calming for sensitive skin.</li>
-<li><strong>Beauty of Joseon Glow Replenishing Rice Milk</strong> — rice-based brightening.</li>
+<li><strong>SK-II Facial Treatment Essence</strong> the original (and pricey) Pitera essence.</li>
+<li><strong>COSRX Advanced Snail 96 Mucin Power Essence</strong> affordable, cult-favorite.</li>
+<li><strong>Missha Time Revolution The First Treatment Essence</strong> barrier repair.</li>
+<li><strong>I'm From Mugwort Essence</strong> calming for sensitive skin.</li>
+<li><strong>Beauty of Joseon Glow Replenishing Rice Milk</strong> rice-based brightening.</li>
 </ul>
 
 <h2>How to Apply an Essence</h2>
 <ol>
 <li>After toner, while skin is still slightly damp.</li>
 <li>Pour a coin-sized amount into your palms.</li>
-<li>Press into face — don't rub.</li>
+<li>Press into face, don't rub.</li>
 <li>Wait 30-60 seconds before the next step.</li>
 </ol>
 
 <h2>Can You Use Two Essences?</h2>
-<p>Yes — this is the famous "essence + serum" Korean stack. A hydrating essence (like snail mucin) followed by a targeted serum (like vitamin C) is a power combination. Just make sure the textures go from thinnest to thickest.</p>
+<p>Yes, this is the famous "essence + serum" Korean stack. A hydrating essence (like snail mucin) followed by a targeted serum (like vitamin C) is a power combination. Just make sure the textures go from thinnest to thickest.</p>
 
 <h2>When You'll See Results</h2>
 <p>Hydration improves <strong>immediately</strong>. Brightening shows in <strong>3-4 weeks</strong>. Texture refinement and visible glow take <strong>6-8 weeks</strong>. Korean essences are about consistency, not quick fixes.</p>
@@ -1239,7 +1239,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h2>The Skip-an-Essence Mistake</h2>
 <p>Many newcomers to K-beauty go straight from toner to serum, thinking essence is "just another step." But essence preps the skin to absorb serum at maximum efficiency. Without it, your serum is doing 60% of the work it could.</p>`,
     content_ar: `<h2>إيش هو الإسنس؟</h2>
-<p>الإسنس سائل خفيف ومائي بيجي بين التونر والسيروم. هو "روح" العناية الكورية — الخطوة اللي أطبّاء الجلد الكوريين بصرّوا إنّ ولا روتين لازم يتخطّاها. الإسنسات بترطّب، تغذّي، وتوصل مكوّنات نشطة مركّزة لبشرة محضّرة.</p>
+<p>الإسنس سائل خفيف ومائي بيجي بين التونر والسيروم. هو "روح" العناية الكورية, الخطوة اللي أطبّاء الجلد الكوريين بصرّوا إنّ ولا روتين لازم يتخطّاها. الإسنسات بترطّب، تغذّي، وتوصل مكوّنات نشطة مركّزة لبشرة محضّرة.</p>
 <p>فكّري فيها هيك: التونر طبقة أساس، الإسنس العلاج، السيروم الإصلاح المستهدف.</p>
 
 <h2>إسنس مقابل تونر مقابل سيروم</h2>
@@ -1266,23 +1266,23 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>أحسن الإسنسات الكورية</h2>
 <ul>
-<li><strong>SK-II Facial Treatment Essence</strong> — الأصل (وغالي) Pitera.</li>
-<li><strong>COSRX Advanced Snail 96 Mucin Power Essence</strong> — اقتصادي، مفضّل الجمهور.</li>
-<li><strong>Missha Time Revolution The First Treatment Essence</strong> — إصلاح الحاجز.</li>
-<li><strong>I'm From Mugwort Essence</strong> — مهدّي للبشرة الحسّاسة.</li>
-<li><strong>Beauty of Joseon Glow Replenishing Rice Milk</strong> — تفتيح بالأرز.</li>
+<li><strong>SK-II Facial Treatment Essence</strong> الأصل (وغالي) Pitera.</li>
+<li><strong>COSRX Advanced Snail 96 Mucin Power Essence</strong> اقتصادي، مفضّل الجمهور.</li>
+<li><strong>Missha Time Revolution The First Treatment Essence</strong> إصلاح الحاجز.</li>
+<li><strong>I'm From Mugwort Essence</strong> مهدّي للبشرة الحسّاسة.</li>
+<li><strong>Beauty of Joseon Glow Replenishing Rice Milk</strong> تفتيح بالأرز.</li>
 </ul>
 
 <h2>كيف تطبّقي الإسنس</h2>
 <ol>
 <li>بعد التونر، والبشرة لسا رطبة شويّ.</li>
 <li>صبّي كميّة بحجم قطعة نقد براحة يدك.</li>
-<li>اضغطيها على الوجه — ما تفركي.</li>
+<li>اضغطيها على الوجه, ما تفركي.</li>
 <li>استنّي 30-60 ثانية قبل الخطوة الجاي.</li>
 </ol>
 
 <h2>هل ممكن تستعملي إسنسين؟</h2>
-<p>أيوا — هاي تركيبة "الإسنس + السيروم" الكورية الشهيرة. إسنس مرطّب (زي مخاط الحلزون) بعدها سيروم مستهدف (زي فيتامين C) تركيبة قوية. بس تأكّدي إنّ القوامات بتمشي من الأخفّ للأسمك.</p>
+<p>أيوا, هاي تركيبة "الإسنس + السيروم" الكورية الشهيرة. إسنس مرطّب (زي مخاط الحلزون) بعدها سيروم مستهدف (زي فيتامين C) تركيبة قوية. بس تأكّدي إنّ القوامات بتمشي من الأخفّ للأسمك.</p>
 
 <h2>متى رح تشوفي نتائج</h2>
 <p>الترطيب بتحسّن <strong>فوراً</strong>. التفتيح بيبيّن خلال <strong>3-4 أسابيع</strong>. تنعيم القوام والوهج الواضح بياخدوا <strong>6-8 أسابيع</strong>. الإسنسات الكورية عن الاستمرارية، مش الحلول السريعة.</p>
@@ -1309,7 +1309,7 @@ export const NEW_BLOGS: BlogSeed[] = [
       "علامات حاجز بشرة متضرّر وكيف تصلحيه بالسيراميدات، السنتيلا، ومخاط الحلزون. روتين تعافي كوري 4 أسابيع.",
     tags_ar: ["حاجز البشرة", "بشرة متضرّرة", "سيراميدات", "عناية كورية", "إصلاح"],
     content: `<h2>What Is the Skin Barrier?</h2>
-<p>Your skin barrier is the outermost layer — a wall of skin cells (corneocytes) held together by lipids (ceramides, cholesterol, fatty acids). Its job is to keep moisture in and irritants out. When it's healthy, your skin is smooth, hydrated, and resilient. When it's damaged, everything stings.</p>
+<p>Your skin barrier is the outermost layer, a wall of skin cells (corneocytes) held together by lipids (ceramides, cholesterol, fatty acids). Its job is to keep moisture in and irritants out. When it's healthy, your skin is smooth, hydrated, and resilient. When it's damaged, everything stings.</p>
 
 <h2>Signs Your Barrier Is Damaged</h2>
 <ul>
@@ -1335,7 +1335,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h3>Week 1: Stop Everything Active</h3>
 <ul>
-<li>Cream cleanser only — no foam, no acids.</li>
+<li>Cream cleanser only, no foam, no acids.</li>
 <li>Hydrating toner (no actives).</li>
 <li>Ceramide moisturizer applied 2-3x daily.</li>
 <li>Sunscreen.</li>
@@ -1359,26 +1359,26 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h3>Week 4: Slowly Reintroduce Actives</h3>
 <ul>
 <li>If everything looks calm, you can use a low-dose niacinamide (5%).</li>
-<li>Vitamin C can return — but use a buffered form like sodium ascorbyl phosphate.</li>
+<li>Vitamin C can return, but use a buffered form like sodium ascorbyl phosphate.</li>
 <li>Still skip retinol and strong acids for one more week.</li>
 </ul>
 
 <h2>Star Repair Ingredients</h2>
 <ul>
-<li><strong>Ceramides</strong> — rebuild the wall.</li>
-<li><strong>Centella asiatica</strong> — anti-inflammatory.</li>
-<li><strong>Madecassoside</strong> — extract of centella, deeply soothing.</li>
-<li><strong>Panthenol (B5)</strong> — heals micro-damage.</li>
-<li><strong>Snail mucin</strong> — repair and barrier strengthening.</li>
-<li><strong>Beta-glucan</strong> — anti-inflammatory polysaccharide.</li>
+<li><strong>Ceramides</strong> rebuild the wall.</li>
+<li><strong>Centella asiatica</strong> anti-inflammatory.</li>
+<li><strong>Madecassoside</strong> extract of centella, deeply soothing.</li>
+<li><strong>Panthenol (B5)</strong> heals micro-damage.</li>
+<li><strong>Snail mucin</strong> repair and barrier strengthening.</li>
+<li><strong>Beta-glucan</strong> anti-inflammatory polysaccharide.</li>
 </ul>
 
 <h2>Top Korean Barrier-Repair Products</h2>
 <ul>
-<li><strong>Dr.Jart+ Ceramidin Cream</strong> — ceramides, holy-grail for damaged skin.</li>
-<li><strong>SKIN1004 Centella Ampoule</strong> — concentrated soothing.</li>
-<li><strong>COSRX Snail 96 Mucin</strong> — barrier repair essence.</li>
-<li><strong>Pyunkang Yul Moisture Cream</strong> — minimalist, no fragrance.</li>
+<li><strong>Dr.Jart+ Ceramidin Cream</strong> ceramides, holy-grail for damaged skin.</li>
+<li><strong>SKIN1004 Centella Ampoule</strong> concentrated soothing.</li>
+<li><strong>COSRX Snail 96 Mucin</strong> barrier repair essence.</li>
+<li><strong>Pyunkang Yul Moisture Cream</strong> minimalist, no fragrance.</li>
 </ul>
 
 <h2>What NOT to Do While Healing</h2>
@@ -1386,13 +1386,13 @@ export const NEW_BLOGS: BlogSeed[] = [
 <li>Don't try a new product. You can't tell what's reacting.</li>
 <li>Don't go to a spa for chemical peels.</li>
 <li>Don't use cleansing brushes or konjac sponges.</li>
-<li>Don't moisturize less to "let it dry out" — that's the worst advice.</li>
+<li>Don't moisturize less to "let it dry out", that's the worst advice.</li>
 </ul>
 
 <h2>How Long for Full Recovery</h2>
 <p>Mild damage: <strong>2-4 weeks</strong>. Moderate: <strong>4-8 weeks</strong>. Severe (after a chemical burn or aggressive routine): <strong>3-6 months</strong>. The key is patience. Most people get impatient and reintroduce actives at week 2, then the damage returns.</p>`,
     content_ar: `<h2>إيش هو حاجز البشرة؟</h2>
-<p>حاجز بشرتك هو الطبقة الخارجية — جدار من خلايا الجلد (الكوريوسايتس) ممسوكة ببعض بالليبيدات (سيراميدات، كوليسترول، أحماض دهنية). وظيفته يحبس الرطوبة جوا والمهيّجات برّا. لمّا يكون سليم، بشرتك ناعمة، مرطّبة، ومرنة. لمّا يتضرّر، كل اشي بيوخز.</p>
+<p>حاجز بشرتك هو الطبقة الخارجية, جدار من خلايا الجلد (الكوريوسايتس) ممسوكة ببعض بالليبيدات (سيراميدات، كوليسترول، أحماض دهنية). وظيفته يحبس الرطوبة جوا والمهيّجات برّا. لمّا يكون سليم، بشرتك ناعمة، مرطّبة، ومرنة. لمّا يتضرّر، كل اشي بيوخز.</p>
 
 <h2>علامات إنّ حاجزك متضرّر</h2>
 <ul>
@@ -1418,7 +1418,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h3>الأسبوع 1: أوقفي كل شي نشط</h3>
 <ul>
-<li>منظّف كريمي فقط — لا رغوة، لا أحماض.</li>
+<li>منظّف كريمي فقط, لا رغوة، لا أحماض.</li>
 <li>تونر مرطّب (بلا مكوّنات نشطة).</li>
 <li>مرطّب سيراميد طبّقيه 2-3 مرات باليوم.</li>
 <li>واقي شمس.</li>
@@ -1442,26 +1442,26 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h3>الأسبوع 4: ارجاع المكوّنات النشطة ببطء</h3>
 <ul>
 <li>إذا كل شي بيبيّن هادي، ممكن تستعملي نياسيناميد بجرعة منخفضة (5%).</li>
-<li>فيتامين C ممكن يرجع — بس استعملي صيغة مخفّفة زي صوديوم أسكوربيل فوسفات.</li>
+<li>فيتامين C ممكن يرجع, بس استعملي صيغة مخفّفة زي صوديوم أسكوربيل فوسفات.</li>
 <li>لسا تجاهلي الريتينول والأحماض القوية لأسبوع إضافي.</li>
 </ul>
 
 <h2>المكوّنات نجوم الإصلاح</h2>
 <ul>
-<li><strong>السيراميدات</strong> — بتعيد بناء الجدار.</li>
-<li><strong>السنتيلا أسياتيكا</strong> — مضاد للالتهاب.</li>
-<li><strong>الماديكاسوسايد</strong> — خلاصة السنتيلا، مهدّي بعمق.</li>
-<li><strong>البانثينول (B5)</strong> — يشفي الضرر الميكروي.</li>
-<li><strong>مخاط الحلزون</strong> — إصلاح وتقوية الحاجز.</li>
-<li><strong>بيتا-جلوكان</strong> — سكّر متعدّد مضاد للالتهاب.</li>
+<li><strong>السيراميدات</strong> بتعيد بناء الجدار.</li>
+<li><strong>السنتيلا أسياتيكا</strong> مضاد للالتهاب.</li>
+<li><strong>الماديكاسوسايد</strong> خلاصة السنتيلا، مهدّي بعمق.</li>
+<li><strong>البانثينول (B5)</strong> يشفي الضرر الميكروي.</li>
+<li><strong>مخاط الحلزون</strong> إصلاح وتقوية الحاجز.</li>
+<li><strong>بيتا-جلوكان</strong> سكّر متعدّد مضاد للالتهاب.</li>
 </ul>
 
 <h2>أحسن منتجات إصلاح الحاجز الكورية</h2>
 <ul>
-<li><strong>Dr.Jart+ Ceramidin Cream</strong> — سيراميدات، الحلّ المقدّس للبشرة المتضرّرة.</li>
-<li><strong>SKIN1004 Centella Ampoule</strong> — تهدئة مركّزة.</li>
-<li><strong>COSRX Snail 96 Mucin</strong> — إسنس إصلاح الحاجز.</li>
-<li><strong>Pyunkang Yul Moisture Cream</strong> — بسيط، بلا عطر.</li>
+<li><strong>Dr.Jart+ Ceramidin Cream</strong> سيراميدات، الحلّ المقدّس للبشرة المتضرّرة.</li>
+<li><strong>SKIN1004 Centella Ampoule</strong> تهدئة مركّزة.</li>
+<li><strong>COSRX Snail 96 Mucin</strong> إسنس إصلاح الحاجز.</li>
+<li><strong>Pyunkang Yul Moisture Cream</strong> بسيط، بلا عطر.</li>
 </ul>
 
 <h2>إيش لا تعملي وأنتي بتشفي</h2>
@@ -1469,7 +1469,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <li>ما تجرّبي منتج جديد. ما تقدري تعرفي إيش بيعمل ردّة فعل.</li>
 <li>ما تروحي للسبا لتقشير كيميائي.</li>
 <li>ما تستعملي فراشي تنظيف أو إسفنج كونجاك.</li>
-<li>ما ترطّبي أقل عشان "تخلّيها تجفّ" — هاي أسوأ نصيحة.</li>
+<li>ما ترطّبي أقل عشان "تخلّيها تجفّ", هاي أسوأ نصيحة.</li>
 </ul>
 
 <h2>قدّيش بياخد التعافي الكامل</h2>
@@ -1494,28 +1494,28 @@ export const NEW_BLOGS: BlogSeed[] = [
       "حمض الترانيكساميك بفتّح الكلف، آثار حب الشباب، وبقع الشمس. اعرفي كيف تستعمليه بروتين K-beauty، مع إيش تجمعيه، وإيش تتجنّبي.",
     tags_ar: ["حمض ترانيكساميك", "تصبّغات", "بقع غامقة", "كلف", "عناية كورية"],
     content: `<h2>What Is Tranexamic Acid?</h2>
-<p>Tranexamic acid (TXA) was originally a medication for heavy bleeding. Dermatologists noticed it lightened pigmentation in patients, and the cosmetics industry took notice. It's now one of the most effective topical brighteners available — and it works on melasma, which is notoriously hard to treat.</p>
+<p>Tranexamic acid (TXA) was originally a medication for heavy bleeding. Dermatologists noticed it lightened pigmentation in patients, and the cosmetics industry took notice. It's now one of the most effective topical brighteners available, and it works on melasma, which is notoriously hard to treat.</p>
 
 <h2>How It Works</h2>
 <p>TXA blocks plasmin (an enzyme) and reduces the signaling between UV-stressed cells and melanocytes. Less signaling = less melanin = lighter pigmentation. It also calms inflammation, so it works on post-acne marks too.</p>
 
 <h2>Why Korean Skincare Loves It</h2>
-<p>Korean dermatologists have used oral TXA for years. The topical formulations became mainstream in K-beauty around 2022. The advantage over vitamin C: <strong>tranexamic acid doesn't oxidize, doesn't sting, and works on melasma</strong> — the type of pigmentation vitamin C struggles with.</p>
+<p>Korean dermatologists have used oral TXA for years. The topical formulations became mainstream in K-beauty around 2022. The advantage over vitamin C: <strong>tranexamic acid doesn't oxidize, doesn't sting, and works on melasma</strong> the type of pigmentation vitamin C struggles with.</p>
 
 <h2>What It Treats</h2>
 <ul>
-<li><strong>Melasma</strong> — the brown patches on cheeks, forehead, upper lip from hormones and sun.</li>
-<li><strong>Post-inflammatory hyperpigmentation</strong> — dark marks left after acne or scratches.</li>
-<li><strong>Sun spots</strong> — uneven brown freckling from years of UV.</li>
+<li><strong>Melasma</strong> the brown patches on cheeks, forehead, upper lip from hormones and sun.</li>
+<li><strong>Post-inflammatory hyperpigmentation</strong> dark marks left after acne or scratches.</li>
+<li><strong>Sun spots</strong> uneven brown freckling from years of UV.</li>
 <li><strong>Overall uneven tone.</strong></li>
 </ul>
 
 <h2>Korean Tranexamic Acid Products</h2>
 <ul>
-<li><strong>SKINMISO Pore Beauty TXA Toner</strong> — TXA + niacinamide.</li>
-<li><strong>Some By Mi V10 Vitamin Serum</strong> — TXA in a multi-vitamin blend.</li>
-<li><strong>Goodal Green Tangerine Vita C Dark Spot Serum</strong> — vitamin C + TXA combo.</li>
-<li><strong>Medicube AGE-R Booster Serum</strong> — TXA with peptides.</li>
+<li><strong>SKINMISO Pore Beauty TXA Toner</strong> TXA + niacinamide.</li>
+<li><strong>Some By Mi V10 Vitamin Serum</strong> TXA in a multi-vitamin blend.</li>
+<li><strong>Goodal Green Tangerine Vita C Dark Spot Serum</strong> vitamin C + TXA combo.</li>
+<li><strong>Medicube AGE-R Booster Serum</strong> TXA with peptides.</li>
 </ul>
 
 <h2>How to Use Tranexamic Acid</h2>
@@ -1524,20 +1524,20 @@ export const NEW_BLOGS: BlogSeed[] = [
 <li>Apply TXA serum to clean skin.</li>
 <li>Wait 1 minute.</li>
 <li>Continue with moisturizer.</li>
-<li>Sunscreen in the morning is essential — TXA doesn't make you sun-sensitive, but UV will undo all the lightening you're working for.</li>
+<li>Sunscreen in the morning is essential, TXA doesn't make you sun-sensitive, but UV will undo all the lightening you're working for.</li>
 </ol>
 
 <h2>What to Pair With</h2>
 <ul>
-<li><strong>Niacinamide</strong> — both lighten pigmentation through different paths. Use together morning or night.</li>
-<li><strong>Hyaluronic acid</strong> — hydration always pairs well.</li>
-<li><strong>Sunscreen</strong> — non-negotiable.</li>
+<li><strong>Niacinamide</strong> both lighten pigmentation through different paths. Use together morning or night.</li>
+<li><strong>Hyaluronic acid</strong> hydration always pairs well.</li>
+<li><strong>Sunscreen</strong> non-negotiable.</li>
 </ul>
 
 <h2>What to Avoid Pairing</h2>
 <ul>
-<li><strong>Strong AHA the same day</strong> — over-exfoliation cancels the benefit.</li>
-<li><strong>Retinol on the same night</strong> — can irritate. Alternate evenings instead.</li>
+<li><strong>Strong AHA the same day</strong> over-exfoliation cancels the benefit.</li>
+<li><strong>Retinol on the same night</strong> can irritate. Alternate evenings instead.</li>
 </ul>
 
 <h2>Expected Timeline</h2>
@@ -1554,28 +1554,28 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h2>Side Effects</h2>
 <p>TXA is one of the gentlest brighteners. Most users report no side effects. Sensitive skin may notice mild tingling at first; if so, start every other day for two weeks.</p>`,
     content_ar: `<h2>إيش هو حمض الترانيكساميك؟</h2>
-<p>حمض الترانيكساميك (TXA) كان أصلاً دوا للنزيف الشديد. أطبّاء الجلد لاحظوا إنّه بيفتّح التصبّغات عند المرضى، وصناعة مستحضرات التجميل لقطت. هلق هو واحد من أكثر المفتّحات الموضعية فعالية متوفّرة — وبشتغل على الكلف، اللي مشهور صعب علاجه.</p>
+<p>حمض الترانيكساميك (TXA) كان أصلاً دوا للنزيف الشديد. أطبّاء الجلد لاحظوا إنّه بيفتّح التصبّغات عند المرضى، وصناعة مستحضرات التجميل لقطت. هلق هو واحد من أكثر المفتّحات الموضعية فعالية متوفّرة, وبشتغل على الكلف، اللي مشهور صعب علاجه.</p>
 
 <h2>كيف بشتغل</h2>
 <p>TXA بيوقف البلازمين (إنزيم) ويقلّل الإشارة بين الخلايا المتضرّرة من الأشعة والميلانوسايتس. إشارة أقل = ميلانين أقل = تصبّغ أفتح. كمان بيهدّي الالتهاب، فبشتغل على آثار حب الشباب كمان.</p>
 
 <h2>ليش العناية الكورية بتحبه</h2>
-<p>أطبّاء الجلد الكوريين بستعملوا TXA الفموي من سنين. الصيغ الموضعية صارت رائجة بالـ K-beauty حوالي 2022. الميزة عن فيتامين C: <strong>حمض الترانيكساميك ما بتأكسد، ما بيوخز، وبشتغل على الكلف</strong> — نوع التصبّغ اللي فيتامين C بتعب معاه.</p>
+<p>أطبّاء الجلد الكوريين بستعملوا TXA الفموي من سنين. الصيغ الموضعية صارت رائجة بالـ K-beauty حوالي 2022. الميزة عن فيتامين C: <strong>حمض الترانيكساميك ما بتأكسد، ما بيوخز، وبشتغل على الكلف</strong> نوع التصبّغ اللي فيتامين C بتعب معاه.</p>
 
 <h2>إيش بعالج</h2>
 <ul>
-<li><strong>الكلف</strong> — البقع البنّية على الخدود، الجبهة، الشفة العليا من الهرمونات والشمس.</li>
-<li><strong>التصبّغات ما بعد الالتهاب</strong> — العلامات الغامقة اللي بتظلّ بعد الحبوب أو الخدوش.</li>
-<li><strong>بقع الشمس</strong> — نمش بنّي غير متساوي من سنين الأشعة.</li>
+<li><strong>الكلف</strong> البقع البنّية على الخدود، الجبهة، الشفة العليا من الهرمونات والشمس.</li>
+<li><strong>التصبّغات ما بعد الالتهاب</strong> العلامات الغامقة اللي بتظلّ بعد الحبوب أو الخدوش.</li>
+<li><strong>بقع الشمس</strong> نمش بنّي غير متساوي من سنين الأشعة.</li>
 <li><strong>اللون غير المتساوي بشكل عام.</strong></li>
 </ul>
 
 <h2>منتجات حمض الترانيكساميك الكورية</h2>
 <ul>
-<li><strong>SKINMISO Pore Beauty TXA Toner</strong> — TXA + نياسيناميد.</li>
-<li><strong>Some By Mi V10 Vitamin Serum</strong> — TXA بخليط متعدّد الفيتامينات.</li>
-<li><strong>Goodal Green Tangerine Vita C Dark Spot Serum</strong> — فيتامين C + TXA.</li>
-<li><strong>Medicube AGE-R Booster Serum</strong> — TXA مع ببتيدات.</li>
+<li><strong>SKINMISO Pore Beauty TXA Toner</strong> TXA + نياسيناميد.</li>
+<li><strong>Some By Mi V10 Vitamin Serum</strong> TXA بخليط متعدّد الفيتامينات.</li>
+<li><strong>Goodal Green Tangerine Vita C Dark Spot Serum</strong> فيتامين C + TXA.</li>
+<li><strong>Medicube AGE-R Booster Serum</strong> TXA مع ببتيدات.</li>
 </ul>
 
 <h2>كيف تستعملي حمض الترانيكساميك</h2>
@@ -1584,20 +1584,20 @@ export const NEW_BLOGS: BlogSeed[] = [
 <li>طبّقي سيروم TXA على بشرة نظيفة.</li>
 <li>استنّي دقيقة.</li>
 <li>كمّلي بالمرطّب.</li>
-<li>واقي الشمس بالصبح أساسي — TXA ما بخلّيك حسّاسة للشمس، بس الأشعة رح تلغي كل التفتيح اللي بتشتغلي عليه.</li>
+<li>واقي الشمس بالصبح أساسي, TXA ما بخلّيك حسّاسة للشمس، بس الأشعة رح تلغي كل التفتيح اللي بتشتغلي عليه.</li>
 </ol>
 
 <h2>إيش تجمعي معاه</h2>
 <ul>
-<li><strong>نياسيناميد</strong> — كلاهما بفتّح التصبّغ بطرق مختلفة. استعمليهم سوا صبح أو مساء.</li>
-<li><strong>حمض الهيالورونيك</strong> — الترطيب دايماً بناسب.</li>
-<li><strong>واقي شمس</strong> — غير قابل للتفاوض.</li>
+<li><strong>نياسيناميد</strong> كلاهما بفتّح التصبّغ بطرق مختلفة. استعمليهم سوا صبح أو مساء.</li>
+<li><strong>حمض الهيالورونيك</strong> الترطيب دايماً بناسب.</li>
+<li><strong>واقي شمس</strong> غير قابل للتفاوض.</li>
 </ul>
 
 <h2>إيش تتجنّبي تجمعي معاه</h2>
 <ul>
-<li><strong>AHA قوي بنفس اليوم</strong> — الإفراط بالتقشير بيلغي الفايدة.</li>
-<li><strong>ريتينول بنفس الليلة</strong> — ممكن يهيّج. بدّلي الأمسيات بدالاً من ذلك.</li>
+<li><strong>AHA قوي بنفس اليوم</strong> الإفراط بالتقشير بيلغي الفايدة.</li>
+<li><strong>ريتينول بنفس الليلة</strong> ممكن يهيّج. بدّلي الأمسيات بدالاً من ذلك.</li>
 </ul>
 
 <h2>الجدول الزمني المتوقّع</h2>
@@ -1619,7 +1619,7 @@ export const NEW_BLOGS: BlogSeed[] = [
     slug: "slugging-overnight-korean-skincare-hack",
     title: "Slugging: The Overnight Korean Skincare Hack Explained",
     excerpt:
-      "Slathering Vaseline on your face at night sounds wrong — until you try it. Here's why slugging works, who should do it, and the K-beauty alternatives.",
+      "Slathering Vaseline on your face at night sounds wrong, until you try it. Here's why slugging works, who should do it, and the K-beauty alternatives.",
     seo_title: "Slugging: The Overnight Korean Skincare Trend Explained",
     seo_description:
       "What is slugging, why it works, and the best K-beauty products for it. A complete guide to the overnight occlusive that's transforming dry skin.",
@@ -1627,13 +1627,13 @@ export const NEW_BLOGS: BlogSeed[] = [
     cover_image: COVERS.cream2,
     title_ar: "السلاغينغ: شرح الحيلة الكورية الليلية",
     excerpt_ar:
-      "وضع الفازلين على وجهك بالليل بيبيّن غلط — لحدّ ما تجرّبيه. هاد ليش السلاغينغ بشتغل، مين لازم يعمله، وبدائل الـ K-beauty.",
+      "وضع الفازلين على وجهك بالليل بيبيّن غلط, لحدّ ما تجرّبيه. هاد ليش السلاغينغ بشتغل، مين لازم يعمله، وبدائل الـ K-beauty.",
     seo_title_ar: "السلاغينغ: شرح الترند الكوري الليلي",
     seo_description_ar:
       "إيش هو السلاغينغ، ليش بشتغل، وأحسن منتجات K-beauty له. دليل شامل للقفل الليلي اللي بيحوّل البشرة الجافة.",
     tags_ar: ["سلاغينغ", "عناية ليلية", "بترولاتوم", "عناية كورية", "بشرة جافة"],
     content: `<h2>What Is Slugging?</h2>
-<p>Slugging is the K-beauty technique of finishing your nighttime routine with a thin layer of <strong>occlusive</strong> — usually petrolatum (Vaseline) or an equivalent. The occlusive seals everything underneath and prevents water loss overnight. You wake up with skin that looks glassy and feels deeply hydrated.</p>
+<p>Slugging is the K-beauty technique of finishing your nighttime routine with a thin layer of <strong>occlusive</strong> usually petrolatum (Vaseline) or an equivalent. The occlusive seals everything underneath and prevents water loss overnight. You wake up with skin that looks glassy and feels deeply hydrated.</p>
 
 <h2>Why It Works</h2>
 <p>Your skin loses <strong>up to 25% of its water</strong> overnight through transepidermal water loss. Occlusives reduce this by 99%. When you lock in moisturizer with petrolatum, the active ingredients underneath have all night to work without evaporating.</p>
@@ -1651,22 +1651,22 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ul>
 <li>Oily or acne-prone skin (it traps oil too).</li>
 <li>Active breakouts (it can worsen them).</li>
-<li>Anyone with fungal acne — petrolatum doesn't cause it but can trap fungi.</li>
+<li>Anyone with fungal acne, petrolatum doesn't cause it but can trap fungi.</li>
 </ul>
 
 <h2>The K-Beauty Slugging Step-by-Step</h2>
 <ol>
 <li>Complete your full evening routine: cleanse, tone, essence, serum, moisturizer.</li>
 <li>Wait 5 minutes for moisturizer to absorb.</li>
-<li>Take a thin layer of petrolatum or occlusive — pea-sized for the whole face.</li>
+<li>Take a thin layer of petrolatum or occlusive, pea-sized for the whole face.</li>
 <li>Warm between your fingers, then pat onto skin.</li>
 <li>Sleep on a clean pillowcase.</li>
 </ol>
 
 <h2>What to Slug With</h2>
 <ul>
-<li><strong>Vaseline Original</strong> — the OG. Pure petrolatum.</li>
-<li><strong>Aquaphor</strong> — petrolatum + lanolin + glycerin.</li>
+<li><strong>Vaseline Original</strong> the OG. Pure petrolatum.</li>
+<li><strong>Aquaphor</strong> petrolatum + lanolin + glycerin.</li>
 <li><strong>Korean alternatives:</strong>
 <ul>
 <li>COSRX Advanced Snail 92 All-in-one Cream (less heavy, more skincare-y).</li>
@@ -1678,7 +1678,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>What NOT to Slug Over</h2>
 <ul>
-<li><strong>Retinol or strong acids the same night.</strong> Occlusives intensify everything underneath — including irritation.</li>
+<li><strong>Retinol or strong acids the same night.</strong> Occlusives intensify everything underneath, including irritation.</li>
 <li><strong>A face still wet from toner.</strong> Wait for absorption.</li>
 <li><strong>Active spot treatments.</strong> Slugging traps them and can sensitize the area.</li>
 </ul>
@@ -1691,7 +1691,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 </ul>
 
 <h2>What to Expect</h2>
-<p>The first morning is the most dramatic — skin looks visibly plumper and feels velvet-soft. Long-term, slugging:</p>
+<p>The first morning is the most dramatic, skin looks visibly plumper and feels velvet-soft. Long-term, slugging:</p>
 <ul>
 <li>Strengthens the skin barrier.</li>
 <li>Reduces fine lines from dehydration.</li>
@@ -1707,7 +1707,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <li>Not changing your pillowcase often.</li>
 </ul>`,
     content_ar: `<h2>إيش هو السلاغينغ؟</h2>
-<p>السلاغينغ تقنية K-beauty تختمي روتينك الليلي بطبقة رفيعة من <strong>مادة قافلة</strong> — غالباً البترولاتوم (فازلين) أو ما يعادله. القافل بيقفل كل اشي تحته ويمنع فقدان الماي بالليل. بتصحي ببشرة لامعة بتحسّيها مرطّبة بعمق.</p>
+<p>السلاغينغ تقنية K-beauty تختمي روتينك الليلي بطبقة رفيعة من <strong>مادة قافلة</strong> غالباً البترولاتوم (فازلين) أو ما يعادله. القافل بيقفل كل اشي تحته ويمنع فقدان الماي بالليل. بتصحي ببشرة لامعة بتحسّيها مرطّبة بعمق.</p>
 
 <h2>ليش بشتغل</h2>
 <p>بشرتك بتفقد <strong>لحد 25% من ميّتها</strong> بالليل من خلال فقدان الماء عبر البشرة. القوافل بتقلّل هاد 99%. لمّا تقفلي المرطّب بالبترولاتوم، المكوّنات النشطة تحته عندها كل الليل لتشتغل بدون تبخّر.</p>
@@ -1725,22 +1725,22 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ul>
 <li>بشرة دهنية أو معرّضة لحب الشباب (بيحبس الزيوت كمان).</li>
 <li>حبوب نشطة (ممكن يسوّيها أسوأ).</li>
-<li>أيّ حدا عنده حب شباب فطري — البترولاتوم ما بسبّبه بس ممكن يحبس الفطريات.</li>
+<li>أيّ حدا عنده حب شباب فطري, البترولاتوم ما بسبّبه بس ممكن يحبس الفطريات.</li>
 </ul>
 
 <h2>خطوات السلاغينغ في K-beauty</h2>
 <ol>
 <li>كملّي روتينك المسائي الكامل: تنظيف، تونر، إسنس، سيروم، مرطّب.</li>
 <li>استنّي 5 دقايق لما يمتص المرطّب.</li>
-<li>خدي طبقة رفيعة من البترولاتوم أو القافل — بحجم حبّة البازيلا للوجه كلّه.</li>
+<li>خدي طبقة رفيعة من البترولاتوم أو القافل, بحجم حبّة البازيلا للوجه كلّه.</li>
 <li>سخّنيه بين أصابعك، وبعدها ربّتيه على البشرة.</li>
 <li>نامي على كيس مخدّة نظيف.</li>
 </ol>
 
 <h2>إيش تعملي سلاغينغ فيه</h2>
 <ul>
-<li><strong>Vaseline Original</strong> — الأصلي. بترولاتوم نقي.</li>
-<li><strong>Aquaphor</strong> — بترولاتوم + لانولين + جلسرين.</li>
+<li><strong>Vaseline Original</strong> الأصلي. بترولاتوم نقي.</li>
+<li><strong>Aquaphor</strong> بترولاتوم + لانولين + جلسرين.</li>
 <li><strong>بدائل كورية:</strong>
 <ul>
 <li>COSRX Advanced Snail 92 All-in-one Cream (أقل ثقالة، أكثر اشي عناية).</li>
@@ -1752,7 +1752,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>إيش ما تعملي سلاغينغ فوقه</h2>
 <ul>
-<li><strong>ريتينول أو أحماض قوية بنفس الليلة.</strong> القوافل بتكثّف كل اشي تحتها — بما فيه التهيّج.</li>
+<li><strong>ريتينول أو أحماض قوية بنفس الليلة.</strong> القوافل بتكثّف كل اشي تحتها, بما فيه التهيّج.</li>
 <li><strong>وجه لسا رطب من التونر.</strong> استنّي الامتصاص.</li>
 <li><strong>علاجات بقع نشطة.</strong> السلاغينغ بيحبسهم وممكن يحسّس المنطقة.</li>
 </ul>
@@ -1765,7 +1765,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 </ul>
 
 <h2>إيش توقّعي</h2>
-<p>الصباح الأوّل الأكثر دراماتيكية — البشرة بتبيّن أكثر امتلاء بشكل واضح وبتحسّيها ناعمة كالمخمل. على المدى الطويل، السلاغينغ:</p>
+<p>الصباح الأوّل الأكثر دراماتيكية, البشرة بتبيّن أكثر امتلاء بشكل واضح وبتحسّيها ناعمة كالمخمل. على المدى الطويل، السلاغينغ:</p>
 <ul>
 <li>يقوّي حاجز البشرة.</li>
 <li>يقلّل الخطوط الدقيقة من الجفاف.</li>
@@ -1786,7 +1786,7 @@ export const NEW_BLOGS: BlogSeed[] = [
     slug: "korean-sleeping-masks-overnight-treatments",
     title: "Korean Sleeping Masks: Overnight Treatments That Actually Work",
     excerpt:
-      "Sleeping masks are the lazy genius of K-beauty — apply at night, wake up glowing. Here's why they work and the best Korean sleeping masks of 2026.",
+      "Sleeping masks are the lazy genius of K-beauty, apply at night, wake up glowing. Here's why they work and the best Korean sleeping masks of 2026.",
     seo_title: "Korean Sleeping Masks: Best Overnight K-Beauty Treatments 2026",
     seo_description:
       "Korean sleeping masks are the overnight skin treatment that delivers visible results. Best picks for dry, oily, dull, and acne-prone skin.",
@@ -1794,13 +1794,13 @@ export const NEW_BLOGS: BlogSeed[] = [
     cover_image: COVERS.spa1,
     title_ar: "ماسكات النوم الكورية: علاجات ليلية بتشتغل فعلاً",
     excerpt_ar:
-      "ماسكات النوم هي العبقري الكسلان للـ K-beauty — طبّقيها بالليل، صحّي مشعّة. هاد ليش بتشتغل وأحسن ماسكات النوم الكورية 2026.",
+      "ماسكات النوم هي العبقري الكسلان للـ K-beauty, طبّقيها بالليل، صحّي مشعّة. هاد ليش بتشتغل وأحسن ماسكات النوم الكورية 2026.",
     seo_title_ar: "ماسكات النوم الكورية: أحسن علاجات K-beauty الليلية 2026",
     seo_description_ar:
       "ماسكات النوم الكورية هي العلاج الليلي للبشرة اللي بيعطي نتائج واضحة. أحسن الاختيارات للبشرة الجافة، الدهنية، الباهتة، ومعرّضة الحبوب.",
     tags_ar: ["ماسك نوم", "علاج ليلي", "عناية كورية", "K-beauty", "وهج"],
     content: `<h2>What Is a Sleeping Mask?</h2>
-<p>A sleeping mask (also called overnight mask or sleeping pack) is a leave-on treatment you apply as the last step of your night routine. It's lighter than slugging with petrolatum but heavier than a regular moisturizer. The texture is usually a gel-cream or thick gel, and it works while you sleep — when your skin's regenerative activity peaks.</p>
+<p>A sleeping mask (also called overnight mask or sleeping pack) is a leave-on treatment you apply as the last step of your night routine. It's lighter than slugging with petrolatum but heavier than a regular moisturizer. The texture is usually a gel-cream or thick gel, and it works while you sleep, when your skin's regenerative activity peaks.</p>
 
 <h2>Why Korean Sleeping Masks Are Different</h2>
 <p>Western sleeping masks are usually heavy creams marketed as "night cream." Korean sleeping masks are <strong>treatment-focused</strong>: they have target actives (vitamin C, retinol alternatives, niacinamide, AHAs, peptides) plus an occlusive base that locks them in. The result: you wake up looking like you had a facial.</p>
@@ -1808,9 +1808,9 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h2>How to Use a Sleeping Mask</h2>
 <ol>
 <li>Apply as the <strong>last step</strong> of your evening routine (after moisturizer).</li>
-<li>Use the amount the brand recommends — usually a small dollop.</li>
+<li>Use the amount the brand recommends, usually a small dollop.</li>
 <li>Spread evenly, avoiding the eyes.</li>
-<li>Don't go to bed wet — let it absorb for 5 minutes first.</li>
+<li>Don't go to bed wet, let it absorb for 5 minutes first.</li>
 <li>Wash off in the morning with a gentle cleanser.</li>
 </ol>
 
@@ -1818,32 +1818,32 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h3>Dry Skin</h3>
 <ul>
-<li><strong>Laneige Water Sleeping Mask</strong> — the original Korean sleeping mask.</li>
-<li><strong>Tatcha Indigo Overnight Repair</strong> (Korean-inspired) — for super-dry skin.</li>
+<li><strong>Laneige Water Sleeping Mask</strong> the original Korean sleeping mask.</li>
+<li><strong>Tatcha Indigo Overnight Repair</strong> (Korean-inspired), for super-dry skin.</li>
 </ul>
 
 <h3>Dull / Tired Skin</h3>
 <ul>
-<li><strong>Laneige Vitamin C Sleeping Mask</strong> — brightens overnight.</li>
+<li><strong>Laneige Vitamin C Sleeping Mask</strong> brightens overnight.</li>
 <li><strong>Mediheal Vita Lightbeam Brightening Sleeping Mask</strong>.</li>
 </ul>
 
 <h3>Acne-Prone / Oily</h3>
 <ul>
-<li><strong>Innisfree Volcanic Sleeping Mask</strong> — pore-clarifying, BHA-based.</li>
+<li><strong>Innisfree Volcanic Sleeping Mask</strong> pore-clarifying, BHA-based.</li>
 <li><strong>Some By Mi AHA-BHA-PHA 30 Days Miracle Sleeping Mask</strong>.</li>
 </ul>
 
 <h3>Mature / Anti-Aging</h3>
 <ul>
-<li><strong>Sulwhasoo Overnight Vitalizing Mask</strong> — luxury option with ginseng.</li>
+<li><strong>Sulwhasoo Overnight Vitalizing Mask</strong> luxury option with ginseng.</li>
 <li><strong>The History of Whoo Bichup Sleeping Repair Mask</strong>.</li>
 </ul>
 
 <h3>Sensitive / Calming</h3>
 <ul>
-<li><strong>Laneige Cica Sleeping Mask</strong> — centella for redness.</li>
-<li><strong>I'm From Mugwort Cream</strong> — soothing botanical.</li>
+<li><strong>Laneige Cica Sleeping Mask</strong> centella for redness.</li>
+<li><strong>I'm From Mugwort Cream</strong> soothing botanical.</li>
 </ul>
 
 <h2>How Often to Use</h2>
@@ -1857,17 +1857,17 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ul>
 <li><strong>Skipping moisturizer underneath.</strong> The mask is a sealer, not a replacement.</li>
 <li><strong>Applying to dirty skin.</strong> Whatever you trap under the mask sits there all night.</li>
-<li><strong>Sleeping on a satin pillowcase.</strong> Save the mask for cotton pillowcases — satin doesn't absorb, and the mask transfers off your face.</li>
+<li><strong>Sleeping on a satin pillowcase.</strong> Save the mask for cotton pillowcases, satin doesn't absorb, and the mask transfers off your face.</li>
 <li><strong>Not removing in the morning.</strong> Leftover residue can cause buildup or breakouts.</li>
 </ul>
 
 <h2>Sleeping Mask vs Night Cream</h2>
-<p>A night cream is your standard moisturizer. A sleeping mask is a <strong>weekly or bi-weekly treatment</strong>. Think of the night cream as your daily multivitamin and the sleeping mask as a B12 shot — both useful, different purposes.</p>
+<p>A night cream is your standard moisturizer. A sleeping mask is a <strong>weekly or bi-weekly treatment</strong>. Think of the night cream as your daily multivitamin and the sleeping mask as a B12 shot, both useful, different purposes.</p>
 
 <h2>When You'll See Results</h2>
 <p>The morning after your first sleeping mask, your skin will look visibly plumper and more even. Long-term consistency (twice a week for 8 weeks) gives noticeable improvement in tone, texture, and hydration.</p>`,
     content_ar: `<h2>إيش هو ماسك النوم؟</h2>
-<p>ماسك النوم (كمان اسمه ماسك ليلي أو sleeping pack) علاج تتركيه على الوجه تطبّقيه كآخر خطوة بروتينك الليلي. أخفّ من السلاغينغ بالبترولاتوم بس أثقل من المرطّب العادي. القوام عادةً جل-كريم أو جل سميك، وبشتغل وأنتي نايمة — لمّا نشاط بشرتك التجديدي بيوصل لذروته.</p>
+<p>ماسك النوم (كمان اسمه ماسك ليلي أو sleeping pack) علاج تتركيه على الوجه تطبّقيه كآخر خطوة بروتينك الليلي. أخفّ من السلاغينغ بالبترولاتوم بس أثقل من المرطّب العادي. القوام عادةً جل-كريم أو جل سميك، وبشتغل وأنتي نايمة, لمّا نشاط بشرتك التجديدي بيوصل لذروته.</p>
 
 <h2>ليش ماسكات النوم الكورية مختلفة</h2>
 <p>ماسكات النوم الغربية غالباً كريمات ثقيلة بتسوّق كـ "كريم ليلي". ماسكات النوم الكورية <strong>بتركّز على العلاج</strong>: فيها مكوّنات نشطة مستهدفة (فيتامين C، بدائل ريتينول، نياسيناميد، AHA، ببتيدات) بالإضافة لقاعدة قافلة تقفلهم. النتيجة: بتصحي شكلك كأنّك عاملة فيشل.</p>
@@ -1875,9 +1875,9 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h2>كيف تستعملي ماسك النوم</h2>
 <ol>
 <li>طبّقيه كـ <strong>آخر خطوة</strong> بروتينك المسائي (بعد المرطّب).</li>
-<li>استعملي الكمّية اللي بنصح فيها الماركة — عادةً قطرة صغيرة.</li>
+<li>استعملي الكمّية اللي بنصح فيها الماركة, عادةً قطرة صغيرة.</li>
 <li>وزّعيه بالتساوي، تجنّبي العيون.</li>
-<li>ما تنامي وأنتي مبلولة — خلّيه يمتص لـ 5 دقايق أوّل.</li>
+<li>ما تنامي وأنتي مبلولة, خلّيه يمتص لـ 5 دقايق أوّل.</li>
 <li>اغسليه بالصبح بمنظّف لطيف.</li>
 </ol>
 
@@ -1885,32 +1885,32 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h3>بشرة جافّة</h3>
 <ul>
-<li><strong>Laneige Water Sleeping Mask</strong> — ماسك النوم الكوري الأصلي.</li>
-<li><strong>Tatcha Indigo Overnight Repair</strong> (بإلهام كوري) — للبشرة الجافة جداً.</li>
+<li><strong>Laneige Water Sleeping Mask</strong> ماسك النوم الكوري الأصلي.</li>
+<li><strong>Tatcha Indigo Overnight Repair</strong> (بإلهام كوري), للبشرة الجافة جداً.</li>
 </ul>
 
 <h3>بشرة باهتة / تعبانة</h3>
 <ul>
-<li><strong>Laneige Vitamin C Sleeping Mask</strong> — يفتّح بالليل.</li>
+<li><strong>Laneige Vitamin C Sleeping Mask</strong> يفتّح بالليل.</li>
 <li><strong>Mediheal Vita Lightbeam Brightening Sleeping Mask</strong>.</li>
 </ul>
 
 <h3>بشرة معرّضة لحب الشباب / دهنية</h3>
 <ul>
-<li><strong>Innisfree Volcanic Sleeping Mask</strong> — منظّف للمسامات، بـ BHA.</li>
+<li><strong>Innisfree Volcanic Sleeping Mask</strong> منظّف للمسامات، بـ BHA.</li>
 <li><strong>Some By Mi AHA-BHA-PHA 30 Days Miracle Sleeping Mask</strong>.</li>
 </ul>
 
 <h3>بشرة ناضجة / ضد التقدّم بالعمر</h3>
 <ul>
-<li><strong>Sulwhasoo Overnight Vitalizing Mask</strong> — خيار فاخر بالجينسنغ.</li>
+<li><strong>Sulwhasoo Overnight Vitalizing Mask</strong> خيار فاخر بالجينسنغ.</li>
 <li><strong>The History of Whoo Bichup Sleeping Repair Mask</strong>.</li>
 </ul>
 
 <h3>حسّاسة / مهدّية</h3>
 <ul>
-<li><strong>Laneige Cica Sleeping Mask</strong> — سنتيلا للاحمرار.</li>
-<li><strong>I'm From Mugwort Cream</strong> — نباتي مهدّي.</li>
+<li><strong>Laneige Cica Sleeping Mask</strong> سنتيلا للاحمرار.</li>
+<li><strong>I'm From Mugwort Cream</strong> نباتي مهدّي.</li>
 </ul>
 
 <h2>كل قدّيش</h2>
@@ -1924,12 +1924,12 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ul>
 <li><strong>إهمال المرطّب تحته.</strong> الماسك قافل، مش بديل.</li>
 <li><strong>التطبيق على بشرة وسخة.</strong> أي اشي بتحبسيه تحت الماسك بيقعد طول الليل.</li>
-<li><strong>النوم على كيس مخدّة ستان.</strong> احفظي الماسك لأكياس المخدّات القطنية — الستان ما بمتص، والماسك بنتقل من وجهك.</li>
+<li><strong>النوم على كيس مخدّة ستان.</strong> احفظي الماسك لأكياس المخدّات القطنية, الستان ما بمتص، والماسك بنتقل من وجهك.</li>
 <li><strong>عدم الإزالة بالصبح.</strong> البقايا ممكن تسبّب تراكم أو حبوب.</li>
 </ul>
 
 <h2>ماسك النوم مقابل كريم الليل</h2>
-<p>كريم الليل هو مرطّبك القياسي. ماسك النوم <strong>علاج أسبوعي أو نص-أسبوعي</strong>. فكّري بكريم الليل كملتي-فيتامين يومي وماسك النوم كحقنة B12 — كلاهما مفيد، أغراض مختلفة.</p>
+<p>كريم الليل هو مرطّبك القياسي. ماسك النوم <strong>علاج أسبوعي أو نص-أسبوعي</strong>. فكّري بكريم الليل كملتي-فيتامين يومي وماسك النوم كحقنة B12, كلاهما مفيد، أغراض مختلفة.</p>
 
 <h2>متى رح تشوفي نتائج</h2>
 <p>الصباح بعد أوّل ماسك نوم، بشرتك رح تبيّن أكثر امتلاء وأكثر تساوي. الاستمرارية طويلة المدى (مرّتين بالأسبوع لـ 8 أسابيع) بتعطي تحسّن واضح بالنغمة، القوام، والترطيب.</p>`,
@@ -1954,7 +1954,7 @@ export const NEW_BLOGS: BlogSeed[] = [
     tags_ar: ["بشرة ناضجة", "مقاومة الشيخوخة", "عناية كورية", "ببتيدات", "جينسنغ"],
     content: `<h2>What Changes After 40</h2>
 <p>After 40, skin produces <strong>30% less collagen</strong> than in your 20s. Cell turnover slows from every 28 days to every 45-50. Estrogen drops affect hydration. Years of sun exposure show up as uneven pigmentation. The barrier weakens, so skin gets drier and more sensitive.</p>
-<p>The Korean approach to mature skin isn't to erase aging — it's to support skin's natural function so it ages gracefully.</p>
+<p>The Korean approach to mature skin isn't to erase aging, it's to support skin's natural function so it ages gracefully.</p>
 
 <h2>The Mature Skin Routine</h2>
 
@@ -1962,10 +1962,10 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ol>
 <li>Gentle cream cleanser.</li>
 <li>Hydrating + brightening toner (look for ginseng or rice).</li>
-<li>Vitamin C serum (15-20%) — antioxidant + brightening.</li>
+<li>Vitamin C serum (15-20%), antioxidant + brightening.</li>
 <li>Peptide serum or eye cream.</li>
 <li>Rich moisturizer with ceramides.</li>
-<li>SPF 50+ PA++++ — non-negotiable.</li>
+<li>SPF 50+ PA++++, non-negotiable.</li>
 </ol>
 
 <h3>Evening</h3>
@@ -1984,28 +1984,28 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>Hero Ingredients for Mature Skin</h2>
 <ul>
-<li><strong>Korean ginseng (Panax ginseng)</strong> — boosts circulation and skin energy.</li>
-<li><strong>Peptides</strong> — signal collagen production.</li>
-<li><strong>Retinol</strong> — gold-standard for cell turnover (start low).</li>
-<li><strong>Bakuchiol</strong> — gentler retinol alternative.</li>
-<li><strong>Niacinamide</strong> — brightens, strengthens barrier.</li>
-<li><strong>Hyaluronic acid</strong> — plumps dehydration lines.</li>
-<li><strong>Snail mucin</strong> — barrier repair.</li>
+<li><strong>Korean ginseng (Panax ginseng)</strong> boosts circulation and skin energy.</li>
+<li><strong>Peptides</strong> signal collagen production.</li>
+<li><strong>Retinol</strong> gold-standard for cell turnover (start low).</li>
+<li><strong>Bakuchiol</strong> gentler retinol alternative.</li>
+<li><strong>Niacinamide</strong> brightens, strengthens barrier.</li>
+<li><strong>Hyaluronic acid</strong> plumps dehydration lines.</li>
+<li><strong>Snail mucin</strong> barrier repair.</li>
 </ul>
 
 <h2>Korean Lines for Mature Skin</h2>
 <ul>
-<li><strong>Sulwhasoo</strong> — luxury, ginseng-focused.</li>
-<li><strong>The History of Whoo</strong> — premium herbal medicine inspired.</li>
-<li><strong>Hera</strong> — modern luxury with peptides.</li>
-<li><strong>Mizon Collagen Power Lifting Line</strong> — affordable, collagen-focused.</li>
-<li><strong>SOME BY MI Retinol Intense</strong> — encapsulated retinol, mature skin friendly.</li>
+<li><strong>Sulwhasoo</strong> luxury, ginseng-focused.</li>
+<li><strong>The History of Whoo</strong> premium herbal medicine inspired.</li>
+<li><strong>Hera</strong> modern luxury with peptides.</li>
+<li><strong>Mizon Collagen Power Lifting Line</strong> affordable, collagen-focused.</li>
+<li><strong>SOME BY MI Retinol Intense</strong> encapsulated retinol, mature skin friendly.</li>
 </ul>
 
 <h2>Common Mistakes After 40</h2>
 <ul>
 <li><strong>Using the same products you used at 25.</strong> Your skin's needs have changed.</li>
-<li><strong>Skipping sunscreen.</strong> Most damage shows after 40 — and it accumulates daily.</li>
+<li><strong>Skipping sunscreen.</strong> Most damage shows after 40, and it accumulates daily.</li>
 <li><strong>Stripping cleansers.</strong> Mature skin barriers are fragile.</li>
 <li><strong>Over-treating.</strong> Multiple actives daily = inflammation, not results.</li>
 <li><strong>Skipping the neck.</strong> The neck shows age fast. Extend everything down.</li>
@@ -2031,10 +2031,10 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>Deep wrinkles and significant collagen loss aren't reversible with skincare alone. That's where in-clinic treatments (Botox, fillers, lasers) come in. Skincare maintains and supports; clinic treatments correct.</p>
 
 <h2>The Korean Aging Philosophy</h2>
-<p>Korean culture often celebrates "honey skin" — skin that looks dewy and well-cared-for at any age. The goal isn't to look 25 forever; it's to have healthy, hydrated, luminous skin that reflects how you live, not what year you were born.</p>`,
+<p>Korean culture often celebrates "honey skin", skin that looks dewy and well-cared-for at any age. The goal isn't to look 25 forever; it's to have healthy, hydrated, luminous skin that reflects how you live, not what year you were born.</p>`,
     content_ar: `<h2>إيش بتغيّر بعد الـ 40</h2>
 <p>بعد الـ 40، البشرة بتنتج <strong>30% كولاجين أقل</strong> من العشرينات. تجدّد الخلايا بيتباطأ من كل 28 يوم لكل 45-50. انخفاض الإستروجين بيأثّر على الترطيب. سنين التعرّض للشمس بتظهر كتصبّغ غير متساوي. الحاجز بيضعف، فالبشرة بتصير أكثر جفاف وحساسية.</p>
-<p>النهج الكوري للبشرة الناضجة مش لمحو الشيخوخة — هو لدعم الوظيفة الطبيعية للبشرة لتشيخ بأناقة.</p>
+<p>النهج الكوري للبشرة الناضجة مش لمحو الشيخوخة, هو لدعم الوظيفة الطبيعية للبشرة لتشيخ بأناقة.</p>
 
 <h2>روتين البشرة الناضجة</h2>
 
@@ -2042,10 +2042,10 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ol>
 <li>منظّف كريمي لطيف.</li>
 <li>تونر مرطّب + مفتّح (دوّري على جينسنغ أو أرز).</li>
-<li>سيروم فيتامين C (15-20%) — مضاد أكسدة + تفتيح.</li>
+<li>سيروم فيتامين C (15-20%), مضاد أكسدة + تفتيح.</li>
 <li>سيروم ببتيدات أو كريم عين.</li>
 <li>مرطّب غني بالسيراميدات.</li>
-<li>SPF 50+ PA++++ — غير قابل للتفاوض.</li>
+<li>SPF 50+ PA++++, غير قابل للتفاوض.</li>
 </ol>
 
 <h3>المساء</h3>
@@ -2064,28 +2064,28 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>المكوّنات البطلة للبشرة الناضجة</h2>
 <ul>
-<li><strong>الجينسنغ الكوري (Panax ginseng)</strong> — يعزّز الدورة الدموية وطاقة البشرة.</li>
-<li><strong>الببتيدات</strong> — تشير لإنتاج الكولاجين.</li>
-<li><strong>الريتينول</strong> — معيار ذهبي لتجدّد الخلايا (ابدي منخفض).</li>
-<li><strong>الباكوشيول</strong> — بديل ريتينول ألطف.</li>
-<li><strong>النياسيناميد</strong> — يفتّح، يقوّي الحاجز.</li>
-<li><strong>حمض الهيالورونيك</strong> — يملأ خطوط الجفاف.</li>
-<li><strong>مخاط الحلزون</strong> — إصلاح الحاجز.</li>
+<li><strong>الجينسنغ الكوري (Panax ginseng)</strong> يعزّز الدورة الدموية وطاقة البشرة.</li>
+<li><strong>الببتيدات</strong> تشير لإنتاج الكولاجين.</li>
+<li><strong>الريتينول</strong> معيار ذهبي لتجدّد الخلايا (ابدي منخفض).</li>
+<li><strong>الباكوشيول</strong> بديل ريتينول ألطف.</li>
+<li><strong>النياسيناميد</strong> يفتّح، يقوّي الحاجز.</li>
+<li><strong>حمض الهيالورونيك</strong> يملأ خطوط الجفاف.</li>
+<li><strong>مخاط الحلزون</strong> إصلاح الحاجز.</li>
 </ul>
 
 <h2>خطوط كورية للبشرة الناضجة</h2>
 <ul>
-<li><strong>Sulwhasoo</strong> — فاخر، بتركيز على الجينسنغ.</li>
-<li><strong>The History of Whoo</strong> — راقي بإلهام الطب العشبي.</li>
-<li><strong>Hera</strong> — فخامة عصرية بالببتيدات.</li>
-<li><strong>Mizon Collagen Power Lifting Line</strong> — اقتصادي، بتركيز على الكولاجين.</li>
-<li><strong>SOME BY MI Retinol Intense</strong> — ريتينول مغلّف، صديق البشرة الناضجة.</li>
+<li><strong>Sulwhasoo</strong> فاخر، بتركيز على الجينسنغ.</li>
+<li><strong>The History of Whoo</strong> راقي بإلهام الطب العشبي.</li>
+<li><strong>Hera</strong> فخامة عصرية بالببتيدات.</li>
+<li><strong>Mizon Collagen Power Lifting Line</strong> اقتصادي، بتركيز على الكولاجين.</li>
+<li><strong>SOME BY MI Retinol Intense</strong> ريتينول مغلّف، صديق البشرة الناضجة.</li>
 </ul>
 
 <h2>أخطاء شائعة بعد الـ 40</h2>
 <ul>
 <li><strong>استعمال نفس المنتجات اللي كنتي بتستعمليها بعمر 25.</strong> احتياجات بشرتك تغيّرت.</li>
-<li><strong>إهمال واقي الشمس.</strong> أغلب الضرر يظهر بعد 40 — وبيتراكم يومياً.</li>
+<li><strong>إهمال واقي الشمس.</strong> أغلب الضرر يظهر بعد 40, وبيتراكم يومياً.</li>
 <li><strong>منظّفات مجفّفة.</strong> حواجز البشرة الناضجة هشّة.</li>
 <li><strong>الإفراط بالعلاج.</strong> مكوّنات نشطة متعدّدة يومياً = التهاب، مش نتائج.</li>
 <li><strong>إهمال الرقبة.</strong> الرقبة بتظهر العمر بسرعة. مدّي كل اشي تحت.</li>
@@ -2111,7 +2111,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>التجاعيد العميقة وفقدان الكولاجين الكبير غير قابلين للعكس بالعناية لحدها. هاد لمّا تدخل علاجات العيادة (بوتوكس، فيلر، ليزر). العناية بتحافظ وتدعم؛ علاجات العيادة بتصحّح.</p>
 
 <h2>فلسفة الشيخوخة الكورية</h2>
-<p>الثقافة الكورية كتير مرات بتحتفل بـ "بشرة العسل" — بشرة بتبيّن ندية ومعتنى بها بأي عمر. الهدف مش تبيني 25 للأبد؛ هو يكون عندك بشرة صحّية، مرطّبة، ومضيئة بتعكس كيف بتعيشي، مش بأي سنة ولدتي.</p>`,
+<p>الثقافة الكورية كتير مرات بتحتفل بـ "بشرة العسل", بشرة بتبيّن ندية ومعتنى بها بأي عمر. الهدف مش تبيني 25 للأبد؛ هو يكون عندك بشرة صحّية، مرطّبة، ومضيئة بتعكس كيف بتعيشي، مش بأي سنة ولدتي.</p>`,
     published_at: "2026-04-30T08:00:00Z",
   },
   {
@@ -2136,68 +2136,68 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>Marketing Terms Decoded</h2>
 <ul>
-<li><strong>"Glow"</strong> — usually means brightening ingredients (niacinamide, vitamin C, fermented yeast).</li>
-<li><strong>"Pure"</strong> — usually means fewer ingredients, not necessarily natural.</li>
-<li><strong>"Snail / 92% / 96%"</strong> — the percentage of snail mucin in the formula.</li>
-<li><strong>"Cica"</strong> — short for centella asiatica. Calming, anti-inflammatory.</li>
-<li><strong>"Original"</strong> — the unscented or basic version of a line.</li>
-<li><strong>"Revive / Power"</strong> — premium or anti-aging version of a line.</li>
-<li><strong>"Bibimbap-like blend"</strong> — Korean way to describe a multi-extract formula.</li>
+<li><strong>"Glow"</strong> usually means brightening ingredients (niacinamide, vitamin C, fermented yeast).</li>
+<li><strong>"Pure"</strong> usually means fewer ingredients, not necessarily natural.</li>
+<li><strong>"Snail / 92% / 96%"</strong> the percentage of snail mucin in the formula.</li>
+<li><strong>"Cica"</strong> short for centella asiatica. Calming, anti-inflammatory.</li>
+<li><strong>"Original"</strong> the unscented or basic version of a line.</li>
+<li><strong>"Revive / Power"</strong> premium or anti-aging version of a line.</li>
+<li><strong>"Bibimbap-like blend"</strong> Korean way to describe a multi-extract formula.</li>
 </ul>
 
 <h2>Common Korean Ingredient Names</h2>
 <ul>
-<li><strong>Galactomyces / Saccharomyces</strong> — fermented yeast for glow.</li>
-<li><strong>Propolis</strong> — bee-derived, antibacterial and healing.</li>
-<li><strong>Mugwort (Artemisia)</strong> — herbal, calming, antioxidant.</li>
-<li><strong>Heartleaf (Houttuynia cordata)</strong> — soothing, anti-inflammatory.</li>
-<li><strong>Rice extract / rice water</strong> — brightening, softening.</li>
-<li><strong>Ginseng (Panax)</strong> — anti-aging, circulation boost.</li>
-<li><strong>Madecassoside</strong> — extract of centella, intensely calming.</li>
-<li><strong>Snail Secretion Filtrate</strong> — snail mucin (yes, real snail).</li>
-<li><strong>Niacinamide</strong> — vitamin B3, brightens and controls oil.</li>
-<li><strong>Bifida Ferment Lysate</strong> — probiotic for the skin barrier.</li>
+<li><strong>Galactomyces / Saccharomyces</strong> fermented yeast for glow.</li>
+<li><strong>Propolis</strong> bee-derived, antibacterial and healing.</li>
+<li><strong>Mugwort (Artemisia)</strong> herbal, calming, antioxidant.</li>
+<li><strong>Heartleaf (Houttuynia cordata)</strong> soothing, anti-inflammatory.</li>
+<li><strong>Rice extract / rice water</strong> brightening, softening.</li>
+<li><strong>Ginseng (Panax)</strong> anti-aging, circulation boost.</li>
+<li><strong>Madecassoside</strong> extract of centella, intensely calming.</li>
+<li><strong>Snail Secretion Filtrate</strong> snail mucin (yes, real snail).</li>
+<li><strong>Niacinamide</strong> vitamin B3, brightens and controls oil.</li>
+<li><strong>Bifida Ferment Lysate</strong> probiotic for the skin barrier.</li>
 </ul>
 
 <h2>Certifications to Look For</h2>
 <ul>
-<li><strong>CGMP (Korean GMP)</strong> — Korean Good Manufacturing Practice.</li>
-<li><strong>Vegan / Cruelty-Free</strong> — common but not regulated; check independent certifications.</li>
-<li><strong>EWG Verified</strong> — Environmental Working Group safe rating.</li>
-<li><strong>Hypoallergenic</strong> — marketing claim, not strictly regulated.</li>
-<li><strong>Non-comedogenic</strong> — formulated to not clog pores; not a guarantee.</li>
-<li><strong>Dermatologist Tested</strong> — vague claim; tested doesn't mean approved.</li>
+<li><strong>CGMP (Korean GMP)</strong> Korean Good Manufacturing Practice.</li>
+<li><strong>Vegan / Cruelty-Free</strong> common but not regulated; check independent certifications.</li>
+<li><strong>EWG Verified</strong> Environmental Working Group safe rating.</li>
+<li><strong>Hypoallergenic</strong> marketing claim, not strictly regulated.</li>
+<li><strong>Non-comedogenic</strong> formulated to not clog pores; not a guarantee.</li>
+<li><strong>Dermatologist Tested</strong> vague claim; tested doesn't mean approved.</li>
 </ul>
 
 <h2>Percentages You'll See</h2>
 <ul>
-<li><strong>Niacinamide 2-10%</strong> — sweet spot for most skins.</li>
-<li><strong>Vitamin C 10-20%</strong> — 10-15% is effective with less irritation.</li>
-<li><strong>Salicylic acid (BHA) 0.5-2%</strong> — 2% is standard.</li>
-<li><strong>Glycolic acid (AHA) 5-10%</strong> — 5-8% for home use.</li>
-<li><strong>Retinol 0.025-1%</strong> — start at 0.025%, work up.</li>
-<li><strong>Hyaluronic acid</strong> — usually under 2%; higher means it's a marketing claim.</li>
+<li><strong>Niacinamide 2-10%</strong> sweet spot for most skins.</li>
+<li><strong>Vitamin C 10-20%</strong> 10-15% is effective with less irritation.</li>
+<li><strong>Salicylic acid (BHA) 0.5-2%</strong> 2% is standard.</li>
+<li><strong>Glycolic acid (AHA) 5-10%</strong> 5-8% for home use.</li>
+<li><strong>Retinol 0.025-1%</strong> start at 0.025%, work up.</li>
+<li><strong>Hyaluronic acid</strong> usually under 2%; higher means it's a marketing claim.</li>
 </ul>
 
 <h2>Red Flags on a Label</h2>
 <ul>
-<li><strong>Alcohol denat / SD alcohol in top 3 ingredients</strong> — drying.</li>
-<li><strong>Heavy fragrance / parfum near the top</strong> — irritation risk.</li>
-<li><strong>"Active ingredient" with no percentage listed</strong> — likely fairy dust.</li>
-<li><strong>"Made with rice extract!" but rice is the last ingredient</strong> — marketing.</li>
-<li><strong>Expiration date with no PAO (period after opening)</strong> — questionable manufacturing.</li>
+<li><strong>Alcohol denat / SD alcohol in top 3 ingredients</strong> drying.</li>
+<li><strong>Heavy fragrance / parfum near the top</strong> irritation risk.</li>
+<li><strong>"Active ingredient" with no percentage listed</strong> likely fairy dust.</li>
+<li><strong>"Made with rice extract!" but rice is the last ingredient</strong> marketing.</li>
+<li><strong>Expiration date with no PAO (period after opening)</strong> questionable manufacturing.</li>
 </ul>
 
 <h2>How to Compare Two Products</h2>
 <p>Look at the <strong>first 5 ingredients</strong>. These make up 70-90% of the formula. After ingredient 5, concentrations drop below 1%. If two products both list "snail mucin" but one has it at position 2 and the other at position 12, the formulas are completely different.</p>
 
 <h2>The "Free From" Trap</h2>
-<p>"Paraben-free," "sulfate-free," "fragrance-free" are useful filters — but they don't equal effective. A bad formulation can still be paraben-free. Read the whole label, not just the marketing badges.</p>
+<p>"Paraben-free," "sulfate-free," "fragrance-free" are useful filters, but they don't equal effective. A bad formulation can still be paraben-free. Read the whole label, not just the marketing badges.</p>
 
 <h2>How to Spot a Fake Korean Product</h2>
 <ul>
 <li>Check the batch code on the brand's official site.</li>
-<li>Look for the Korean text on the back — fakes often have spelling errors.</li>
+<li>Look for the Korean text on the back, fakes often have spelling errors.</li>
 <li>Holographic stickers on premium lines (Sulwhasoo, Whoo) should be intact.</li>
 <li>Buy from authorized retailers only.</li>
 </ul>`,
@@ -2206,68 +2206,68 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>المصطلحات التسويقية مفكوكة</h2>
 <ul>
-<li><strong>"Glow"</strong> — عادةً يعني مكوّنات مفتّحة (نياسيناميد، فيتامين C، خميرة متخمّرة).</li>
-<li><strong>"Pure"</strong> — عادةً يعني مكوّنات أقل، مش بالضرورة طبيعي.</li>
-<li><strong>"Snail / 92% / 96%"</strong> — نسبة مخاط الحلزون بالتركيبة.</li>
-<li><strong>"Cica"</strong> — اختصار لسنتيلا أسياتيكا. مهدّي، مضاد التهاب.</li>
-<li><strong>"Original"</strong> — النسخة بدون عطر أو الأساسية من خط.</li>
-<li><strong>"Revive / Power"</strong> — النسخة الراقية أو ضد التقدّم بالعمر.</li>
-<li><strong>"Bibimbap-like blend"</strong> — طريقة كورية لوصف تركيبة متعدّدة الخلاصات.</li>
+<li><strong>"Glow"</strong> عادةً يعني مكوّنات مفتّحة (نياسيناميد، فيتامين C، خميرة متخمّرة).</li>
+<li><strong>"Pure"</strong> عادةً يعني مكوّنات أقل، مش بالضرورة طبيعي.</li>
+<li><strong>"Snail / 92% / 96%"</strong> نسبة مخاط الحلزون بالتركيبة.</li>
+<li><strong>"Cica"</strong> اختصار لسنتيلا أسياتيكا. مهدّي، مضاد التهاب.</li>
+<li><strong>"Original"</strong> النسخة بدون عطر أو الأساسية من خط.</li>
+<li><strong>"Revive / Power"</strong> النسخة الراقية أو ضد التقدّم بالعمر.</li>
+<li><strong>"Bibimbap-like blend"</strong> طريقة كورية لوصف تركيبة متعدّدة الخلاصات.</li>
 </ul>
 
 <h2>أسماء مكوّنات كورية شائعة</h2>
 <ul>
-<li><strong>Galactomyces / Saccharomyces</strong> — خميرة متخمّرة للوهج.</li>
-<li><strong>Propolis</strong> — من النحل، مضاد بكتيريا ومداواة.</li>
-<li><strong>Mugwort (Artemisia)</strong> — عشبي، مهدّي، مضاد أكسدة.</li>
-<li><strong>Heartleaf (Houttuynia cordata)</strong> — مهدّي، مضاد التهاب.</li>
-<li><strong>Rice extract / rice water</strong> — مفتّح، منعّم.</li>
-<li><strong>Ginseng (Panax)</strong> — ضد التقدّم بالعمر، يعزّز الدورة الدموية.</li>
-<li><strong>Madecassoside</strong> — خلاصة السنتيلا، مهدّي بشدّة.</li>
-<li><strong>Snail Secretion Filtrate</strong> — مخاط حلزون (أيوا، حلزون فعلي).</li>
-<li><strong>Niacinamide</strong> — فيتامين B3، يفتّح ويتحكّم بالزيوت.</li>
-<li><strong>Bifida Ferment Lysate</strong> — بروبيوتيك لحاجز البشرة.</li>
+<li><strong>Galactomyces / Saccharomyces</strong> خميرة متخمّرة للوهج.</li>
+<li><strong>Propolis</strong> من النحل، مضاد بكتيريا ومداواة.</li>
+<li><strong>Mugwort (Artemisia)</strong> عشبي، مهدّي، مضاد أكسدة.</li>
+<li><strong>Heartleaf (Houttuynia cordata)</strong> مهدّي، مضاد التهاب.</li>
+<li><strong>Rice extract / rice water</strong> مفتّح، منعّم.</li>
+<li><strong>Ginseng (Panax)</strong> ضد التقدّم بالعمر، يعزّز الدورة الدموية.</li>
+<li><strong>Madecassoside</strong> خلاصة السنتيلا، مهدّي بشدّة.</li>
+<li><strong>Snail Secretion Filtrate</strong> مخاط حلزون (أيوا، حلزون فعلي).</li>
+<li><strong>Niacinamide</strong> فيتامين B3، يفتّح ويتحكّم بالزيوت.</li>
+<li><strong>Bifida Ferment Lysate</strong> بروبيوتيك لحاجز البشرة.</li>
 </ul>
 
 <h2>شهادات دوّري عليها</h2>
 <ul>
-<li><strong>CGMP (Korean GMP)</strong> — ممارسات تصنيع جيّدة كورية.</li>
-<li><strong>Vegan / Cruelty-Free</strong> — شائع بس مش منظّم؛ شيكي شهادات مستقلّة.</li>
-<li><strong>EWG Verified</strong> — تقييم آمن من Environmental Working Group.</li>
-<li><strong>Hypoallergenic</strong> — ادّعاء تسويقي، مش منظّم بصرامة.</li>
-<li><strong>Non-comedogenic</strong> — مصمّم ما يسدّ المسامات؛ مش ضمانة.</li>
-<li><strong>Dermatologist Tested</strong> — ادّعاء غامض؛ مفحوص ما يعني معتمد.</li>
+<li><strong>CGMP (Korean GMP)</strong> ممارسات تصنيع جيّدة كورية.</li>
+<li><strong>Vegan / Cruelty-Free</strong> شائع بس مش منظّم؛ شيكي شهادات مستقلّة.</li>
+<li><strong>EWG Verified</strong> تقييم آمن من Environmental Working Group.</li>
+<li><strong>Hypoallergenic</strong> ادّعاء تسويقي، مش منظّم بصرامة.</li>
+<li><strong>Non-comedogenic</strong> مصمّم ما يسدّ المسامات؛ مش ضمانة.</li>
+<li><strong>Dermatologist Tested</strong> ادّعاء غامض؛ مفحوص ما يعني معتمد.</li>
 </ul>
 
 <h2>النسب اللي رح تشوفيها</h2>
 <ul>
-<li><strong>نياسيناميد 2-10%</strong> — النقطة المثالية لأغلب البشرات.</li>
-<li><strong>فيتامين C 10-20%</strong> — 10-15% فعّال بتهيّج أقل.</li>
-<li><strong>حمض الساليسيليك (BHA) 0.5-2%</strong> — 2% معيار.</li>
-<li><strong>حمض الجلايكوليك (AHA) 5-10%</strong> — 5-8% للاستعمال بالبيت.</li>
-<li><strong>ريتينول 0.025-1%</strong> — ابدي بـ 0.025%، اشتغلي للأعلى.</li>
-<li><strong>حمض الهيالورونيك</strong> — عادةً تحت 2%; أعلى يعني ادّعاء تسويقي.</li>
+<li><strong>نياسيناميد 2-10%</strong> النقطة المثالية لأغلب البشرات.</li>
+<li><strong>فيتامين C 10-20%</strong> 10-15% فعّال بتهيّج أقل.</li>
+<li><strong>حمض الساليسيليك (BHA) 0.5-2%</strong> 2% معيار.</li>
+<li><strong>حمض الجلايكوليك (AHA) 5-10%</strong> 5-8% للاستعمال بالبيت.</li>
+<li><strong>ريتينول 0.025-1%</strong> ابدي بـ 0.025%، اشتغلي للأعلى.</li>
+<li><strong>حمض الهيالورونيك</strong> عادةً تحت 2%; أعلى يعني ادّعاء تسويقي.</li>
 </ul>
 
 <h2>إشارات حمراء على الملصق</h2>
 <ul>
-<li><strong>Alcohol denat / SD alcohol بأول 3 مكوّنات</strong> — مجفّف.</li>
-<li><strong>عطر ثقيل / parfum قريب من القمة</strong> — خطر التهيّج.</li>
-<li><strong>"مكوّن نشط" بدون نسبة مذكورة</strong> — على الأرجح فايرى داست.</li>
-<li><strong>"مع خلاصة الأرز!" بس الأرز آخر مكوّن</strong> — تسويق.</li>
-<li><strong>تاريخ انتهاء بدون PAO (المدّة بعد الفتح)</strong> — تصنيع مشكوك فيه.</li>
+<li><strong>Alcohol denat / SD alcohol بأول 3 مكوّنات</strong> مجفّف.</li>
+<li><strong>عطر ثقيل / parfum قريب من القمة</strong> خطر التهيّج.</li>
+<li><strong>"مكوّن نشط" بدون نسبة مذكورة</strong> على الأرجح فايرى داست.</li>
+<li><strong>"مع خلاصة الأرز!" بس الأرز آخر مكوّن</strong> تسويق.</li>
+<li><strong>تاريخ انتهاء بدون PAO (المدّة بعد الفتح)</strong> تصنيع مشكوك فيه.</li>
 </ul>
 
 <h2>كيف تقارني منتجين</h2>
 <p>اطّلعي على <strong>أول 5 مكوّنات</strong>. هدول بشكّلوا 70-90% من التركيبة. بعد المكوّن 5، النسب بتنخفض تحت 1%. لو منتجين كلاهما بدرج "مخاط الحلزون" بس واحد بالمركز 2 والتاني بالمركز 12، التركيبتين مختلفتين تماماً.</p>
 
 <h2>فخّ "الخالي من"</h2>
-<p>"خالي من البارابين"، "خالي من السلفات"، "خالي من العطر" فلاتر مفيدة — بس ما بساوي فعّال. ممكن تركيبة سيّئة تكون خالية من البارابين. اقرئي الملصق كامل، مش بس الشارات التسويقية.</p>
+<p>"خالي من البارابين"، "خالي من السلفات"، "خالي من العطر" فلاتر مفيدة, بس ما بساوي فعّال. ممكن تركيبة سيّئة تكون خالية من البارابين. اقرئي الملصق كامل، مش بس الشارات التسويقية.</p>
 
 <h2>كيف تكتشفي منتج كوري مقلّد</h2>
 <ul>
 <li>شيكي رمز الدفعة على موقع الماركة الرسمي.</li>
-<li>دوّري على النص الكوري على الظهر — المقلّدات كتير مرات فيها أخطاء إملائية.</li>
+<li>دوّري على النص الكوري على الظهر, المقلّدات كتير مرات فيها أخطاء إملائية.</li>
 <li>ملصقات هولوغرام على الخطوط الراقية (Sulwhasoo, Whoo) لازم تكون سليمة.</li>
 <li>اشتري من باعة معتمدين فقط.</li>
 </ul>`,
@@ -2291,7 +2291,7 @@ export const NEW_BLOGS: BlogSeed[] = [
       "الأحماض متعدّدة الهيدروكسي (PHA) بتقشّر بلطف بدون تهيّج. الأنسب للبشرة الحسّاسة، الوردية، أو الإكزيمية. شرح ألطف حمض K-beauty.",
     tags_ar: ["PHA", "حمض متعدّد الهيدروكسي", "مقشّر لطيف", "بشرة حسّاسة", "K-beauty"],
     content: `<h2>What Is PHA?</h2>
-<p>PHA stands for <strong>polyhydroxy acid</strong>. The most common forms are <strong>gluconolactone</strong> and <strong>lactobionic acid</strong>. PHAs are chemical exfoliants like AHA, but their molecular size is larger — meaning they don't penetrate as deeply and irritate less.</p>
+<p>PHA stands for <strong>polyhydroxy acid</strong>. The most common forms are <strong>gluconolactone</strong> and <strong>lactobionic acid</strong>. PHAs are chemical exfoliants like AHA, but their molecular size is larger, meaning they don't penetrate as deeply and irritate less.</p>
 <p>They were originally formulated for post-procedure skin: people recovering from chemical peels, lasers, or active rosacea. K-beauty adopted them for sensitive skin types who can't tolerate stronger acids.</p>
 
 <h2>PHA vs AHA vs BHA</h2>
@@ -2308,7 +2308,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <li>Eczema-prone skin (during quiet phases).</li>
 <li>Anyone using retinol who wants gentle exfoliation.</li>
 <li>People who get sun-sensitive on AHA.</li>
-<li>Pregnant or breastfeeding (PHAs are generally considered safe — but always check with your doctor).</li>
+<li>Pregnant or breastfeeding (PHAs are generally considered safe, but always check with your doctor).</li>
 </ul>
 
 <h2>What PHA Does</h2>
@@ -2323,10 +2323,10 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>Korean PHA Products</h2>
 <ul>
-<li><strong>Some By Mi AHA-BHA-PHA 30 Days Miracle Toner</strong> — gentle daily exfoliating toner.</li>
-<li><strong>By Wishtrend Mandelic Acid 5% PHA Skin Prep Water</strong> — mandelic acid (AHA) + PHA combo.</li>
+<li><strong>Some By Mi AHA-BHA-PHA 30 Days Miracle Toner</strong> gentle daily exfoliating toner.</li>
+<li><strong>By Wishtrend Mandelic Acid 5% PHA Skin Prep Water</strong> mandelic acid (AHA) + PHA combo.</li>
 <li><strong>The Lab by Blanc Doux Oligo Hyaluronic Acid + PHA Toner</strong>.</li>
-<li><strong>Klairs Toner Mist</strong> — small amount of PHA for refreshing.</li>
+<li><strong>Klairs Toner Mist</strong> small amount of PHA for refreshing.</li>
 </ul>
 
 <h2>How to Add PHA to Your Routine</h2>
@@ -2355,7 +2355,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>PHAs pair beautifully with hyaluronic acid because they're already humectants. The combination is particularly good for dehydrated mature skin that needs gentle resurfacing without harsh acids.</p>
 
 <h2>Can You Use PHA With Retinol?</h2>
-<p>Yes — PHAs are gentle enough to use with retinol on the same nights for most people. Apply PHA first, wait 5 minutes, then retinol. If your skin gets sensitive, alternate them.</p>
+<p>Yes, PHAs are gentle enough to use with retinol on the same nights for most people. Apply PHA first, wait 5 minutes, then retinol. If your skin gets sensitive, alternate them.</p>
 
 <h2>Common PHA Mistakes</h2>
 <ul>
@@ -2365,7 +2365,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <li>Skipping sunscreen. Even gentle acids work better with daily SPF.</li>
 </ul>`,
     content_ar: `<h2>إيش هو PHA؟</h2>
-<p>PHA اختصار لـ <strong>حمض متعدّد الهيدروكسي</strong>. أكثر الأشكال شيوعاً <strong>غلوكونولاكتون</strong> و<strong>حمض اللاكتوبيونيك</strong>. الـ PHA مقشّرات كيميائية زي الـ AHA، بس حجمهم الجزيئي أكبر — يعني ما بدخلوا بعمق وبيهيّجوا أقل.</p>
+<p>PHA اختصار لـ <strong>حمض متعدّد الهيدروكسي</strong>. أكثر الأشكال شيوعاً <strong>غلوكونولاكتون</strong> و<strong>حمض اللاكتوبيونيك</strong>. الـ PHA مقشّرات كيميائية زي الـ AHA، بس حجمهم الجزيئي أكبر, يعني ما بدخلوا بعمق وبيهيّجوا أقل.</p>
 <p>صُمّموا أصلاً للبشرة بعد الإجراءات: ناس بيشفوا من تقشير كيميائي، ليزر، أو وردية نشطة. الـ K-beauty اعتمدتهم لأنواع البشرة الحسّاسة اللي ما بتتحمّل الأحماض الأقوى.</p>
 
 <h2>PHA مقابل AHA مقابل BHA</h2>
@@ -2382,7 +2382,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <li>بشرة معرّضة للإكزيما (بفترات الهدوء).</li>
 <li>أيّ حدا بستعمل ريتينول وبدّه تقشير لطيف.</li>
 <li>ناس بصير عندهم حساسية للشمس مع AHA.</li>
-<li>حوامل أو مرضعات (الـ PHA بشكل عام يعتبر آمن — بس دايماً شيكي مع دكتورك).</li>
+<li>حوامل أو مرضعات (الـ PHA بشكل عام يعتبر آمن, بس دايماً شيكي مع دكتورك).</li>
 </ul>
 
 <h2>إيش بعمل PHA</h2>
@@ -2397,10 +2397,10 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>منتجات PHA الكورية</h2>
 <ul>
-<li><strong>Some By Mi AHA-BHA-PHA 30 Days Miracle Toner</strong> — تونر تقشير لطيف يومي.</li>
-<li><strong>By Wishtrend Mandelic Acid 5% PHA Skin Prep Water</strong> — حمض الماندليك (AHA) + PHA.</li>
+<li><strong>Some By Mi AHA-BHA-PHA 30 Days Miracle Toner</strong> تونر تقشير لطيف يومي.</li>
+<li><strong>By Wishtrend Mandelic Acid 5% PHA Skin Prep Water</strong> حمض الماندليك (AHA) + PHA.</li>
 <li><strong>The Lab by Blanc Doux Oligo Hyaluronic Acid + PHA Toner</strong>.</li>
-<li><strong>Klairs Toner Mist</strong> — كمّية صغيرة من PHA للانتعاش.</li>
+<li><strong>Klairs Toner Mist</strong> كمّية صغيرة من PHA للانتعاش.</li>
 </ul>
 
 <h2>كيف تضيفي PHA لروتينك</h2>
@@ -2429,7 +2429,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>الـ PHA بتركيب جميل مع حمض الهيالورونيك لأنهم أصلاً مرطّبات. التركيبة مناسبة بشكل خاص للبشرة الناضجة المجفّفة اللي بدها تجديد لطيف بدون أحماض قاسية.</p>
 
 <h2>ممكن تستعملي PHA مع الريتينول؟</h2>
-<p>أيوا — الـ PHA لطيف كفاية ليستعمل مع الريتينول بنفس الليالي لأغلب الناس. طبّقي PHA أوّل، استنّي 5 دقايق، بعدها الريتينول. لو بشرتك حسّاسة، بدّليهم.</p>
+<p>أيوا, الـ PHA لطيف كفاية ليستعمل مع الريتينول بنفس الليالي لأغلب الناس. طبّقي PHA أوّل، استنّي 5 دقايق، بعدها الريتينول. لو بشرتك حسّاسة، بدّليهم.</p>
 
 <h2>أخطاء PHA شائعة</h2>
 <ul>
@@ -2444,7 +2444,7 @@ export const NEW_BLOGS: BlogSeed[] = [
     slug: "korean-skincare-winter-jordan-routine",
     title: "Korean Skincare Routine for Winter in Jordan",
     excerpt:
-      "Amman winter is no joke — dry, cold, indoor heating that sucks the moisture out. Here's how to adapt your K-beauty routine to keep skin glowing through December.",
+      "Amman winter is no joke, dry, cold, indoor heating that sucks the moisture out. Here's how to adapt your K-beauty routine to keep skin glowing through December.",
     seo_title: "Korean Skincare Winter Routine for Jordan: Survive Cold + Dry",
     seo_description:
       "Amman winter dries out skin fast. Adapt your Korean skincare with richer textures, slugging, ceramides, and the right humidifier setup for cold months.",
@@ -2452,14 +2452,14 @@ export const NEW_BLOGS: BlogSeed[] = [
     cover_image: COVERS.spa4,
     title_ar: "روتين العناية الكورية للشتا بالأردن",
     excerpt_ar:
-      "شتا عمّان مش مزحة — جاف، بارد، وتدفئة داخلية بتسحب الرطوبة. هاد كيف تكيّفي روتين K-beauty عشان بشرتك تظلّ مشعّة طول كانون.",
+      "شتا عمّان مش مزحة, جاف، بارد، وتدفئة داخلية بتسحب الرطوبة. هاد كيف تكيّفي روتين K-beauty عشان بشرتك تظلّ مشعّة طول كانون.",
     seo_title_ar: "روتين العناية الكورية للشتا بالأردن: انجي من البرد والجفاف",
     seo_description_ar:
       "شتا عمّان بجفّف البشرة بسرعة. كيّفي عنايتك الكورية بقوامات أغنى، سلاغينغ، سيراميدات، ومرطّب الهوا المناسب لأشهر البرد.",
     tags_ar: ["عناية شتوية", "مناخ الأردن", "عناية كورية", "بشرة جافة", "عمّان"],
     content: `<h2>What Winter Does to Your Skin in Jordan</h2>
 <p>Amman winter is brutal for skin. Temperatures drop to 2-8°C at night. Indoor heating drops humidity to <strong>15-25%</strong> (healthy skin needs 40-60%). Cold wind on the walk from car to office strips moisture. Most people see flaking, tightness, and dull skin by mid-December.</p>
-<p>You need to switch up your K-beauty routine for winter — not just add more product, but change textures.</p>
+<p>You need to switch up your K-beauty routine for winter, not just add more product, but change textures.</p>
 
 <h2>The Winter Adjustments</h2>
 
@@ -2483,7 +2483,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h3>Serum: Layer Two</h3>
 <p>In summer, one serum is enough. In winter, layer two:</p>
 <ol>
-<li><strong>Hydrating serum</strong> (hyaluronic acid) — apply to damp skin.</li>
+<li><strong>Hydrating serum</strong> (hyaluronic acid), apply to damp skin.</li>
 <li><strong>Treatment serum</strong> (niacinamide, vitamin C in AM, retinol in PM).</li>
 </ol>
 
@@ -2496,7 +2496,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 </ul>
 
 <h3>Sunscreen: Don't Skip</h3>
-<p>This is the biggest winter mistake. UV is still there in winter — sometimes stronger because of less cloud cover at higher altitudes. Use a moisturizing SPF 50+ PA++++.</p>
+<p>This is the biggest winter mistake. UV is still there in winter, sometimes stronger because of less cloud cover at higher altitudes. Use a moisturizing SPF 50+ PA++++.</p>
 
 <h2>Add Slugging at Night</h2>
 <p>2-3 nights a week, finish with a thin layer of petrolatum or a sleeping mask. The seal prevents overnight water loss when indoor heating is on.</p>
@@ -2537,8 +2537,8 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>Products to Pull Back</h2>
 <ul>
-<li>Strong AHA — reduce to once weekly.</li>
-<li>BHA — keep but at lower frequency (2x weekly).</li>
+<li>Strong AHA, reduce to once weekly.</li>
+<li>BHA, keep but at lower frequency (2x weekly).</li>
 <li>Foam cleansers.</li>
 <li>Clay masks (use less often).</li>
 <li>Toners with alcohol.</li>
@@ -2548,7 +2548,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>In late March, gradually transition back. Pull back the sleeping mask first, then the cream cleanser. By mid-April you should be on a lighter, more summer-appropriate routine.</p>`,
     content_ar: `<h2>إيش بيعمل الشتا لبشرتك بالأردن</h2>
 <p>شتا عمّان قاسي على البشرة. الحرارة بتنزل لـ 2-8 درجة بالليل. التدفئة الداخلية بتنزّل الرطوبة لـ <strong>15-25%</strong> (البشرة الصحّية بدّها 40-60%). الهوا البارد بمشوار السيارة للمكتب بيسحب الرطوبة. أغلب الناس بيشوفوا تقشّر، شدّ، وبهتان بمنتصف كانون.</p>
-<p>لازم تبدّلي روتين K-beauty للشتا — مش بس إضافة منتجات أكثر، بدّلي القوامات.</p>
+<p>لازم تبدّلي روتين K-beauty للشتا, مش بس إضافة منتجات أكثر، بدّلي القوامات.</p>
 
 <h2>التعديلات الشتوية</h2>
 
@@ -2572,7 +2572,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h3>السيروم: طبّقي اتنين</h3>
 <p>بالصيف، سيروم واحد كفاية. بالشتا، طبّقي اتنين:</p>
 <ol>
-<li><strong>سيروم مرطّب</strong> (حمض الهيالورونيك) — طبّقيه على بشرة رطبة.</li>
+<li><strong>سيروم مرطّب</strong> (حمض الهيالورونيك), طبّقيه على بشرة رطبة.</li>
 <li><strong>سيروم علاج</strong> (نياسيناميد، فيتامين C بالصبح، ريتينول بالمساء).</li>
 </ol>
 
@@ -2585,7 +2585,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 </ul>
 
 <h3>واقي الشمس: لا تتجاهليه</h3>
-<p>هاي أكبر غلطة شتا. الأشعة لسا موجودة بالشتا — أحياناً أقوى بسبب غطاء سحاب أقل بالارتفاعات العالية. استعملي SPF 50+ PA++++ مرطّب.</p>
+<p>هاي أكبر غلطة شتا. الأشعة لسا موجودة بالشتا, أحياناً أقوى بسبب غطاء سحاب أقل بالارتفاعات العالية. استعملي SPF 50+ PA++++ مرطّب.</p>
 
 <h2>ضيفي السلاغينغ بالليل</h2>
 <p>2-3 ليالي بالأسبوع، اختمي بطبقة رفيعة بترولاتوم أو ماسك نوم. القفل بمنع فقدان الماي بالليل لمّا التدفئة شغّالة.</p>
@@ -2626,8 +2626,8 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>منتجات قلّليها</h2>
 <ul>
-<li>AHA قوي — قلّليه لمرّة بالأسبوع.</li>
-<li>BHA — احفظيه بس بتكرار أقل (مرّتين بالأسبوع).</li>
+<li>AHA قوي, قلّليه لمرّة بالأسبوع.</li>
+<li>BHA, احفظيه بس بتكرار أقل (مرّتين بالأسبوع).</li>
 <li>المنظّفات الرغوية.</li>
 <li>ماسكات الطين (استعمليها أقل).</li>
 <li>تونرات بالكحول.</li>
@@ -2655,14 +2655,14 @@ export const NEW_BLOGS: BlogSeed[] = [
       "بروتوكول K-beauty 48 ساعة للبشرة المتضرّرة من الشمس. سنتيلا، صبّار، بانثينول، والمكوّنات المضادّة للالتهاب المناسبة لتعافي صيف الأردن.",
     tags_ar: ["بعد الشمس", "ضرر شمس", "عناية كورية", "سنتيلا", "تعافي"],
     content: `<h2>What Happens to Skin in the Sun</h2>
-<p>UV from the Jordan sun does three immediate things: it damages DNA in skin cells, generates free radicals, and triggers inflammation. The visible signs (redness, heat, peeling) come after — your skin was already injured by the time you noticed.</p>
+<p>UV from the Jordan sun does three immediate things: it damages DNA in skin cells, generates free radicals, and triggers inflammation. The visible signs (redness, heat, peeling) come after, your skin was already injured by the time you noticed.</p>
 <p>The good news: Korean skincare has a specific anti-inflammatory protocol that minimizes the long-term damage if you start within 48 hours.</p>
 
 <h2>The Same-Day Protocol</h2>
 
 <h3>Step 1: Cool the Skin (Hours 0-6)</h3>
 <ul>
-<li>Cold shower (not freezing — lukewarm to cool).</li>
+<li>Cold shower (not freezing, lukewarm to cool).</li>
 <li>Apply a cool, damp cloth to the most affected areas for 10 minutes.</li>
 <li>Do NOT apply ice directly. It damages cold-sensitive blood vessels.</li>
 </ul>
@@ -2670,7 +2670,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h3>Step 2: Gentle Cleanse</h3>
 <ul>
 <li>Cream cleanser only. No foam, no acids, no scrubs.</li>
-<li>Pat dry — don't rub.</li>
+<li>Pat dry, don't rub.</li>
 </ul>
 
 <h3>Step 3: Centella Toner</h3>
@@ -2702,12 +2702,12 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>The Hero Ingredients for After-Sun</h2>
 <ul>
-<li><strong>Centella asiatica</strong> — anti-inflammatory, wound healing.</li>
-<li><strong>Aloe vera</strong> — cooling, soothing.</li>
-<li><strong>Panthenol (B5)</strong> — accelerates healing.</li>
-<li><strong>Madecassoside</strong> — concentrated centella, deeply calming.</li>
-<li><strong>Niacinamide</strong> — reduces redness, fades pigmentation.</li>
-<li><strong>Vitamin E</strong> — antioxidant, supports skin repair.</li>
+<li><strong>Centella asiatica</strong> anti-inflammatory, wound healing.</li>
+<li><strong>Aloe vera</strong> cooling, soothing.</li>
+<li><strong>Panthenol (B5)</strong> accelerates healing.</li>
+<li><strong>Madecassoside</strong> concentrated centella, deeply calming.</li>
+<li><strong>Niacinamide</strong> reduces redness, fades pigmentation.</li>
+<li><strong>Vitamin E</strong> antioxidant, supports skin repair.</li>
 </ul>
 
 <h2>What to AVOID After Sun Exposure</h2>
@@ -2734,7 +2734,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ul>
 <li>SPF 50+ PA++++ daily, not just at the beach.</li>
 <li>Reapply every 2 hours when outdoors.</li>
-<li>Use 1/4 teaspoon for the face — most people use too little.</li>
+<li>Use 1/4 teaspoon for the face, most people use too little.</li>
 <li>Wear a hat between 10 AM and 4 PM.</li>
 <li>Korean sun sticks are great for reapplying over makeup.</li>
 </ul>
@@ -2750,16 +2750,16 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>See a doctor immediately. Severe sunburn can require medical treatment.</p>
 
 <h2>Long-Term Sun Damage</h2>
-<p>One bad burn doesn't cause cancer alone, but repeated UV damage adds up. Korean skincare can help fade pigmentation and support repair, but daily sunscreen is non-negotiable. Sunscreen is the most effective anti-aging product on the market — no serum competes.</p>`,
+<p>One bad burn doesn't cause cancer alone, but repeated UV damage adds up. Korean skincare can help fade pigmentation and support repair, but daily sunscreen is non-negotiable. Sunscreen is the most effective anti-aging product on the market, no serum competes.</p>`,
     content_ar: `<h2>إيش بصير للبشرة بالشمس</h2>
-<p>الأشعة من شمس الأردن بتعمل ثلاث اشياء فوراً: بتضرّ الـ DNA بخلايا البشرة، بتولّد شوارد حرّة، وبتحفّز التهاب. العلامات المرئية (احمرار، حرارة، تقشّر) بتجي بعدين — بشرتك كانت مصابة لمّا لاحظتي.</p>
+<p>الأشعة من شمس الأردن بتعمل ثلاث اشياء فوراً: بتضرّ الـ DNA بخلايا البشرة، بتولّد شوارد حرّة، وبتحفّز التهاب. العلامات المرئية (احمرار، حرارة، تقشّر) بتجي بعدين, بشرتك كانت مصابة لمّا لاحظتي.</p>
 <p>الأخبار المنيحة: العناية الكورية عندها بروتوكول مضاد التهاب محدّد بقلّل الضرر طويل المدى لو بدأتي خلال 48 ساعة.</p>
 
 <h2>بروتوكول نفس اليوم</h2>
 
 <h3>الخطوة 1: برّدي البشرة (ساعات 0-6)</h3>
 <ul>
-<li>دوش بارد (مش متجمّد — دافي لبارد).</li>
+<li>دوش بارد (مش متجمّد, دافي لبارد).</li>
 <li>طبّقي قماشة باردة ورطبة على المناطق الأكثر تأثّر لـ 10 دقايق.</li>
 <li>لا تطبّقي ثلج مباشرة. بضرّ الأوعية الدموية الحسّاسة للبرد.</li>
 </ul>
@@ -2767,7 +2767,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <h3>الخطوة 2: تنظيف لطيف</h3>
 <ul>
 <li>منظّف كريمي فقط. لا رغوة، لا أحماض، لا مقشّرات.</li>
-<li>ربّتي للجفاف — ما تفركي.</li>
+<li>ربّتي للجفاف, ما تفركي.</li>
 </ul>
 
 <h3>الخطوة 3: تونر سنتيلا</h3>
@@ -2799,12 +2799,12 @@ export const NEW_BLOGS: BlogSeed[] = [
 
 <h2>المكوّنات البطلة لبعد الشمس</h2>
 <ul>
-<li><strong>سنتيلا أسياتيكا</strong> — مضادّة التهاب، شفاء جروح.</li>
-<li><strong>الصبّار</strong> — مبرّد، مهدّي.</li>
-<li><strong>بانثينول (B5)</strong> — يعجّل الشفاء.</li>
-<li><strong>ماديكاسوسايد</strong> — سنتيلا مركّزة، مهدّية بعمق.</li>
-<li><strong>نياسيناميد</strong> — يقلّل الاحمرار، يفتّح التصبّغ.</li>
-<li><strong>فيتامين E</strong> — مضاد أكسدة، يدعم إصلاح البشرة.</li>
+<li><strong>سنتيلا أسياتيكا</strong> مضادّة التهاب، شفاء جروح.</li>
+<li><strong>الصبّار</strong> مبرّد، مهدّي.</li>
+<li><strong>بانثينول (B5)</strong> يعجّل الشفاء.</li>
+<li><strong>ماديكاسوسايد</strong> سنتيلا مركّزة، مهدّية بعمق.</li>
+<li><strong>نياسيناميد</strong> يقلّل الاحمرار، يفتّح التصبّغ.</li>
+<li><strong>فيتامين E</strong> مضاد أكسدة، يدعم إصلاح البشرة.</li>
 </ul>
 
 <h2>إيش تجنّبي بعد التعرّض للشمس</h2>
@@ -2831,7 +2831,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ul>
 <li>SPF 50+ PA++++ يومياً، مش بس بالشاطئ.</li>
 <li>أعيدي التطبيق كل ساعتين لمّا تكوني برّا.</li>
-<li>استعملي ربع ملعقة شاي للوجه — أغلب الناس بستعملوا قليل.</li>
+<li>استعملي ربع ملعقة شاي للوجه, أغلب الناس بستعملوا قليل.</li>
 <li>البسي قبّعة بين الـ 10 صباحاً والـ 4 مساء.</li>
 <li>أعواد الشمس الكورية ممتازة لإعادة التطبيق فوق المكياج.</li>
 </ul>
@@ -2847,14 +2847,14 @@ export const NEW_BLOGS: BlogSeed[] = [
 <p>شوفي دكتور فوراً. حروق شمس شديدة ممكن تحتاج علاج طبّي.</p>
 
 <h2>ضرر الشمس طويل المدى</h2>
-<p>حرق واحد سيّء ما بسبّب سرطان لحاله، بس ضرر الأشعة المتكرّر بيتراكم. العناية الكورية ممكن تساعد بتفتيح التصبّغ ودعم الإصلاح، بس واقي الشمس اليومي غير قابل للتفاوض. واقي الشمس أكثر منتج فعّال ضد الشيخوخة بالسوق — ولا سيروم بنافسه.</p>`,
+<p>حرق واحد سيّء ما بسبّب سرطان لحاله، بس ضرر الأشعة المتكرّر بيتراكم. العناية الكورية ممكن تساعد بتفتيح التصبّغ ودعم الإصلاح، بس واقي الشمس اليومي غير قابل للتفاوض. واقي الشمس أكثر منتج فعّال ضد الشيخوخة بالسوق, ولا سيروم بنافسه.</p>`,
     published_at: "2026-04-26T08:00:00Z",
   },
   {
     slug: "korean-beauty-tools-gua-sha-jade-roller-guide",
     title: "Korean Beauty Tools: Gua Sha, Jade Rollers, and Cleansing Brushes",
     excerpt:
-      "Beauty tools can elevate any Korean skincare routine — but only if you use them right. Here's an honest guide to gua sha, jade rollers, and cleansing brushes.",
+      "Beauty tools can elevate any Korean skincare routine, but only if you use them right. Here's an honest guide to gua sha, jade rollers, and cleansing brushes.",
     seo_title: "Korean Beauty Tools Guide: Gua Sha, Jade Rollers, Brushes",
     seo_description:
       "Are Korean beauty tools worth it? An honest breakdown of gua sha, jade rollers, cleansing brushes, and LED masks. What works, what doesn't.",
@@ -2862,13 +2862,13 @@ export const NEW_BLOGS: BlogSeed[] = [
     cover_image: COVERS.spa1,
     title_ar: "أدوات الجمال الكورية: غوا شا، رولر اليشم، وفراشي التنظيف",
     excerpt_ar:
-      "أدوات الجمال ممكن ترفع أي روتين عناية كوري — بس بس لو استعمليتيها صح. هاد دليل صادق للغوا شا، رولر اليشم، وفراشي التنظيف.",
+      "أدوات الجمال ممكن ترفع أي روتين عناية كوري, بس بس لو استعمليتيها صح. هاد دليل صادق للغوا شا، رولر اليشم، وفراشي التنظيف.",
     seo_title_ar: "دليل أدوات الجمال الكورية: غوا شا، رولر اليشم، فراشي",
     seo_description_ar:
       "أدوات الجمال الكورية تستاهل؟ تفكيك صادق للغوا شا، رولر اليشم، فراشي التنظيف، وماسكات الليد. إيش بشتغل وإيش لأ.",
     tags_ar: ["أدوات جمال", "غوا شا", "رولر يشم", "عناية كورية", "مساج وجه"],
     content: `<h2>The Reality of Beauty Tools</h2>
-<p>Beauty tools won't replace your skincare. They <strong>enhance</strong> what your products do — by improving circulation, lymphatic drainage, and product absorption. Used correctly, they make a real difference. Used wrong, they're useless or even damaging.</p>
+<p>Beauty tools won't replace your skincare. They <strong>enhance</strong> what your products do, by improving circulation, lymphatic drainage, and product absorption. Used correctly, they make a real difference. Used wrong, they're useless or even damaging.</p>
 
 <h2>Gua Sha</h2>
 
@@ -2879,7 +2879,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ol>
 <li>Apply a facial oil or serum so the stone glides.</li>
 <li>Hold the stone at a 15° angle to the skin.</li>
-<li>Use light pressure — never drag harshly.</li>
+<li>Use light pressure, never drag harshly.</li>
 <li>Stroke from the center of the face outward and upward.</li>
 <li>Do each area 3-5 times.</li>
 <li>Use 3-4 times a week, in the evening.</li>
@@ -2909,7 +2909,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ol>
 <li>Apply your serum first.</li>
 <li>Roll from the center of the face outward.</li>
-<li>Always roll upward and out — never down.</li>
+<li>Always roll upward and out, never down.</li>
 <li>Use light pressure.</li>
 <li>5-10 minutes daily or after applying skincare.</li>
 </ol>
@@ -2976,9 +2976,9 @@ export const NEW_BLOGS: BlogSeed[] = [
 </ul>
 
 <h2>The Bottom Line</h2>
-<p>Beauty tools are accessories, not essentials. If you have 10 minutes and an oil, gua sha is a lovely ritual that genuinely helps. If you're starting K-beauty, fix the routine first — then add the tools.</p>`,
+<p>Beauty tools are accessories, not essentials. If you have 10 minutes and an oil, gua sha is a lovely ritual that genuinely helps. If you're starting K-beauty, fix the routine first, then add the tools.</p>`,
     content_ar: `<h2>حقيقة أدوات الجمال</h2>
-<p>أدوات الجمال ما رح تعوّض عنايتك. هي <strong>بترفع</strong> اللي بتعمله منتجاتك — بتحسين الدورة الدموية، تصريف اللمف، وامتصاص المنتجات. مستعملة صح، بتفرق فعلاً. مستعملة غلط، بلا فايدة أو حتى ضارّة.</p>
+<p>أدوات الجمال ما رح تعوّض عنايتك. هي <strong>بترفع</strong> اللي بتعمله منتجاتك, بتحسين الدورة الدموية، تصريف اللمف، وامتصاص المنتجات. مستعملة صح، بتفرق فعلاً. مستعملة غلط، بلا فايدة أو حتى ضارّة.</p>
 
 <h2>غوا شا</h2>
 
@@ -2989,7 +2989,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ol>
 <li>طبّقي زيت وجه أو سيروم عشان الحجر ينزلق.</li>
 <li>اضبطي الحجر بزاوية 15 درجة على البشرة.</li>
-<li>استعملي ضغط خفيف — أبداً ما تجرّي بقوّة.</li>
+<li>استعملي ضغط خفيف, أبداً ما تجرّي بقوّة.</li>
 <li>اضربي من مركز الوجه للخارج وللفوق.</li>
 <li>اعملي كل منطقة 3-5 مرات.</li>
 <li>استعمليها 3-4 مرات بالأسبوع، بالمساء.</li>
@@ -3019,7 +3019,7 @@ export const NEW_BLOGS: BlogSeed[] = [
 <ol>
 <li>طبّقي سيرومك أوّل.</li>
 <li>دحرجيه من مركز الوجه للخارج.</li>
-<li>دايماً دحرجي للفوق وللخارج — أبداً للتحت.</li>
+<li>دايماً دحرجي للفوق وللخارج, أبداً للتحت.</li>
 <li>استعملي ضغط خفيف.</li>
 <li>5-10 دقايق يومياً أو بعد تطبيق العناية.</li>
 </ol>
@@ -3086,8 +3086,711 @@ export const NEW_BLOGS: BlogSeed[] = [
 </ul>
 
 <h2>الخلاصة</h2>
-<p>أدوات الجمال إكسسوارات، مش أساسيات. لو عندك 10 دقايق وزيت، الغوا شا طقس جميل وبيساعد فعلاً. لو بتبتدئي K-beauty، صلّحي الروتين أوّل — بعدها ضيفي الأدوات.</p>`,
+<p>أدوات الجمال إكسسوارات، مش أساسيات. لو عندك 10 دقايق وزيت، الغوا شا طقس جميل وبيساعد فعلاً. لو بتبتدئي K-beauty، صلّحي الروتين أوّل, بعدها ضيفي الأدوات.</p>`,
     published_at: "2026-04-25T08:00:00Z",
+  },
+  {
+    slug: "beauty-of-joseon-relief-sun-vs-isntree-watery-sun-gel",
+    title: "Beauty of Joseon Relief Sun vs Isntree Hyaluronic Watery Sun Gel",
+    excerpt:
+      "Two of the most popular Korean SPF 50+ sunscreens we carry. Different finishes, different vibes. Here's how to pick the right one for your skin.",
+    seo_title: "Beauty of Joseon Relief Sun vs Isntree Watery Sun Gel: 2026 Compare",
+    seo_description:
+      "A side-by-side look at Beauty of Joseon Relief Sun Rice + Probiotics and Isntree Hyaluronic Acid Watery Sun Gel. Texture, finish, ingredients, and who each one suits.",
+    tags: ["sunscreen", "beauty of joseon", "isntree", "spf comparison", "korean sunscreen"],
+    cover_image: COVERS.bottles1,
+    title_ar: "Beauty of Joseon Relief Sun مقابل Isntree Hyaluronic Watery Sun Gel",
+    excerpt_ar:
+      "اتنين من أكثر واقيات الشمس الكورية SPF 50+ شعبية اللي عنا. لمسات نهائية مختلفة، إحساس مختلف. هاد كيف تختاري المناسب لبشرتك.",
+    seo_title_ar: "Beauty of Joseon Relief Sun مقابل Isntree Watery Sun Gel 2026",
+    seo_description_ar:
+      "مقارنة جنباً إلى جنب بين Beauty of Joseon Relief Sun Rice + Probiotics و Isntree Hyaluronic Acid Watery Sun Gel. القوام، اللمسة النهائية، المكوّنات، ومين بناسب كل واحد.",
+    tags_ar: ["واقي شمس", "Beauty of Joseon", "Isntree", "مقارنة SPF", "واقي كوري"],
+    content: `<h2>The Quick Answer</h2>
+<p>Both are SPF 50+ PA++++ Korean sunscreens you can wear under makeup, both protect against UVA and UVB. The difference is the finish and the secondary skincare benefits.</p>
+<p>If you want a soft satin glow with a touch of nourishment, go Beauty of Joseon. If you want a watery, almost-invisible gel that disappears into the skin, go Isntree.</p>
+
+<h2>Beauty of Joseon Relief Sun Rice + Probiotics</h2>
+<ul>
+<li><strong>Texture:</strong> Light lotion, slightly creamy.</li>
+<li><strong>Finish:</strong> Soft satin, very faint healthy glow.</li>
+<li><strong>Hero ingredients:</strong> Rice extract for soft glow, probiotics for the skin barrier.</li>
+<li><strong>Scent:</strong> Almost no scent.</li>
+<li><strong>White cast:</strong> Effectively none on most skin tones.</li>
+<li><strong>Best for:</strong> Normal, dry, combination skin. People who want a no-makeup glow.</li>
+</ul>
+
+<h2>Isntree Hyaluronic Acid Watery Sun Gel</h2>
+<ul>
+<li><strong>Texture:</strong> True watery gel, melts on contact.</li>
+<li><strong>Finish:</strong> Soft-matte, dewy but never shiny.</li>
+<li><strong>Hero ingredients:</strong> Multiple hyaluronic acids for hydration, soothing botanicals.</li>
+<li><strong>Scent:</strong> Very subtle, fresh.</li>
+<li><strong>White cast:</strong> None.</li>
+<li><strong>Best for:</strong> Oily, combination, acne-prone skin. People in hot, humid weather.</li>
+</ul>
+
+<h2>How They Compare On Real Days</h2>
+<p><strong>Under makeup:</strong> Both layer well. Beauty of Joseon adds a soft glow under foundation. Isntree disappears completely.</p>
+<p><strong>In Amman summer:</strong> Isntree feels lighter, doesn't sweat off as fast. Beauty of Joseon is more comfortable for short outdoor stints.</p>
+<p><strong>In Amman winter:</strong> Beauty of Joseon wins, the slight cream feel hydrates dry winter skin.</p>
+<p><strong>For sensitive skin:</strong> Both are fragrance-light and gentle. Beauty of Joseon's probiotics give a slight edge for compromised barriers.</p>
+
+<h2>Who Should Pick Which</h2>
+<p>Go <strong>Beauty of Joseon Relief Sun</strong> if your skin trends dry, you wear no makeup or natural makeup, you live in a moderate climate, or you want skincare-like extras (rice glow, probiotic support).</p>
+<p>Go <strong>Isntree Watery Sun Gel</strong> if your skin is oily or acne-prone, you hate any sticky feeling, you reapply throughout the day, or you wear heavy makeup over it.</p>
+
+<h2>One Note On Reapplication</h2>
+<p>Whichever you pick, the right amount is roughly a quarter teaspoon for the face alone, and you should reapply every two to three hours when outdoors. The protection from one morning application drops by midday no matter how good the product is.</p>`,
+    content_ar: `<h2>الإجابة السريعة</h2>
+<p>كلاهما واقي شمس كوري SPF 50+ PA++++ تقدري تلبسيه تحت المكياج، وكلاهما بحمي من UVA و UVB. الفرق باللمسة النهائية والفوايد العنائية الثانوية.</p>
+<p>لو بدّك لمسة ساتان ناعمة بوهج خفيف وشويّة تغذية، روحي على Beauty of Joseon. لو بدّك جل مائي شبه شفّاف بختفي بالبشرة، روحي على Isntree.</p>
+
+<h2>Beauty of Joseon Relief Sun Rice + Probiotics</h2>
+<ul>
+<li><strong>القوام:</strong> لوشن خفيف، كريمي شويّ.</li>
+<li><strong>اللمسة النهائية:</strong> ساتان ناعم بوهج صحّي خفيف جداً.</li>
+<li><strong>المكوّنات البطلة:</strong> خلاصة الأرز للوهج الناعم، البروبيوتيك لحاجز البشرة.</li>
+<li><strong>الرائحة:</strong> تقريباً بلا رائحة.</li>
+<li><strong>أثر أبيض:</strong> فعلياً بلا أثر على أغلب درجات البشرة.</li>
+<li><strong>الأنسب لـ:</strong> بشرة عادية، جافة، مختلطة. ناس بدّها وهج بدون مكياج.</li>
+</ul>
+
+<h2>Isntree Hyaluronic Acid Watery Sun Gel</h2>
+<ul>
+<li><strong>القوام:</strong> جل مائي حقيقي، بيذوب باللمس.</li>
+<li><strong>اللمسة النهائية:</strong> سيمي مات، نديّة بدون لمعان.</li>
+<li><strong>المكوّنات البطلة:</strong> أنواع متعدّدة من حمض الهيالورونيك للترطيب، نباتات مهدّية.</li>
+<li><strong>الرائحة:</strong> خفيفة جداً، منعشة.</li>
+<li><strong>أثر أبيض:</strong> ولا أثر.</li>
+<li><strong>الأنسب لـ:</strong> بشرة دهنية، مختلطة، معرّضة لحب الشباب. ناس بطقس حار رطب.</li>
+</ul>
+
+<h2>كيف بيقارنوا بأيام الشغل</h2>
+<p><strong>تحت المكياج:</strong> كلاهما بطبّق منيح. Beauty of Joseon بيضيف وهج خفيف تحت الفاونديشن. Isntree بختفي تماماً.</p>
+<p><strong>بصيف عمّان:</strong> Isntree بحسّيه أخفّ، ما بمسح بالعرق بسرعة. Beauty of Joseon أكثر راحة لطلعات قصيرة برّا.</p>
+<p><strong>بشتا عمّان:</strong> Beauty of Joseon بيكسب، الإحساس الكريمي الخفيف بيرطّب البشرة الجافة الشتوية.</p>
+<p><strong>للبشرة الحسّاسة:</strong> كلاهما خفيف العطر ولطيف. البروبيوتيك بـ Beauty of Joseon بيعطيه أفضلية بسيطة للحواجز المتضرّرة.</p>
+
+<h2>مين لازم يختار إيش</h2>
+<p>روحي على <strong>Beauty of Joseon Relief Sun</strong> لو بشرتك بتميل للجفاف، ما بتلبسي مكياج أو بتلبسي مكياج طبيعي، عايشة بمناخ معتدل، أو بدّك إضافات عنائية (وهج الأرز، دعم البروبيوتيك).</p>
+<p>روحي على <strong>Isntree Watery Sun Gel</strong> لو بشرتك دهنية أو معرّضة لحب الشباب، ما بتحبي أي إحساس لزج، بتعيدي التطبيق طول اليوم، أو بتلبسي مكياج ثقيل فوقه.</p>
+
+<h2>ملاحظة عن إعادة التطبيق</h2>
+<p>أي واحد بتختاري، الكميّة الصحيحة حوالي ربع ملعقة شاي للوجه لحاله، ولازم تعيدي التطبيق كل ساعتين لتلات لو طالعة برّا. الحماية من تطبيق صباحي واحد بتنزل بنص اليوم مهما كان المنتج كويس.</p>`,
+    published_at: "2026-05-14T09:00:00Z",
+  },
+  {
+    slug: "cosrx-low-ph-vs-skin1004-centella-foam-cleanser",
+    title: "COSRX Low pH Good Morning vs SKIN1004 Centella Ampoule Foam",
+    excerpt:
+      "Two gentle daily cleansers that look similar on the shelf. One leans low-pH BHA, the other leans centella soothing. Here's the honest difference.",
+    seo_title: "COSRX Low pH vs SKIN1004 Centella Foam: Cleanser Compare 2026",
+    seo_description:
+      "Side-by-side comparison of COSRX Low pH Good Morning Gel Cleanser and SKIN1004 Centella Ampoule Foam. Which one suits your skin type, in plain language.",
+    tags: ["cleanser", "cosrx", "skin1004", "low pH", "centella", "comparison"],
+    cover_image: COVERS.green1,
+    title_ar: "COSRX Low pH Good Morning مقابل SKIN1004 Centella Ampoule Foam",
+    excerpt_ar:
+      "اتنين منظّفات يومية لطيفة بتشبه بعضها على الرفّ. واحد بدرجة حموضة منخفضة مع BHA، التاني بتركيز على تهدئة السنتيلا. هاد الفرق بصراحة.",
+    seo_title_ar: "COSRX Low pH مقابل SKIN1004 Centella Foam: مقارنة منظّفات 2026",
+    seo_description_ar:
+      "مقارنة بين COSRX Low pH Good Morning Gel Cleanser و SKIN1004 Centella Ampoule Foam. أيهما يناسب نوع بشرتك بكلام واضح.",
+    tags_ar: ["منظّف", "COSRX", "SKIN1004", "حموضة منخفضة", "سنتيلا", "مقارنة"],
+    content: `<h2>What Both Have In Common</h2>
+<p>Both are daily face cleansers, both have a near-skin pH around 5.0 to 5.5, both rinse clean without leaving a tight feeling. Either one beats a regular soap bar.</p>
+
+<h2>COSRX Low pH Good Morning Gel Cleanser</h2>
+<ul>
+<li><strong>Texture:</strong> Thin gel that lathers into a light foam.</li>
+<li><strong>pH:</strong> Around 5.0 to 5.5.</li>
+<li><strong>Hero ingredient:</strong> Tea tree oil with a small amount of BHA (salicylic acid).</li>
+<li><strong>Best for:</strong> Oily, combination, acne-prone skin. People who want a daily light exfoliating cleanse.</li>
+<li><strong>How it feels:</strong> Clean, slightly fresh, not stripping.</li>
+</ul>
+
+<h2>SKIN1004 Centella Ampoule Foam</h2>
+<ul>
+<li><strong>Texture:</strong> Whipped cream foam that's denser and more cushion-y.</li>
+<li><strong>pH:</strong> Mildly acidic, similar range.</li>
+<li><strong>Hero ingredients:</strong> Madagascar centella asiatica (with madecassoside), panthenol.</li>
+<li><strong>Best for:</strong> Sensitive, irritated, redness-prone, or barrier-compromised skin.</li>
+<li><strong>How it feels:</strong> Soft and calming, barely makes the skin feel anything other than clean.</li>
+</ul>
+
+<h2>The Difference In Plain Terms</h2>
+<p>COSRX is the morning cleanser if you wake up with shine or a clogged-pore feeling. The hint of BHA keeps blackheads in check over time, and the gel-to-foam texture is satisfying without being harsh.</p>
+<p>SKIN1004 is the cleanser if you're recovering from over-exfoliation, retinol irritation, or rosacea-style flushing. The centella stays on the skin in micro-amounts and the cleanse feels like a soothing reset.</p>
+
+<h2>When To Pick COSRX</h2>
+<ul>
+<li>You have an oily T-zone and frequent blackheads.</li>
+<li>You wear sunscreen and want a clean face without scrubbing.</li>
+<li>You're using actives (vitamin C, retinol) and want a balanced low-pH cleanse before them.</li>
+</ul>
+
+<h2>When To Pick SKIN1004</h2>
+<ul>
+<li>Your skin is reactive or red.</li>
+<li>You're rebuilding your barrier after damage.</li>
+<li>You wash twice a day and don't want any exfoliating cleanser.</li>
+<li>You have eczema or rosacea tendencies.</li>
+</ul>
+
+<h2>Can You Use Both?</h2>
+<p>Yes, this is actually a smart pairing. Use COSRX as your evening second cleanse after an oil cleanser, and SKIN1004 in the morning when the skin doesn't need exfoliation. Many K-beauty fans keep both in the rotation for that exact reason.</p>
+
+<h2>Pro Tip</h2>
+<p>However gentle a cleanser is, the wash time matters more than the product. Sixty seconds of massaging is plenty. Anything longer starts stressing the skin.</p>`,
+    content_ar: `<h2>إيش اللي بشتركوا فيه</h2>
+<p>كلاهما منظّف وجه يومي، كلاهما درجة حموضة قريبة من البشرة بين 5.0 و 5.5، كلاهما بشطف نظيف بدون إحساس بشدّ. أي واحد منهم بيغلب صابون البار العادي.</p>
+
+<h2>COSRX Low pH Good Morning Gel Cleanser</h2>
+<ul>
+<li><strong>القوام:</strong> جل رفيع بصير رغوة خفيفة.</li>
+<li><strong>الحموضة:</strong> حوالي 5.0 لـ 5.5.</li>
+<li><strong>المكوّن البطل:</strong> زيت شجرة الشاي مع كمّية صغيرة من BHA (ساليسيليك).</li>
+<li><strong>الأنسب لـ:</strong> بشرة دهنية، مختلطة، معرّضة لحب الشباب. ناس بدّها تنظيف يومي مع تقشير خفيف.</li>
+<li><strong>كيف بحسّيه:</strong> نضيف، منعش شويّ، مش مجفّف.</li>
+</ul>
+
+<h2>SKIN1004 Centella Ampoule Foam</h2>
+<ul>
+<li><strong>القوام:</strong> رغوة مخفوقة أسمك وأكثر وسادة.</li>
+<li><strong>الحموضة:</strong> حامضية خفيفة، نطاق مشابه.</li>
+<li><strong>المكوّنات البطلة:</strong> سنتيلا أسياتيكا مدغشقرية (مع ماديكاسوسايد)، بانثينول.</li>
+<li><strong>الأنسب لـ:</strong> بشرة حسّاسة، متهيّجة، معرّضة للاحمرار، أو حاجز متضرّر.</li>
+<li><strong>كيف بحسّيه:</strong> ناعم ومهدّي، بالكاد بخلّي البشرة تحسّ بأي شي غير النظافة.</li>
+</ul>
+
+<h2>الفرق بكلام بسيط</h2>
+<p>COSRX هو منظّف الصبح لو بتصحّي بلمعان أو إحساس بمسامات مسدودة. لمسة BHA بتحافظ على الرؤوس السوداء بشكل منيح مع الوقت، والقوام من جل لرغوة مرضي بدون قسوة.</p>
+<p>SKIN1004 هو المنظّف لو بتتعافي من إفراط بالتقشير، تهيّج من ريتينول، أو احمرار بأسلوب الوردية. السنتيلا بتظل على البشرة بكمّيات صغيرة والتنظيف بحسّيه إعادة ضبط مهدّية.</p>
+
+<h2>متى تختاري COSRX</h2>
+<ul>
+<li>عندك منطقة T دهنية ورؤوس سوداء متكرّرة.</li>
+<li>بتلبسي واقي شمس وبدّك وجه نظيف بدون فرك.</li>
+<li>بتستعملي مكوّنات نشطة (فيتامين C، ريتينول) وبدّك تنظيف متوازن بحموضة منخفضة قبلهم.</li>
+</ul>
+
+<h2>متى تختاري SKIN1004</h2>
+<ul>
+<li>بشرتك متفاعلة أو حمرا.</li>
+<li>بتعيدي بناء حاجزك بعد ضرر.</li>
+<li>بتغسلي مرّتين باليوم وما بدّك أي منظّف مقشّر.</li>
+<li>عندك ميول للإكزيما أو الوردية.</li>
+</ul>
+
+<h2>تقدري تستعمليهم سوا؟</h2>
+<p>أيوا، هاي تركيبة ذكية. استعملي COSRX كتنظيف ثاني مسائي بعد المنظّف الزيتي، و SKIN1004 بالصبح لمّا البشرة ما بدّها تقشير. كتير من محبّي K-beauty بحتفظوا بالاتنين بالروتين لنفس السبب.</p>
+
+<h2>نصيحة محترفة</h2>
+<p>مهما كان المنظّف لطيف، وقت الغسيل أهم من المنتج. ستّين ثانية تدليك كفاية. أي اشي أطول بيبدا يضغط على البشرة.</p>`,
+    published_at: "2026-05-14T09:30:00Z",
+  },
+  {
+    slug: "skin1004-cleansing-oil-vs-medicube-zero-pore-oil",
+    title: "SKIN1004 Centella Light Cleansing Oil vs Medicube Zero Pore Oil",
+    excerpt:
+      "Two Korean cleansing oils with very different jobs. One soothes while removing makeup, the other goes deep on blackheads. Which one fits your routine?",
+    seo_title: "SKIN1004 Centella Oil vs Medicube Zero Pore Oil: Cleanser Compare",
+    seo_description:
+      "Comparing SKIN1004 Centella Light Cleansing Oil and Medicube Zero Pore Blackhead Deep Cleansing Oil. Pick the right Korean cleansing oil for your goal.",
+    tags: ["cleansing oil", "skin1004", "medicube", "blackheads", "comparison"],
+    cover_image: COVERS.bottles2,
+    title_ar: "SKIN1004 Centella Light Cleansing Oil مقابل Medicube Zero Pore Oil",
+    excerpt_ar:
+      "اتنين منظّفات زيتية كورية بوظائف مختلفة جداً. واحد بهدّي وبشيل المكياج، التاني بدخل عميق على الرؤوس السوداء. أيهم يناسب روتينك؟",
+    seo_title_ar: "SKIN1004 Centella Oil مقابل Medicube Zero Pore Oil: مقارنة منظّفات",
+    seo_description_ar:
+      "مقارنة بين SKIN1004 Centella Light Cleansing Oil و Medicube Zero Pore Blackhead Deep Cleansing Oil. اختاري الزيت المنظّف الكوري المناسب لهدفك.",
+    tags_ar: ["زيت منظّف", "SKIN1004", "Medicube", "رؤوس سوداء", "مقارنة"],
+    content: `<h2>Two Cleansing Oils, Two Jobs</h2>
+<p>People sometimes treat all cleansing oils as the same product, but the difference between these two is the difference between a yoga session and a deep tissue massage. Both useful, very different.</p>
+
+<h2>SKIN1004 Centella Light Cleansing Oil</h2>
+<ul>
+<li><strong>Texture:</strong> Light, runny, almost watery for an oil.</li>
+<li><strong>Hero ingredients:</strong> Centella asiatica, light plant oils.</li>
+<li><strong>Best for:</strong> Daily evening cleanse, sensitive skin, anyone whose skin gets red easily.</li>
+<li><strong>What it does best:</strong> Removes sunscreen and light makeup without irritation.</li>
+<li><strong>Emulsifies:</strong> Very easily, rinses clean.</li>
+</ul>
+
+<h2>Medicube Zero Pore Blackhead Deep Cleansing Oil</h2>
+<ul>
+<li><strong>Texture:</strong> Slightly thicker, more massage-friendly.</li>
+<li><strong>Hero ingredients:</strong> Pore-targeting actives, BHA-supporting blend.</li>
+<li><strong>Best for:</strong> People with visible blackheads, congested skin, oily T-zone.</li>
+<li><strong>What it does best:</strong> Loosens sebum plugs with consistent use.</li>
+<li><strong>Emulsifies:</strong> Slightly slower than the SKIN1004; massage it longer for the pore benefit.</li>
+</ul>
+
+<h2>How to Decide</h2>
+<p>If your evenings look like: came home, light makeup, ready to relax, choose SKIN1004. It's the everyday daily-driver cleansing oil that's gentle and quick.</p>
+<p>If your concern is the small bumps on your nose and chin that keep coming back no matter how much you wash, choose Medicube. Use it three to four nights a week, massage it onto dry skin for 60 to 90 seconds before emulsifying.</p>
+
+<h2>Real Use Tip</h2>
+<p>Cleansing oils only work when applied to <strong>dry skin and dry hands</strong>. Water before the oil means oil that won't break down makeup. Once the oil has done its job, add water with damp fingertips, swirl until it turns milky, then rinse thoroughly.</p>
+
+<h2>Can You Switch Between Them?</h2>
+<p>Yes. A lot of people use the SKIN1004 on busy days and the Medicube two to three nights weekly when they want a deeper cleanse. The skin gets gentle most days and targeted pore care when it needs it.</p>
+
+<h2>What to Follow Up With</h2>
+<p>Both should be followed by a water-based second cleanser, the classic Korean double cleanse. After a Medicube night, a centella toner is a smart calming step before serums.</p>`,
+    content_ar: `<h2>اتنين زيوت منظّفة، وظيفتين</h2>
+<p>الناس أحياناً بتعامل كل الزيوت المنظّفة كمنتج واحد، بس الفرق بين هدول الاتنين زي الفرق بين جلسة يوغا وتدليك عميق للأنسجة. كلاهما مفيد، مختلفين بشدّة.</p>
+
+<h2>SKIN1004 Centella Light Cleansing Oil</h2>
+<ul>
+<li><strong>القوام:</strong> خفيف، سايل، شبه مائي لزيت.</li>
+<li><strong>المكوّنات البطلة:</strong> سنتيلا أسياتيكا، زيوت نباتية خفيفة.</li>
+<li><strong>الأنسب لـ:</strong> تنظيف مسائي يومي، بشرة حسّاسة، أي حدا بشرته بتحمرّ بسهولة.</li>
+<li><strong>إيش بعمل أحسن:</strong> بشيل واقي الشمس والمكياج الخفيف بدون تهيّج.</li>
+<li><strong>الاستحلاب:</strong> بسهولة، بشطف نضيف.</li>
+</ul>
+
+<h2>Medicube Zero Pore Blackhead Deep Cleansing Oil</h2>
+<ul>
+<li><strong>القوام:</strong> أسمك شويّ، أنسب للتدليك.</li>
+<li><strong>المكوّنات البطلة:</strong> مكوّنات تستهدف المسامات، خليط داعم لـ BHA.</li>
+<li><strong>الأنسب لـ:</strong> ناس عندهم رؤوس سوداء واضحة، بشرة مزدحمة، منطقة T دهنية.</li>
+<li><strong>إيش بعمل أحسن:</strong> بفكّك سدادات الزهم مع الاستعمال المنتظم.</li>
+<li><strong>الاستحلاب:</strong> أبطأ شويّ من SKIN1004؛ دلّكيه أطول للفايدة على المسامات.</li>
+</ul>
+
+<h2>كيف تقرّري</h2>
+<p>لو أمسياتك بتشبه: رجعتي على البيت، مكياج خفيف، جاهزة ترتاحي، اختاري SKIN1004. هو الزيت المنظّف اليومي اللطيف والسريع.</p>
+<p>لو همّك النتوءات الصغيرة على أنفك وذقنك اللي بترجع مهما تغسلي، اختاري Medicube. استعمليه ثلاث لأربع ليالي بالأسبوع، دلّكيه على بشرة جافة لـ 60 لـ 90 ثانية قبل الاستحلاب.</p>
+
+<h2>نصيحة استعمال حقيقية</h2>
+<p>الزيوت المنظّفة بتشتغل بس لمّا تطبّقيها على <strong>بشرة جافة وأيدين جافة</strong>. المي قبل الزيت يعني زيت ما رح يكسر المكياج. لمّا الزيت يخلّص شغله، ضيفي المي بأطراف أصابع مبلولة، حرّكي لحدّ ما يصير حليبي، بعدها اشطفي منيح.</p>
+
+<h2>تقدري تبدّلي بينهم؟</h2>
+<p>أيوا. كتير ناس بستعملوا SKIN1004 بالأيام المزحومة و Medicube ليلتين لتلات بالأسبوع لمّا بدّهم تنظيف أعمق. البشرة بتاخد لطف أغلب الأيام وعناية مستهدفة للمسامات لمّا بتحتاجها.</p>
+
+<h2>إيش تتبعي فيه</h2>
+<p>كلاهما لازم يتبع بمنظّف مائي ثاني، التنظيف المزدوج الكوري الكلاسيكي. بعد ليلة Medicube، تونر سنتيلا خطوة مهدّية ذكية قبل السيرومات.</p>`,
+    published_at: "2026-05-14T10:00:00Z",
+  },
+  {
+    slug: "anua-heartleaf-vs-skin1004-centella-toner",
+    title: "Anua Heartleaf 77% vs SKIN1004 Centella Toning Toner",
+    excerpt:
+      "Both are soothing Korean toners loved on TikTok. One leans heartleaf (houttuynia), the other leans centella. The difference matters more than you'd think.",
+    seo_title: "Anua Heartleaf vs SKIN1004 Centella Toner: Compared for 2026",
+    seo_description:
+      "An honest side-by-side of Anua Heartleaf 77% Soothing Toner and SKIN1004 Madagascar Centella Toning Toner. Which one calms redness best, in plain language.",
+    tags: ["toner", "anua", "skin1004", "heartleaf", "centella", "comparison"],
+    cover_image: COVERS.green2,
+    title_ar: "Anua Heartleaf 77% مقابل SKIN1004 Centella Toning Toner",
+    excerpt_ar:
+      "كلاهما تونرات كورية مهدّية محبوبة على TikTok. واحد بتركيز على heartleaf، التاني بتركيز على السنتيلا. الفرق أهم من اللي بتفكّري فيه.",
+    seo_title_ar: "Anua Heartleaf مقابل SKIN1004 Centella Toner: مقارنة 2026",
+    seo_description_ar:
+      "مقارنة صادقة بين Anua Heartleaf 77% Soothing Toner و SKIN1004 Madagascar Centella Toning Toner. أيهم بهدّي الاحمرار أحسن، بكلام واضح.",
+    tags_ar: ["تونر", "Anua", "SKIN1004", "heartleaf", "سنتيلا", "مقارنة"],
+    content: `<h2>The Short Version</h2>
+<p>Both calm redness, both hydrate, both are extremely gentle. Anua is silkier and slightly more hydrating; SKIN1004 is more watery and a touch more refreshing. They suit slightly different temperaments.</p>
+
+<h2>Anua Heartleaf 77% Soothing Toner</h2>
+<ul>
+<li><strong>Hero ingredient:</strong> 77% houttuynia cordata (heartleaf) water.</li>
+<li><strong>Texture:</strong> Slightly silky, almost essence-like.</li>
+<li><strong>Best for:</strong> Hot flushes, post-shower redness, hormonal redness, sensitive skin with surface irritation.</li>
+<li><strong>Fragrance:</strong> Very light, fresh.</li>
+<li><strong>Layering:</strong> Excellent for the 7-skin method.</li>
+</ul>
+
+<h2>SKIN1004 Madagascar Centella Toning Toner</h2>
+<ul>
+<li><strong>Hero ingredient:</strong> Centella asiatica extract with madecassoside.</li>
+<li><strong>Texture:</strong> Watery and refreshing, less silky.</li>
+<li><strong>Best for:</strong> Active breakouts, inflamed acne, post-procedure skin, repair phases.</li>
+<li><strong>Fragrance:</strong> Very subtle, herbal.</li>
+<li><strong>Layering:</strong> Works well with serums and ampoules.</li>
+</ul>
+
+<h2>Which One Calms Better?</h2>
+<p>This is a real question because both market themselves as "calming."</p>
+<p><strong>Anua</strong> tends to be better for <em>surface redness</em>: rosacea-style flushing, hot weather red blotches, skin that gets pink after working out.</p>
+<p><strong>SKIN1004</strong> tends to be better for <em>inflammatory redness</em>: active acne lesions, post-pop wounds, irritation from retinol.</p>
+
+<h2>Hydration Comparison</h2>
+<p>Anua adds slightly more long-lasting hydration thanks to a richer feel. SKIN1004 hydrates more like splashing cool water on the skin: instant, then needs serum to lock it in.</p>
+
+<h2>The Best Pairing</h2>
+<p>If you use either with a layered routine, both pair beautifully with snail mucin essences (like COSRX) for barrier repair, or niacinamide serums for tone correction.</p>
+
+<h2>How to Pick</h2>
+<p>Pick Anua if you have sensitive, redness-prone, dehydrated skin and want a daily soothing layer that also hydrates.</p>
+<p>Pick SKIN1004 if your skin breaks out and gets inflamed, and you want a toner that calms the breakouts specifically.</p>
+
+<h2>Can You Have Both?</h2>
+<p>Yes, and many K-beauty fans alternate them by season or by skin state. Anua becomes the winter darling because of the extra hydration; SKIN1004 takes over in summer or during stressful skin weeks.</p>`,
+    content_ar: `<h2>النسخة المختصرة</h2>
+<p>كلاهما بهدّي الاحمرار، كلاهما بيرطّب، كلاهما لطيف بشدّة. Anua حريري أكثر ومرطّب أكثر شويّ؛ SKIN1004 أكثر مائية وأكثر انتعاش شويّ. بناسبوا أمزجة مختلفة شويّ.</p>
+
+<h2>Anua Heartleaf 77% Soothing Toner</h2>
+<ul>
+<li><strong>المكوّن البطل:</strong> 77% مي هوتوينيا كورداتا (heartleaf).</li>
+<li><strong>القوام:</strong> حريري شويّ، شبه إسنس.</li>
+<li><strong>الأنسب لـ:</strong> هبّات حرارة، احمرار بعد الدوش، احمرار هرموني، بشرة حسّاسة بتهيّج سطحي.</li>
+<li><strong>العطر:</strong> خفيف جداً، منعش.</li>
+<li><strong>الطبقات:</strong> ممتاز لطريقة 7-skin.</li>
+</ul>
+
+<h2>SKIN1004 Madagascar Centella Toning Toner</h2>
+<ul>
+<li><strong>المكوّن البطل:</strong> خلاصة سنتيلا أسياتيكا مع ماديكاسوسايد.</li>
+<li><strong>القوام:</strong> مائي ومنعش، أقل حريري.</li>
+<li><strong>الأنسب لـ:</strong> حبوب نشطة، حب شباب ملتهب، بشرة بعد الإجراءات، مراحل الإصلاح.</li>
+<li><strong>العطر:</strong> خفيف جداً، عشبي.</li>
+<li><strong>الطبقات:</strong> بشتغل منيح مع السيرومات والأمبولات.</li>
+</ul>
+
+<h2>أيهم بهدّي أحسن؟</h2>
+<p>هاد سؤال حقيقي لأنّ كلاهما بسوّق حاله "مهدّي".</p>
+<p><strong>Anua</strong> بكون أحسن لـ <em>الاحمرار السطحي</em>: احمرار بأسلوب الوردية، بقع حمرا بالطقس الحار، بشرة بتصير ورديّة بعد التمرين.</p>
+<p><strong>SKIN1004</strong> بكون أحسن لـ <em>الاحمرار الالتهابي</em>: آفات حب شباب نشطة، جروح بعد التفجير، تهيّج من الريتينول.</p>
+
+<h2>مقارنة الترطيب</h2>
+<p>Anua بضيف ترطيب أطول مدّة شويّ بفضل الإحساس الأغنى. SKIN1004 بيرطّب أكثر زي رشّ مي باردة على البشرة: فوري، بعدها بدّه سيروم ليقفله.</p>
+
+<h2>أحسن تركيبة</h2>
+<p>لو بتستعملي أي واحد فيهم مع روتين متعدّد الطبقات، كلاهما بتركيب جميل مع إسنسات مخاط الحلزون (زي COSRX) لإصلاح الحاجز، أو سيرومات النياسيناميد لتصحيح اللون.</p>
+
+<h2>كيف تختاري</h2>
+<p>اختاري Anua لو عندك بشرة حسّاسة، معرّضة للاحمرار، مجفّفة، وبدّك طبقة مهدّية يومية كمان بترطّب.</p>
+<p>اختاري SKIN1004 لو بشرتك بتطلّع حبوب وبتلتهب، وبدّك تونر يهدّي الحبوب تحديداً.</p>
+
+<h2>تقدري تكون عندك الاتنين؟</h2>
+<p>أيوا، وكتير من محبّي K-beauty بتبدّلوهم حسب الفصل أو حسب حالة البشرة. Anua بصير حبيب الشتا بفضل الترطيب الزيادة؛ SKIN1004 بياخد الدور بالصيف أو بالأسابيع المتوتّرة للبشرة.</p>`,
+    published_at: "2026-05-13T09:00:00Z",
+  },
+  {
+    slug: "anua-niacinamide-txa-vs-axis-y-dark-spot-serum",
+    title: "Anua Niacinamide 10 + TXA 4 vs Axis-Y Dark Spot Correcting Glow",
+    excerpt:
+      "Both target dark spots and uneven tone, but with very different actives. Here's an honest comparison to help you pick the right brightener for your face.",
+    seo_title: "Anua Niacinamide TXA vs Axis-Y Dark Spot Serum: Compared 2026",
+    seo_description:
+      "Comparing Anua Niacinamide 10 + TXA 4 Serum and Axis-Y Dark Spot Correcting Glow Serum. Pick the right Korean serum for pigmentation and even tone.",
+    tags: ["serum", "anua", "axis-y", "niacinamide", "TXA", "dark spots", "comparison"],
+    cover_image: COVERS.serum1,
+    title_ar: "Anua Niacinamide 10 + TXA 4 مقابل Axis-Y Dark Spot Correcting Glow",
+    excerpt_ar:
+      "كلاهما بستهدفوا البقع الغامقة واللون غير المتساوي، بس بمكوّنات مختلفة كتير. هاد مقارنة صادقة تساعدك تختاري المفتّح المناسب لوجهك.",
+    seo_title_ar: "Anua Niacinamide TXA مقابل Axis-Y Dark Spot Serum: مقارنة 2026",
+    seo_description_ar:
+      "مقارنة بين Anua Niacinamide 10 + TXA 4 Serum و Axis-Y Dark Spot Correcting Glow Serum. اختاري السيروم الكوري المناسب للتصبّغات واللون المتوازن.",
+    tags_ar: ["سيروم", "Anua", "Axis-Y", "نياسيناميد", "TXA", "بقع غامقة", "مقارنة"],
+    content: `<h2>What They Have In Common</h2>
+<p>Both are leave-on serums you apply after toner. Both target pigmentation, post-acne marks, and uneven tone. Both are well-tolerated by most skin types.</p>
+
+<h2>Anua Niacinamide 10 + TXA 4 Serum</h2>
+<ul>
+<li><strong>Active percentages:</strong> 10% niacinamide, 4% tranexamic acid.</li>
+<li><strong>Targets:</strong> Hyperpigmentation, post-acne dark marks, melasma, oil control, pore appearance.</li>
+<li><strong>Texture:</strong> Lightweight watery serum.</li>
+<li><strong>Sensitivity:</strong> Very low. Even sensitive skin handles 4% TXA fine.</li>
+<li><strong>Best results in:</strong> 8 to 12 weeks of daily use.</li>
+</ul>
+
+<h2>Axis-Y Dark Spot Correcting Glow Serum</h2>
+<ul>
+<li><strong>Active blend:</strong> Niacinamide, papaya extract, panthenol, allantoin.</li>
+<li><strong>Targets:</strong> Dullness, uneven tone, mild dark spots, overall radiance.</li>
+<li><strong>Texture:</strong> Slightly more silky, lightly hydrating finish.</li>
+<li><strong>Sensitivity:</strong> Very low. Beginner-friendly.</li>
+<li><strong>Best results in:</strong> 6 to 10 weeks for tone correction.</li>
+</ul>
+
+<h2>The Real Difference</h2>
+<p>Anua is the heavier-hitter for <strong>actual stubborn pigmentation</strong>. Tranexamic acid is one of the most effective topical fighters of melasma and deep post-acne marks. If you have visible brown patches that don't fade with general brightening, Anua targets them more directly.</p>
+<p>Axis-Y is the choice for <strong>overall glow and dullness</strong>. It's milder, more all-rounder, and beginners often find it easier to commit to daily. It evens out tone over time but won't reverse deep melasma alone.</p>
+
+<h2>Which One If You Have...</h2>
+<ul>
+<li><strong>Melasma or hormonal pigmentation:</strong> Anua.</li>
+<li><strong>Post-acne dark spots after pimples healed:</strong> Anua, slightly preferred.</li>
+<li><strong>Dull, tired-looking skin:</strong> Axis-Y.</li>
+<li><strong>Sensitive or new-to-actives skin:</strong> Axis-Y first, then graduate to Anua.</li>
+<li><strong>Oily T-zone with congestion:</strong> Anua, because niacinamide at 10% also controls oil.</li>
+</ul>
+
+<h2>Can You Use Them Together?</h2>
+<p>Technically yes, since the actives don't conflict, but it's not necessary. Pick one for your hero brightening serum and pair it with a vitamin C in the morning if you want to amplify results.</p>
+
+<h2>Both Need Sunscreen To Work</h2>
+<p>Tranexamic acid and niacinamide both lighten pigmentation, but neither works if you skip daily SPF. UV is what creates pigmentation in the first place. No amount of brightening serum will overcome unprotected sun exposure.</p>
+
+<h2>Patience Note</h2>
+<p>Neither product changes your face in a week. Stick with one for at least two months before judging. Most disappointments are from people switching between brightening serums every three weeks.</p>`,
+    content_ar: `<h2>إيش اللي بشتركوا فيه</h2>
+<p>كلاهما سيرومات تتركيها على البشرة تطبّقيها بعد التونر. كلاهما بستهدف التصبّغ، آثار حب الشباب، واللون غير المتساوي. كلاهما بيتحمّلوا أغلب أنواع البشرة.</p>
+
+<h2>Anua Niacinamide 10 + TXA 4 Serum</h2>
+<ul>
+<li><strong>نسب المكوّنات النشطة:</strong> 10% نياسيناميد، 4% حمض ترانيكساميك.</li>
+<li><strong>الأهداف:</strong> فرط التصبّغ، آثار حب الشباب الغامقة، الكلف، التحكّم بالزيوت، مظهر المسامات.</li>
+<li><strong>القوام:</strong> سيروم خفيف مائي.</li>
+<li><strong>الحساسية:</strong> منخفضة جداً. حتى البشرة الحسّاسة بتتعامل مع 4% TXA منيح.</li>
+<li><strong>أحسن نتائج بـ:</strong> 8 لـ 12 أسبوع من الاستعمال اليومي.</li>
+</ul>
+
+<h2>Axis-Y Dark Spot Correcting Glow Serum</h2>
+<ul>
+<li><strong>خليط المكوّنات النشطة:</strong> نياسيناميد، خلاصة الباباي، بانثينول، الانتوين.</li>
+<li><strong>الأهداف:</strong> البهتان، اللون غير المتساوي، بقع غامقة خفيفة، الإشراق العام.</li>
+<li><strong>القوام:</strong> حريري شويّ، لمسة نهائية مرطّبة خفيف.</li>
+<li><strong>الحساسية:</strong> منخفضة جداً. صديق للمبتدئات.</li>
+<li><strong>أحسن نتائج بـ:</strong> 6 لـ 10 أسابيع لتصحيح اللون.</li>
+</ul>
+
+<h2>الفرق الحقيقي</h2>
+<p>Anua هو الأقوى لـ <strong>التصبّغ العنيد الفعلي</strong>. حمض الترانيكساميك واحد من أكثر المحاربات الموضعية فعالية للكلف وآثار حب الشباب العميقة. لو عندك بقع بنّية واضحة ما بتختفي بالتفتيح العام، Anua بستهدفها بشكل أكثر مباشرة.</p>
+<p>Axis-Y هو الخيار لـ <strong>الوهج العام والبهتان</strong>. هو ألطف، شامل أكثر، والمبتدئات كتير بتلاقي إنّه أسهل بالالتزام اليومي. بوازن اللون مع الوقت بس ما بعكس الكلف العميق لحاله.</p>
+
+<h2>أيهم لو عندك...</h2>
+<ul>
+<li><strong>كلف أو تصبّغ هرموني:</strong> Anua.</li>
+<li><strong>بقع داكنة بعد ما الحبوب شفيت:</strong> Anua، بأفضلية خفيفة.</li>
+<li><strong>بشرة باهتة وتعبانة:</strong> Axis-Y.</li>
+<li><strong>بشرة حسّاسة أو جديدة على المكوّنات النشطة:</strong> Axis-Y أوّل، بعدها تخرّجي لـ Anua.</li>
+<li><strong>منطقة T دهنية مع ازدحام:</strong> Anua، لأنّ النياسيناميد 10% كمان بيتحكّم بالزيوت.</li>
+</ul>
+
+<h2>تقدري تستعمليهم سوا؟</h2>
+<p>تقنياً أيوا، لأنّ المكوّنات النشطة ما بتتعارض، بس مش ضروري. اختاري واحد كسيرومك المفتّح البطل واقرنيه بفيتامين C بالصبح لو بدّك تضخّمي النتائج.</p>
+
+<h2>كلاهما بدّه واقي شمس ليشتغل</h2>
+<p>حمض الترانيكساميك والنياسيناميد كلاهما بفتّحوا التصبّغ، بس ولا واحد منهم بشتغل لو تجاهلتي الـ SPF اليومي. الأشعة هي اللي بتعمل التصبّغ بالأصل. ولا كميّة سيروم مفتّح بتغلب التعرّض للشمس بدون حماية.</p>
+
+<h2>ملاحظة عن الصبر</h2>
+<p>ولا منتج بغيّر وجهك بأسبوع. التزمي بواحد لشهرين على الأقل قبل ما تحكمي. أغلب خيبات الأمل من ناس بدّلوا بين سيرومات التفتيح كل ثلاث أسابيع.</p>`,
+    published_at: "2026-05-13T09:30:00Z",
+  },
+  {
+    slug: "cosrx-snail-essence-vs-skin1004-centella-ampoule-serum",
+    title: "COSRX Snail 96 Mucin vs SKIN1004 Madagascar Centella Ampoule",
+    excerpt:
+      "Two of the most-loved barrier-repair serums in K-beauty. Snail mucin or centella? Different mechanisms, similar results. Here's how to choose.",
+    seo_title: "COSRX Snail Mucin vs SKIN1004 Centella Ampoule: Compared 2026",
+    seo_description:
+      "Side-by-side review of COSRX Advanced Snail 96 Mucin Power Essence and SKIN1004 Madagascar Centella Ampoule. Which barrier-repair hero suits you best.",
+    tags: ["essence", "ampoule", "cosrx", "skin1004", "snail mucin", "centella", "comparison"],
+    cover_image: COVERS.serum2,
+    title_ar: "COSRX Snail 96 Mucin مقابل SKIN1004 Madagascar Centella Ampoule",
+    excerpt_ar:
+      "اتنين من أكثر سيرومات إصلاح الحاجز محبوبية بالـ K-beauty. مخاط حلزون أو سنتيلا؟ آليات مختلفة، نتائج متشابهة. هاد كيف تختاري.",
+    seo_title_ar: "COSRX Snail Mucin مقابل SKIN1004 Centella Ampoule: مقارنة 2026",
+    seo_description_ar:
+      "مراجعة جنباً إلى جنب لـ COSRX Advanced Snail 96 Mucin Power Essence و SKIN1004 Madagascar Centella Ampoule. أيهم بطل إصلاح الحاجز بناسبك أكثر.",
+    tags_ar: ["إسنس", "أمبول", "COSRX", "SKIN1004", "مخاط حلزون", "سنتيلا", "مقارنة"],
+    content: `<h2>Two Different Heroes, Same Goal</h2>
+<p>Both are leave-on treatments that strengthen the skin barrier, fade marks over time, and add a quiet glow. They achieve it via completely different routes.</p>
+
+<h2>COSRX Advanced Snail 96 Mucin Power Essence</h2>
+<ul>
+<li><strong>Hero ingredient:</strong> 96% snail secretion filtrate.</li>
+<li><strong>What it does:</strong> Hydrates deeply, fades post-acne marks, smooths texture, supports wound repair.</li>
+<li><strong>Texture:</strong> Slightly slippery, almost gel-like, takes a moment to absorb.</li>
+<li><strong>Skin type fit:</strong> All types, but especially loved by dry, dehydrated, or post-irritation skin.</li>
+<li><strong>Frequency:</strong> Twice daily after toner.</li>
+</ul>
+
+<h2>SKIN1004 Madagascar Centella Ampoule</h2>
+<ul>
+<li><strong>Hero ingredient:</strong> 100% Madagascar centella asiatica extract.</li>
+<li><strong>What it does:</strong> Calms inflammation, reduces redness, supports barrier, speeds up healing of irritated skin.</li>
+<li><strong>Texture:</strong> Watery serum, absorbs quickly.</li>
+<li><strong>Skin type fit:</strong> Sensitive, reactive, acne-prone, post-procedure.</li>
+<li><strong>Frequency:</strong> Once or twice daily after toner.</li>
+</ul>
+
+<h2>How Each One Works</h2>
+<p>Snail mucin contains glycoproteins, hyaluronic acid, and growth factors that the snail produces to repair its own body. On human skin, it acts as a humectant and supports cell turnover.</p>
+<p>Centella asiatica contains four key compounds (asiaticoside, madecassoside, asiatic acid, madecassic acid) that are anti-inflammatory and pro-healing. It's been used in Korean dermatology long before K-beauty became a global trend.</p>
+
+<h2>What You'll Feel</h2>
+<p>COSRX feels nourishing. There's a slight bouncy slip when you press it in, and the skin looks plumper by the third application.</p>
+<p>SKIN1004 feels invisible. The serum disappears into the skin and the calming effect shows up over the day rather than immediately.</p>
+
+<h2>Pick COSRX If You Want To...</h2>
+<ul>
+<li>Fade old post-acne marks.</li>
+<li>Recover from dehydration or overuse of actives.</li>
+<li>Smooth bumpy or rough texture.</li>
+<li>Add hydration before a heavier moisturizer.</li>
+</ul>
+
+<h2>Pick SKIN1004 If You Want To...</h2>
+<ul>
+<li>Calm active redness or rosacea-prone skin.</li>
+<li>Soothe acne breakouts that won't quiet down.</li>
+<li>Repair after a derm procedure or retinol over-use.</li>
+<li>Have a serum that absorbs fast and lets you keep moving.</li>
+</ul>
+
+<h2>What About Both?</h2>
+<p>Yes, you can. SKIN1004 first because it's watery, then COSRX on top. The order matters because of texture, not chemistry.</p>
+
+<h2>Long-Term Honest Note</h2>
+<p>Neither product creates dramatic before-and-after transformations in two weeks. They're both maintenance heroes. Used daily for three months, both visibly improve skin texture and resilience. Expect quiet, consistent improvement, not a magic fix.</p>`,
+    content_ar: `<h2>بطلين مختلفين، هدف واحد</h2>
+<p>كلاهما علاجات تتركيها على البشرة بتقوّي حاجز البشرة، تفتّح الآثار مع الوقت، وتضيف وهج هادي. بحقّقوا هاد عن طريق طرق مختلفة كلياً.</p>
+
+<h2>COSRX Advanced Snail 96 Mucin Power Essence</h2>
+<ul>
+<li><strong>المكوّن البطل:</strong> 96% إفراز حلزون مرشّح.</li>
+<li><strong>إيش بعمل:</strong> بيرطّب بعمق، يفتّح آثار حب الشباب، ينعّم القوام، يدعم إصلاح الجروح.</li>
+<li><strong>القوام:</strong> منزلق شويّ، شبه جل، بياخد لحظة ليمتص.</li>
+<li><strong>نوع البشرة المناسب:</strong> كل الأنواع، بس محبوب خصوصاً عند البشرة الجافة، المجفّفة، أو بعد التهيّج.</li>
+<li><strong>التكرار:</strong> مرّتين باليوم بعد التونر.</li>
+</ul>
+
+<h2>SKIN1004 Madagascar Centella Ampoule</h2>
+<ul>
+<li><strong>المكوّن البطل:</strong> 100% خلاصة سنتيلا أسياتيكا مدغشقرية.</li>
+<li><strong>إيش بعمل:</strong> بهدّي الالتهاب، يقلّل الاحمرار، يدعم الحاجز، يعجّل شفاء البشرة المتهيّجة.</li>
+<li><strong>القوام:</strong> سيروم مائي، بمتص بسرعة.</li>
+<li><strong>نوع البشرة المناسب:</strong> حسّاسة، متفاعلة، معرّضة لحب الشباب، بعد الإجراءات.</li>
+<li><strong>التكرار:</strong> مرّة أو مرّتين باليوم بعد التونر.</li>
+</ul>
+
+<h2>كيف بشتغل كل واحد</h2>
+<p>مخاط الحلزون فيه بروتينات سكّرية، حمض هيالورونيك، وعوامل نمو الحلزون بنتجها لإصلاح جسمه. على بشرة الإنسان، بشتغل كمرطّب ويدعم تجدّد الخلايا.</p>
+<p>سنتيلا أسياتيكا فيها أربع مركّبات أساسية (أسياتيكوسايد، ماديكاسوسايد، حمض أسياتيك، حمض ماديكاسيك) مضادّة للالتهاب وداعمة للشفاء. مستعملة بطب الجلد الكوري قبل ما K-beauty تصير ترند عالمي بزمن.</p>
+
+<h2>إيش رح تحسّي فيه</h2>
+<p>COSRX بحسّيه مغذّي. في انزلاق نطّاط خفيف لمّا تضغطيه، والبشرة بتبيّن أكثر امتلاء بالتطبيقة الثالثة.</p>
+<p>SKIN1004 بحسّيه شفّاف. السيروم بختفي بالبشرة والتأثير المهدّي بيظهر على مدار اليوم بدل ما يكون فوري.</p>
+
+<h2>اختاري COSRX لو بدّك...</h2>
+<ul>
+<li>تفتّحي آثار حب شباب قديمة.</li>
+<li>تتعافي من جفاف أو إفراط بالمكوّنات النشطة.</li>
+<li>تنعّمي قوام نتوءاتي أو خشن.</li>
+<li>تضيفي ترطيب قبل مرطّب أثقل.</li>
+</ul>
+
+<h2>اختاري SKIN1004 لو بدّك...</h2>
+<ul>
+<li>تهدّي احمرار نشط أو بشرة معرّضة للوردية.</li>
+<li>تهدّي حب شباب ما بدّه يهدا.</li>
+<li>تصلحي بعد إجراء عند الطبيب أو إفراط بالريتينول.</li>
+<li>سيروم بمتص بسرعة وبخلّيك تكمّلي يومك.</li>
+</ul>
+
+<h2>إيش عن استعمال الاتنين؟</h2>
+<p>أيوا، تقدري. SKIN1004 أوّل لأنّه مائي، بعدها COSRX فوقه. الترتيب مهم بسبب القوام، مش الكيمياء.</p>
+
+<h2>ملاحظة صادقة طويلة المدى</h2>
+<p>ولا منتج بيعمل تحوّلات قبل وبعد دراماتيكية بأسبوعين. كلاهما أبطال صيانة. باستعمال يومي لثلاث شهور، كلاهما بحسّن قوام البشرة ومرونتها بشكل واضح. توقّعي تحسّن هادي ومستمر، مش حلّ سحري.</p>`,
+    published_at: "2026-05-12T09:00:00Z",
+  },
+  {
+    slug: "skin1004-centella-cream-vs-anua-heartleaf-lotion",
+    title: "SKIN1004 Madagascar Centella Cream vs Anua Heartleaf 70 Daily Lotion",
+    excerpt:
+      "Both are gentle, soothing daily moisturizers loved by sensitive-skin Koreans. Cream feel vs lotion feel changes more about your day than you'd think.",
+    seo_title: "SKIN1004 Centella Cream vs Anua Heartleaf Daily Lotion: Compared",
+    seo_description:
+      "Compare SKIN1004 Madagascar Centella Cream and Anua Heartleaf 70 Daily Lotion. Cream or lotion for sensitive skin? Pick the right Korean moisturizer.",
+    tags: ["moisturizer", "skin1004", "anua", "centella", "heartleaf", "comparison"],
+    cover_image: COVERS.cream1,
+    title_ar: "SKIN1004 Madagascar Centella Cream مقابل Anua Heartleaf 70 Daily Lotion",
+    excerpt_ar:
+      "كلاهما مرطّبات يومية لطيفة ومهدّية محبوبة من الكوريين أصحاب البشرة الحسّاسة. الإحساس بالكريم مقابل اللوشن بغيّر بيومك أكثر من اللي بتفكّري فيه.",
+    seo_title_ar: "SKIN1004 Centella Cream مقابل Anua Heartleaf Daily Lotion: مقارنة",
+    seo_description_ar:
+      "مقارنة بين SKIN1004 Madagascar Centella Cream و Anua Heartleaf 70 Daily Lotion. كريم أو لوشن للبشرة الحسّاسة؟ اختاري المرطّب الكوري المناسب.",
+    tags_ar: ["مرطّب", "SKIN1004", "Anua", "سنتيلا", "heartleaf", "مقارنة"],
+    content: `<h2>The Quick Difference</h2>
+<p>SKIN1004's Centella Cream is a true cream texture, soft but slightly substantial, good in cooler weather or for drier skin. Anua's Heartleaf 70 Daily Lotion is exactly that, a lotion, lightweight and fast-absorbing, great for warm weather and oilier skin.</p>
+
+<h2>SKIN1004 Madagascar Centella Cream</h2>
+<ul>
+<li><strong>Texture:</strong> Cushiony cream, melts into the skin.</li>
+<li><strong>Finish:</strong> Soft, slight glow, hydrated for hours.</li>
+<li><strong>Hero ingredient:</strong> Madagascar centella asiatica with madecassoside.</li>
+<li><strong>Best for:</strong> Dry, sensitive, irritated, or reactive skin. Cooler months in Jordan.</li>
+<li><strong>Layering:</strong> Pairs beautifully with snail mucin essences.</li>
+</ul>
+
+<h2>Anua Heartleaf 70 Daily Lotion</h2>
+<ul>
+<li><strong>Texture:</strong> Lotion, almost milky and fluid.</li>
+<li><strong>Finish:</strong> Light, barely-there hydration, slight matte.</li>
+<li><strong>Hero ingredient:</strong> 70% heartleaf (houttuynia cordata) extract.</li>
+<li><strong>Best for:</strong> Combination, oily, acne-prone, or hot weather. Pairs well under sunscreen and makeup.</li>
+<li><strong>Layering:</strong> Works as a daily AM or PM lightweight layer.</li>
+</ul>
+
+<h2>How They Feel Through the Day</h2>
+<p><strong>SKIN1004 Centella Cream</strong> stays on the skin in a comforting way. By mid-afternoon you can still feel a soft hydrated cushion. Perfect for desk days in cold AC, winter outings, or after retinol nights.</p>
+<p><strong>Anua Heartleaf 70 Lotion</strong> absorbs in seconds. By mid-day you barely feel it's there, but the skin is hydrated underneath. Great for hot summer days when anything heavier feels suffocating.</p>
+
+<h2>For Acne or Reactive Skin</h2>
+<p>Anua tends to be the better choice if your skin is breaking out or reactive in a way that involves congestion. It's lighter and doesn't create occlusion that can trap sebum.</p>
+<p>SKIN1004 wins for skin that's reactive in a dry-irritated way: redness, flaking, or post-procedure recovery. The cream's slight occlusion is repair-friendly.</p>
+
+<h2>Cost and Volume</h2>
+<p>Both are excellent value for the typical Korean price range. The SKIN1004 cream comes in a small jar but lasts roughly two months with twice-daily use; the Anua lotion is larger and lasts roughly three.</p>
+
+<h2>Which to Pick by Season</h2>
+<ul>
+<li><strong>Amman winter (Dec to Feb):</strong> SKIN1004 Centella Cream.</li>
+<li><strong>Amman summer (Jun to Aug):</strong> Anua Heartleaf Lotion.</li>
+<li><strong>Transition seasons:</strong> Either, or layer them (lotion first, cream only on dry zones).</li>
+</ul>
+
+<h2>The Combination Routine</h2>
+<p>If you have combination skin, a smart trick is to use Anua's lotion all over and dab SKIN1004's cream only on cheek areas that feel dry. This gives you summer-friendly comfort with targeted barrier support.</p>`,
+    content_ar: `<h2>الفرق السريع</h2>
+<p>كريم السنتيلا من SKIN1004 قوامه كريم حقيقي، ناعم بس عنده جسم، منيح بالطقس البارد أو للبشرة الأكثر جفاف. لوشن الـ Heartleaf 70 من Anua هو فعلاً لوشن، خفيف وبمتص بسرعة، ممتاز للطقس الدافي والبشرة الأكثر دهنية.</p>
+
+<h2>SKIN1004 Madagascar Centella Cream</h2>
+<ul>
+<li><strong>القوام:</strong> كريم وسادي، بيذوب بالبشرة.</li>
+<li><strong>اللمسة النهائية:</strong> ناعم، وهج خفيف، ترطيب لساعات.</li>
+<li><strong>المكوّن البطل:</strong> سنتيلا أسياتيكا مدغشقرية مع ماديكاسوسايد.</li>
+<li><strong>الأنسب لـ:</strong> بشرة جافة، حسّاسة، متهيّجة، أو متفاعلة. الشهور الباردة بالأردن.</li>
+<li><strong>الطبقات:</strong> بتركيب جميل مع إسنسات مخاط الحلزون.</li>
+</ul>
+
+<h2>Anua Heartleaf 70 Daily Lotion</h2>
+<ul>
+<li><strong>القوام:</strong> لوشن، شبه حليبي وسائل.</li>
+<li><strong>اللمسة النهائية:</strong> خفيف، ترطيب بالكاد محسوس، شويّة مات.</li>
+<li><strong>المكوّن البطل:</strong> 70% خلاصة هارتليف (هوتوينيا كورداتا).</li>
+<li><strong>الأنسب لـ:</strong> بشرة مختلطة، دهنية، معرّضة لحب الشباب، أو طقس حار. بتركيب منيح تحت واقي الشمس والمكياج.</li>
+<li><strong>الطبقات:</strong> بشتغل كطبقة خفيفة يومية صبح أو مساء.</li>
+</ul>
+
+<h2>كيف بحسّوا طول اليوم</h2>
+<p><strong>SKIN1004 Centella Cream</strong> بظل على البشرة بطريقة مريحة. بنص المسا لسا بتحسّي بوسادة مرطّبة ناعمة. مثالي لأيام المكتب بالتكييف البارد، طلعات الشتا، أو بعد ليالي الريتينول.</p>
+<p><strong>Anua Heartleaf 70 Lotion</strong> بمتص بثواني. بنص اليوم بالكاد بتحسّي إنّه موجود، بس البشرة مرطّبة تحت. ممتاز لأيام الصيف الحرّة لمّا أي اشي أثقل بحسّك بالخنق.</p>
+
+<h2>لحب الشباب أو البشرة المتفاعلة</h2>
+<p>Anua بكون الخيار الأحسن لو بشرتك بتطلّع حبوب أو متفاعلة بطريقة فيها ازدحام. هو أخفّ وما بيعمل قفل ممكن يحبس الزهم.</p>
+<p>SKIN1004 بيكسب للبشرة المتفاعلة بطريقة جافّة-متهيّجة: احمرار، تقشّر، أو تعافي بعد إجراء. القفل الخفيف للكريم صديق الإصلاح.</p>
+
+<h2>التكلفة والكمية</h2>
+<p>كلاهما قيمة ممتازة لنطاق السعر الكوري النموذجي. كريم SKIN1004 بيجي بمرطبان صغير بس بضل حوالي شهرين باستعمال مرّتين يومياً؛ لوشن Anua أكبر وبضل حوالي ثلاث شهور.</p>
+
+<h2>أيهم تختاري حسب الفصل</h2>
+<ul>
+<li><strong>شتا عمّان (كانون لشباط):</strong> SKIN1004 Centella Cream.</li>
+<li><strong>صيف عمّان (حزيران لآب):</strong> Anua Heartleaf Lotion.</li>
+<li><strong>فصول الانتقال:</strong> أي واحد، أو طبّقيهم سوا (لوشن أوّل، كريم بس على المناطق الجافة).</li>
+</ul>
+
+<h2>روتين البشرة المختلطة</h2>
+<p>لو عندك بشرة مختلطة، حيلة ذكية إنّك تستعملي لوشن Anua على كل الوجه وتلمسي كريم SKIN1004 بس على مناطق الخدود اللي بتحسّيها جافة. هاد بيعطيك راحة صديقة للصيف مع دعم مستهدف للحاجز.</p>`,
+    published_at: "2026-05-12T09:30:00Z",
   },
 ]
 
