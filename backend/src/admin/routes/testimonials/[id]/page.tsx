@@ -18,6 +18,7 @@ function EditTestimonialPage() {
   const [locationAr, setLocationAr] = useState("")
   const [textAr, setTextAr] = useState("")
   const [productAr, setProductAr] = useState("")
+  const [instagramUrl, setInstagramUrl] = useState("")
   const [rating, setRating] = useState("5")
   const [sortOrder, setSortOrder] = useState("0")
   const [isActive, setIsActive] = useState(true)
@@ -40,6 +41,7 @@ function EditTestimonialPage() {
         setLocationAr(t.location_ar || "")
         setTextAr(t.text_ar || "")
         setProductAr(t.product_ar || "")
+        setInstagramUrl(t.instagram_url || "")
         setRating(String(t.rating ?? 5))
         setSortOrder(String(t.sort_order ?? 0))
         setIsActive(t.is_active ?? true)
@@ -73,6 +75,7 @@ function EditTestimonialPage() {
           location_ar: locationAr.trim() || null,
           text_ar: textAr.trim() || null,
           product_ar: productAr.trim() || null,
+          instagram_url: instagramUrl.trim() || null,
           rating: Number(rating),
           sort_order: Number(sortOrder),
           is_active: isActive,
@@ -157,6 +160,17 @@ function EditTestimonialPage() {
             </div>
           </>
         )}
+        <div>
+          <Label className="mb-1.5 block text-sm font-medium">Instagram URL</Label>
+          <Input
+            value={instagramUrl}
+            onChange={(e: any) => setInstagramUrl(e.target.value)}
+            placeholder="https://www.instagram.com/p/... (leave blank to use the site default)"
+          />
+          <p className="text-xs text-ui-fg-muted mt-1">
+            The Instagram post or story this card links to. If blank, the card uses the site-wide Instagram highlight URL.
+          </p>
+        </div>
         <div className="flex gap-4">
           <div className="flex-1">
             <Label className="mb-1.5 block text-sm font-medium">Rating</Label>

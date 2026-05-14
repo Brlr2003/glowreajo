@@ -8,6 +8,7 @@ interface Testimonial {
   location: string | null
   text: string
   product: string | null
+  instagram_url: string | null
   rating: number
   sort_order: number
   is_active: boolean
@@ -72,8 +73,8 @@ function TestimonialsPage() {
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Location</Table.HeaderCell>
                 <Table.HeaderCell>Product</Table.HeaderCell>
+                <Table.HeaderCell>Instagram</Table.HeaderCell>
                 <Table.HeaderCell>Rating</Table.HeaderCell>
                 <Table.HeaderCell>Status</Table.HeaderCell>
                 <Table.HeaderCell>Order</Table.HeaderCell>
@@ -84,8 +85,14 @@ function TestimonialsPage() {
               {testimonials.map((t) => (
                 <Table.Row key={t.id}>
                   <Table.Cell className="font-medium">{t.name}</Table.Cell>
-                  <Table.Cell>{t.location || "-"}</Table.Cell>
                   <Table.Cell>{t.product || "-"}</Table.Cell>
+                  <Table.Cell>
+                    {t.instagram_url ? (
+                      <Badge color="purple">Custom</Badge>
+                    ) : (
+                      <Badge color="grey">Default</Badge>
+                    )}
+                  </Table.Cell>
                   <Table.Cell>{"*".repeat(t.rating)}</Table.Cell>
                   <Table.Cell>
                     <Badge color={t.is_active ? "green" : "grey"}>

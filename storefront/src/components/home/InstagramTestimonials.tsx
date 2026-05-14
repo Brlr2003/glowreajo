@@ -59,7 +59,7 @@ export function InstagramTestimonials({ reviews = [] }: Props) {
           {reviews.map((review, idx) => (
             <motion.a
               key={review.id}
-              href={INSTAGRAM_HIGHLIGHT_URL}
+              href={review.instagram_url || INSTAGRAM_HIGHLIGHT_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t("viewOnInstagram")}
