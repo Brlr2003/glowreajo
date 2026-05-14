@@ -11,6 +11,7 @@ import { SocialProof } from "@/components/home/SocialProof"
 import { JsonLd } from "@/components/seo/JsonLd"
 import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/seo/schemas"
 import { getCategories } from "@/lib/categories"
+import { getTestimonials } from "@/lib/testimonials"
 import { medusaFetch } from "@/lib/medusa-fetch"
 
 const siteUrl = "https://glowreajo.com"
@@ -56,9 +57,10 @@ async function getBrands(): Promise<string[]> {
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  const [categories, brands] = await Promise.all([
+  const [categories, brands, testimonials] = await Promise.all([
     getCategories(locale),
     getBrands(),
+    getTestimonials(locale),
   ])
 
   return (
@@ -69,7 +71,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <FeaturedCategories categories={categories} />
       <BestSellers />
       <ValueProps />
-      <InstagramTestimonials />
+      <InstagramTestimonials reviews={testimonials} />
       <RoutineBuilder />
       <SocialProof />
     </>
