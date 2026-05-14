@@ -6,6 +6,7 @@ const Testimonial = model.define("testimonial", {
   location: model.text().nullable(),
   text: model.text(),
   product: model.text().nullable(),
+  instagram_url: model.text().nullable(),
   name_ar: model.text().nullable(),
   location_ar: model.text().nullable(),
   text_ar: model.text().nullable(),

@@ -1,4 +1,8 @@
+import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
 import { SITE_SETTINGS_MODULE } from "../modules/site-settings"
+
+const DEFAULT_INSTAGRAM_URL =
+  "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDU4OTk0MjUyNDAyODk4?story_media_id=3852849053633907547_80695363381&igsh=MW1tOXBzNmVlaGl0Yw=="
 
 type TestimonialSeed = {
   name: string
@@ -88,13 +92,27 @@ const SEED_TESTIMONIALS: TestimonialSeed[] = [
   },
 ]
 
-export default async function seedTestimonials({ container }: { container: any }) {
-  const logger = container.resolve("logger")
-  const service = container.resolve(SITE_SETTINGS_MODULE) as any
+async function ensureColumns(container: any, logger: any) {
+  const pgConn = container.resolve(ContainerRegistrationKeys.PG_CONNECTION)
+  const alters = [
+    `ALTER TABLE "testimonial" ADD COLUMN IF NOT EXISTS "name_ar" text`,
+    `ALTER TABLE "testimonial" ADD COLUMN IF NOT EXISTS "location_ar" text`,
+    `ALTER TABLE "testimonial" ADD COLUMN IF NOT EXISTS "text_ar" text`,
+    `ALTER TABLE "testimonial" ADD COLUMN IF NOT EXISTS "product_ar" text`,
+    `ALTER TABLE "testimonial" ADD COLUMN IF NOT EXISTS "instagram_url" text`,
+  ]
+  for (const sql of alters) {
+    await pgConn.raw(sql)
+  }
+  logger.info("Testimonial table: ensured AR + instagram_url columns exist.")
+}
 
-  logger.info(
-    `Seeding ${SEED_TESTIMONIALS.length} testimonials (idempotent by name)...`
-  )
+export default async function seedTestimonials({ container }: { container: any }) {
+  const logger = container.resolve(ContainerRegistrationKeys.LOGGER)
+  await ensureColumns(container, logger)
+
+  const service = container.resolve(SITE_SETTINGS_MODULE) as any
+  logger.info(`Seeding ${SEED_TESTIMONIALS.length} testimonials (idempotent by name)...`)
 
   let created = 0
   let skipped = 0
@@ -111,6 +129,7 @@ export default async function seedTestimonials({ container }: { container: any }
       text_ar: t.text_ar,
       product: t.product || null,
       product_ar: t.product_ar || null,
+      instagram_url: DEFAULT_INSTAGRAM_URL,
       rating: 5,
       sort_order: t.sort_order,
       is_active: true,

@@ -6,6 +6,7 @@ export interface Testimonial {
   location: string | null
   text: string
   product: string | null
+  instagram_url: string | null
   rating: number
   sort_order: number
 }
